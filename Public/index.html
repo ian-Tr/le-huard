@@ -27,10 +27,10 @@
               <div class="nav-wrapper">
                 <ul>
                   <li>
-                    <a href="#" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown1">120mm</a>
+                    <a href="#120bw" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown1">120mm</a>
                     <ul id="nav-dropdown1" class="dropdown-content">
-                      <li><a class="center-align" href="#">B & W</a></li>
-                      <li><a class="center-align" href="#">Couleur</a></li>
+                      <li><a class="center-align" href="#120bw">B & W</a></li>
+                      <li><a class="center-align" href="#120c">Couleur</a></li>
                     </ul>
                   </li>
                   <li>
@@ -70,38 +70,81 @@
           <h3>B&W</h3>
         </div>
         <div class="row row-no-margin">
-          <div class="slider ">
-          <ul class="slides ">
-            <li>
-              <img src="sample1.jpg"> <!-- random image -->
-              <div class="caption center-align">
-                <h3>This is our big Tagline!</h3>
-                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-            </li>
-            <li>
-              <img src="sample1.jpg"> <!-- random image -->
-              <div class="caption left-align">
-                <h3>Left Aligned Caption</h3>
-                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-            </li>
-            <li>
-              <img src="sample1.jpg"> <!-- random image -->
-              <div class="caption right-align">
-                <h3>Right Aligned Caption</h3>
-                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-            </li>
-            <li>
-              <img src="sample1.jpg"> <!-- random image -->
-              <div class="caption center-align">
-                <h3>This is our big Tagline!</h3>
-                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-            </li>
-          </ul>
+          <div id="120bw" class="slider scrollspy">
+            <ul class="slides">
+              <li>
+                <img src="sample1.jpg"> <!-- random image -->
+                <div class="caption center-align">
+                  <h3>This is our big Tagline!</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="sample1.jpg"> <!-- random image -->
+                <div class="caption left-align">
+                  <h3>Left Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="sample1.jpg"> <!-- random image -->
+                <div class="caption right-align">
+                  <h3>Right Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="sample1.jpg"> <!-- random image -->
+                <div class="caption center-align">
+                  <h3>This is our big Tagline!</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+            </ul>
           </div>          
+        </div>
+      </div>
+    </section>
+
+    <section class="row full-height row-no-margin">
+      <div class="col s12 full-height">
+        <div class="row center-align">
+          <h1>120mm</h1>
+          <h3>Couleure</h3>
+        </div>
+        <div class="row-no-margin">
+          <div id="120c" class="slider scrollspy">
+            <ul class="slides">
+              <li>
+                <img src="sample1.jpg"> <!-- random image -->
+                <div class="caption center-align">
+                  <h3>This is our big Tagline!</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="sample1.jpg"> <!-- random image -->
+                <div class="caption left-align">
+                  <h3>Left Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="sample1.jpg"> <!-- random image -->
+                <div class="caption right-align">
+                  <h3>Right Aligned Caption</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+              <li>
+                <img src="sample1.jpg"> <!-- random image -->
+                <div class="caption center-align">
+                  <h3>This is our big Tagline!</h3>
+                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+              </li>
+            </ul>
+          </div> 
         </div>
       </div>
     </section>
@@ -112,6 +155,7 @@
     <script>
       $(document).ready(function(){
         $('.slider').slider({full_width: true});
+        $('.scrollspy').scrollSpy();
       });
     </script>
   </body>
