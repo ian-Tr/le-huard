@@ -92,3 +92,7 @@ h1, h2, h3 {
 	background-color: transparent;
 	text-decoration: underline;
 }
+
+.slider.fullscreen {
+	position: relative;
+}

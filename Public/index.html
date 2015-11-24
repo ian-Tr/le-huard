@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="LandingPage">
   <head>
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,14 +12,16 @@
     
   </head>
 
-  <body>
+  <body ng-controller="MediaController">
   
 
-    <a href="#" class="btn-flat right absolute-right">Inscription / Connection</a>
 
-    <!-- Header slide containaing the logo and nav -->
+    <!-- Header slide containaing the logo and nav  -->
     <header class="row full-height row-no-margin">    
       <div class="valign-wrapper col s12 full-height">
+        <div class="row absolute-right">
+          <a href="#" class="btn-flat">Inscription / Connection</a>          
+        </div>
         <div class="row valign center-align">
           <h1>Le Huard</h1>
           <div class="col s12 center-align">
@@ -27,34 +29,34 @@
               <div class="nav-wrapper">
                 <ul>
                   <li>
-                    <a href="#120bw" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown1">120mm</a>
+                    <a href="#120mm" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown1">120mm</a>
                     <ul id="nav-dropdown1" class="dropdown-content">
                       <li><a class="center-align" href="#120bw">B & W</a></li>
                       <li><a class="center-align" href="#120c">Couleur</a></li>
                     </ul>
                   </li>
                   <li>
-                    <a href="#" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown2">35mm</a>
+                    <a href="#35mm" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown2">35mm</a>
                     <ul id="nav-dropdown2" class="dropdown-content">
                       <li><a class="center-align" href="#">B & W</a></li>
                       <li><a class="center-align" href="#">Couleur</a></li>
                     </ul>
                   </li>
                   <li>
-                    <a href="#" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown3">Digitale</a>
+                    <a href="#film" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown3">Film</a>
                     <ul id="nav-dropdown3" class="dropdown-content">
+                      <li><a class="center-align" href="#">court</a></li>                      
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#digitale" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown4">Digitale</a>
+                    <ul id="nav-dropdown4" class="dropdown-content">
                       <li><a class="center-align" href="#">iPhone</a></li>
                       <li><a class="center-align" href="#">Autre</a></li>
                     </ul>
                   </li>
-                  <li>
-                    <a href="#" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown4">Film</a>
-                    <ul id="nav-dropdown4" class="dropdown-content">
-                      <li><a class="center-align" href="#">Court</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#" class="btn-flat">Contact</a></li>
-                  <li><a href="#" class="btn-flat">About</a></li>
+                  <li><a href="#contact" class="btn-flat">Contact</a></li>
+                  <li><a href="#about" class="btn-flat">About</a></li>
                 </ul>                
               </div>
             </nav>            
@@ -62,101 +64,64 @@
         </div>
       </div>
     </header>
-  
-    <section class="row full-height row-no-margin">
-      <div class="col s12 full-height">
-        <div class="row center-align">
-          <h1>120mm</h1>
-          <h3>B&W</h3>
-        </div>
-        <div class="row row-no-margin">
-          <div id="120bw" class="slider scrollspy">
-            <ul class="slides">
-              <li>
-                <img src="sample1.jpg"> <!-- random image -->
-                <div class="caption center-align">
-                  <h3>This is our big Tagline!</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
-              </li>
-              <li>
-                <img src="sample1.jpg"> <!-- random image -->
-                <div class="caption left-align">
-                  <h3>Left Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
-              </li>
-              <li>
-                <img src="sample1.jpg"> <!-- random image -->
-                <div class="caption right-align">
-                  <h3>Right Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
-              </li>
-              <li>
-                <img src="sample1.jpg"> <!-- random image -->
-                <div class="caption center-align">
-                  <h3>This is our big Tagline!</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
-              </li>
-            </ul>
-          </div>          
-        </div>
-      </div>
-    </section>
-
-    <section class="row full-height row-no-margin">
-      <div class="col s12 full-height">
-        <div class="row center-align">
-          <h1>120mm</h1>
-          <h3>Couleure</h3>
-        </div>
-        <div class="row-no-margin">
-          <div id="120c" class="slider scrollspy">
-            <ul class="slides">
-              <li>
-                <img src="sample1.jpg"> <!-- random image -->
-                <div class="caption center-align">
-                  <h3>This is our big Tagline!</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
-              </li>
-              <li>
-                <img src="sample1.jpg"> <!-- random image -->
-                <div class="caption left-align">
-                  <h3>Left Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
-              </li>
-              <li>
-                <img src="sample1.jpg"> <!-- random image -->
-                <div class="caption right-align">
-                  <h3>Right Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
-              </li>
-              <li>
-                <img src="sample1.jpg"> <!-- random image -->
-                <div class="caption center-align">
-                  <h3>This is our big Tagline!</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                </div>
-              </li>
-            </ul>
-          </div> 
-        </div>
-      </div>
-    </section>
+    
+    <section class="row full-height row-no-margin" ng-repeat="section in sections">
+      <div slider class="fullscreen scrollspy" ng-attr-id="{{section.name}}">
+        <ul class="slides">
+          <li>
+            <img src="sample1.jpg"> <!-- random image -->
+            <div class="caption center-align">
+              <h3>This is our big Tagline!</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+          <li>
+            <img src="sample1.jpg"> <!-- random image -->
+            <div class="caption left-align">
+              <h3>Left Aligned Caption</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+          <li>
+            <img src="sample1.jpg"> <!-- random image -->
+            <div class="caption right-align">
+              <h3>Right Aligned Caption</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+          <li>
+            <img src="sample1.jpg"> <!-- random image -->
+            <div class="caption center-align">
+              <h3>This is our big Tagline!</h3>
+              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+          </li>
+        </ul>
+      </div>  
+    </section>              
+    
+ 
     
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>   
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-materialize.js"></script>
     <script>
       $(document).ready(function(){
-        $('.slider').slider({full_width: true});
         $('.scrollspy').scrollSpy();
       });
+    </script>
+    <script type="text/javascript">
+      var landingPage = angular.module('LandingPage', ['ui.materialize']);
+
+      landingPage.controller('MediaController', ['$scope', function($scope) {
+        $scope.sections = [
+          {name: '120mm'},
+          {name: '35mm'},
+          {name: 'film'}         
+        ];
+      }]);
     </script>
   </body>
 </html>
