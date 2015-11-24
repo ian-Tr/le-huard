@@ -13,9 +13,9 @@
   </head>
 
   <body ng-controller="MediaController">
-  
+  <div class="border"></div>
 
-
+  <div class="wrapper">
     <!-- Header slide containaing the logo and nav  -->
     <header class="row full-height row-no-margin">    
       <div class="valign-wrapper col s12 full-height">
@@ -31,8 +31,8 @@
                   <li>
                     <a href="#120mm" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown1">120mm</a>
                     <ul id="nav-dropdown1" class="dropdown-content">
-                      <li><a class="center-align" href="#120bw">B & W</a></li>
-                      <li><a class="center-align" href="#120c">Couleur</a></li>
+                      <li><a href="#120mm" class="center-align" >B & W</a></li>
+                      <li><a href="#120mm" class="center-align" >Couleur</a></li>
                     </ul>
                   </li>
                   <li>
@@ -66,40 +66,21 @@
     </header>
     
     <section class="row full-height row-no-margin" ng-repeat="section in sections">
-      <div slider class="fullscreen scrollspy" ng-attr-id="{{section.name}}">
+      <div slider indicators="false" class="fullscreen scrollspy" ng-attr-id="{{section.name}}">
         <ul class="slides">
-          <li>
-            <img src="sample1.jpg"> <!-- random image -->
-            <div class="caption center-align">
-              <h3>This is our big Tagline!</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          <li ng-repeat="picture in section.pictures">
+            <img ng-src="{{picture.url}}"> <!-- random image -->
+            <div class="col s12 slider-header">
+              <div class="row">
+                <h3>{{section.name}}</h3>  
+                <p>{{picture.name}}</p>          
+              </div>
             </div>
-          </li>
-          <li>
-            <img src="sample1.jpg"> <!-- random image -->
-            <div class="caption left-align">
-              <h3>Left Aligned Caption</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-            </div>
-          </li>
-          <li>
-            <img src="sample1.jpg"> <!-- random image -->
-            <div class="caption right-align">
-              <h3>Right Aligned Caption</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-            </div>
-          </li>
-          <li>
-            <img src="sample1.jpg"> <!-- random image -->
-            <div class="caption center-align">
-              <h3>This is our big Tagline!</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-            </div>
-          </li>
+          </li>          
         </ul>
       </div>  
     </section>              
-    
+    </div>
  
     
     <!--Import jQuery before materialize.js-->
@@ -117,9 +98,18 @@
 
       landingPage.controller('MediaController', ['$scope', function($scope) {
         $scope.sections = [
-          {name: '120mm'},
-          {name: '35mm'},
-          {name: 'film'}         
+          {name: '120mm', pictures: [{url: 'sample1.jpg', name: 'New York Subway'},
+                                      {url: 'sample1.jpg', name: 'New York Subway'},
+                                      {url: 'sample1.jpg', name: 'New York Subway'},
+                                      {url: 'sample1.jpg', name: 'New York Subway'}]},
+          {name: '35mm', pictures: [{url: 'sample1.jpg', name: 'New York Subway'},
+                                      {url: 'sample1.jpg', name: 'New York Subway'},
+                                      {url: 'sample1.jpg', name: 'New York Subway'},
+                                      {url: 'sample1.jpg', name: 'New York Subway'}]},
+          {name: 'film', pictures: [{url: 'sample1.jpg', name: 'New York Subway'},
+                                      {url: 'sample1.jpg', name: 'New York Subway'},
+                                      {url: 'sample1.jpg', name: 'New York Subway'},
+                                      {url: 'sample1.jpg', name: 'New York Subway'}]},         
         ];
       }]);
     </script>

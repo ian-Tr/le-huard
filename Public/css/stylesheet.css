@@ -96,3 +96,24 @@ h1, h2, h3 {
 .slider.fullscreen {
 	position: relative;
 }
+
+.slider-header {
+	position: absolute;
+	z-index: 3;
+	bottom: 0;
+	background-color: #212121;
+	text-align: center;
+}
+
+.border {
+	height: 100%;
+	width: 100%;
+	border: 20px solid #9c9494;
+	position: fixed;
+	z-index: ;
+}
+
+.wrapper {
+	padding: 20px;
+}
+
