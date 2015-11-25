@@ -1,0 +1,15 @@
+<section class="row">
+  <div slider indicators="false">
+    <ul class="slides">
+      <li ng-repeat="picture in pictures">
+        <img ng-src="{{picture.url}}" alt="">
+        <div class="col s12 slider-header">
+          <div class="row">
+            <h3>{{picture.type}}</h3>
+            <h4>{{picture.name}}</h4>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

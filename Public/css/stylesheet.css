@@ -36,6 +36,7 @@ html {
 
 body {
 	color: #F5F5F5;
+	background-color: #9c9494;
 }
 
 nav {
@@ -47,12 +48,9 @@ nav {
 	height: 100vh;
 }
 
-.slides.full-height {
-	height: 100% !important;
-}
 
 .slider .indicators .indicator-item.active {
-	background-color: #212121;
+	background-color: #9c9494;
 }
 
 .center-element {
@@ -71,11 +69,10 @@ nav ul li:hover {
 }
 
 header h1 {
-	font-size: 10rem;
-	
+	font-size: 10rem;	
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, .card-title {
 	font-family: 'Playfair Display', serif;
 }
 
@@ -93,9 +90,6 @@ h1, h2, h3 {
 	text-decoration: underline;
 }
 
-.slider.fullscreen {
-	position: relative;
-}
 
 .slider-header {
 	position: absolute;
@@ -110,10 +104,37 @@ h1, h2, h3 {
 	width: 100%;
 	border: 20px solid #9c9494;
 	position: fixed;
-	z-index: ;
+	z-index: 3;
 }
 
-.wrapper {
-	padding: 20px;
+body {
+	padding: 20px;	
 }
 
+.wrapper, 
+.wrapper > .row, 
+.wrapper > .row > .slider,
+.wrapper > .row > .slider > .slides,
+.wrapper > .row > .slider > .slides .card-image {
+	height: 100% !important;
+	width: 100%;
+	margin: 0;
+}
+
+.slide {
+	cursor: pointer;
+}
+
+.slider .indicators {
+	z-index: 5;
+	bottom: 30%;
+}
+
+header {
+	background-color: #212121;
+}
+
+
+.modal, .modal-content {
+	color: black;
+}

@@ -33,7 +33,8 @@
                     height: '=',
                     transition: '=',
                     interval: '=',
-                    indicators: '='
+                    indicators: '=', 
+                    control: '=',       
                 },
                 link: function(scope, element, attrs) {
                     element.addClass("slider");
@@ -42,9 +43,22 @@
                             height: (angular.isDefined(scope.height)) ? scope.height : 400,
                             transition: (angular.isDefined(scope.transition)) ? scope.transition : 500,
                             interval: (angular.isDefined(scope.interval)) ? scope.interval : 6000,
-                            indicators: (angular.isDefined(scope.indicators)) ? scope.indicators : true
-                        });
+                            indicators: (angular.isDefined(scope.indicators)) ? scope.indicators : true,
+                        });                                              
                     });
+                    scope.internalControl = scope.control || {};
+                    scope.internalControl.prev = function() {
+                        element.slider('prev');
+                    }
+                    scope.internalControl.next = function() {
+                        element.slider('next');
+                    }
+                    scope.internalControl.pause = function() {
+                        element.slider('pause');
+                    }
+                    scope.internalControl.start = function() {
+                        element.slider('start');
+                    }
                 }
             };
         }]);
@@ -837,16 +851,20 @@
                     dismissible: "=",
                     opacity: "@",
                     inDuration: "@",
-                    outDuration: "@"
+                    outDuration: "@",
+                    ready: "&",
+                    complete: "&",
                 },
                 link: function (scope, element, attrs) {
-                    $timeout(function () {
+                    $timeout(function () {                        
                         $compile(element.contents())(scope);
                         element.leanModal({
                             dismissible: (angular.isDefined(scope.dismissible)) ? scope.dismissible : undefined,
                             opacity: (angular.isDefined(scope.opacity)) ? scope.opacity : undefined,
                             in_duration: (angular.isDefined(scope.inDuration)) ? scope.inDuration : undefined,
-                            out_duration: (angular.isDefined(scope.outDuration)) ? scope.outDuration : undefined
+                            out_duration: (angular.isDefined(scope.outDuration)) ? scope.outDuration : undefined,
+                            ready: (angular.isDefined(scope.ready)) ? scope.ready : undefined,
+                            complete: (angular.isDefined(scope.ready)) ? scope.complete : undefined
                         });
                     });
                 }

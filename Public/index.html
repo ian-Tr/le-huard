@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="LandingPage">
+<html ng-app="LandingApp">
   <head>
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,106 +12,23 @@
     
   </head>
 
-  <body ng-controller="MediaController">
-  <div class="border"></div>
-
-  <div class="wrapper">
-    <!-- Header slide containaing the logo and nav  -->
-    <header class="row full-height row-no-margin">    
-      <div class="valign-wrapper col s12 full-height">
-        <div class="row absolute-right">
-          <a href="#" class="btn-flat">Inscription / Connection</a>          
-        </div>
-        <div class="row valign center-align">
-          <h1>Le Huard</h1>
-          <div class="col s12 center-align">
-            <nav>
-              <div class="nav-wrapper">
-                <ul>
-                  <li>
-                    <a href="#120mm" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown1">120mm</a>
-                    <ul id="nav-dropdown1" class="dropdown-content">
-                      <li><a href="#120mm" class="center-align" >B & W</a></li>
-                      <li><a href="#120mm" class="center-align" >Couleur</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#35mm" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown2">35mm</a>
-                    <ul id="nav-dropdown2" class="dropdown-content">
-                      <li><a class="center-align" href="#">B & W</a></li>
-                      <li><a class="center-align" href="#">Couleur</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#film" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown3">Film</a>
-                    <ul id="nav-dropdown3" class="dropdown-content">
-                      <li><a class="center-align" href="#">court</a></li>                      
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#digitale" class="dropdown-button btn-flat" data-hover="true" data-beloworigin="true" data-activates="nav-dropdown4">Digitale</a>
-                    <ul id="nav-dropdown4" class="dropdown-content">
-                      <li><a class="center-align" href="#">iPhone</a></li>
-                      <li><a class="center-align" href="#">Autre</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#contact" class="btn-flat">Contact</a></li>
-                  <li><a href="#about" class="btn-flat">About</a></li>
-                </ul>                
-              </div>
-            </nav>            
-          </div>
-        </div>
-      </div>
-    </header>
+  <body>
     
-    <section class="row full-height row-no-margin" ng-repeat="section in sections">
-      <div slider indicators="false" class="fullscreen scrollspy" ng-attr-id="{{section.name}}">
-        <ul class="slides">
-          <li ng-repeat="picture in section.pictures">
-            <img ng-src="{{picture.url}}"> <!-- random image -->
-            <div class="col s12 slider-header">
-              <div class="row">
-                <h3>{{section.name}}</h3>  
-                <p>{{picture.name}}</p>          
-              </div>
-            </div>
-          </li>          
-        </ul>
-      </div>  
-    </section>              
-    </div>
+
+    <div class="wrapper card" ui-view></div>
  
     
-    <!--Import jQuery before materialize.js-->
+    <!--Import jQuery befored materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>   
     <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>   
+    <script type-"text/javascript" src="js/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="js/angular-materialize.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
     <script>
-      $(document).ready(function(){
-        $('.scrollspy').scrollSpy();
-      });
-    </script>
-    <script type="text/javascript">
-      var landingPage = angular.module('LandingPage', ['ui.materialize']);
-
-      landingPage.controller('MediaController', ['$scope', function($scope) {
-        $scope.sections = [
-          {name: '120mm', pictures: [{url: 'sample1.jpg', name: 'New York Subway'},
-                                      {url: 'sample1.jpg', name: 'New York Subway'},
-                                      {url: 'sample1.jpg', name: 'New York Subway'},
-                                      {url: 'sample1.jpg', name: 'New York Subway'}]},
-          {name: '35mm', pictures: [{url: 'sample1.jpg', name: 'New York Subway'},
-                                      {url: 'sample1.jpg', name: 'New York Subway'},
-                                      {url: 'sample1.jpg', name: 'New York Subway'},
-                                      {url: 'sample1.jpg', name: 'New York Subway'}]},
-          {name: 'film', pictures: [{url: 'sample1.jpg', name: 'New York Subway'},
-                                      {url: 'sample1.jpg', name: 'New York Subway'},
-                                      {url: 'sample1.jpg', name: 'New York Subway'},
-                                      {url: 'sample1.jpg', name: 'New York Subway'}]},         
-        ];
-      }]);
+      $(document).ready(function() {
+  $('.modal-trigger').leanModal();
+});
     </script>
   </body>
 </html>
