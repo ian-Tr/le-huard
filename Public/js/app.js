@@ -77,16 +77,16 @@ LandingApp.controller('FilmController', ['$scope', function($scope) {
 }]);
 
 pictures = [ 
-  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'bw'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'bw'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'color'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'color'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'bw'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'bw'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'color'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'color'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'bw'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'bw'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'color'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'color'} 
+  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'bw', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'bw', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'color', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'color', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'bw', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'bw', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'color', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'color', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'bw', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'bw', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'color', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'color', date: '28-11-2015'} 
 ]; 

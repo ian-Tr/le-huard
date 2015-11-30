@@ -10,6 +10,10 @@
 	color: #9c9494;
 }
 
+a {
+	color: white;
+}
+
 .absolute-right {
 	position: absolute;
 	right: 0;
@@ -108,7 +112,7 @@ h1, h2, h3, h4, h5, .card-title {
 }
 
 body {
-	padding: 20px;	
+	padding: 20px;
 }
 
 .wrapper, 
