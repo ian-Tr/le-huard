@@ -127,7 +127,7 @@ h1, h2, h3, h4, h5, .card-title {
 
 .slider .indicators {
 	z-index: 5;
-	bottom: 30%;
+	bottom: 25vh;
 }
 
 header {
@@ -279,12 +279,12 @@ header {
 }
 
 .ng-enter { 
-	animation: slideInBottom 0.5s both ease-in; 
+	animation: slideInBottom 1s both cubic-bezier(0.550, 0.055, 0.675, 0.190); 
 	z-index: 9999;	
 }
 
 .ng-leave { 
-	animation: slideOutBottom 0.5s both ease-in; 
+	animation: slideOutBottom 1s both cubic-bezier(0.550, 0.055, 0.675, 0.190); 
 	z-index: 8888;
 }
 

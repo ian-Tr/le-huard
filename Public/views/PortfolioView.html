@@ -1,6 +1,6 @@
 
 <section class="row">
-  <div slider indicators="false" control="sliderControl">
+  <div slider indicators="true" control="sliderControl">
     <ul class="slides">
       <li ng-repeat="picture in pictures">
         <img modal ready="sliderControl.pause()" complete="sliderControl.start()" class="slide" ng-attr-href="#modal{{$index}}" ng-src="{{picture.url}}" alt="">
