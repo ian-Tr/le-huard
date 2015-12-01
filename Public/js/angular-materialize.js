@@ -864,7 +864,7 @@
                             in_duration: (angular.isDefined(scope.inDuration)) ? scope.inDuration : undefined,
                             out_duration: (angular.isDefined(scope.outDuration)) ? scope.outDuration : undefined,
                             ready: (angular.isDefined(scope.ready)) ? scope.ready : undefined,
-                            complete: (angular.isDefined(scope.ready)) ? scope.complete : undefined
+                            complete: (angular.isDefined(scope.ready)) ? scope.complete : undefined                            
                         });
                     });
                 }

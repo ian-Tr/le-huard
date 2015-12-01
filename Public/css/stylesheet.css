@@ -138,7 +138,29 @@ header {
 	background-color: #212121;
 }
 
-
 .modal, .modal-content {
-	color: black;
+	color: #212121;
+}
+
+.modal {
+	overflow-y: hidden;
+	height: 70%;
+	background-color: #F5F5F5;
+}
+
+.modal-content, .modal-content > .row {
+	height: 100%;
+	padding: 0 !important;
+}
+
+.modal-main {
+	height: inherit;
+	overflow-y: scroll;
+	padding-right: 24px !important;
+	padding-top: 24px !important;
+}
+
+.modal-img-container {
+	padding-top: 24px !important;
+	padding-left: 24px !important;
 }

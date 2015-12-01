@@ -19,16 +19,50 @@
 </section>
 <div ng-attr-id="modal{{$index}}" class="modal" ng-repeat="picture in pictures">
   <div class="modal-content">
-    <h3>{{picture.name}}</h3>
-    <h4>{{picture.type}}</h4>
-    <h5>{{picture.color === 'bw' ? 'Black & White' : 'Couleure'}}</h5>   
-    <h6>{{picture.date}}</h6>
-    <hr>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus doloribus laudantium hic adipisci consequuntur, incidunt, iure qui reprehenderit aspernatur accusantium, culpa doloremque voluptate consequatur nesciunt explicabo! Voluptas odio alias dolore!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, atque explicabo sint harum exercitationem cumque voluptatem non numquam illo, facere sed nisi impedit alias porro rerum similique itaque accusantium dolor!</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea esse nemo vitae error reiciendis odit necessitatibus? Sequi officia corporis sed, cupiditate nihil dolores laboriosam dolorem dicta, harum soluta facere, praesentium?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda sed voluptate nostrum aperiam officiis. Aut corrupti unde sunt sapiente tempore facilis, rem deserunt suscipit reprehenderit earum. Eveniet, veniam neque assumenda. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque vitae, aspernatur quisquam possimus, atque doloribus ab eaque aut ipsa impedit quia distinctio saepe nesciunt eligendi odit dolorum blanditiis! Aut, quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui nihil mollitia, earum possimus. Molestiae cupiditate dolor harum quod vero a ducimus repudiandae voluptatibus, est reprehenderit deleniti impedit quibusdam, ex facere. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium neque, facere dignissimos atque, eveniet ullam, fuga officia labore aperiam repellendus magni nam eum dolorum provident commodi laborum! At, culpa, blanditiis?</p>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    <div class="row">
+      <div class="col s7 modal-img-container">
+        <img class="responsive-img" ng-src="{{picture.url}}" alt="">
+      </div>
+      <div class="col s5 modal-main">
+        <div class="row">
+          <h3>{{picture.name}}</h3>
+          <h5>{{picture.date}}</h5>        
+        </div>
+        <div class="row divider"></div>
+        <div class="row">
+          <b class="left">Name</b>
+          <span class="right">Date</span><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="row">
+          <b class="left">Name</b>
+          <span class="right">Date</span><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="row">
+          <b class="left">Name</b>
+          <span class="right">Date</span><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="row">
+          <b class="left">Name</b>
+          <span class="right">Date</span><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="row">
+          <form action="">
+            <div class="input-field">
+              <input type="text" ng-attr-id="textarea{{$index}}" class="validate"></input> 
+              <label ng-attr-for="textarea{{$index}}">Add Comment...</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
