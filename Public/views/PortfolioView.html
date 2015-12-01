@@ -6,6 +6,8 @@
         <img modal ready="sliderControl.pause()" complete="sliderControl.start()" class="slide" ng-attr-href="#modal{{$index}}" ng-src="{{picture.url}}" alt="">
         <div class="col s12 slider-header">
           <div class="row">            
+            <a href="" ng-click="sliderControl.prev()"><i class="slider-controls material-icons left">arrow_back</i></a>
+            <a href="" ng-click="sliderControl.next()"><i class="slider-controls material-icons right">arrow_forward</i></a>
             <h3>{{picture.name}}</h3>
             <h4>{{picture.type}}</h4>
           </div>
@@ -62,4 +64,5 @@
     </div>
   </div>
 </div>
-
+<!-- Ignore this img, toast load hack -->
+<img src="img/toast.png" message="Swipe here! <i class='material-icons'>touch_app</i>" toast="load" duration="2000">

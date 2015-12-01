@@ -106,7 +106,7 @@
                 scope: {
                     message: "@",
                     duration: "@",
-                    callback: "&"
+                    callback: "&",                    
                 },
                 link: function (scope, element, attrs) {
                     element.bind(attrs.toast, function () {

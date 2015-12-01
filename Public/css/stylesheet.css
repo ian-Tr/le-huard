@@ -144,7 +144,7 @@ header {
 
 .modal {
 	overflow-y: hidden;
-	height: 70%;
+	height: 100%;
 	background-color: #F5F5F5;
 }
 
@@ -163,4 +163,13 @@ header {
 .modal-img-container {
 	padding-top: 24px !important;
 	padding-left: 24px !important;
+}
+
+#toast-container {
+	top: 50% !important;
+}
+
+.slider-controls {
+	font-size: 4rem;
+	color: #F5F5F5;
 }
