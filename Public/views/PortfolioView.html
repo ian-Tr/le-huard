@@ -1,4 +1,3 @@
-
 <section class="row">
   <div slider indicators="true" control="sliderControl">
     <ul class="slides">
@@ -8,8 +7,7 @@
           <div class="row">            
             <a href="" ng-click="sliderControl.prev()"><i class="slider-controls material-icons left">arrow_back</i></a>
             <a href="" ng-click="sliderControl.next()"><i class="slider-controls material-icons right">arrow_forward</i></a>
-            <h3>{{picture.name}}</h3>
-            <h4>{{picture.type}}</h4>
+            <h2>{{picture.name}}</h2>
           </div>
         </div>        
       </li>
@@ -24,8 +22,11 @@
       </div>
       <div class="col s5 modal-main">
         <div class="row">
-          <h3>{{picture.name}}</h3>
-          <h5>{{picture.date}}</h5>        
+          <h2>{{picture.name}}</h2>
+          <blockquote>           
+              <h4>{{picture.type}}</h4>, <h5>{{picture.color}}</h5> <br>
+              <b>{{picture.date}}</b>
+          </blockquote>      
         </div>
         <div class="row divider"></div>
         <div class="row">
@@ -65,4 +66,4 @@
   </div>
 </div>
 <!-- Ignore this img, toast load hack -->
-<img src="img/toast.png" message="Swipe here! <i class='material-icons'>touch_app</i>" toast="load" duration="2000">
+<!--<img src="img/toast.png" message="Swipe here! <i class='material-icons'>touch_app</i>" toast="load" duration="2000">-->

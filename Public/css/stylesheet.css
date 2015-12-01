@@ -22,8 +22,7 @@ a {
 html, body {
 	height: 100vh;
 	width: 100%;
-	margin: 0;
-	padding: 0;
+	margin: 0;	
 }
 
 .row-no-margin {
@@ -34,7 +33,7 @@ section {
 	background-color: #9c9494;
 }
 
-html {
+html, .card {
 	background-color: #212121;
 }
 
@@ -48,10 +47,23 @@ nav {
 	box-shadow: none;
 }
 
+blockquote {
+	border-left-color: #9c9494;
+}
+
+.modal {
+	width: 60% !important;
+	max-height: 70% !important;
+}
+
+.modal h4, .modal h5 {
+	display: inline-block;
+
+}
+
 .full-height {
 	height: 100vh;
 }
-
 
 .slider .indicators .indicator-item.active {
 	background-color: #9c9494;
@@ -61,23 +73,35 @@ nav {
 	margin: 0 auto;
 }
 
-.btn-flat{
-	color: white;
-	text-decoration: underline;
+header a {
+	color: white !important;	
 	height: 100%;
+	font-size: 1.6rem !important;
+}
+
+header a:hover {
+	font-style: italic;
 }
 
 nav ul li:hover {
-	background-color: transparent;
-
+	background-color: transparent !important;		
 }
 
 header h1 {
 	font-size: 10rem;	
 }
 
-h1, h2, h3, h4, h5, .card-title {
+h1 {
 	font-family: 'Playfair Display', serif;
+}
+
+h2, h3, h4, h5 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: bold;
+}
+
+h2 {
+	font-weight: 700;
 }
 
 .dropdown-content {
@@ -85,21 +109,11 @@ h1, h2, h3, h4, h5, .card-title {
 	box-shadow: none;	
 }
 
-.dropdown-content li>a {
-	color: white;
-}
-
-.dropdown-content li:hover {
-	background-color: transparent;
-	text-decoration: underline;
-}
-
-
 .slider-header {
 	position: absolute;
 	z-index: 3;
 	bottom: 0;
-	background-color: rgba(33, 33, 33, 0.6);
+	background-color: rgba(33, 33, 33, 0.8);
 	text-align: center;
 }
 
@@ -127,7 +141,7 @@ h1, h2, h3, h4, h5, .card-title {
 
 .slider .indicators {
 	z-index: 5;
-	bottom: 25vh;
+	bottom: 20vh;
 }
 
 header {
@@ -174,6 +188,12 @@ header {
     bottom: 0; 
     position: absolute; 
     top: 0;   
+    padding: 20px; 
+    background-color: #9c9494;	
+}
+
+.row.digitale {
+	background-color: #212121;
 }
 
 /* ngView animation */

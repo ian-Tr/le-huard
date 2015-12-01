@@ -54,6 +54,11 @@ LandingApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvid
       templateUrl: 'views/PortfolioView',
       controller: 'FilmCourtController'
     })
+    .state('Digitale', {
+      url: '/portfolio/digitale',
+      templateUrl: 'views/DigitaleView',
+      controller: 'DigitaleController'
+    })
 }]);
 
 LandingApp.controller('PortfolioController', ['$scope', function($scope) {
@@ -97,7 +102,7 @@ LandingApp.controller('35mmController', ['$scope', function($scope) {
 }]);
 
 LandingApp.controller('35mmBwController', ['$scope', function($scope) {
-  $scope.pictures = pictures.filter(function(picture){
+  $scope.pictures = pictures.filter(function(picture) {
     if (picture.type === '35mm' && picture.color === 'Black & White') {
       return picture;
     }
@@ -106,7 +111,7 @@ LandingApp.controller('35mmBwController', ['$scope', function($scope) {
 }]);
 
 LandingApp.controller('35mmCouleurController', ['$scope', function($scope) {
-  $scope.pictures = pictures.filter(function(picture){
+  $scope.pictures = pictures.filter(function(picture) {
     if (picture.type === '35mm' && picture.color === 'Couleur') {
       return picture;
     }
@@ -115,7 +120,7 @@ LandingApp.controller('35mmCouleurController', ['$scope', function($scope) {
 }]);
 
 LandingApp.controller('FilmController', ['$scope', function($scope) {
-  $scope.pictures = pictures.filter(function(picture){
+  $scope.pictures = pictures.filter(function(picture) {
     if (picture.type === 'Film') {
       return picture;
     }
@@ -124,7 +129,7 @@ LandingApp.controller('FilmController', ['$scope', function($scope) {
 }]);
 
 LandingApp.controller('FilmCourtController', ['$scope', function($scope) {
-  $scope.pictures = pictures.filter(function(picture){
+  $scope.pictures = pictures.filter(function(picture) {
     if (picture.type === 'Film' && picture.color === 'Court') {
       return picture;
     }
@@ -132,17 +137,41 @@ LandingApp.controller('FilmCourtController', ['$scope', function($scope) {
   $scope.sliderControl = {};
 }]);
 
+LandingApp.controller('DigitaleController', ['$scope', function($scope){
+  $scope.pictures = pictures.filter(function(picture) {
+    if (picture.type === "Digitale") {
+      return picture;
+    }
+  });
+}]);
+
 pictures = [ 
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Black & White', date: '28-11-2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: '120mm', color: 'Black & White', date: '28-11-2015'},
-  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: '120mm', color: 'Couleur', date: '28-11-2015'},
-  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: '120mm', color: 'Couleur', date: '28-11-2015'},
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: '35mm', color: 'Black & White', date: '28-11-2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: '35mm', color: 'Black & White', date: '28-11-2015'},
-  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: '35mm', color: 'Couleur', date: '28-11-2015'},
-  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: '35mm', color: 'Couleur', date: '28-11-2015'},
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Film', color: '', date: '28-11-2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Film', color: '', date: '28-11-2015'},
-  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: 'Film', color: 'Court', date: '28-11-2015'},
-  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: 'Film', color: 'Court', date: '28-11-2015'} 
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Black & White', date: '28 Novembre, 2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: '120mm', color: 'Black & White', date: '28 Novembre, 2015'},
+  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: '120mm', color: 'Couleur', date: '28 Novembre, 2015'},
+  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: '120mm', color: 'Couleur', date: '28 Novembre, 2015'},
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: '35mm', color: 'Black & White', date: '28 Novembre, 2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: '35mm', color: 'Black & White', date: '28 Novembre, 2015'},
+  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: '35mm', color: 'Couleur', date: '28 Novembre, 2015'},
+  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: '35mm', color: 'Couleur', date: '28 Novembre, 2015'},
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Film', color: '', date: '28 Novembre, 2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Film', color: '', date: '28 Novembre, 2015'},
+  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: 'Film', color: 'Court', date: '28 Novembre, 2015'},
+  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: 'Film', color: 'Court', date: '28 Novembre, 2015'},
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},  
 ]; 
