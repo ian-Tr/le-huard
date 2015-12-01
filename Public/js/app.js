@@ -71,7 +71,7 @@ LandingApp.controller('120mmController', ['$scope', function($scope) {
 
 LandingApp.controller('120mmBwController', ['$scope', function($scope) {
   $scope.pictures = pictures.filter(function(picture){
-    if (picture.type === '120mm' && picture.color === 'bw') {
+    if (picture.type === '120mm' && picture.color === 'Black & White') {
       return picture;
     }
   });
@@ -80,7 +80,7 @@ LandingApp.controller('120mmBwController', ['$scope', function($scope) {
 
 LandingApp.controller('120mmCouleurController', ['$scope', function($scope) {
   $scope.pictures = pictures.filter(function(picture){
-    if (picture.type === '120mm' && picture.color === 'color') {
+    if (picture.type === '120mm' && picture.color === 'Couleur') {
       return picture;
     }
   });
@@ -98,7 +98,7 @@ LandingApp.controller('35mmController', ['$scope', function($scope) {
 
 LandingApp.controller('35mmBwController', ['$scope', function($scope) {
   $scope.pictures = pictures.filter(function(picture){
-    if (picture.type === '35mm' && picture.color === 'bw') {
+    if (picture.type === '35mm' && picture.color === 'Black & White') {
       return picture;
     }
   });
@@ -107,7 +107,7 @@ LandingApp.controller('35mmBwController', ['$scope', function($scope) {
 
 LandingApp.controller('35mmCouleurController', ['$scope', function($scope) {
   $scope.pictures = pictures.filter(function(picture){
-    if (picture.type === '35mm' && picture.color === 'color') {
+    if (picture.type === '35mm' && picture.color === 'Couleur') {
       return picture;
     }
   });
@@ -125,7 +125,7 @@ LandingApp.controller('FilmController', ['$scope', function($scope) {
 
 LandingApp.controller('FilmCourtController', ['$scope', function($scope) {
   $scope.pictures = pictures.filter(function(picture){
-    if (picture.type === 'Film' && picture.color === 'court') {
+    if (picture.type === 'Film' && picture.color === 'Court') {
       return picture;
     }
   });
@@ -133,16 +133,16 @@ LandingApp.controller('FilmCourtController', ['$scope', function($scope) {
 }]);
 
 pictures = [ 
-  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'bw', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'bw', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'color', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'color', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'bw', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'bw', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'color', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'color', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Black & White', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Black & White', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Couleur', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Couleur', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'Black & White', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'Black & White', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'Couleur', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'Couleur', date: '28-11-2015'},
   {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: '', date: '28-11-2015'},
   {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: '', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'court', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'court', date: '28-11-2015'} 
+  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'Court', date: '28-11-2015'},
+  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'Court', date: '28-11-2015'} 
 ]; 
