@@ -45,12 +45,12 @@ LandingApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvid
       controller: '35mmCouleurController'
     })
     .state('Film', {
-      url: 'portfolio/film',
+      url: '/portfolio/film',
       templateUrl: 'views/PortfolioView',
       controller: 'FilmController'
     })
     .state('FilmCourt', {
-      url: 'portfolio/film',
+      url: '/portfolio/film',
       templateUrl: 'views/PortfolioView',
       controller: 'FilmCourtController'
     })
