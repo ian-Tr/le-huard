@@ -111,10 +111,6 @@ h1, h2, h3, h4, h5, .card-title {
 	z-index: 3;
 }
 
-body {
-	padding: 20px;
-}
-
 .wrapper, 
 .wrapper > .row, 
 .wrapper > .row > .slider,
@@ -173,3 +169,123 @@ header {
 	font-size: 4rem;
 	color: #F5F5F5;
 }
+
+.wrapper {
+    bottom: 0; 
+    position: absolute; 
+    top: 0;   
+}
+
+/* ngView animation */
+
+/* slide in from the right */
+@keyframes slideInRight {
+	from 	{ transform:translateX(100%); }
+	to 		{ transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+	from 	{ -moz-transform:translateX(100%); }
+	to 		{ -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+	from 	{ -webkit-transform:translateX(100%); }
+	to 		{ -webkit-transform: translateX(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideInBottom {
+	from 	{ transform:translateY(100%); }
+	to 		{ transform: translateY(0); }
+}
+@-moz-keyframes slideInUp {
+	from 	{ -moz-transform:translateY(100%); }
+	to 		{ -moz-transform: translateY(0); }
+}
+@-webkit-keyframes slideInUp {
+	from 	{ -webkit-transform:translateY(100%); }
+	to 		{ -webkit-transform: translateY(0); }
+}
+
+/* slide in from the left */
+@keyframes slideInRight {
+	from 	{ transform:translateX(-100%); }
+	to 		{ transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+	from 	{ -moz-transform:translateX(-100%); }
+	to 		{ -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+	from 	{ -webkit-transform:translateX(-100%); }
+	to 		{ -webkit-transform: translateX(0); }
+}
+
+/* slide in from the top */
+@keyframes slideInUp {
+	from 	{ transform:translateY(-100%); }
+	to 		{ transform: translateY(0); }
+}
+@-moz-keyframes slideInUp {
+	from 	{ -moz-transform:translateY(-100%); }
+	to 		{ -moz-transform: translateY(0); }
+}
+@-webkit-keyframes slideInUp {
+	from 	{ -webkit-transform:translateY(-100%); }
+	to 		{ -webkit-transform: translateY(0); }
+}
+
+/* slide out to the left */
+@keyframes slideOutLeft {
+	to 		{ transform: translateX(-100%); }
+}
+@-moz-keyframes slideOutLeft {	
+	to 		{ -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes slideOutLeft {
+	to 		{ -webkit-transform: translateX(-100%); }
+}
+
+/* slide out to the right */
+@keyframes slideOutRight {
+	to 		{ transform: translateX(100%); }
+}
+@-moz-keyframes slideOutRight {	
+	to 		{ -moz-transform: translateX(100%); }
+}
+@-webkit-keyframes slideOutRight {
+	to 		{ -webkit-transform: translateX(100%); }
+}
+
+/* slide out to the bottom */
+@keyframes slideOutBottom {
+	to 		{ transform: translateY(-100%); }
+}
+@-moz-keyframes slideOutBottom {	
+	to 		{ -moz-transform: translateY(-100%); }
+}
+@-webkit-keyframes slideOutBottom {
+	to 		{ -webkit-transform: translateY(-100%); }
+}
+
+/* slide out to the top */
+@keyframes slideOutUp {
+	to 		{ transform: translateY(100%); }
+}
+@-moz-keyframes slideOutUp {	
+	to 		{ -moz-transform: translateY(100%); }
+}
+@-webkit-keyframes slideOutUp {
+	to 		{ -webkit-transform: translateY(100%); }
+}
+
+.ng-enter { 
+	animation: slideInBottom 0.5s both ease-in; 
+	z-index: 9999;	
+}
+
+.ng-leave { 
+	animation: slideOutBottom 0.5s both ease-in; 
+	z-index: 8888;
+}
+
+/* end animation */

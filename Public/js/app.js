@@ -1,4 +1,4 @@
-var LandingApp = angular.module('LandingApp', ['ui.materialize', 'ui.router']);
+var LandingApp = angular.module('LandingApp', ['ui.materialize', 'ui.router', 'ngAnimate']);
 
 LandingApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
   
