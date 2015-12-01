@@ -50,7 +50,7 @@ LandingApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvid
       controller: 'FilmController'
     })
     .state('FilmCourt', {
-      url: '/portfolio/film',
+      url: '/portfolio/film/court',
       templateUrl: 'views/PortfolioView',
       controller: 'FilmCourtController'
     })
@@ -133,16 +133,16 @@ LandingApp.controller('FilmCourtController', ['$scope', function($scope) {
 }]);
 
 pictures = [ 
-  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Black & White', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Black & White', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Couleur', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Couleur', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'Black & White', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'Black & White', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'Couleur', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: '35mm', color: 'Couleur', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: '', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: '', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'Court', date: '28-11-2015'},
-  {url: 'sample1.jpg', name: 'New York Subway', type: 'Film', color: 'Court', date: '28-11-2015'} 
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Black & White', date: '28-11-2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: '120mm', color: 'Black & White', date: '28-11-2015'},
+  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: '120mm', color: 'Couleur', date: '28-11-2015'},
+  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: '120mm', color: 'Couleur', date: '28-11-2015'},
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: '35mm', color: 'Black & White', date: '28-11-2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: '35mm', color: 'Black & White', date: '28-11-2015'},
+  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: '35mm', color: 'Couleur', date: '28-11-2015'},
+  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: '35mm', color: 'Couleur', date: '28-11-2015'},
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Film', color: '', date: '28-11-2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Film', color: '', date: '28-11-2015'},
+  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: 'Film', color: 'Court', date: '28-11-2015'},
+  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: 'Film', color: 'Court', date: '28-11-2015'} 
 ]; 

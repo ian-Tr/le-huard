@@ -5,12 +5,9 @@
       <li ng-repeat="picture in pictures">
         <img modal ready="sliderControl.pause()" complete="sliderControl.start()" class="slide" ng-attr-href="#modal{{$index}}" ng-src="{{picture.url}}" alt="">
         <div class="col s12 slider-header">
-          <div class="row">
-            <a href="" class="left" ng-click="sliderControl.prev()"><i class="fa fa-chevron-left fa-5x"></i></a>
-            <a href="" class="right" ng-click="sliderControl.next()"><i class="fa fa-chevron-right fa-5x"></i></a>
+          <div class="row">            
             <h3>{{picture.name}}</h3>
-            <h4>{{picture.type}}</h4>            
-            <h5>{{picture.color}}</h5>
+            <h4>{{picture.type}}</h4>
           </div>
         </div>        
       </li>
