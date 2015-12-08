@@ -1,7 +1,9 @@
-var LandingApp = angular.module('LandingApp', ['ui.materialize', 'ui.router', 'ngAnimate']);
+var LandingApp =
+  angular.module('LandingApp',['ui.materialize', 'ui.router', 'ngAnimate']);
 
-LandingApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
-  
+LandingApp.config(['$stateProvider', '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider){
+
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
@@ -59,6 +61,11 @@ LandingApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvid
       templateUrl: 'views/DigitaleView',
       controller: 'DigitaleController'
     })
+    .state('Connection', {
+      url: '/connection',
+      templateUrl: 'views/ConnectionView',
+      controller: 'ConnectionController'
+    });
 }]);
 
 LandingApp.controller('PortfolioController', ['$scope', function($scope) {
@@ -71,7 +78,7 @@ LandingApp.controller('120mmController', ['$scope', function($scope) {
       return picture;
     }
   });
-  $scope.sliderControl = {};  
+  $scope.sliderControl = {};
 }]);
 
 LandingApp.controller('120mmBwController', ['$scope', function($scope) {
@@ -145,7 +152,11 @@ LandingApp.controller('DigitaleController', ['$scope', function($scope){
   });
 }]);
 
-pictures = [ 
+LandingApp.controller('ConnectionController', ['$scope', function($scope){
+
+}]);
+
+pictures = [
   {url: 'img/sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Black & White', date: '28 Novembre, 2015'},
   {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: '120mm', color: 'Black & White', date: '28 Novembre, 2015'},
   {url: 'img/color1.jpg', name: 'Girl in The Bus', type: '120mm', color: 'Couleur', date: '28 Novembre, 2015'},
@@ -173,5 +184,10 @@ pictures = [
   {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
   {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
   {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},  
-]; 
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+];
+
+users = [
+  {username: 'admin', email: 'admin@admin.com', password: 'admin'},
+  {username: 'eloiqs', email: 'eloi.qs@outlook.com', password: 'password'}
+];

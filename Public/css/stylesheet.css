@@ -17,16 +17,34 @@ a {
 .absolute-right {
 	position: absolute;
 	right: 0;
+	top: 10px;
 }
 
 html, body {
 	height: 100vh;
 	width: 100%;
-	margin: 0;	
+	margin: 0;
+	overflow-y: hidden;
 }
 
 .row-no-margin {
 	margin-bottom: 0px !important;
+}
+
+.connect-btn {
+	background-color: transparent;
+	border-radius: none;
+	box-shadow: none;
+	padding: 20px;
+}
+
+.connect-btn:hover {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+.connect-btn i {
+	font-size: 2rem !important;
 }
 
 section {
@@ -35,6 +53,7 @@ section {
 
 html, .card {
 	background-color: #212121;
+	font-family: 'Raleway', sans-serif;
 }
 
 body {
@@ -74,7 +93,7 @@ blockquote {
 }
 
 header a {
-	color: white !important;	
+	color: white !important;
 	height: 100%;
 	font-size: 1.6rem !important;
 }
@@ -84,11 +103,11 @@ header a:hover {
 }
 
 nav ul li:hover {
-	background-color: transparent !important;		
+	background-color: transparent !important;
 }
 
-header h1 {
-	font-size: 10rem;	
+h1 {
+	font-size: 10rem;
 }
 
 h1 {
@@ -106,7 +125,7 @@ h2 {
 
 .dropdown-content {
 	background-color: transparent;
-	box-shadow: none;	
+	box-shadow: none;
 }
 
 .slider-header {
@@ -125,8 +144,8 @@ h2 {
 	z-index: 3;
 }
 
-.wrapper, 
-.wrapper > .row, 
+.wrapper,
+.wrapper > .row,
 .wrapper > .row > .slider,
 .wrapper > .row > .slider > .slides,
 .wrapper > .row > .slider > .slides .card-image {
@@ -185,11 +204,11 @@ header {
 }
 
 .wrapper {
-    bottom: 0; 
-    position: absolute; 
-    top: 0;   
-    padding: 20px; 
-    background-color: #9c9494;	
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    padding: 20px;
+    background-color: #9c9494;
 }
 
 .row.digitale {
@@ -227,15 +246,15 @@ header {
 }
 
 /* slide in from the left */
-@keyframes slideInRight {
+@keyframes slideInLeft {
 	from 	{ transform:translateX(-100%); }
 	to 		{ transform: translateX(0); }
 }
-@-moz-keyframes slideInRight {
+@-moz-keyframes slideInLeft {
 	from 	{ -moz-transform:translateX(-100%); }
 	to 		{ -moz-transform: translateX(0); }
 }
-@-webkit-keyframes slideInRight {
+@-webkit-keyframes slideInLeft {
 	from 	{ -webkit-transform:translateX(-100%); }
 	to 		{ -webkit-transform: translateX(0); }
 }
@@ -258,7 +277,7 @@ header {
 @keyframes slideOutLeft {
 	to 		{ transform: translateX(-100%); }
 }
-@-moz-keyframes slideOutLeft {	
+@-moz-keyframes slideOutLeft {
 	to 		{ -moz-transform: translateX(-100%); }
 }
 @-webkit-keyframes slideOutLeft {
@@ -269,7 +288,7 @@ header {
 @keyframes slideOutRight {
 	to 		{ transform: translateX(100%); }
 }
-@-moz-keyframes slideOutRight {	
+@-moz-keyframes slideOutRight {
 	to 		{ -moz-transform: translateX(100%); }
 }
 @-webkit-keyframes slideOutRight {
@@ -280,7 +299,7 @@ header {
 @keyframes slideOutBottom {
 	to 		{ transform: translateY(-100%); }
 }
-@-moz-keyframes slideOutBottom {	
+@-moz-keyframes slideOutBottom {
 	to 		{ -moz-transform: translateY(-100%); }
 }
 @-webkit-keyframes slideOutBottom {
@@ -291,21 +310,70 @@ header {
 @keyframes slideOutUp {
 	to 		{ transform: translateY(100%); }
 }
-@-moz-keyframes slideOutUp {	
+@-moz-keyframes slideOutUp {
 	to 		{ -moz-transform: translateY(100%); }
 }
 @-webkit-keyframes slideOutUp {
 	to 		{ -webkit-transform: translateY(100%); }
 }
 
-.ng-enter { 
-	animation: slideInBottom 1s both cubic-bezier(0.550, 0.055, 0.675, 0.190); 
-	z-index: 9999;	
+/* fadeIn */
+@keyframes fadeIn {
+	from 	{ opacity: 0;}
+	to 		{ opacity: 1;}
+}
+@-moz-keyframes fadeIn {
+	from 	{ opacity: 0;}
+	to 		{ opacity: 1;}
+}
+@-webkit-keyframes fadeIn {
+	from 	{ opacity: 0;}
+	to 		{ opacity: 1;}
 }
 
-.ng-leave { 
-	animation: slideOutBottom 1s both cubic-bezier(0.550, 0.055, 0.675, 0.190); 
+/* fadeOut */
+@keyframes fadeOut {
+	from 	{ opacity: 1;}
+	to 		{ opacity: 0;}
+}
+@-moz-keyframes fadeOut {
+	from 	{ opacity: 1;}
+	to 		{ opacity: 0;}
+}
+@-webkit-keyframes fadeOut {
+	from 	{ opacity: 1;}
+	to 		{ opacity: 0;}
+}
+
+.ng-enter {
+	animation: fadeIn 1s both ease;
+	z-index: 9999;
+}
+
+.ng-leave {
+	animation: fadeOut 1s both ease;
 	z-index: 8888;
 }
 
 /* end animation */
+
+.close-view {
+	background-color: rgba(245, 245, 245, 0.5);
+	z-index: 3;
+	padding: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.close-view:hover {
+	background-color: rgba(245, 245, 245, 0.7);
+}
+
+.close-view > .material-icons {
+	color: black;
+	font-size: 3rem;
+}
+
+.card-action {
+	overflow: hidden;
+}
