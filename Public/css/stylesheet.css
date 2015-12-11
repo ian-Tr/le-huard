@@ -1,149 +1,70 @@
+/************************** Common to all pages *******************************/
 .primary {
 	color: #212121;
 }
-
 .secondary	{
 	color: #F5F5F5;
 }
-
 .tertiary {
 	color: #9c9494;
 }
-
 a {
 	color: white;
 }
-
 .absolute-right {
 	position: absolute;
 	right: 0;
 	top: 10px;
 }
-
 html, body {
 	height: 100vh;
 	width: 100%;
 	margin: 0;
 	overflow-y: hidden;
 }
-
 .row-no-margin {
 	margin-bottom: 0px !important;
 }
-
-.connect-btn {
-	background-color: transparent;
-	border-radius: none;
-	box-shadow: none;
-	padding: 20px;
-}
-
-.connect-btn:hover {
-	background-color: transparent;
-	box-shadow: none;
-}
-
-.connect-btn i {
-	font-size: 2rem !important;
-}
-
 section {
 	background-color: #9c9494;
 }
-
 html, .card {
 	background-color: #212121;
 	font-family: 'Raleway', sans-serif;
 }
-
 body {
 	color: #F5F5F5;
 	background-color: #9c9494;
 }
-
-nav {
-	background-color: transparent;
-	box-shadow: none;
-}
-
 blockquote {
 	border-left-color: #9c9494;
 }
-
 .modal {
 	width: 60% !important;
 	max-height: 70% !important;
 }
-
 .modal h4, .modal h5 {
 	display: inline-block;
 
 }
-
 .full-height {
 	height: 100vh;
 }
-
-.slider .indicators .indicator-item.active {
-	background-color: #9c9494;
-}
-
-.center-element {
-	margin: 0 auto;
-}
-
-header a {
-	color: white !important;
-	height: 100%;
-	font-size: 1.6rem !important;
-}
-
-header a:hover {
-	font-style: italic;
-}
-
-nav ul li:hover {
-	background-color: transparent !important;
-}
-
 h1 {
 	font-size: 10rem;
-}
-
-h1 {
 	font-family: 'Playfair Display', serif;
 }
-
 h2, h3, h4, h5 {
 	font-family: 'Raleway', sans-serif;
 	font-weight: bold;
 }
-
 h2 {
 	font-weight: 700;
 }
-
 .dropdown-content {
 	background-color: transparent;
 	box-shadow: none;
 }
-
-.slider-header {
-	position: absolute;
-	z-index: 3;
-	bottom: 0;
-	background-color: rgba(33, 33, 33, 0.8);
-	text-align: center;
-}
-
-.border {
-	height: 100%;
-	width: 100%;
-	border: 20px solid #9c9494;
-	position: fixed;
-	z-index: 3;
-}
-
 .wrapper,
 .wrapper > .row,
 .wrapper > .row > .slider,
@@ -153,56 +74,6 @@ h2 {
 	width: 100%;
 	margin: 0;
 }
-
-.slide {
-	cursor: pointer;
-}
-
-.slider .indicators {
-	z-index: 5;
-	bottom: 20vh;
-}
-
-header {
-	background-color: #212121;
-}
-
-.modal, .modal-content {
-	color: #212121;
-}
-
-.modal {
-	overflow-y: hidden;
-	height: 100%;
-	background-color: #F5F5F5;
-}
-
-.modal-content, .modal-content > .row {
-	height: 100%;
-	padding: 0 !important;
-}
-
-.modal-main {
-	height: inherit;
-	overflow-y: scroll;
-	padding-right: 24px !important;
-	padding-top: 24px !important;
-}
-
-.modal-img-container {
-	padding-top: 24px !important;
-	padding-left: 24px !important;
-}
-
-#toast-container {
-	top: 50% !important;
-}
-
-.slider-controls {
-	font-size: 4rem;
-	color: #F5F5F5;
-}
-
 .wrapper {
     bottom: 0;
     position: absolute;
@@ -210,113 +81,6 @@ header {
     padding: 20px;
     background-color: #9c9494;
 }
-
-.row.digitale {
-	background-color: #212121;
-}
-
-/* ngView animation */
-
-/* slide in from the right */
-@keyframes slideInRight {
-	from 	{ transform:translateX(100%); }
-	to 		{ transform: translateX(0); }
-}
-@-moz-keyframes slideInRight {
-	from 	{ -moz-transform:translateX(100%); }
-	to 		{ -moz-transform: translateX(0); }
-}
-@-webkit-keyframes slideInRight {
-	from 	{ -webkit-transform:translateX(100%); }
-	to 		{ -webkit-transform: translateX(0); }
-}
-
-/* slide in from the bottom */
-@keyframes slideInBottom {
-	from 	{ transform:translateY(100%); }
-	to 		{ transform: translateY(0); }
-}
-@-moz-keyframes slideInUp {
-	from 	{ -moz-transform:translateY(100%); }
-	to 		{ -moz-transform: translateY(0); }
-}
-@-webkit-keyframes slideInUp {
-	from 	{ -webkit-transform:translateY(100%); }
-	to 		{ -webkit-transform: translateY(0); }
-}
-
-/* slide in from the left */
-@keyframes slideInLeft {
-	from 	{ transform:translateX(-100%); }
-	to 		{ transform: translateX(0); }
-}
-@-moz-keyframes slideInLeft {
-	from 	{ -moz-transform:translateX(-100%); }
-	to 		{ -moz-transform: translateX(0); }
-}
-@-webkit-keyframes slideInLeft {
-	from 	{ -webkit-transform:translateX(-100%); }
-	to 		{ -webkit-transform: translateX(0); }
-}
-
-/* slide in from the top */
-@keyframes slideInUp {
-	from 	{ transform:translateY(-100%); }
-	to 		{ transform: translateY(0); }
-}
-@-moz-keyframes slideInUp {
-	from 	{ -moz-transform:translateY(-100%); }
-	to 		{ -moz-transform: translateY(0); }
-}
-@-webkit-keyframes slideInUp {
-	from 	{ -webkit-transform:translateY(-100%); }
-	to 		{ -webkit-transform: translateY(0); }
-}
-
-/* slide out to the left */
-@keyframes slideOutLeft {
-	to 		{ transform: translateX(-100%); }
-}
-@-moz-keyframes slideOutLeft {
-	to 		{ -moz-transform: translateX(-100%); }
-}
-@-webkit-keyframes slideOutLeft {
-	to 		{ -webkit-transform: translateX(-100%); }
-}
-
-/* slide out to the right */
-@keyframes slideOutRight {
-	to 		{ transform: translateX(100%); }
-}
-@-moz-keyframes slideOutRight {
-	to 		{ -moz-transform: translateX(100%); }
-}
-@-webkit-keyframes slideOutRight {
-	to 		{ -webkit-transform: translateX(100%); }
-}
-
-/* slide out to the bottom */
-@keyframes slideOutBottom {
-	to 		{ transform: translateY(-100%); }
-}
-@-moz-keyframes slideOutBottom {
-	to 		{ -moz-transform: translateY(-100%); }
-}
-@-webkit-keyframes slideOutBottom {
-	to 		{ -webkit-transform: translateY(-100%); }
-}
-
-/* slide out to the top */
-@keyframes slideOutUp {
-	to 		{ transform: translateY(100%); }
-}
-@-moz-keyframes slideOutUp {
-	to 		{ -moz-transform: translateY(100%); }
-}
-@-webkit-keyframes slideOutUp {
-	to 		{ -webkit-transform: translateY(100%); }
-}
-
 /* fadeIn */
 @keyframes fadeIn {
 	from 	{ opacity: 0;}
@@ -330,7 +94,6 @@ header {
 	from 	{ opacity: 0;}
 	to 		{ opacity: 1;}
 }
-
 /* fadeOut */
 @keyframes fadeOut {
 	from 	{ opacity: 1;}
@@ -344,19 +107,14 @@ header {
 	from 	{ opacity: 1;}
 	to 		{ opacity: 0;}
 }
-
 .ng-enter {
 	animation: fadeIn 1s both ease;
 	z-index: 9999;
 }
-
 .ng-leave {
 	animation: fadeOut 1s both ease;
 	z-index: 8888;
 }
-
-/* end animation */
-
 .close-view {
 	background-color: rgba(245, 245, 245, 0.5);
 	z-index: 3;
@@ -364,16 +122,107 @@ header {
 	border-radius: 0;
 	box-shadow: none;
 }
-
 .close-view:hover {
 	background-color: rgba(245, 245, 245, 0.7);
 }
-
 .close-view > .material-icons {
 	color: black;
 	font-size: 3rem;
 }
+/******************************************************************************/
 
+/* Langing Page */
+.connect-btn {
+	background-color: transparent;
+	border-radius: none;
+	box-shadow: none;
+	padding: 20px;
+}
+.connect-btn:hover {
+	background-color: transparent;
+	box-shadow: none;
+}
+.connect-btn i {
+	font-size: 2rem !important;
+}
+nav {
+	background-color: transparent;
+	box-shadow: none;
+}
+.center-element {
+	margin: 0 auto;
+}
+header a {
+	color: white !important;
+	height: 100%;
+	font-size: 1.6rem !important;
+}
+header a:hover {
+	font-style: italic;
+}
+nav ul li:hover {
+	background-color: transparent !important;
+}
+header {
+	background-color: #212121;
+}
 .card-action {
 	overflow: hidden;
 }
+/******************************************************************************/
+
+/************************* Portfolio pages (with sliders) *********************/
+.slider .indicators .indicator-item.active {
+	background-color: #9c9494;
+}
+.slider-header {
+	position: absolute;
+	z-index: 3;
+	bottom: 0;
+	background-color: rgba(33, 33, 33, 0.8);
+	text-align: center;
+}
+.slide {
+	cursor: pointer;
+}
+.slider .indicators {
+	z-index: 5;
+	bottom: 20vh;
+}
+.slider-controls {
+	font-size: 4rem;
+	color: #F5F5F5;
+}
+.modal, .modal-content {
+	color: #212121;
+}
+.modal {
+	overflow-y: hidden;
+	height: 100%;
+	background-color: #F5F5F5;
+}
+.modal-content, .modal-content > .row {
+	height: 100%;
+	padding: 0 !important;
+}
+.modal-img-container {
+	padding-top: 24px !important;
+	padding-left: 24px !important;
+}
+.modal-main {
+	height: inherit;
+	overflow-y: scroll;
+	padding-right: 24px !important;
+	padding-top: 24px !important;
+}
+/******************************************************************************/
+
+/****************************** Digitale section ******************************/
+.row.digitale {
+	background-color: #212121;
+}
+/******************************************************************************/
+
+/******************************** Contact page ********************************/
+
+/******************************************************************************/
