@@ -8,27 +8,11 @@
 .tertiary {
 	color: #9c9494;
 }
-a {
-	color: white;
-}
-.absolute-right {
-	position: absolute;
-	right: 0;
-	top: 10px;
-}
 html, body {
 	height: 100vh;
 	width: 100%;
 	margin: 0;
 	overflow-y: hidden;
-}
-.row-no-margin {
-	margin-bottom: 0px !important;
-}
-section {
-	background-color: #9c9494;
-}
-html, .card {
 	background-color: #212121;
 	font-family: 'Raleway', sans-serif;
 }
@@ -36,34 +20,22 @@ body {
 	color: #F5F5F5;
 	background-color: #9c9494;
 }
-blockquote {
-	border-left-color: #9c9494;
-}
-.modal {
-	width: 60% !important;
-	max-height: 70% !important;
-}
-.modal h4, .modal h5 {
-	display: inline-block;
-
-}
-.full-height {
-	height: 100vh;
-}
-h1 {
-	font-size: 10rem;
-	font-family: 'Playfair Display', serif;
-}
-h2, h3, h4, h5 {
+.card-main.card {
+	background-color: #212121;
 	font-family: 'Raleway', sans-serif;
-	font-weight: bold;
 }
-h2 {
-	font-weight: 700;
+section {
+	background-color: #9c9494;
 }
-.dropdown-content {
-	background-color: transparent;
-	box-shadow: none;
+.row-no-margin {
+	margin-bottom: 0px !important;
+}
+.wrapper {
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    padding: 20px;
+    background-color: #9c9494;
 }
 .wrapper,
 .wrapper > .row,
@@ -74,12 +46,77 @@ h2 {
 	width: 100%;
 	margin: 0;
 }
-.wrapper {
-    bottom: 0;
-    position: absolute;
-    top: 0;
-    padding: 20px;
-    background-color: #9c9494;
+blockquote {
+	border-left-color: #9c9494;
+}
+a {
+	color: white;
+}
+.full-height {
+	height: 100vh;
+}
+.absolute-right {
+	position: absolute;
+	right: 0;
+	top: 10px;
+}
+.logo-font {
+	font-size: 5rem;
+	font-family: 'Playfair Display', serif;
+}
+a.logo-main {
+	font-size: 10rem !important;
+	font-family: 'Playfair Display', serif;
+}
+h2, h3, h4, h5 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: bold;
+}
+h2 {
+	font-weight: 700;
+}
+.btn, .btn-large {
+	background-color:  #212121;
+}
+.btn:hover, .btn-large:hover {
+	background-color: #9c9494;
+}
+.dropdown-content {
+	background-color: transparent;
+	box-shadow: none;
+}
+.close-view {
+	background-color: rgba(245, 245, 245, 0.5);
+	z-index: 3;
+	padding: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+.close-view:hover {
+	background-color: rgba(245, 245, 245, 0.7);
+}
+.close-view > .material-icons {
+	color: black;
+	font-size: 3rem;
+}
+.modal, .modal-content {
+	color: #212121;
+}
+.input-field input:focus + label {
+	color: black !important;
+}
+.input-field input:focus {
+	border-bottom: 1px solid black !important;
+	box-shadow: 0 1px 0 0 black !important;
+}
+.input-field .prefix.active {
+	color: black;
+}
+.card-content {
+	overflow: hidden;
+}
+.center-element {
+	margin: 0 auto;
 }
 /* fadeIn */
 @keyframes fadeIn {
@@ -115,20 +152,6 @@ h2 {
 	animation: fadeOut 1s both ease;
 	z-index: 8888;
 }
-.close-view {
-	background-color: rgba(245, 245, 245, 0.5);
-	z-index: 3;
-	padding: 0;
-	border-radius: 0;
-	box-shadow: none;
-}
-.close-view:hover {
-	background-color: rgba(245, 245, 245, 0.7);
-}
-.close-view > .material-icons {
-	color: black;
-	font-size: 3rem;
-}
 /******************************************************************************/
 
 /* Langing Page */
@@ -136,32 +159,56 @@ h2 {
 	background-color: transparent;
 	border-radius: none;
 	box-shadow: none;
-	padding: 20px;
+	padding-right: 10px;
+	font-weight: bold;
+}
+.connect-btn i {
+	margin-left: 5px;
 }
 .connect-btn:hover {
 	background-color: transparent;
 	box-shadow: none;
 }
-.connect-btn i {
-	font-size: 2rem !important;
-}
 nav {
 	background-color: transparent;
 	box-shadow: none;
 }
-.center-element {
-	margin: 0 auto;
+header a.dropdown-link {
+	font-size: 1rem !important;
+	color: #F5F5F5;
 }
-header a {
-	color: white !important;
-	height: 100%;
+header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
+	color: #F5F5F5 !important;
 	font-size: 1.6rem !important;
 }
-header a:hover {
-	font-style: italic;
+.sliding-middle-out {
+	display: inline-block;
+	position: relative;
+	height: 36px;
+	line-height: 36px;
+	text-transform: uppercase;
+}
+.sliding-middle-out:after {
+	content: '';
+	display: block;
+	margin: auto;
+	height: 3px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+.sliding-middle-out:hover:after {
+	width: 100%;
+	background: #F5F5F5;
 }
 nav ul li:hover {
 	background-color: transparent !important;
+}
+.dropdown-content {
+	overflow: inherit;
+}
+.dropdown-content li>a {
+	padding-bottom: 0;
 }
 header {
 	background-color: #212121;
@@ -172,8 +219,11 @@ header {
 /******************************************************************************/
 
 /************************* Portfolio pages (with sliders) *********************/
-.slider .indicators .indicator-item.active {
+.slider .indicators .indicator-item {
 	background-color: #9c9494;
+}
+.slider .indicators .indicator-item.active {
+	background-color: #F5F5F5;
 }
 .slider-header {
 	position: absolute;
@@ -193,15 +243,12 @@ header {
 	font-size: 4rem;
 	color: #F5F5F5;
 }
-.modal, .modal-content {
-	color: #212121;
-}
-.modal {
+.modal-portfolio.modal{
 	overflow-y: hidden;
 	height: 100%;
 	background-color: #F5F5F5;
 }
-.modal-content, .modal-content > .row {
+.modal-portfolio.modal-content, .modal-portfolio.modal-content > .row {
 	height: 100%;
 	padding: 0 !important;
 }
@@ -209,11 +256,19 @@ header {
 	padding-top: 24px !important;
 	padding-left: 24px !important;
 }
-.modal-main {
+.modal-portfolio.modal-main {
 	height: inherit;
 	overflow-y: scroll;
 	padding-right: 24px !important;
 	padding-top: 24px !important;
+}
+.modal-portfolio.modal {
+	width: 60% !important;
+	max-height: 70% !important;
+}
+.modal-portfolio.modal h4, .modal-portfolio.modal h5 {
+	display: inline-block;
+
 }
 /******************************************************************************/
 
@@ -225,4 +280,19 @@ header {
 
 /******************************** Contact page ********************************/
 
+/******************************************************************************/
+
+/******************************** Connection page *****************************/
+.connection-card {
+	color: #212121;
+}
+.card-main a:not(.btn, .material-icons) {
+	color: #212121;
+}
+.connection-title {
+	margin-top: 0;
+}
+.connection-card {
+	margin-bottom: 0;
+}
 /******************************************************************************/
