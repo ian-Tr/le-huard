@@ -65,6 +65,11 @@ LandingApp.config(['$stateProvider', '$urlRouterProvider',
       url: '/connection',
       templateUrl: 'views/ConnectionView',
       controller: 'ConnectionController'
+    })
+    .state('Enregistrement', {
+      url: '/enregistrement',
+      templateUrl: 'views/RegistrationView',
+      controller: 'RegistrationController'
     });
 }]);
 
@@ -153,8 +158,12 @@ LandingApp.controller('DigitaleController', ['$scope', function($scope){
 }]);
 
 LandingApp.controller('ConnectionController', ['$scope', function($scope){
-
+  
 }]);
+
+LandingApp.controller('RegistrationController', ['$scope', function($scope){
+
+}])
 
 pictures = [
   {url: 'img/sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Black & White', date: '28 Novembre, 2015'},
