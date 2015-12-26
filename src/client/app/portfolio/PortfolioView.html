@@ -1,0 +1,70 @@
+<section class="row">
+  <a href="#/" class="close-view right waves-effect waves-light btn"><i class="material-icons">clear</i></a>
+  <div slider indicators="true" control="sliderControl">
+    <ul class="slides">
+      <li ng-repeat="picture in pictures">
+        <img modal ready="sliderControl.pause()" complete="sliderControl.start()" class="slide" ng-attr-href="#modal{{$index}}" ng-src="{{picture.url}}" alt="">
+        <div class="col s12 slider-header">
+          <div class="row">
+            <a href="" ng-click="sliderControl.prev()"><i class="slider-controls material-icons left">arrow_back</i></a>
+            <a href="" ng-click="sliderControl.next()"><i class="slider-controls material-icons right">arrow_forward</i></a>
+            <h2>{{picture.name}}</h2>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<div ng-attr-id="modal{{$index}}" class="modal modal-portfolio" ng-repeat="picture in pictures">
+  <div class="modal-content modal-portfolio">
+    <div class="row">
+      <div class="col s7 modal-img-container">
+        <img class="responsive-img" ng-src="{{picture.url}}" alt="">
+      </div>
+      <div class="col s5 modal-main modal-portfolio">
+        <div class="row">
+          <h2>{{picture.name}}</h2>
+          <blockquote>
+              <h4>{{picture.type}}</h4>, <h5>{{picture.color}}</h5> <br>
+              <b>{{picture.date}}</b>
+          </blockquote>
+        </div>
+        <div class="row divider"></div>
+        <div class="row">
+          <b class="left">Name</b>
+          <span class="right">Date</span><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="row">
+          <b class="left">Name</b>
+          <span class="right">Date</span><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="row">
+          <b class="left">Name</b>
+          <span class="right">Date</span><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="row">
+          <b class="left">Name</b>
+          <span class="right">Date</span><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="row">
+          <form action="">
+            <div class="input-field">
+              <input type="text" ng-attr-id="textarea{{$index}}" class="validate"></input>
+              <label ng-attr-for="textarea{{$index}}">Add Comment...</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Ignore this img, toast load hack -->
+<!--<img src="img/toast.png" message="Swipe here! <i class='material-icons'>touch_app</i>" toast="load" duration="2000">-->

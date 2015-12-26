@@ -1,0 +1,17 @@
+{
+  "name": "le-huard",
+  "homepage": "https://github.com/eloiqs/le-huard",
+  "authors": [
+    "eloiqs <eloi.qs@outlook.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "dependencies": {
+    "angular-animate": "~1.4.8",
+    "angular-deckgrid": "~0.5.0",
+    "angular-materialize": "~0.1.2",
+    "angular-ui-router": "~0.2.15"
+  }
+}
