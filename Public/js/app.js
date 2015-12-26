@@ -1,5 +1,5 @@
 var LandingApp =
-  angular.module('LandingApp',['ui.materialize', 'ui.router', 'ngAnimate']);
+  angular.module('LandingApp',['ui.materialize', 'ui.router', 'ngAnimate', 'akoenig.deckgrid']);
 
 LandingApp.config(['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider){
@@ -60,6 +60,16 @@ LandingApp.config(['$stateProvider', '$urlRouterProvider',
       url: '/portfolio/digitale',
       templateUrl: 'views/DigitaleView',
       controller: 'DigitaleController'
+    })
+    .state('DigitaleIphone', {
+      url: '/portfolio/digitale/iphone',
+      templateUrl: 'views/DigitaleView',
+      controller: 'DigitaleIphoneController'
+    })
+    .state('DigitaleAutre', {
+      url: '/portfolio/digitale/autre',
+      templateUrl: 'views/DigitaleView',
+      controller: 'DigitaleAutreController'
     })
     .state('Connection', {
       url: '/connection',
@@ -157,13 +167,29 @@ LandingApp.controller('DigitaleController', ['$scope', function($scope){
   });
 }]);
 
+LandingApp.controller('DigitaleIphoneController', ['$scope', function($scope){
+  $scope.pictures = pictures.filter(function(picture) {
+    if (picture.type === "Digitale" && picture.color === "iPhone") {
+      return picture;
+    }
+  });
+}]);
+
+LandingApp.controller('DigitaleAutreController', ['$scope', function($scope){
+  $scope.pictures = pictures.filter(function(picture) {
+    if (picture.type === "Digitale" && picture.color === "Autre") {
+      return picture;
+    }
+  });
+}]);
+
 LandingApp.controller('ConnectionController', ['$scope', function($scope){
-  
+
 }]);
 
 LandingApp.controller('RegistrationController', ['$scope', function($scope){
 
-}])
+}]);
 
 pictures = [
   {url: 'img/sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Black & White', date: '28 Novembre, 2015'},
@@ -178,22 +204,22 @@ pictures = [
   {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Film', color: '', date: '28 Novembre, 2015'},
   {url: 'img/color1.jpg', name: 'Girl in The Bus', type: 'Film', color: 'Court', date: '28 Novembre, 2015'},
   {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: 'Film', color: 'Court', date: '28 Novembre, 2015'},
+  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
   {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
   {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
   {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
   {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
   {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
   {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
 ];
 
 users = [

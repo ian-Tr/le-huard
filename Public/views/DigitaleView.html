@@ -1,5 +1,63 @@
-<section class="row digitale card">
-	<div class="col s12 l11 offset-l1">
-		<h2>Digitale</h2>
+<section class="row card card-main">
+	<a href="#/" class="close-view right waves-effect waves-light btn"><i class="material-icons">clear</i></a>
+	<div class="col s10 offset-s1 digital-content">
+		<div deckgrid class="deckgrid" source="pictures">
+	    <div class="card">
+				<div class="card-image">
+	    		<img modal src="" ng-src="{{card.url}}" alt="" ng-attr-href="#modal{{card.$index}}" class="slide responsive-img">
+				</div>
+	    </div>
+		</div>
 	</div>
 </section>
+<div ng-attr-id="modal{{$index}}" class="modal modal-portfolio" ng-repeat="picture in pictures">
+  <div class="modal-content modal-portfolio">
+    <div class="row">
+      <div class="col s7 modal-img-container">
+        <img class="responsive-img" ng-src="{{picture.url}}" alt="">
+      </div>
+      <div class="col s5 modal-main modal-portfolio">
+        <div class="row">
+          <h2>{{picture.name}}</h2>
+          <blockquote>
+              <h4>{{picture.type}}</h4>, <h5>{{picture.color}}</h5> <br>
+              <b>{{picture.date}}</b>
+          </blockquote>
+        </div>
+        <div class="row divider"></div>
+        <div class="row">
+          <b class="left">Name</b>
+          <span class="right">Date</span><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="row">
+          <b class="left">Name</b>
+          <span class="right">Date</span><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="row">
+          <b class="left">Name</b>
+          <span class="right">Date</span><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="row">
+          <b class="left">Name</b>
+          <span class="right">Date</span><br>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="row">
+          <form action="">
+            <div class="input-field">
+              <input type="text" ng-attr-id="textarea{{$index}}" class="validate"></input>
+              <label ng-attr-for="textarea{{$index}}">Add Comment...</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
