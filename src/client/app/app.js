@@ -9,86 +9,81 @@ LandingApp.config(['$stateProvider', '$urlRouterProvider',
   $stateProvider
     .state('Home', {
       url: '/',
-      templateUrl: 'views/LandingView'
-    })
-    .state('Portfolio', {
-      url: '/portfolio',
-      templateUrl: 'views/PortfolioView',
-      controller: 'PortfolioController'
+      templateUrl: 'app/landing/landing.html'
     })
     .state('120mm', {
-      url: '/portfolio/120mm',
-      templateUrl: 'views/PortfolioView',
-      controller: '120mmController'
+      url: '/120mm',
+      templateUrl: 'app/portfolio/portfolio.html',
+      controller: '120mm'
     })
     .state('120mmBlackWhite', {
-      url: '/portfolio/120mm/bw',
-      templateUrl: 'views/PortfolioView',
-      controller: '120mmBwController'
+      url: '/120mm/bw',
+      templateUrl: 'app/portfolio/portfolio.html',
+      controller: '120mmBlackWhite'
     })
-    .state('120mmCouleur', {
-      url: '/portfolio/120mm/couleur',
-      templateUrl: 'views/PortfolioView',
-      controller: '120mmCouleurController'
+    .state('120mmColor', {
+      url: '/120mm/color',
+      templateUrl: 'app/portfolio/portfolio.html',
+      controller: '120mmColor'
     })
     .state('35mm', {
-      url: '/portfolio/35mm',
-      templateUrl: 'views/PortfolioView',
-      controller: '35mmController'
+      url: '/35mm',
+      templateUrl: 'app/portfolio/portfolio.html',
+      controller: '35mm'
     })
     .state('35mmBlackWhite', {
-      url: '/portfolio/35mm/bw',
-      templateUrl: 'views/PortfolioView',
-      controller: '35mmBwController'
+      url: '/35mm/bw',
+      templateUrl: 'app/portfolio/portfolio.html',
+      controller: '35mmBlackWhite'
     })
-    .state('35mmCouleur', {
-      url: '/portfolio/35mm/couleur',
-      templateUrl: 'views/PortfolioView',
-      controller: '35mmCouleurController'
+    .state('35mmColor', {
+      url: '/35mm/color',
+      templateUrl: 'app/portfolio/portfolio.html',
+      controller: '35mmColor'
     })
     .state('Film', {
-      url: '/portfolio/film',
-      templateUrl: 'views/PortfolioView',
-      controller: 'FilmController'
+      url: '/film',
+      templateUrl: 'app/portfolio/portfolio.html',
+      controller: 'Film'
     })
-    .state('FilmCourt', {
-      url: '/portfolio/film/court',
-      templateUrl: 'views/PortfolioView',
-      controller: 'FilmCourtController'
+    .state('FilmShort', {
+      url: '/film/short',
+      templateUrl: 'app/portfolio/portfolio.html',
+      controller: 'FilmShort'
     })
-    .state('Digitale', {
-      url: '/portfolio/digitale',
-      templateUrl: 'views/DigitaleView',
-      controller: 'DigitaleController'
+    .state('Digital', {
+      url: '/digital',
+      templateUrl: 'app/portfolio/digital.html',
+      controller: 'Digital'
     })
-    .state('DigitaleIphone', {
-      url: '/portfolio/digitale/iphone',
-      templateUrl: 'views/DigitaleView',
-      controller: 'DigitaleIphoneController'
+    .state('DigitalIphone', {
+      url: '/digital/iphone',
+      templateUrl: 'app/portfolio/digital.html',
+      controller: 'DigitalIphone'
     })
-    .state('DigitaleAutre', {
-      url: '/portfolio/digitale/autre',
-      templateUrl: 'views/DigitaleView',
-      controller: 'DigitaleAutreController'
+    .state('DigitalOther', {
+      url: '/digital/other',
+      templateUrl: 'app/portfolio/digital.html',
+      controller: 'DigitalOther'
     })
-    .state('Contacte')
+    .state('Contact', {
+      url: '/contact',
+      templateUrl: 'app/contact/contact.html',
+      controller: 'Contact'
+    })
     .state('Connection', {
       url: '/connection',
-      templateUrl: 'views/ConnectionView',
-      controller: 'ConnectionController'
+      templateUrl: 'app/connection/connection.html',
+      controller: 'Connection'
     })
-    .state('Enregistrement', {
-      url: '/enregistrement',
-      templateUrl: 'views/RegistrationView',
-      controller: 'RegistrationController'
+    .state('Registration', {
+      url: '/registration',
+      templateUrl: 'app/registration/registration.html',
+      controller: 'Registration'
     });
 }]);
 
-LandingApp.controller('PortfolioController', ['$scope', function($scope) {
-  $scope.pictures = pictures;
-}]);
-
-LandingApp.controller('120mmController', ['$scope', function($scope) {
+LandingApp.controller('120mm', ['$scope', function($scope) {
   $scope.pictures = pictures.filter(function(picture){
     if (picture.type === '120mm') {
       return picture;
@@ -97,7 +92,7 @@ LandingApp.controller('120mmController', ['$scope', function($scope) {
   $scope.sliderControl = {};
 }]);
 
-LandingApp.controller('120mmBwController', ['$scope', function($scope) {
+LandingApp.controller('120mmBlackWhite', ['$scope', function($scope) {
   $scope.pictures = pictures.filter(function(picture){
     if (picture.type === '120mm' && picture.color === 'Black & White') {
       return picture;
@@ -106,7 +101,7 @@ LandingApp.controller('120mmBwController', ['$scope', function($scope) {
   $scope.sliderControl = {};
 }]);
 
-LandingApp.controller('120mmCouleurController', ['$scope', function($scope) {
+LandingApp.controller('120mmColor', ['$scope', function($scope) {
   $scope.pictures = pictures.filter(function(picture){
     if (picture.type === '120mm' && picture.color === 'Couleur') {
       return picture;
@@ -115,7 +110,7 @@ LandingApp.controller('120mmCouleurController', ['$scope', function($scope) {
   $scope.sliderControl = {};
 }]);
 
-LandingApp.controller('35mmController', ['$scope', function($scope) {
+LandingApp.controller('35mm', ['$scope', function($scope) {
   $scope.pictures = pictures.filter(function(picture){
     if (picture.type === '35mm') {
       return picture;
@@ -124,7 +119,7 @@ LandingApp.controller('35mmController', ['$scope', function($scope) {
   $scope.sliderControl = {};
 }]);
 
-LandingApp.controller('35mmBwController', ['$scope', function($scope) {
+LandingApp.controller('35mmBlackWhite', ['$scope', function($scope) {
   $scope.pictures = pictures.filter(function(picture) {
     if (picture.type === '35mm' && picture.color === 'Black & White') {
       return picture;
@@ -133,7 +128,7 @@ LandingApp.controller('35mmBwController', ['$scope', function($scope) {
   $scope.sliderControl = {};
 }]);
 
-LandingApp.controller('35mmCouleurController', ['$scope', function($scope) {
+LandingApp.controller('35mmColor', ['$scope', function($scope) {
   $scope.pictures = pictures.filter(function(picture) {
     if (picture.type === '35mm' && picture.color === 'Couleur') {
       return picture;
@@ -142,7 +137,7 @@ LandingApp.controller('35mmCouleurController', ['$scope', function($scope) {
   $scope.sliderControl = {};
 }]);
 
-LandingApp.controller('FilmController', ['$scope', function($scope) {
+LandingApp.controller('Film', ['$scope', function($scope) {
   $scope.pictures = pictures.filter(function(picture) {
     if (picture.type === 'Film') {
       return picture;
@@ -151,7 +146,7 @@ LandingApp.controller('FilmController', ['$scope', function($scope) {
   $scope.sliderControl = {};
 }]);
 
-LandingApp.controller('FilmCourtController', ['$scope', function($scope) {
+LandingApp.controller('FilmShort', ['$scope', function($scope) {
   $scope.pictures = pictures.filter(function(picture) {
     if (picture.type === 'Film' && picture.color === 'Court') {
       return picture;
@@ -160,7 +155,7 @@ LandingApp.controller('FilmCourtController', ['$scope', function($scope) {
   $scope.sliderControl = {};
 }]);
 
-LandingApp.controller('DigitaleController', ['$scope', function($scope){
+LandingApp.controller('Digital', ['$scope', function($scope){
   $scope.pictures = pictures.filter(function(picture) {
     if (picture.type === "Digitale") {
       return picture;
@@ -168,7 +163,7 @@ LandingApp.controller('DigitaleController', ['$scope', function($scope){
   });
 }]);
 
-LandingApp.controller('DigitaleIphoneController', ['$scope', function($scope){
+LandingApp.controller('DigitalIphone', ['$scope', function($scope){
   $scope.pictures = pictures.filter(function(picture) {
     if (picture.type === "Digitale" && picture.color === "iPhone") {
       return picture;
@@ -176,7 +171,7 @@ LandingApp.controller('DigitaleIphoneController', ['$scope', function($scope){
   });
 }]);
 
-LandingApp.controller('DigitaleAutreController', ['$scope', function($scope){
+LandingApp.controller('DigitalOther', ['$scope', function($scope){
   $scope.pictures = pictures.filter(function(picture) {
     if (picture.type === "Digitale" && picture.color === "Autre") {
       return picture;
@@ -184,43 +179,43 @@ LandingApp.controller('DigitaleAutreController', ['$scope', function($scope){
   });
 }]);
 
-LandingApp.controller('ConnectionController', ['$scope', function($scope){
+LandingApp.controller('Connection', ['$scope', function($scope){
 
 }]);
 
-LandingApp.controller('RegistrationController', ['$scope', function($scope){
+LandingApp.controller('Registration', ['$scope', function($scope){
 
 }]);
 
-pictures = [
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Black & White', date: '28 Novembre, 2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: '120mm', color: 'Black & White', date: '28 Novembre, 2015'},
-  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: '120mm', color: 'Couleur', date: '28 Novembre, 2015'},
-  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: '120mm', color: 'Couleur', date: '28 Novembre, 2015'},
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: '35mm', color: 'Black & White', date: '28 Novembre, 2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: '35mm', color: 'Black & White', date: '28 Novembre, 2015'},
-  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: '35mm', color: 'Couleur', date: '28 Novembre, 2015'},
-  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: '35mm', color: 'Couleur', date: '28 Novembre, 2015'},
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Film', color: '', date: '28 Novembre, 2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Film', color: '', date: '28 Novembre, 2015'},
-  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: 'Film', color: 'Court', date: '28 Novembre, 2015'},
-  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: 'Film', color: 'Court', date: '28 Novembre, 2015'},
-  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
-  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
-  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
-  {url: 'img/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/color1.jpg', name: 'Girl in The Bus', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
-  {url: 'img/color2.jpg', name: 'Fuzzy Peach', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+var pictures = [
+  {url: './images/sample1.jpg', name: 'New York Subway', type: '120mm', color: 'Black & White', date: '28 Novembre, 2015'},
+  {url: './images/picture2.jpg', name: 'Black & White Hot Chick', type: '120mm', color: 'Black & White', date: '28 Novembre, 2015'},
+  {url: './images/color1.jpg', name: 'Girl in The Bus', type: '120mm', color: 'Couleur', date: '28 Novembre, 2015'},
+  {url: './images/color2.jpg', name: 'Fuzzy Peach', type: '120mm', color: 'Couleur', date: '28 Novembre, 2015'},
+  {url: './images/sample1.jpg', name: 'New York Subway', type: '35mm', color: 'Black & White', date: '28 Novembre, 2015'},
+  {url: './images/picture2.jpg', name: 'Black & White Hot Chick', type: '35mm', color: 'Black & White', date: '28 Novembre, 2015'},
+  {url: './images/color1.jpg', name: 'Girl in The Bus', type: '35mm', color: 'Couleur', date: '28 Novembre, 2015'},
+  {url: './images/color2.jpg', name: 'Fuzzy Peach', type: '35mm', color: 'Couleur', date: '28 Novembre, 2015'},
+  {url: './images/sample1.jpg', name: 'New York Subway', type: 'Film', color: '', date: '28 Novembre, 2015'},
+  {url: './images/picture2.jpg', name: 'Black & White Hot Chick', type: 'Film', color: '', date: '28 Novembre, 2015'},
+  {url: './images/color1.jpg', name: 'Girl in The Bus', type: 'Film', color: 'Court', date: '28 Novembre, 2015'},
+  {url: './images/color2.jpg', name: 'Fuzzy Peach', type: 'Film', color: 'Court', date: '28 Novembre, 2015'},
+  {url: './images/color1.jpg', name: 'Girl in The Bus', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: './images/color2.jpg', name: 'Fuzzy Peach', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: './images/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: './images/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: './images/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: './images/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: './images/color1.jpg', name: 'Girl in The Bus', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: './images/color2.jpg', name: 'Fuzzy Peach', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: './images/color1.jpg', name: 'Girl in The Bus', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: './images/color2.jpg', name: 'Fuzzy Peach', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: './images/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: './images/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'Autre', date: '28 Novembre, 2015'},
+  {url: './images/sample1.jpg', name: 'New York Subway', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: './images/picture2.jpg', name: 'Black & White Hot Chick', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: './images/color1.jpg', name: 'Girl in The Bus', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
+  {url: './images/color2.jpg', name: 'Fuzzy Peach', type: 'Digitale', color: 'iPhone', date: '28 Novembre, 2015'},
 ];
 
 users = [
