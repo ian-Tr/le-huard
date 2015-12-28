@@ -13,11 +13,9 @@
             media = mediaService.getData();
 
         vm.sliderControl = {};
-        
+
         vm.pictures = media.filter(function(media) {
-            if (media.type === '120mm') {
-                return media;
-            }
+            return (media.type === '120mm');
         });
     }
 })();

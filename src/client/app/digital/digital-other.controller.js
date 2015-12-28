@@ -21,9 +21,7 @@
             _digitalOtherPictures = media.filter(byTypeDigitalOther);
 
             function byTypeDigitalOther(media) {
-                if (media.type === 'Digitale' && media.color === 'Autre') {
-                    return media;
-                }
+                return (media.type === 'Digitale' && media.color === 'Autre');
             }
 
             return _digitalOtherPictures;

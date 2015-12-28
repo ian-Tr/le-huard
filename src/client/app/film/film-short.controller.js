@@ -15,9 +15,7 @@
         vm.sliderControl = {};
 
         vm.pictures = media.filter(function(media) {
-            if (media.type === 'Film' && media.color === 'Court') {
-                return media;
-            }
+            return (media.type === 'Film' && media.color === 'Court');
         });
     }
 })();

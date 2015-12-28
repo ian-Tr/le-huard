@@ -29,6 +29,5 @@
         function getData() {
             return media;
         }
-
     }
 })();

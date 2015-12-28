@@ -21,9 +21,7 @@
             _digitalIphonePictures = media.filter(byTypeDigitalIphone);
 
             function byTypeDigitalIphone(media) {
-                if (media.type === 'Digitale' && media.color === 'iPhone') {
-                    return media;
-                }
+                return (media.type === 'Digitale' && media.color === 'iPhone');
             }
 
             return _digitalIphonePictures;
