@@ -4,7 +4,7 @@
 		<div deckgrid class="deckgrid" source="pictures">
 	    <div class="card">
 				<div class="card-image">
-	    		<img modal src="" ng-src="{{card.url}}" alt="" ng-attr-href="#modal{{card.$index}}" class="slide responsive-img">
+	    		<img modal ng-src="{{card.url}}" alt="" ng-attr-href="#modal{{card.$index}}" class="slide responsive-img">
 				</div>
 	    </div>
 		</div>
@@ -52,7 +52,7 @@
         <div class="row">
           <form action="">
             <div class="input-field">
-              <input type="text" ng-attr-id="textarea{{$index}}" class="validate"></input>
+              <input type="text" ng-attr-id="textarea{{$index}}" class="validate"/>
               <label ng-attr-for="textarea{{$index}}">Add Comment...</label>
             </div>
           </form>

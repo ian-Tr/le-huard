@@ -1,0 +1,12 @@
+[
+    {
+        username: 'admin',
+        email: 'admin@admin.com',
+        password: 'admin'
+    },
+    {
+        username: 'eloiqs',
+        email: 'eloi.qs@outlook.com',
+        password: 'password'
+    }
+]
