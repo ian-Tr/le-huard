@@ -1,13 +1,13 @@
 <section class="row">
   <a href="#/" class="close-view right waves-effect waves-light btn"><i class="material-icons">clear</i></a>
-  <div slider indicators="true" control="sliderControl">
+  <div slider indicators="true" control="vm.sliderControl">
     <ul class="slides">
       <li ng-repeat="picture in vm.pictures">
-        <img modal ready="sliderControl.pause()" complete="sliderControl.start()" class="slide" ng-attr-href="#modal{{$index}}" ng-src="{{picture.url}}" alt="">
+        <img modal ready="vm.sliderControl.pause()" complete="vm.sliderControl.start()" class="slide" ng-attr-href="#modal{{$index}}" ng-src="{{picture.url}}" alt="">
         <div class="col s12 slider-header">
           <div class="row">
-            <a href="" ng-click="sliderControl.prev()"><i class="slider-controls material-icons left">arrow_back</i></a>
-            <a href="" ng-click="sliderControl.next()"><i class="slider-controls material-icons right">arrow_forward</i></a>
+            <a href="" ng-click="vm.sliderControl.prev()"><i class="slider-controls material-icons left">arrow_back</i></a>
+            <a href="" ng-click="vm.sliderControl.next()"><i class="slider-controls material-icons right">arrow_forward</i></a>
             <h2>{{picture.name}}</h2>
           </div>
         </div>
