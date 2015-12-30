@@ -5,14 +5,12 @@
         .module('LandingApp')
         .controller('Digital', _digital);
 
-    _digital.$inject = ['mediaService'];
+    _digital.$inject = ['mediaService', '$scope'];
 
-    function _digital(mediaService) {
+    function _digital(mediaService, $scope) {
         /*jshint validthis: true */
         var vm = this,
             media = mediaService.getData();
-
-        vm.sliderControl = {};
 
         vm.pictures = media.filter(function(media) {
             return (media.type === 'Digitale');

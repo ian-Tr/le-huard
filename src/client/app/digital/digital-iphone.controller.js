@@ -12,19 +12,8 @@
         var vm = this,
             media = mediaService.getData();
 
-        vm.pictures = _getDigitalIphonePictures;
-        vm.sliderControl = {};
-
-        function _getDigitalIphonePictures() {
-            var _digitalIphonePictures = [];
-
-            _digitalIphonePictures = media.filter(byTypeDigitalIphone);
-
-            function byTypeDigitalIphone(media) {
-                return (media.type === 'Digitale' && media.color === 'iPhone');
-            }
-
-            return _digitalIphonePictures;
-        }
+        vm.pictures = media.filter(function(media) {
+            return (media.type === 'Digitale');
+        });
     }
 })();

@@ -12,19 +12,8 @@
         var vm = this,
             media = mediaService.getData();
 
-        vm.pictures = _getDigitalOtherPictures;
-        vm.sliderControl = {};
-
-        function _getDigitalOtherPictures() {
-            var _digitalOtherPictures = [];
-
-            _digitalOtherPictures = media.filter(byTypeDigitalOther);
-
-            function byTypeDigitalOther(media) {
-                return (media.type === 'Digitale' && media.color === 'Autre');
-            }
-
-            return _digitalOtherPictures;
-        }
+        vm.pictures = media.filter(function(media) {
+            return (media.type === 'Digitale');
+        });
     }
 })();
