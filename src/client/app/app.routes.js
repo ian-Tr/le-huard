@@ -65,19 +65,19 @@
             })
             .state('Digital', {
                 url: '/digital',
-                templateUrl: 'app/portfolio/digital.html',
+                templateUrl: 'app/digital/digital.html',
                 controller: 'Digital',
                 controllerAs: 'vm'
             })
             .state('DigitalIphone', {
                 url: '/digital/iphone',
-                templateUrl: 'app/portfolio/digital.html',
+                templateUrl: 'app/digital/digital.html',
                 controller: 'DigitalIphone',
                 controllerAs: 'vm'
             })
             .state('DigitalOther', {
                 url: '/digital/other',
-                templateUrl: 'app/portfolio/digital.html',
+                templateUrl: 'app/digital/digital.html',
                 controller: 'DigitalOther',
                 controllerAs: 'vm'
             })
