@@ -1,34 +1,35 @@
 /************************** Common to all pages *******************************/
+
 .primary {
-	color: #212121;
+    color: #212121;
 }
-.secondary	{
-	color: #F5F5F5;
+.secondary {
+    color: #F5F5F5;
 }
 .tertiary {
-	color: #9c9494;
+    color: #9c9494;
 }
 html, body {
-	height: 100vh;
-	width: 100%;
-	margin: 0;
-	overflow-y: hidden;
-	background-color: #212121;
-	font-family: 'Raleway', sans-serif;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    overflow-y: hidden;
+    background-color: #212121;
+    font-family: 'Raleway', sans-serif;
 }
 body {
-	color: #F5F5F5;
-	background-color: #9c9494;
+    color: #F5F5F5;
+    background-color: #9c9494;
 }
 .card-main.card {
-	background-color: #212121;
-	font-family: 'Raleway', sans-serif;
+    background-color: #212121;
+    font-family: 'Raleway', sans-serif;
 }
 section {
-	background-color: #9c9494;
+    background-color: #212121;
 }
 .row-no-margin {
-	margin-bottom: 0px !important;
+    margin-bottom: 0px !important;
 }
 .wrapper {
     bottom: 0;
@@ -37,294 +38,359 @@ section {
     padding: 20px;
     background-color: #9c9494;
 }
-.wrapper,
-.wrapper > .row,
-.wrapper > .row > .slider,
-.wrapper > .row > .slider > .slides,
-.wrapper > .row > .slider > .slides .card-image {
-	height: 100% !important;
-	width: 100%;
-	margin: 0;
+.wrapper, .wrapper > .row, .wrapper > .row > .slider, .wrapper > .row > .slider > .slides, .wrapper > .row > .slider > .slides .card-image {
+    height: 100% !important;
+    width: 100%;
+    margin: 0;
 }
 blockquote {
-	border-left-color: #9c9494;
+    border-left-color: #9c9494;
 }
 a {
-	color: white;
+    color: #F5F5F5;
 }
 .full-height {
-	height: 100vh;
+    height: 100%;
 }
 .absolute-right {
-	position: absolute;
-	right: 0;
-	top: 10px;
+    position: absolute;
+    right: 0;
+    top: 10px;
 }
 .logo-font {
-	font-size: 5rem;
-	font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif;
 }
 a.logo-main {
-	font-size: 10rem !important;
-	font-family: 'Playfair Display', serif;
+    font-size: 10rem !important;
+    font-family: 'Playfair Display', serif;
 }
 h2, h3, h4, h5 {
-	font-family: 'Raleway', sans-serif;
-	font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
 }
 h2 {
-	font-weight: 700;
+    font-weight: 700;
 }
 .btn, .btn-large {
-	background-color:  #212121;
+    background-color: #212121;
 }
 .btn:hover, .btn-large:hover {
-	background-color: #9c9494;
+    background-color: #9c9494;
 }
 .dropdown-content {
-	background-color: transparent;
-	box-shadow: none;
+    background-color: transparent;
+    box-shadow: none;
 }
 .close-view {
-	background-color: rgba(245, 245, 245, 0.5);
-	z-index: 3;
-	padding: 0;
-	border-radius: 0;
-	box-shadow: none;
+    background-color: #9c9494;
+    z-index: 3;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
-.close-view:hover {
-	background-color: rgba(245, 245, 245, 0.7);
+.close-view.btn:hover {
+  background-color: #9c9494;
+  box-shadow: none;
+}
+.close-view:hover > .material-icons {    
+    transform: rotate(180deg);
 }
 .close-view > .material-icons {
-	color: black;
-	font-size: 3rem;
+    color: #212121;
+    font-size: 3rem;
+    transition: all .9s ease-out;
 }
 .modal, .modal-content {
-	color: #212121;
+    color: #212121;
 }
-.input-field input:focus + label {
-	color: black !important;
+.input-field input:focus + label, .input-field textarea:focus + label {
+    color: #212121 !important;
 }
-.input-field input:focus {
-	border-bottom: 1px solid black !important;
-	box-shadow: 0 1px 0 0 black !important;
+.input-field input:focus, .input-field textarea:focus {
+    border-bottom: 1px solid #212121 !important;
+    box-shadow: 0 1px 0 0 #212121 !important;
 }
 .input-field .prefix.active {
-	color: black;
+    color: #212121;
 }
 .card-content {
-	overflow: hidden;
+    overflow: hidden;
 }
 .center-element {
-	margin: 0 auto;
+    margin: 0 auto;
 }
+
 /* fadeIn */
+
 @keyframes fadeIn {
-	from 	{ opacity: 0;}
-	to 		{ opacity: 1;}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 @-moz-keyframes fadeIn {
-	from 	{ opacity: 0;}
-	to 		{ opacity: 1;}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 @-webkit-keyframes fadeIn {
-	from 	{ opacity: 0;}
-	to 		{ opacity: 1;}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
+
 /* fadeOut */
+
 @keyframes fadeOut {
-	from 	{ opacity: 1;}
-	to 		{ opacity: 0;}
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 @-moz-keyframes fadeOut {
-	from 	{ opacity: 1;}
-	to 		{ opacity: 0;}
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 @-webkit-keyframes fadeOut {
-	from 	{ opacity: 1;}
-	to 		{ opacity: 0;}
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 .ng-enter {
-	animation: fadeIn 1s both ease;
-	z-index: 9999;
+    animation: fadeIn 1s both ease;
+    z-index: 9999;
 }
 .ng-leave {
-	animation: fadeOut 1s both ease;
-	z-index: 8888;
+    animation: fadeOut 1s both ease;
+    z-index: 8888;
 }
+
 /******************************************************************************/
+
 
 /* Langing Page */
+
 .connect-btn {
-	background-color: transparent;
-	border-radius: none;
-	box-shadow: none;
-	padding-right: 10px;
-	font-weight: bold;
+    background-color: transparent;
+    border-radius: none;
+    box-shadow: none;
+    padding-right: 10px;
+    font-weight: bold;
 }
 .connect-btn i {
-	margin-left: 5px;
+    margin-left: 5px;
 }
 .connect-btn:hover {
-	background-color: transparent;
-	box-shadow: none;
+    background-color: transparent;
+    box-shadow: none;
 }
 nav {
-	background-color: transparent;
-	box-shadow: none;
+    background-color: transparent;
+    box-shadow: none;
 }
 header a.dropdown-link {
-	font-size: 1rem !important;
-	color: #F5F5F5;
+    font-size: 1rem !important;
+    color: #F5F5F5;
 }
 header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
-	color: #F5F5F5 !important;
-	font-size: 1.6rem !important;
+    color: #F5F5F5 !important;
+    font-size: 1.6rem !important;
 }
 .sliding-middle-out {
-	display: inline-block;
-	position: relative;
-	height: 36px;
-	line-height: 36px;
-	text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    height: 36px;
+    line-height: 36px;
+    text-transform: uppercase;
 }
 .sliding-middle-out:after {
-	content: '';
-	display: block;
-	margin: auto;
-	height: 3px;
-	width: 0px;
-	background: transparent;
-	transition: width .5s ease, background-color .5s ease;
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
 }
 .sliding-middle-out:hover:after {
-	width: 100%;
-	background: #F5F5F5;
+    width: 100%;
+    background: #F5F5F5;
 }
 nav ul li:hover {
-	background-color: transparent !important;
+    background-color: transparent !important;
 }
 .dropdown-content {
-	overflow: inherit;
+    overflow: inherit;
 }
 .dropdown-content li>a {
-	padding-bottom: 0;
+    padding-bottom: 0;
 }
 header {
-	background-color: #212121;
+    background-color: #212121;
 }
 .card-action {
-	overflow: hidden;
+    overflow: hidden;
 }
+
 /******************************************************************************/
+
 
 /************************* Portfolio pages (with sliders) *********************/
+
 .slider .indicators .indicator-item {
-	background-color: #9c9494;
+    background-color: #9c9494;
 }
 .slider .indicators .indicator-item.active {
-	background-color: #F5F5F5;
+    background-color: #F5F5F5;
 }
 .slider-header {
-	position: absolute;
-	z-index: 3;
-	bottom: 0;
-	background-color: rgba(33, 33, 33, 0.8);
-	text-align: center;
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    background-color: rgba(33, 33, 33, 0.8);
+    text-align: center;
 }
 .slide {
-	cursor: pointer;
+    cursor: pointer;
 }
 .slider .indicators {
-	z-index: 5;
-	bottom: 20vh;
+    z-index: 5;
+    bottom: 20vh;
 }
 .slider-controls {
-	font-size: 4rem;
-	color: #F5F5F5;
-}
-.modal-portfolio.modal{
-	overflow-y: hidden;
-	height: 100%;
-	background-color: #F5F5F5;
-}
-.modal-portfolio.modal-content, .modal-portfolio.modal-content > .row {
-	height: 100%;
-	padding: 0 !important;
-}
-.modal-img-container {
-	padding-top: 24px !important;
-	padding-left: 24px !important;
-}
-.modal-portfolio.modal-main {
-	height: inherit;
-	overflow-y: scroll;
-	padding-right: 24px !important;
-	padding-top: 24px !important;
+    font-size: 4rem;
+    color: #F5F5F5;
 }
 .modal-portfolio.modal {
-	width: 60% !important;
-	max-height: 70% !important;
+    overflow-y: hidden;
+    height: 100%;
+    background-color: #F5F5F5;
+}
+.modal-portfolio.modal-content, .modal-portfolio.modal-content > .row {
+    height: 100%;
+    padding: 0 !important;
+}
+.modal-img-container {
+    padding-top: 24px !important;
+    padding-left: 24px !important;
+}
+.modal-portfolio.modal-main {
+    height: inherit;
+    overflow-y: scroll;
+    padding-right: 24px !important;
+    padding-top: 24px !important;
+}
+.modal-portfolio.modal {
+    width: 60% !important;
+    max-height: 70% !important;
 }
 .modal-portfolio.modal h4, .modal-portfolio.modal h5 {
-	display: inline-block;
-
+    display: inline-block;
 }
+
 /******************************************************************************/
 
+
 /****************************** Digitale section ******************************/
+
 .deckgrid {
-	overflow-y: auto;
-	height: 100%;
+    overflow-y: auto;
+    height: 100%;
 }
 .digital-card .card-content {
-	padding: 0;
+    padding: 0;
 }
 .digital-content {
-	height: 100%;
-	padding-top: 5% !important;
-	padding-bottom: 5% !important;
+    height: 100%;
+    padding-top: 5% !important;
+    padding-bottom: 5% !important;
 }
 .deckgrid[deckgrid]::before {
     /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
     content: '3 .col.s4';
-    font-size: 0; /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
+    font-size: 0;
+    /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
     visibility: hidden;
 }
 @media only screen and (min-width: 601px) {
-	.deckgrid[deckgrid]::before {
-	    /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
-	    content: '4 .col.m3';
-	    font-size: 0; /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
-	    visibility: hidden;
-	}
+    .deckgrid[deckgrid]::before {
+        /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
+        content: '4 .col.m3';
+        font-size: 0;
+        /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
+        visibility: hidden;
+    }
 }
 @media only screen and (min-width: 993px) {
-	.deckgrid[deckgrid]::before {
-	    /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
-	    content: '6 .col.l2';
-	    font-size: 0; /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
-	    visibility: hidden;
-	}
+    .deckgrid[deckgrid]::before {
+        /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
+        content: '6 .col.l2';
+        font-size: 0;
+        /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
+        visibility: hidden;
+    }
 }
 
 /******************************************************************************/
+
 
 /******************************** Contact page ********************************/
+.contact-page h5 {
+    font-weight: normal;
+}
+.contact-btn {
+    background-color: #F5F5F5;
+    color: #212121;
+}
+.contact-page .input-field input:focus + label, .input-field textarea:focus + label {
+    color: #F5F5F5 !important;
+}
+.contact-page .input-field input:focus, .input-field textarea:focus {
+    border-bottom: 1px solid #F5F5F5 !important;
+    box-shadow: 0 1px 0 0 #F5F5F5 !important;
+}
+.contact-page .input-field .prefix.active {
+    color: #F5F5F5;
+}
 
 /******************************************************************************/
 
-/******************************** Connection page *****************************/
+
+/******************************** Connection/Registration pages *****************************/
+
 .connection-card {
-	color: #212121;
+    color: #212121;
+    background-color: #F5F5F5;
+}
+.connection-card h3 {
+    padding-bottom: 10px;
 }
 .card-main a:not(.btn, .material-icons) {
-	color: #212121;
+    color: #212121;
 }
-.connection-title {
-	margin-top: 0;
+.link-btn {
+  color: #F5F5F5;
 }
-.connection-card {
-	margin-bottom: 0;
+.white-btn {
+  background-color: #F5F5F5;
+  color: #212121;
 }
+
 /******************************************************************************/
