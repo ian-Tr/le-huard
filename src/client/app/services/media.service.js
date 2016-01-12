@@ -18,7 +18,7 @@
         function loadData() {
             var defer = $q.defer();
 
-            $http.get('api/media').then(function(response) {
+            $http.get('/src/server/api/media.json').then(function(response) {
                 media = response.data;
                 defer.resolve();
             });
