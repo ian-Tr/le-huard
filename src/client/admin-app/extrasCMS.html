@@ -1,0 +1,34 @@
+===at the start of every <body> and contains all the main content of the page, including the nav==========
+
+  <!-- main container -->
+  <div class="row full-height row-no-margin">
+    <!-- all the body shit goes here, including the nav -->
+  </div>
+
+=============================================================================================
+
+
+
+
+
+===================================at the bottom of every page before </body>================
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+
+  <script>
+    $(".button-collapse").sideNav();
+    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+    //$('.collapsible').collapsible();
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+  </script>
+
+  ===========================================================================================

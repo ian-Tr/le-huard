@@ -1,0 +1,61 @@
+        <!-- main content -->
+        <div class="center-align">
+          <div class="card col s10 m10 l4 offset-s1 offset-m1 offset-l4">
+            <div class="row">
+              <h5>Manage Post</h5>
+            </div>
+
+            <form id="ManagePostForm" action="" onsubmit="" method="Post">
+              <div class="row">
+                <div class="input-field col s10 offset-s1">
+                  <input id="name" name="username" type="text" class="validate" required>
+                  <label for="username">Title</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s10 m5 l5 offset-s1 offset-m1 offset-l1">
+                  <select class="browser-default" name="mediumDDL" required>
+                    <option value="" disabled selected>Medium...</option>
+                    <option value="1">120mm</option>
+                    <option value="2">35mm</option>
+                    <option value="3">Digitale</option>
+                    <option value="4">Film</option>
+                  </select>
+                </div>
+                <div class="input-field col s10 m5 l5 offset-s1">
+                  <select class="browser-default" name="typeDDL" required>
+                    <option value="" disabled selected>Type...</option>
+                    <optgroup label="120mm & 35mm">
+                      <option value="1">Couleur</option>
+                      <option value="2">B & W</option>
+                    </optgroup>
+                    <optgroup label="Digitale">
+                      <option value="3">iPhone</option>
+                      <option value="4">Autre</option>
+                    </optgroup>
+                    <optgroup label="Film">
+                      <option value="5">Short</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s10 offset-s1">
+                  <input id="date" name="date" type="date" class="datepicker" required>
+                  <label for="date">Date</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s4 m4 l3 offset-s1 offset-m2 offset-l3">
+                  <button class="btn waves-effect waves-light" type="submit">Save</button>
+                </div>
+                <div class="input-field col s4 m4 l3 offset-s1">
+                  <button class="btn waves-effect waves-light" type="reset">Delete</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
