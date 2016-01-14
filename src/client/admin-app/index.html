@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="AdminApp">
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/src/client/styles/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="/src/client/styles/stylesheet.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="/src/client/styles/stylesheetCMS.css" media="screen,projection" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <title>Le Huard</title>
+</head>
+
+<body>
+    <div class="full-height row row-no-margin">
+        <nav>
+            <ul id="slide-out" class="side-nav fixed">
+                <li><a id="side-nav-header" href="/">Le Huard</a></li>
+                <li><a id="side-nav-username" href="#/profile">alexH</a></li>
+                <li><a class="waves-effect" href="#/profile">Account Settings</a></li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li>
+                            <a class="collapsible-header waves-effect">Admin Actions<i class="mdi-navigation-button-drop-down"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a class="waves-effect" href="#/new-post">New Post</a></li>
+                                    <li><a class="waves-effect" href="#/manage">Manage Posts</a></li>
+                                    <!-- clicking a post will lead to managePost.html (not included in nav for obv reasons) -->
+                                    <li><a class="waves-effect" href="#/delete-user">Delete User</a></li>
+                                    <li><a class="waves-effect" href="#/stats">Stats</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- icon for sliding out the sidenav on mobile -->
+            <a id="side-nav-icon" href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        </nav>
+
+        <div class="absolute-right dc">
+            <a href="index.html" class="btn connect-btn">
+              <span class="sliding-middle-out">
+                Deconnecter
+              </span>
+            </a>
+        </div>
+
+        <div class="" ui-view></div>
+    </div>
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/src/client/libs/angular-materialize.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-deckgrid/angular-deckgrid.js"></script>
+    <script type="text/javascript" src="/bower_components/Materialize/bin/materialize.js"></script>
+    <script type="text/javascript" src="/src/client/admin-app/app.module.js"></script>
+    <script type="text/javascript" src="/src/client/admin-app/services/user.service.js"></script>
+    <script type="text/javascript" src="/src/client/admin-app/app.run.js"></script>
+    <script type="text/javascript" src="/src/client/admin-app/profile/profile.controller.js"></script>
+    <script type="text/javascript" src="/src/client/admin-app/app.routes.js"></script>
+    <script>
+        $(".button-collapse").sideNav();
+        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+        //$('.collapsible').collapsible();
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+    </script>
+</body>
+
+</html>
