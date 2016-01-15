@@ -7,79 +7,163 @@
 
     configRoutes.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-    function configRoutes($stateProvider, $urlRouterProvider, mediaService) {
+    function configRoutes($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
             .state('Home', {
                 url: '/',
-                templateUrl: '/src/client/landing-app/landing/landing.html'
+                templateUrl: '/src/client/landing-app/landing/landing.html',
+                resolve: {
+                    init: function(mediaService) {
+                        if (mediaService.getData() === null) {
+                            return mediaService.loadData();
+                        }
+                    }
+                }
             })
             .state('120mm', {
                 url: '/120mm',
                 templateUrl: '/src/client/landing-app/portfolio/portfolio.html',
                 controller: '120mm',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    init: function(mediaService) {
+                        if (mediaService.getData() === null) {
+                            return mediaService.loadData();
+                        }
+                    }
+                }
             })
             .state('120mmBlackWhite', {
                 url: '/120mm/bw',
                 templateUrl: '/src/client/landing-app/portfolio/portfolio.html',
                 controller: '120mmBlackWhite',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    init: function(mediaService) {
+                        if (mediaService.getData() === null) {
+                            return mediaService.loadData();
+                        }
+                    }
+                }
             })
             .state('120mmColor', {
                 url: '/120mm/color',
                 templateUrl: '/src/client/landing-app/portfolio/portfolio.html',
                 controller: '120mmColor',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    init: function(mediaService) {
+                        if (mediaService.getData() === null) {
+                            return mediaService.loadData();
+                        }
+                    }
+                }
             })
             .state('35mm', {
                 url: '/35mm',
                 templateUrl: '/src/client/landing-app/portfolio/portfolio.html',
                 controller: '35mm',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    init: function(mediaService) {
+                        if (mediaService.getData() === null) {
+                            return mediaService.loadData();
+                        }
+                    }
+                }
             })
             .state('35mmBlackWhite', {
                 url: '/35mm/bw',
                 templateUrl: '/src/client/landing-app/portfolio/portfolio.html',
                 controller: '35mmBlackWhite',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    init: function(mediaService) {
+                        if (mediaService.getData() === null) {
+                            return mediaService.loadData();
+                        }
+                    }
+                }
             })
             .state('35mmColor', {
                 url: '/35mm/color',
                 templateUrl: '/src/client/landing-app/portfolio/portfolio.html',
                 controller: '35mmColor',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    init: function(mediaService) {
+                        if (mediaService.getData() === null) {
+                            return mediaService.loadData();
+                        }
+                    }
+                }
             })
             .state('Film', {
                 url: '/film',
                 templateUrl: '/src/client/landing-app/portfolio/portfolio.html',
                 controller: 'Film',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    init: function(mediaService) {
+                        if (mediaService.getData() === null) {
+                            return mediaService.loadData();
+                        }
+                    }
+                }
             })
             .state('FilmShort', {
                 url: '/film/short',
                 templateUrl: '/src/client/landing-app/portfolio/portfolio.html',
                 controller: 'FilmShort',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    init: function(mediaService) {
+                        if (mediaService.getData() === null) {
+                            return mediaService.loadData();
+                        }
+                    }
+                }
             })
             .state('Digital', {
                 url: '/digital',
                 templateUrl: '/src/client/landing-app/digital/digital.html',
                 controller: 'Digital',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    init: function(mediaService) {
+                        if (mediaService.getData() === null) {
+                            return mediaService.loadData();
+                        }
+                    }
+                }
             })
             .state('DigitalIphone', {
                 url: '/digital/iphone',
                 templateUrl: '/src/client/landing-app/digital/digital.html',
                 controller: 'DigitalIphone',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    init: function(mediaService) {
+                        if (mediaService.getData() === null) {
+                            return mediaService.loadData();
+                        }
+                    }
+                }
             })
             .state('DigitalOther', {
                 url: '/digital/other',
                 templateUrl: '/src/client/landing-app/digital/digital.html',
                 controller: 'DigitalOther',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    init: function(mediaService) {
+                        if (mediaService.getData() === null) {
+                            return mediaService.loadData();
+                        }
+                    }
+                }
             })
             .state('Contact', {
                 url: '/contact',

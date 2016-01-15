@@ -14,8 +14,7 @@
 
         vm.username = user.username;
         vm.email = user.email;
-        vm.description = user.description;
-        vm.password = user.password;
+        vm.description = user.description;        
 
     }
 

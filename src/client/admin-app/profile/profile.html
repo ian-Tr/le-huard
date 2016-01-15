@@ -8,14 +8,14 @@
             <form id="ProfileForm" action="" onsubmit="" method="Post">
               <div class="row">
                 <div class="input-field col s10 offset-s1">
-                  <input id="email" name="email" type="email" class="validate" required>
+                  <input ng-model="vm.email" id="email" name="email" type="email" class="validate" required>
                   <label for="email">Email</label>
                 </div>
               </div>
 
               <div class="row">
                 <div class="input-field col s10 offset-s1">
-                  <textarea id="about" name="about" class="materialize-textarea"></textarea>
+                  <textarea ng-model="vm.description" id="about" name="about" class="materialize-textarea"></textarea>
                   <label for="about">About me</label>
                 </div>
               </div>
@@ -35,7 +35,7 @@
             <form id="ChangePasswordForm" action="" onsubmit="" method="Post">
               <div class="row">
                 <div class="input-field col s10 offset-s1">
-                  <input id="currentPassword" name="currentPassword" type="password" class="validate" required>
+                  <input ng-model="" id="currentPassword" name="currentPassword" type="password" class="validate" required>
                   <label for="currentPassword">Current password</label>
                 </div>
               </div>
