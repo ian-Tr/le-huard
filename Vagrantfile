@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "package.box"
   config.vm.hostname = "le-huard.dev"
   config.vm.network :private_network, ip: "192.168.56.103"
   config.vm.synced_folder "./", "/var/www/le-huard.dev", id: "web-root",
