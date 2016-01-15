@@ -3,11 +3,11 @@
 
     angular
         .module('AdminApp')
-        .factory('userService', _userService);
+        .factory('userService', userService);
 
-    _userService.$inject = ['$http', '$q'];
+    userService.$inject = ['$http', '$q'];
 
-    function _userService($http, $q) {
+    function userService($http, $q) {
         var user = null;
 
         return {

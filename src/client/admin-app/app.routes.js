@@ -15,7 +15,14 @@
                 url: '/profile',
                 templateUrl: '/src/client/admin-app/profile/profile.html',
                 controller: 'Profile',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    init: function(userService) {
+                        if (userService.getData() === null) {                            
+                            return userService.loadData();
+                        }
+                    }
+                }
             })
             .state('Stats', {
                 url: '/stats',
