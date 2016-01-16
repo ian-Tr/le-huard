@@ -3,7 +3,7 @@
 
     angular
         .module('LandingApp')
-        .factory('mediaService', mediaService);
+        .factory('MediaService', mediaService);
 
     mediaService.$inject = ['$http', '$q'];
 

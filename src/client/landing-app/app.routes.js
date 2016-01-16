@@ -15,9 +15,9 @@
                 url: '/',
                 templateUrl: '/src/client/landing-app/landing/landing.html',
                 resolve: {
-                    init: function(mediaService) {
-                        if (mediaService.getData() === null) {
-                            return mediaService.loadData();
+                    init: function(MediaService) {
+                        if (MediaService.getData() === null) {
+                            return MediaService.loadData();
                         }
                     }
                 }
@@ -28,9 +28,9 @@
                 controller: '120mm',
                 controllerAs: 'vm',
                 resolve: {
-                    init: function(mediaService) {
-                        if (mediaService.getData() === null) {
-                            return mediaService.loadData();
+                    init: function(MediaService) {
+                        if (MediaService.getData() === null) {
+                            return MediaService.loadData();
                         }
                     }
                 }
@@ -41,9 +41,9 @@
                 controller: '120mmBlackWhite',
                 controllerAs: 'vm',
                 resolve: {
-                    init: function(mediaService) {
-                        if (mediaService.getData() === null) {
-                            return mediaService.loadData();
+                    init: function(MediaService) {
+                        if (MediaService.getData() === null) {
+                            return MediaService.loadData();
                         }
                     }
                 }
@@ -54,9 +54,9 @@
                 controller: '120mmColor',
                 controllerAs: 'vm',
                 resolve: {
-                    init: function(mediaService) {
-                        if (mediaService.getData() === null) {
-                            return mediaService.loadData();
+                    init: function(MediaService) {
+                        if (MediaService.getData() === null) {
+                            return MediaService.loadData();
                         }
                     }
                 }
@@ -67,9 +67,9 @@
                 controller: '35mm',
                 controllerAs: 'vm',
                 resolve: {
-                    init: function(mediaService) {
-                        if (mediaService.getData() === null) {
-                            return mediaService.loadData();
+                    init: function(MediaService) {
+                        if (MediaService.getData() === null) {
+                            return MediaService.loadData();
                         }
                     }
                 }
@@ -80,9 +80,9 @@
                 controller: '35mmBlackWhite',
                 controllerAs: 'vm',
                 resolve: {
-                    init: function(mediaService) {
-                        if (mediaService.getData() === null) {
-                            return mediaService.loadData();
+                    init: function(MediaService) {
+                        if (MediaService.getData() === null) {
+                            return MediaService.loadData();
                         }
                     }
                 }
@@ -93,9 +93,9 @@
                 controller: '35mmColor',
                 controllerAs: 'vm',
                 resolve: {
-                    init: function(mediaService) {
-                        if (mediaService.getData() === null) {
-                            return mediaService.loadData();
+                    init: function(MediaService) {
+                        if (MediaService.getData() === null) {
+                            return MediaService.loadData();
                         }
                     }
                 }
@@ -106,9 +106,9 @@
                 controller: 'Film',
                 controllerAs: 'vm',
                 resolve: {
-                    init: function(mediaService) {
-                        if (mediaService.getData() === null) {
-                            return mediaService.loadData();
+                    init: function(MediaService) {
+                        if (MediaService.getData() === null) {
+                            return MediaService.loadData();
                         }
                     }
                 }
@@ -119,9 +119,9 @@
                 controller: 'FilmShort',
                 controllerAs: 'vm',
                 resolve: {
-                    init: function(mediaService) {
-                        if (mediaService.getData() === null) {
-                            return mediaService.loadData();
+                    init: function(MediaService) {
+                        if (MediaService.getData() === null) {
+                            return MediaService.loadData();
                         }
                     }
                 }
@@ -132,9 +132,9 @@
                 controller: 'Digital',
                 controllerAs: 'vm',
                 resolve: {
-                    init: function(mediaService) {
-                        if (mediaService.getData() === null) {
-                            return mediaService.loadData();
+                    init: function(MediaService) {
+                        if (MediaService.getData() === null) {
+                            return MediaService.loadData();
                         }
                     }
                 }
@@ -145,9 +145,9 @@
                 controller: 'DigitalIphone',
                 controllerAs: 'vm',
                 resolve: {
-                    init: function(mediaService) {
-                        if (mediaService.getData() === null) {
-                            return mediaService.loadData();
+                    init: function(MediaService) {
+                        if (MediaService.getData() === null) {
+                            return MediaService.loadData();
                         }
                     }
                 }
@@ -158,9 +158,9 @@
                 controller: 'DigitalOther',
                 controllerAs: 'vm',
                 resolve: {
-                    init: function(mediaService) {
-                        if (mediaService.getData() === null) {
-                            return mediaService.loadData();
+                    init: function(MediaService) {
+                        if (MediaService.getData() === null) {
+                            return MediaService.loadData();
                         }
                     }
                 }
