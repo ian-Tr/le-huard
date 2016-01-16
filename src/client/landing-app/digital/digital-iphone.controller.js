@@ -5,12 +5,12 @@
         .module('LandingApp')
         .controller('DigitalIphone', _digitalIphone);
 
-    _digitalIphone.$inject = ['mediaService'];
+    _digitalIphone.$inject = ['MediaService'];
 
-    function _digitalIphone(mediaService) {
+    function _digitalIphone(MediaService) {
         /*jshint validthis: true */
         var vm = this,
-            media = mediaService.getData();
+            media = MediaService.getData();
 
         vm.pictures = media.filter(function(media) {
             return (media.type === 'Digitale');

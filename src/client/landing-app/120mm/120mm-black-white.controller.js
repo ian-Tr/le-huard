@@ -5,12 +5,12 @@
         .module('LandingApp')
         .controller('120mmBlackWhite', _120mmBlackWhite);
 
-    _120mmBlackWhite.$inject = ['mediaService'];
+    _120mmBlackWhite.$inject = ['MediaService'];
 
-    function _120mmBlackWhite(mediaService) {
+    function _120mmBlackWhite(MediaService) {
         /*jshint validthis: true */
         var vm = this,
-            media = mediaService.getData();
+            media = MediaService.getData();
 
         vm.sliderControl = {};
 

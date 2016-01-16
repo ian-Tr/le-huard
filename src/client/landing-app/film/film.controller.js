@@ -5,12 +5,12 @@
         .module('LandingApp')
         .controller('Film', _film);
 
-    _film.$inject = ['mediaService'];
+    _film.$inject = ['MediaService'];
 
-    function _film(mediaService) {
+    function _film(MediaService) {
         /*jshint validthis: true */
         var vm = this,
-            media = mediaService.getData();
+            media = MediaService.getData();
 
         vm.sliderControl = {};
 

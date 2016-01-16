@@ -5,9 +5,9 @@
         .module('LandingApp')
         .controller('Connection', _connection);
 
-    _connection.$inject = ['$rootScope', 'authService', 'AUTH_EVENTS'];
+    _connection.$inject = ['$rootScope', 'AuthService', 'AUTH_EVENTS'];
 
-    function _connection($rootScope, authService, AUTH_EVENTS) {
+    function _connection($rootScope, AuthService, AUTH_EVENTS) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -16,7 +16,7 @@
         vm.login = login;
 
         function login(credentials) {
-            authService.login(credentials).then(function (user) {
+            AuthService.login(credentials).then(function (user) {
                 $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
                 vm.setCurrentUser(user);
             }, function() {
