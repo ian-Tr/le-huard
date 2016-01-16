@@ -5,7 +5,13 @@
               <h5>Manage Posts</h5>
             </div>
 
-            <!-- content to be implemented later -->
+            <div deckgrid class="deckgrid" source="vm.posts.pictures">
+        	    <div class="card">
+        				<div class="card-image">
+        	    		<img modal ng-src="{{card.url}}" alt="" ng-attr-href="#modal{{card.$index}}" class="slide responsive-img">
+        				</div>
+        	    </div>
+        		</div>
 
           </div>
         </div>

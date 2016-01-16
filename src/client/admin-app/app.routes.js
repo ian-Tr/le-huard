@@ -18,31 +18,39 @@
                 controllerAs: 'vm',
                 resolve: {
                     init: function(userService) {
-                        if (userService.getData() === null) {                            
+                        if (userService.getData() === null) {
                             return userService.loadData();
                         }
                     }
                 }
             })
-            .state('Stats', {
-                url: '/stats',
-                templateUrl: '/src/client/admin-app/stats/stats.html'
-            })
             .state('NewPost', {
                 url: '/new-post',
-                templateUrl: '/src/client/admin-app/new-post/new-post.html'
+                templateUrl: '/src/client/admin-app/new-post/new-post.html',
+                controller: 'NewPost',
+                controllerAs: 'vm'
             })
             .state('Manage', {
                 url: '/manage',
-                templateUrl: '/src/client/admin-app/manage-post/manage.html'
+                templateUrl: '/src/client/admin-app/manage-post/manage.html',
+                controller: 'Manage',
+                controllerAs: 'vm'
             })
-            .state('Manage.ManagePost', {
-                url: '/post:id',
-                templateUrl: '/src/client/admin-app/manage-post/manage-post.html'
+            .state('ManagePost', {
+                url: '/manage/post',
+                templateUrl: '/src/client/admin-app/manage-post/manage-post.html',
+                controller: 'ManagePost',
+                controllerAs: 'vm'
             })
             .state('DeleteUser', {
                 url: '/delete-user',
-                templateUrl: '/src/client/admin-app/delete-user/delete-user.html'
+                templateUrl: '/src/client/admin-app/delete-user/delete-user.html',
+                controller: 'DeleteUser',
+                controllerAs: 'vm'
+            })
+            .state('Stats', {
+                url: '/stats',
+                templateUrl: '/src/client/admin-app/stats/stats.html'
             });
     }
 
