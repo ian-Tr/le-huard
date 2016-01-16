@@ -11,6 +11,7 @@
         /*jshint validthis: true */
         var vm = this;
 
+        vm.credentials = {};
         vm.credentials.email = '';
         vm.credentials.password = '';
         vm.login = login;
