@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('App')
+        .module('Constants', [])
         .constant('AUTH_EVENTS', {
             loginSuccess: 'auth-login-success',
             loginFailed: 'auth-login-failed',
@@ -12,10 +12,9 @@
             notAuthorized: 'auth-not-authorized'
         })
         .constant('USER_ROLES', {
-            all: '*',
+            viewer: 'viewer',
             admin: 'admin',
-            editor: 'editor',
-            guest: 'guest'
+            member: 'member'
         });
 
 })();

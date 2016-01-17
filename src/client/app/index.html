@@ -14,7 +14,7 @@
     <title>Le Huard</title>
 </head>
 
-<body>
+<body ng-controller="ApplicationController as appVm">
 
     <div class="row rown-no-maring full-height">
         <ui-view/>
@@ -35,7 +35,6 @@
     <script type="text/javascript" src="/src/client/app/app.constants.js"></script>
     <!-- angular services -->
     <script type="text/javascript" src="/src/client/app/portfolio/services/media.service.js"></script>
-    <script type="text/javascript" src="/src/client/app/admin/services/user.service.js"></script>
     <script type="text/javascript" src="/src/client/app/services/auth.service.js"></script>
     <script type="text/javascript" src="/src/client/app/services/session.service.js"></script>
     <!-- angular controllers -->
@@ -52,14 +51,14 @@
     <script type="text/javascript" src="/src/client/app/portfolio/digital/digital-other.controller.js"></script>
     <script type="text/javascript" src="/src/client/app/portfolio/connection/connection.controller.js"></script>
     <script type="text/javascript" src="/src/client/app/portfolio/registration/registration.controller.js"></script>
-    <script type="text/javascript" src="/src/client/app/portfolio/contact/contact.controller.js"></script>
-    <script type="text/javascript" src="/src/client/app/admin/services/user.service.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/contact/contact.controller.js"></script>    
     <script type="text/javascript" src="/src/client/app/admin/profile/profile.controller.js"></script>
     <script type="text/javascript" src="/src/client/app/admin/new-post/new-post.controller.js"></script>
     <script type="text/javascript" src="/src/client/app/admin/manage/manage.controller.js"></script>
     <script type="text/javascript" src="/src/client/app/admin/manage/manage-post.controller.js"></script>
     <script type="text/javascript" src="/src/client/app/admin/delete-user/delete-user.controller.js"></script>
     <script type="text/javascript" src="/src/client/app/admin/stats/stats.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/app.controller.js"></script>
     <!-- angular routes -->
     <script type="text/javascript" src="/src/client/app/app.routes.js"></script>
     <script type="text/javascript" src="/src/client/app/portfolio/portfolio.routes.js"></script>

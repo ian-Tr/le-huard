@@ -5,29 +5,25 @@
         .module('AdminModule')
         .config(configRoutes);
 
-    configRoutes.$inject = ['$stateProvider', '$urlRouterProvider'];
+    configRoutes.$inject = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES'];
 
-    function configRoutes($stateProvider, $urlRouterProvider) {
+    function configRoutes($stateProvider, $urlRouterProvider, USER_ROLES) {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
             .state('admin', {
                 abstract: true,
                 url: '/admin',
-                templateUrl: '/src/client/app/admin/index.html'
+                templateUrl: '/src/client/app/admin/index.html',
+                data: {
+                    authorizedRoles: [USER_ROLES.admin, USER_ROLES.member]
+                }
             })
             .state('admin.profile', {
                 url: '/profile',
                 templateUrl: '/src/client/app/admin/profile/profile.html',
                 controller: 'Profile',
-                controllerAs: 'vm',
-                resolve: {
-                    init: function(UserService) {
-                        if (UserService.getData() === null) {
-                            return UserService.loadData();
-                        }
-                    }
-                }
+                controllerAs: 'vm'
             })
             .state('admin.new-post', {
                 url: '/new-post',

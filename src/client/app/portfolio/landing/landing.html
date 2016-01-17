@@ -1,12 +1,11 @@
 <!-- Header slide containaing the logo and nav  -->
 <header class="row full-height row-no-margin card card-main">
     <div class="valign-wrapper col s12 full-height">
-        <div class="absolute-right">
-            <a href="#/connection" class="btn connect-btn">
-                <span class="sliding-middle-out">
-                    <i class="material-icons right">exit_to_app</i> Connection
-                </span>
-            </a>
+        <div ng-if="!appVm.currentUser">
+            <div ng-include="'/src/client/app/partials/connect.html'"></div>
+        </div>
+        <div ng-if="appVm.currentUser">
+            <div ng-include="'/src/client/app/partials/connected.html'"></div>
         </div>
         <div class="row valign center-align">
             <h1>

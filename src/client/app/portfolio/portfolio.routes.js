@@ -5,9 +5,9 @@
         .module('PortfolioModule')
         .config(configRoutes);
 
-    configRoutes.$inject = ['$stateProvider', '$urlRouterProvider'];
+    configRoutes.$inject = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES'];
 
-    function configRoutes($stateProvider, $urlRouterProvider) {
+    function configRoutes($stateProvider, $urlRouterProvider, USER_ROLES) {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
@@ -21,6 +21,9 @@
                             return MediaService.loadData();
                         }
                     }
+                },
+                data: {
+                  authorizedRoles: [USER_ROLES.admin, USER_ROLES.member, USER_ROLES.viewer]
                 }
             })
             .state('portfolio.menu', {
