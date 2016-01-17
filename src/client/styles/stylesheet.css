@@ -92,7 +92,7 @@ h2 {
   background-color: #9c9494;
   box-shadow: none;
 }
-.close-view:hover > .material-icons {    
+.close-view:hover > .material-icons {
     transform: rotate(180deg);
 }
 .close-view > .material-icons {
@@ -173,14 +173,18 @@ h2 {
         opacity: 0;
     }
 }
-.ng-enter {
+.portfolio.ng-enter {
     animation: fadeIn 1s both ease;
     z-index: 9999;
 }
-.ng-leave {
+.portfolio.ng-leave {
     animation: fadeOut 1s both ease;
     z-index: 8888;
 }
+
+.admin.ng-enter {}
+
+.admin.ng-leave {}
 
 /******************************************************************************/
 

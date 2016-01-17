@@ -22,13 +22,7 @@ $container['view'] = function ($container) {
 // when accessing the root of the website we should return the portfolio app at index.html
 // and let it handle its own routes
 $app->get('/', function ($request, $response, $args) {
-    return $this->view->render($response, '/landing-app/index.html');
-});
-
-// on a successful connection the user is redirected to /admin where another
-// angular app handles its own routes
-$app->get('/admin', function ($request, $response, $args) {
-    return $this->view->render($response, '/admin-app/index.html');
+    return $this->view->render($response, '/app/index.html');
 });
 
 // API routes should either return json data based on the Database or a header

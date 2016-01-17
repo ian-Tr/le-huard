@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="App">
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/src/client/styles/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="/src/client/styles/stylesheet.css" media="screen,projection" />
+    <link ng-if="$state.includes('admin')" type="text/css" rel="stylesheet" href="/src/client/styles/stylesheetCMS.css" media="screen,projection" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <title>Le Huard</title>
+</head>
+
+<body>
+
+    <div class="row rown-no-maring full-height">
+        <ui-view/>
+    </div>
+
+    <!-- libraries -->
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/src/client/libs/angular-materialize.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-deckgrid/angular-deckgrid.js"></script>
+    <script type="text/javascript" src="/bower_components/Materialize/bin/materialize.js"></script>
+    <!-- angular modules & providers -->
+    <script type="text/javascript" src="/src/client/app/portfolio/portfolio.module.js"></script>
+    <script type="text/javascript" src="/src/client/app/admin/admin.module.js"></script>
+    <script type="text/javascript" src="/src/client/app/app.module.js"></script>
+    <script type="text/javascript" src="/src/client/app/app.constants.js"></script>
+    <!-- angular services -->
+    <script type="text/javascript" src="/src/client/app/portfolio/services/media.service.js"></script>
+    <script type="text/javascript" src="/src/client/app/admin/services/user.service.js"></script>
+    <script type="text/javascript" src="/src/client/app/services/auth.service.js"></script>
+    <script type="text/javascript" src="/src/client/app/services/session.service.js"></script>
+    <!-- angular controllers -->
+    <script type="text/javascript" src="/src/client/app/portfolio/120mm/120mm.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/120mm/120mm-black-white.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/120mm/120mm-color.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/35mm/35mm.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/35mm/35mm-black-white.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/35mm/35mm-color.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/film/film.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/film/film-short.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/digital/digital.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/digital/digital-iphone.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/digital/digital-other.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/connection/connection.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/registration/registration.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/contact/contact.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/admin/services/user.service.js"></script>
+    <script type="text/javascript" src="/src/client/app/admin/profile/profile.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/admin/new-post/new-post.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/admin/manage/manage.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/admin/manage/manage-post.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/admin/delete-user/delete-user.controller.js"></script>
+    <script type="text/javascript" src="/src/client/app/admin/stats/stats.controller.js"></script>
+    <!-- angular routes -->
+    <script type="text/javascript" src="/src/client/app/app.routes.js"></script>
+    <script type="text/javascript" src="/src/client/app/portfolio/portfolio.routes.js"></script>
+    <script type="text/javascript" src="/src/client/app/admin/admin.routes.js"></script>
+    <!-- angular run block -->
+    <script type="text/javascript" src="/src/client/app/app.run.js"></script>
+
+</body>
+
+</html>

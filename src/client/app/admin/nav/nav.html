@@ -1,0 +1,25 @@
+<nav>
+    <ul id="slide-out" class="side-nav fixed">
+        <li><a id="side-nav-header" ui-sref="portfolio.menu">Le Huard</a></li>
+        <li><a id="side-nav-username" ui-sref="admin.profile">alexH</a></li>
+        <li><a class="waves-effect" ui-sref="admin.profile">Account Settings</a></li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header waves-effect">Admin Actions<i class="mdi-navigation-button-drop-down"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" ui-sref="admin.new-post">New Post</a></li>
+                            <li><a class="waves-effect" ui-sref="admin.manage">Manage Posts</a></li>
+                            <!-- clicking a post will lead to managePost.html (not included in nav for obv reasons) -->
+                            <li><a class="waves-effect" ui-sref="admin.delete-user">Delete User</a></li>
+                            <li><a class="waves-effect" ui-sref="admin.stats">Stats</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- icon for sliding out the sidenav on mobile -->
+    <a id="side-nav-icon" href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+</nav>

@@ -1,5 +1,5 @@
 body {
-	color: #212121;
+		color: #212121;
     background-color: #212121;
     overflow-y: auto !important;
 }
@@ -68,4 +68,3 @@ input[type=text].valid,input[type=text]:focus.valid,input[type=password].valid,i
 .btn:focus {
 	background-color: #000;
 }
-
