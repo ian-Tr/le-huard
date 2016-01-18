@@ -92,7 +92,7 @@ h2 {
   background-color: #9c9494;
   box-shadow: none;
 }
-.close-view:hover > .material-icons {    
+.close-view:hover > .material-icons {
     transform: rotate(180deg);
 }
 .close-view > .material-icons {
@@ -394,3 +394,255 @@ header {
 }
 
 /******************************************************************************/
+
+
+/*************************** mobile reponsiveness *****************************/
+
+@media only screen and (max-width:340px) and (orientation:portrait) {
+  a.logo-main {
+    font-size: 3.5rem !important;
+  }
+
+  .btn-flat {
+    /*height: 36px;
+    line-height: 36px;*/
+    padding: 0 0.75rem !important;
+  }
+
+  nav {
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+  }
+
+  header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
+    font-size: 0.5rem !important;
+  }
+
+  .slider .indicators {
+    bottom: 18vh;
+  }
+
+  .slider-controls {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+
+}
+
+@media only screen and (min-width:341px) and (max-width:600px) and (orientation:portrait) {
+  a.logo-main {
+    font-size: 4rem !important;
+  }
+
+  .btn-flat {
+    /*height: 36px;
+    line-height: 36px;*/
+    padding: 0 1rem;
+  }
+
+  nav {
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+  }
+
+  header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
+    font-size: 0.5rem !important;
+  }
+
+  .slider .indicators {
+    bottom: 18vh;
+  }
+
+  .slider-controls {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width:600px) and (orientation:landscape) {
+  a.logo-main {
+    font-size: 4rem !important;
+  }
+
+  .btn-flat {
+    /*height: 36px;
+    line-height: 36px;*/
+    padding: 0 1rem;
+  }
+
+  nav {
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+  }
+
+  header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
+    font-size: 0.5rem !important;
+  }
+
+  .slider .indicators {
+    bottom: 30vh;
+  }
+
+  .slider-controls {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width:600px) and (min-height:900px) and (orientation:portrait) {
+  a.logo-main {
+    font-size: 6rem !important;
+  }
+
+  .btn-flat {
+    /*height: 36px;
+    line-height: 36px;*/
+    padding: 0 1rem;
+  }
+
+  nav {
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+  }
+
+  header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
+    font-size: 1rem !important;
+  }
+
+  .slider .indicators {
+    bottom: 10vh;
+  }
+
+  .slider-controls {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+}
+
+@media only screen and (min-width:601px) and (max-width:800px) and (orientation:landscape) {
+  a.logo-main {
+    font-size: 4rem !important;
+  }
+
+  .btn-flat {
+    /*height: 36px;
+    line-height: 36px;*/
+    padding: 0 1rem;
+  }
+
+  nav {
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+  }
+
+  header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
+    font-size: 0.5rem !important;
+  }
+
+  .slider .indicators {
+    bottom: 26vh;
+  }
+
+  .slider-controls {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (min-width:801px) and (max-width:992px) and (orientation:landscape) {
+  .slider .indicators {
+    bottom: 20vh;
+  }
+
+  .slider-controls {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+}
+
+@media only screen and (min-width:1600px) and (min-height:2500px) and (orientation:portrait) {
+  a.logo-main {
+    font-size: 20rem !important;
+  }
+
+  .btn-flat {
+    padding: 0 3rem;
+  }
+
+  nav {
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+  }
+
+  header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
+    font-size: 3rem !important;
+  }
+
+  .slider .indicators {
+    bottom: 10vh;
+  }
+
+  .slider-controls {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 3em;
+  }
+}
+
+@media only screen and (min-width:2500px) and (min-height:1500px) and (orientation:landscape) {
+  a.logo-main {
+    font-size: 20rem !important;
+  }
+
+  .btn-flat {
+    padding: 0 4rem;
+  }
+
+  nav {
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+  }
+
+  header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
+    font-size: 3rem !important;
+  }
+
+  .slider .indicators {
+    bottom: 10vh;
+  }
+
+  .slider-controls {
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-size: 2.5em;
+  }
+}
