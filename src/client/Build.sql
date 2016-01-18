@@ -1,6 +1,6 @@
 CREATE TABLE media (
 	id				INT					NOT NULL	AUTO_INCREMENT,
-	url				VARCHAR(100)		NOT NULL,	
+	url				VARCHAR(100)		NOT NULL,
 	PRIMARY KEY (id)
 );
 
@@ -21,7 +21,7 @@ CREATE TABLE admin (
 
 CREATE TABLE post (
 	id				INT					NOT NULL	AUTO_INCREMENT,
-	admin_id		INT					NOT NULL,	
+	admin_id		INT					NOT NULL,
 	media_id		INT,
 	medium			VARCHAR(50),
 	medium_type		VARCHAR(50),
@@ -29,7 +29,7 @@ CREATE TABLE post (
 	title			VARCHAR(50)			NOT NULL,
 	media_date		DATE				NOT NULL,
 	PRIMARY KEY (id),
-	FOREIGN KEY (admin_id) REFERENCES administrator(id) ON DELETE CASCADE,	
+	FOREIGN KEY (admin_id) REFERENCES administrator(id) ON DELETE CASCADE,
 	FOREIGN KEY (media_id) REFERENCES media(id) ON DELETE CASCADE
 );
 
@@ -155,26 +155,26 @@ INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, m
 INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 38, 'photo', '120mm', 'Couleur', 'Window Girl', '2016-1-15');
 INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 39, 'photo', '120mm', 'Couleur', 'Reflection', '2016-1-15');
 INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 40, 'photo', '120mm', 'Couleur', 'Tournage en Compagne', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 41, 'photo', 'Autre', 'B&W', 'Disposable-B&W-1', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 42, 'photo', 'Autre', 'B&W', 'Disposable-B&W-2', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 43, 'photo', 'Autre', 'B&W', 'Disposable-B&W-3', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 44, 'photo', 'Autre', 'B&W', 'Disposable-B&W-4', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 45, 'photo', 'Autre', 'B&W', 'Disposable-B&W-5', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 46, 'photo', 'Autre', 'B&W', 'Disposable-B&W-6', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 47, 'photo', 'Autre', 'B&W', 'Disposable-B&W-7', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 48, 'photo', 'Autre', 'B&W', 'Disposable-B&W-8', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 49, 'photo', 'Autre', 'B&W', 'Disposable-B&W-9', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 50, 'photo', 'Autre', 'B&W', 'Disposable-B&W-10', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 51, 'photo', 'Autre', 'B&W', 'Disposable-B&W-11', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 52, 'photo', 'Autre', 'B&W', 'Disposable-B&W-12', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 53, 'photo', 'Autre', 'B&W', 'Disposable-B&W-13', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 54, 'photo', 'Autre', 'B&W', 'Disposable-B&W-14', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 55, 'photo', 'Autre', 'Couleur', 'Disposable-Couleur-1', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 56, 'photo', 'Autre', 'Couleur', 'Disposable-Couleur-2', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 57, 'photo', 'Autre', 'Couleur', 'Disposable-Couleur-3', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 58, 'photo', 'Autre', 'Couleur', 'Disposable-Couleur-4', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 59, 'photo', 'Autre', 'Couleur', 'Disposable-Couleur-5', '2016-1-15');
-INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 60, 'photo', 'Autre', 'Couleur', 'Disposable-Couleur-6', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 41, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-1', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 44, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-4', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 42, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-2', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 43, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-3', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 45, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-5', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 46, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-6', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 47, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-7', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 48, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-8', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 49, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-9', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 50, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-10', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 51, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-11', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 52, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-12', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 53, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-13', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 54, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-14', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 55, 'photo', 'Disposable', 'Couleur', 'Disposable-Couleur-1', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 56, 'photo', 'Disposable', 'Couleur', 'Disposable-Couleur-2', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 57, 'photo', 'Disposable', 'Couleur', 'Disposable-Couleur-3', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 58, 'photo', 'Disposable', 'Couleur', 'Disposable-Couleur-4', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 59, 'photo', 'Disposable', 'Couleur', 'Disposable-Couleur-5', '2016-1-15');
+INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 60, 'photo', 'Disposable', 'Couleur', 'Disposable-Couleur-6', '2016-1-15');
 
 INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (1, 1, 'Comment content', '2015-11-05');
 INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (2, 2, 'Comment content', '2015-11-05');
@@ -237,13 +237,13 @@ CREATE PROCEDURE setMember(IN username_in VARCHAR(20),
                            IN password_in VARCHAR(30),
                            IN email_in VARCHAR(50))
 BEGIN
-	INSERT INTO member (username, password, email) 
+	INSERT INTO member (username, password, email)
 	VALUES (username_in, password_in, email_in);
 END//
 
 CREATE PROCEDURE setAdmin(IN mem_id_in INT)
 BEGIN
-	INSERT INTO admin (mem_id) 
+	INSERT INTO admin (mem_id)
 	VALUES (mem_id_in);
 END//
 
@@ -255,7 +255,7 @@ CREATE PROCEDURE setPost(IN admin_id_in INT,
 						 IN title_in VARCHAR(50),
 						 IN media_date_in DATE)
 BEGIN
-	INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date) 
+	INSERT INTO post (admin_id, media_id, medium, medium_type, medium_spec, title, media_date)
 	VALUES (admin_id_in, media_id_in, medium_in, medium_type_in, medium_spec_in, title_in, media_date_in);
 END//
 
