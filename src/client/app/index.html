@@ -16,7 +16,7 @@
 
 <body ng-controller="ApplicationController as appVm">
 
-    <div class="row rown-no-maring full-height">
+    <div class="row row-no-maring full-height">
         <ui-view/>
     </div>
 
@@ -29,6 +29,7 @@
     <script type="text/javascript" src="/bower_components/angular-deckgrid/angular-deckgrid.js"></script>
     <script type="text/javascript" src="/bower_components/Materialize/bin/materialize.js"></script>
     <!-- angular modules & providers -->
+    <script type="text/javascript" src="/src/client/app/app.config.js"></script>
     <script type="text/javascript" src="/src/client/app/portfolio/portfolio.module.js"></script>
     <script type="text/javascript" src="/src/client/app/admin/admin.module.js"></script>
     <script type="text/javascript" src="/src/client/app/app.module.js"></script>
@@ -37,6 +38,7 @@
     <script type="text/javascript" src="/src/client/app/portfolio/services/media.service.js"></script>
     <script type="text/javascript" src="/src/client/app/services/auth.service.js"></script>
     <script type="text/javascript" src="/src/client/app/services/session.service.js"></script>
+    <script type="text/javascript" src="/src/client/app/services/auth-interceptor.service.js"></script>
     <!-- angular controllers -->
     <script type="text/javascript" src="/src/client/app/portfolio/120mm/120mm.controller.js"></script>
     <script type="text/javascript" src="/src/client/app/portfolio/120mm/120mm-black-white.controller.js"></script>
@@ -51,7 +53,7 @@
     <script type="text/javascript" src="/src/client/app/portfolio/digital/digital-other.controller.js"></script>
     <script type="text/javascript" src="/src/client/app/portfolio/connection/connection.controller.js"></script>
     <script type="text/javascript" src="/src/client/app/portfolio/registration/registration.controller.js"></script>
-    <script type="text/javascript" src="/src/client/app/portfolio/contact/contact.controller.js"></script>    
+    <script type="text/javascript" src="/src/client/app/portfolio/contact/contact.controller.js"></script>
     <script type="text/javascript" src="/src/client/app/admin/profile/profile.controller.js"></script>
     <script type="text/javascript" src="/src/client/app/admin/new-post/new-post.controller.js"></script>
     <script type="text/javascript" src="/src/client/app/admin/manage/manage.controller.js"></script>
@@ -65,6 +67,19 @@
     <script type="text/javascript" src="/src/client/app/admin/admin.routes.js"></script>
     <!-- angular run block -->
     <script type="text/javascript" src="/src/client/app/app.run.js"></script>
+    <!-- Random shit -->
+    <script>
+        $(".button-collapse").sideNav();
+        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+        //$('.collapsible').collapsible();
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+    </script>
 
 </body>
 

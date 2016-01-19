@@ -19,7 +19,9 @@
 
         function login(credentials) {
             return $http.post('/api/login', credentials).then(function(response) {
-                Session.create(response.data.id, response.data.user.id, response.data.user.role);
+                Session.create(response.data.id, response.data.user.userId,
+                    response.data.user.userName, response.data.user.userRole);
+                console.log(Session);
                 return response.data.user;
             });
         }

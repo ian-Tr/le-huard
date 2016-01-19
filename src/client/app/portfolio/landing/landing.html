@@ -1,10 +1,10 @@
 <!-- Header slide containaing the logo and nav  -->
 <header class="row full-height row-no-margin card card-main">
     <div class="valign-wrapper col s12 full-height">
-        <div ng-if="!appVm.currentUser">
+        <div ng-if="appVm.currentUser.userRole === 'viewer'">
             <div ng-include="'/src/client/app/partials/connect.html'"></div>
         </div>
-        <div ng-if="appVm.currentUser">
+        <div ng-if="appVm.currentUser.userRole !== 'viewer'">
             <div ng-include="'/src/client/app/partials/connected.html'"></div>
         </div>
         <div class="row valign center-align">

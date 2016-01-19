@@ -34,10 +34,22 @@ $app->group('/api', function () {
 
         return $response;
     });
-    $this->get('/user', function ($request, $response, $args) {
-        $response = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/src/server/api/users.json');
+    $this->post('/login', function ($request, $response, $args) {
+        $credentials = $request->getParsedBody();
+        if ($credentials['username'] == 'admin@admin.com' && $credentials['password'] == 'admin') {
+            $session = [
+              'id' => '2',
+              'user' => [
+                    'userId' => '2',
+                    'userName' => 'admin',
+                    'userRole' => 'admin',
+                ],
+            ];
 
-        return $response;
+            return json_encode($session);
+        }
+
+        return $response->withStatus(404);
     });
 });
 
