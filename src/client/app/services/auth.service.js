@@ -19,7 +19,7 @@
         return authService;
 
         function login(credentials) {
-            return $http.put('/api/login', credentials).then(function(response) {
+            return $http.post('/api/login', credentials).then(function(response) {
                 Session.create(response.data);
                 return response.data.user;
             });
@@ -27,7 +27,7 @@
 
         function logout() {
           return $http.delete('/api/login').then(function(response) {
-              Session.create(response.data);              
+              Session.create(response.data);
               return response.data.user;
           });
         }

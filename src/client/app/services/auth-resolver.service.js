@@ -5,9 +5,9 @@
         .module('StateManagement')
         .factory('AuthResolver', _authResolver);
 
-    _authResolver.$inject = ['$http', '$q', 'AUTH_EVENTS'];
+    _authResolver.$inject = ['$http', '$q', 'AUTH_EVENTS', 'Session'];
 
-    function _authResolver($http, $q, AUTH_EVENTS) {
+    function _authResolver($http, $q, AUTH_EVENTS, Session) {
 
         var sessionState = null;
 
@@ -19,7 +19,7 @@
         function _resolve() {
             var deffered = $q.defer();
 
-            $http.get('/api/login').then(function(response) {
+            $http.put('/api/login').then(function(response) {
                 sessionState = response.data;
                 deffered.resolve();
             });
