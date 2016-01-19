@@ -15,12 +15,12 @@
         this.userName = '';
         this.userRole = 'viewer';
 
-        function create(sessionId, userId, userName, userRole) {
+        function create(session) {
             /*jshint validthis: true */
-            this.id = sessionId;
-            this.userId = userId;
-            this.userName = userName;
-            this.userRole = userRole;
+            this.id = session.id;
+            this.userId = session.user.userId;
+            this.userName = session.user.userName;
+            this.userRole = session.user.userRole;
         }
 
         function destroy() {

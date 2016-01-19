@@ -5,16 +5,27 @@
         .module('App')
         .run(_bindStateToRootScope)
         .run(_stateChangeListener)
+        .run(_restoreState)
         .run(_notAuthenticatedListener)
         .run(_notAuthorizedListener);
 
     _bindStateToRootScope.$inject = ['$state', '$rootScope'];
+    _restoreState.$inject = ['AuthResolver', 'Session', '$rootScope', 'AUTH_EVENTS'];
     _stateChangeListener.$inject = ['$rootScope', 'AUTH_EVENTS', 'AuthService'];
     _notAuthenticatedListener.$inject = ['$rootScope', 'AUTH_EVENTS', '$state', 'Session'];
     _notAuthorizedListener.$inject = ['$rootScope', 'AUTH_EVENTS', '$state', 'Session'];
 
     function _bindStateToRootScope($state, $rootScope) {
         $rootScope.$state = $state;
+    }
+
+    function _restoreState(AuthResolver, Session, $rootScope, AUTH_EVENTS) {
+        AuthResolver.resolve().then(function(){
+            Session.create(AuthResolver.getSessionState());
+            $rootScope.$broadcast(AUTH_EVENTS.sessionRestore, {
+                session: AuthResolver.getSessionState()
+            });
+        });
     }
 
     function _stateChangeListener($rootScope, AUTH_EVENTS, AuthService) {

@@ -28,13 +28,13 @@ $app->get('/', function ($request, $response, $args) {
 // API routes should either return json data based on the Database or a header
 // status signaling an insert, update or delete
 $app->group('/api', function () {
-    //every api routes defined inside here is accessible at /api
+
     $this->get('/media', function ($request, $response, $args) {
         $response = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/src/server/api/media.json');
 
         return $response;
     });
-    $this->post('/login', function ($request, $response, $args) {
+    $this->put('/login', function ($request, $response, $args) {
         $credentials = $request->getParsedBody();
         if ($credentials['username'] == 'admin@admin.com' && $credentials['password'] == 'admin') {
             $session = [
@@ -45,11 +45,16 @@ $app->group('/api', function () {
                     'userRole' => 'admin',
                 ],
             ];
-
-            return json_encode($session);
+            file_put_contents($_SERVER['DOCUMENT_ROOT'].'/src/server/api/session-state.json', json_encode($session));
+            $response->getBody()->write(json_encode($session));
+            return $response->withStatus(201);
         }
 
         return $response->withStatus(404);
+    });
+    $this->get('/login', function($request, $response, $args){
+        $response->getBody()->write(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/src/server/api/session-state.json'));
+        return $response->withStatus(200);
     });
 });
 

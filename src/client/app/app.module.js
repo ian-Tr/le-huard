@@ -9,7 +9,8 @@
         'AdminModule',
         'PortfolioModule',
         'Constants',
-        'Config'
+        'Config',
+        'StateManagement'
     ]);
 
 })();

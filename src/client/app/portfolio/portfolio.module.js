@@ -1,6 +1,12 @@
 (function() {
     'use strict';
 
-    angular.module('PortfolioModule', ['ui.materialize', 'ui.router', 'ngAnimate', 'akoenig.deckgrid', 'Constants']);
+    angular.module('PortfolioModule', [
+      'ui.materialize',
+      'ui.router', 
+      'ngAnimate', 
+      'akoenig.deckgrid', 
+      'Constants', 
+      'StateManagement']);
 
 })();

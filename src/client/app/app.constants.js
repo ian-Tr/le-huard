@@ -7,6 +7,7 @@
             loginSuccess: 'auth-login-success',
             loginFailed: 'auth-login-failed',
             logoutSuccess: 'auth-logout-success',
+            sessionRestore: 'auth-session-restore',
             sessionTimeout: 'auth-session-timeout',
             notAuthenticated: 'auth-not-authenticated',
             notAuthorized: 'auth-not-authorized'
