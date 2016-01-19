@@ -56,6 +56,21 @@ $app->group('/api', function () {
         $response->getBody()->write(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/src/server/api/session-state.json'));
         return $response->withStatus(200);
     });
+    $this->delete('/login', function($request, $response, $args) {
+        // since I do not have the db yet, just replace the content of session-state.json
+        // to the default viewer user session
+        $session = [
+            'id' => '1',
+            'user' => [
+                'userId' => '1',
+                'userName' => '',
+                'userRole' => 'viewer',
+            ],
+        ];
+        file_put_contents($_SERVER['DOCUMENT_ROOT'].'/src/server/api/session-state.json', json_encode($session));
+        $response->getBody()->write(json_encode($session));
+        return $response->withStatus(200);
+    });
 });
 
 $app->run();
