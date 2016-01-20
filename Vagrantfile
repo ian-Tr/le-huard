@@ -121,6 +121,7 @@ listen [::]:80 default_server ipv6only=on;
 root /var/www/le-huard.dev;
 index index.php /src/server/index.php;
 server_name le-huard.dev;
+sendfile off;
 location / {
 try_files $uri $uri/ /src/server/index.php;
 }
