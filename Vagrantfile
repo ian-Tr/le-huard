@@ -78,6 +78,8 @@ sudo add-apt-repository ppa:ondrej/php5 -y
 sudo apt-get update
 sudo apt-get install nginx -y
 sudo apt-get install debconf-utils -y
+
+# automate mysql-server installtaion
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password admin'
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password admin'
 sudo apt-get -y install mysql-server
