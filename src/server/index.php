@@ -2,6 +2,8 @@
 
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
+session_start();
+
 $app = new \Slim\App();
 
 //$container defines where php should look for then angular index.html file
@@ -70,7 +72,7 @@ $app->group('/api', function () {
                     'userRole' => 'admin',
                 ],
             ];
-            file_put_contents($_SERVER['DOCUMENT_ROOT'].'/src/server/api/session-state.json', json_encode($session));
+            $_SESSION['user_state'] = $session;            
             // encode the associative array
             $response->getBody()->write(json_encode($session));
             // always return with right status
@@ -79,9 +81,10 @@ $app->group('/api', function () {
 
         return $response->withStatus(404);
     });
-    $this->put('/login', function ($request, $response, $args) {
+    $this->get('/login', function ($request, $response, $args) {
         // return the session_state in json format
-        $response->getBody()->write(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/src/server/api/session-state.json'));
+        $session = $_SESSION['user_state'];
+        $response->getBody()->write(json_encode($session));
 
         return $response->withStatus(200);
     });
@@ -96,7 +99,7 @@ $app->group('/api', function () {
                 'userRole' => 'viewer',
             ],
         ];
-        file_put_contents($_SERVER['DOCUMENT_ROOT'].'/src/server/api/session-state.json', json_encode($session));
+        $_SESSION[user_state] = $session;
         $response->getBody()->write(json_encode($session));
 
         return $response->withStatus(200);
