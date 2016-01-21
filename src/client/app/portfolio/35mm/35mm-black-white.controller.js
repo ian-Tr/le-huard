@@ -15,7 +15,7 @@
         vm.sliderControl = {};
 
         vm.pictures = media.filter(function(media) {
-            return (media.type === '35mm' && media.color === 'Black & White');
+            return (media.medium_type === '35mm' && media.medium_spec === 'B&W');
         });
     }
 })();

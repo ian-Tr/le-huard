@@ -15,7 +15,7 @@
         vm.sliderControl = {};
 
         vm.pictures = media.filter(function(media) {
-            return (media.type === '120mm');
+            return (media.medium_type === '120mm');
         });
     }
 })();

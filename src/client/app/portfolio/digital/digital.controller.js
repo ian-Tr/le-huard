@@ -13,7 +13,7 @@
             media = MediaService.getData();
 
         vm.pictures = media.filter(function(media) {
-            return (media.type === 'Digitale');
+            return (media.medium_type === 'Digitale');
         });
     }
 })();
