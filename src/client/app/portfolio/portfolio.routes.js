@@ -96,6 +96,24 @@
                 controller: 'DigitalOther',
                 controllerAs: 'vm'
             })
+            .state('portfolio.disposable', {
+                url: 'disposable',
+                templateUrl: '/src/client/app/portfolio/disposable/disposable.html',
+                controller: 'Disposable',
+                controllerAs: 'vm'
+            })
+            .state('portfolio.disposable-black-white', {
+                url: 'disposable/bw',
+                templateUrl: '/src/client/app/portfolio/disposable/disposable.html',
+                controller: 'DisposableBlackWhite',
+                controllerAs: 'vm'
+            })
+            .state('portfolio.disposable-color', {
+                url: 'disposable/color',
+                templateUrl: '/src/client/app/portfolio/disposable/disposable.html',
+                controller: 'DisposableColor',
+                controllerAs: 'vm'
+            })
             .state('portfolio.contact', {
                 url: 'contact',
                 templateUrl: '/src/client/app/portfolio/contact/contact.html',
