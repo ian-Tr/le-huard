@@ -6,6 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'duncan3dc\\SqlClass\\' => array($vendorDir . '/duncan3dc/sql-class/src'),
+    'duncan3dc\\SqlClassTests\\' => array($vendorDir . '/duncan3dc/sql-class/tests'),
+    'duncan3dc\\Serial\\' => array($vendorDir . '/duncan3dc/serial/src'),
+    'duncan3dc\\Helpers\\' => array($vendorDir . '/duncan3dc/helpers/src'),
+    'duncan3dc\\DomParser\\' => array($vendorDir . '/duncan3dc/domparser/src'),
+    'duncan3dc\\DomParserTests\\' => array($vendorDir . '/duncan3dc/domparser/tests'),
+    'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
     'Slim\\Views\\' => array($vendorDir . '/slim/twig-view/src'),
     'Slim\\' => array($vendorDir . '/slim/slim/Slim'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),

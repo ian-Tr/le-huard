@@ -19,7 +19,7 @@
         function _resolve() {
             var deffered = $q.defer();
 
-            $http.get('/api/login').then(function(response) {
+            $http.get('/api/login').then(function(response) {                
                 sessionState = response.data;
                 deffered.resolve();
             });

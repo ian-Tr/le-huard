@@ -1,14 +1,28 @@
 <?php
 
+
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
+
 
 session_start();
 
-$app = new \Slim\App();
+////////////// app configuration ///////////////////////////////////////////////
+// this is to get more detailed error messaged from Slim ///////////////////////
+$configuration = [
+    'settings' => [
+        'displayErrorDetails' => true,
+    ],
+];
+$c = new \Slim\Container($configuration);
 
-//$container defines where php should look for then angular index.html file
+// pass the configuration on app init //////////////////////////////////////////
+$app = new \Slim\App($c);
+
+// define the $app's package dependencies inside containers ////////////////////
 $container = $app->getContainer();
 
+// Twig is to render basic html, it has other uses but we have no choice to use
+// a rendering engine with Slim ////////////////////////////////////////////////
 $container['view'] = function ($container) {
     $view = new \Slim\Views\Twig($_SERVER['DOCUMENT_ROOT'].'/src/client/', [
         'cache' => false,
@@ -21,13 +35,45 @@ $container['view'] = function ($container) {
     return $view;
 };
 
-// when accessing the root of the website we should return the portfolio app at index.html
-// and let it handle its own routes
+// duncan3dc\SqlClass\Sql is a data/abstraction layer class for interfacing ////
+// with our db: why reinvent the wheel? ////////////////////////////////////////
+$container['sql'] = function ($container) {
+    duncan3dc\SqlClass\Sql::addServer('le-huard', [
+        "mode"      =>  "mysql",
+        "hostname"  =>  "127.0.0.1",
+        "username"  =>  "root",
+        "password"  =>  "admin",
+        "database"  =>  "le-huard",
+    ]);
+    $sql = duncan3dc\SqlClass\Sql::getInstance('le-huard');
+    return $sql;
+};
+/////////////// end app config and container declaration //////////////////////
+
+
+/////////////////////////////////// ROUTES /////////////////////////////////////
+// when accessing the root of the website we should return the angul app at ////
+// index.html and let it handle its own routes /////////////////////////////////
 $app->get('/', function ($request, $response, $args) {
+    // initialize $_SESSION with default 'viewer' user /////////////////////////
+    if (!isset($_SESSION['user_state']) && empty($_SESSION['user_state'])) {
+        $session = [
+            'id' => '1',
+            'user' => [
+                'userId' => '1',
+                'userName' => '',
+                'userRole' => 'viewer',
+            ],
+        ];
+        $_SESSION['user_state'] = $session;
+    }
+    // serve the angular app ///////////////////////////////////////////////////
     return $this->view->render($response, '/app/index.html');
 });
-
-// API routes should either return json data based on the Database or a header status code
+////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////// API ///////////////////////////////////////////
+// API routes should either return json data based on the Database or a header
+// status code
 //
 // POST (create): 201 created, 404 not found, 409 conflict (already exists)
 // GET (read): 200 ok, 404 not found
@@ -41,17 +87,34 @@ $app->get('/', function ($request, $response, $args) {
 // 440: AUTH_EVENTS.sessionTimeout (IE only)
 $app->group('/api', function () {
 
-    // returns the content of the media.json file
-    // needs to return a json_encoded associative array containing
-    // all information on all posts
+    ////////////////////////////////////////////////////////////////////////////
+    // /API/MEDIA /////////////////////////////////////////////////////////////
+    // returns the info on the post and media angular needs in it's views /////
+    ///////////////////////////////////////////////////////////////////////////
     $this->get('/media', function ($request, $response, $args) {
-        $response = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/src/server/api/media.json');
 
-        return $response;
+        $db = $this->sql;
+        if ($db) {
+            $result = $db->query("call getPostMedia");
+            if ($result) {
+                while ($row = $result->fetch()) {
+                    $media[] = $row;
+                }
+                if ($media) {
+                    $response->getBody()->write(json_encode($media));
+                    return $response->withStatus(200);
+                }
+            }
+        }
+        return $response->withStatus(404);
     });
+    ///////////////////////////////////////////////////////////////////////////
 
-    // validates the user credentials against the db and creates a $_SESSION
-    // don't worry about security just yet so no need to hash & salt the password
+    ////////////////////////////////////////////////////////////////////////////
+    // /API/LOGIN //////////////////////////////////////////////////////////////
+    // validates the user credentials against the db and creates a $_SESSION ///
+    // don't worry about security just yet so no need to hash & salt the ///////
+    // password ////////////////////////////////////////////////////////////////
     $this->post('/login', function ($request, $response, $args) {
         // this line gets the credentials entered in the connection form as associative array
         // $credentials = [
@@ -72,7 +135,7 @@ $app->group('/api', function () {
                     'userRole' => 'admin',
                 ],
             ];
-            $_SESSION['user_state'] = $session;            
+            $_SESSION['user_state'] = $session;
             // encode the associative array
             $response->getBody()->write(json_encode($session));
             // always return with right status

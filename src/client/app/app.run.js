@@ -20,7 +20,7 @@
     }
 
     function _restoreState(AuthResolver, Session, $rootScope, AUTH_EVENTS) {
-        AuthResolver.resolve().then(function(){
+        AuthResolver.resolve().then(function(){            
             Session.create(AuthResolver.getSessionState());
             $rootScope.$broadcast(AUTH_EVENTS.sessionRestore, {
                 session: AuthResolver.getSessionState()
