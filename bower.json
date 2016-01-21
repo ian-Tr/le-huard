@@ -27,6 +27,8 @@
     "angular-animate": "^1.4.5",
     "angular-deckgrid": "~0.5.0",
     "Materialize": "materialize#~0.97.5",
-    "font-awesome": "~4.5.0"    
+    "font-awesome": "~4.5.0",
+    "angular-preload-image": "*",
+    "angular-materialize": "~0.1.2"
   }
 }

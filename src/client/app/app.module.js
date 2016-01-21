@@ -6,6 +6,7 @@
         'ui.router',
         'ngAnimate',
         'akoenig.deckgrid',
+        'angular-preload-image',
         'AdminModule',
         'PortfolioModule',
         'Constants',
