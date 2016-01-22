@@ -3,7 +3,7 @@
 
     angular
         .module('App')
-        .controller('DisposapleBlackWhite', _disposableBlackWhite);
+        .controller('DisposableBlackWhite', _disposableBlackWhite);
 
     _disposableBlackWhite.$inject = ['MediaService', '$scope'];
 

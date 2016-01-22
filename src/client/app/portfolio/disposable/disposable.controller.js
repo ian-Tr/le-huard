@@ -14,6 +14,7 @@
 
         vm.pictures = media.filter(function(media) {
             return (media.medium_type === 'Disposable');
-        });
+        });        
+
     }
 })();
