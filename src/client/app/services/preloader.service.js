@@ -10,7 +10,7 @@
     function preloader($q, $rootScope) {
         function Preloader(imageLocations) {
             this.imageLocations = imageLocations;
-            this.imageCount = this.imageLocations.length;
+            this.imageCount = (this.imageLocations !== null) ? this.imageLocations.length : 0;
             this.loadCount = 0;
             this.errorCount = 0;
             this.states = {
@@ -27,7 +27,7 @@
         Preloader.preloadImages = function(imageLocations) {
             var preloader = new Preloader(imageLocations);
             return (preloader.load());
-        }
+        };
 
         Preloader.prototype = {
             constructor: Preloader,
@@ -43,6 +43,10 @@
             load: function load() {
                 if (this.isInitiated()) {
                     return this.promise;
+                }
+                if (this.imageCount === 0) {
+                    this.state = this.states.REJECTED;
+                    this.deffered.reject();
                 }
                 this.state = this.states.LOADING;
                 for (var i = 0; i < this.imageCount; i++) {
@@ -79,17 +83,17 @@
                         $rootScope.$apply(function() {
                             preloader.handleImageLoad(event.target.src);
                             preloader = image = event = null;
-                        })
+                        });
                     })
                     .error(function(event) {
                         $rootScope.$apply(function() {
                             preloader.handleImageError(event.target.src);
                             preloader = image = event = null;
-                        })
+                        });
                     })
                     .prop('src', imageLocation);
             }
-        }
+        };
         return (Preloader);
 
     }

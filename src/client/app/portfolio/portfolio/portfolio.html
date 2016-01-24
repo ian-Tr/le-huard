@@ -1,70 +1,86 @@
 <section class="row">
-  <a href="#/" class="close-view right waves-effect waves-light btn"><i class="material-icons">clear</i></a>
-  <div slider indicators="true" control="vm.sliderControl">
-    <ul class="slides">
-      <li ng-repeat="picture in vm.pictures">
-        <img modal ready="vm.sliderControl.pause()" complete="vm.sliderControl.start()" class="slide" ng-attr-href="#modal{{$index}}" ng-src="{{picture.url + '.jpg'}}" alt="">
-        <div class="col s12 slider-header">
-          <div class="row">
-            <a href="" ng-click="vm.sliderControl.prev()"><i class="slider-controls material-icons left">arrow_back</i></a>
-            <a href="" ng-click="vm.sliderControl.next()"><i class="slider-controls material-icons right">arrow_forward</i></a>
-            <h2>{{picture.title}}</h2>
-          </div>
+    <a href="#/" class="close-view right waves-effect waves-light btn"><i class="material-icons">clear</i></a>
+    <div ng-switch="vm.isLoading" class="full-height">
+        <div ng-switch-when="true" class="valign-wrapper full-height">
+            <div class="loader valign"></div>
         </div>
-      </li>
-    </ul>
-  </div>
+        <div ng-switch-when="false" ng-switch="vm.isSuccessful" class="img-loaded full-height">
+            <div ng-switch-when="true" class="full-height">
+                <div slider indicators="false" control="vm.sliderControl" class="full-height fullscreen">
+                    <ul class="slides full-height">
+                        <li ng-repeat="picture in vm.pictures">
+                            <img modal ready="vm.sliderControl.pause()" complete="vm.sliderControl.start()" class="slide" ng-attr-href="#modal{{$index}}" ng-src="{{picture.url + '.jpg'}}" alt="">
+                            <div class="col s12 slider-header">
+                                <div class="row">
+                                    <a href="" ng-click="vm.sliderControl.prev()"><i class="slider-controls material-icons left">arrow_back</i></a>
+                                    <a href="" ng-click="vm.sliderControl.next()"><i class="slider-controls material-icons right">arrow_forward</i></a>
+                                    <h2>{{picture.title}}</h2>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div ng-switch-when="false" class="full-height valign-wrapper">
+                <h2 class="valign logo-font center-element img-loaded">Nothing here yet...</h2>
+            </div>
+        </div>
+    </div>
 </section>
 <div ng-attr-id="modal{{$index}}" class="modal modal-portfolio" ng-repeat="picture in vm.pictures">
-  <div class="modal-content modal-portfolio">
-    <div class="row">
-      <div class="col s7 modal-img-container">
-        <img class="responsive-img" ng-src="{{picture.url + '.jpg'}}" alt="">
-      </div>
-      <div class="col s5 modal-main modal-portfolio">
+    <div class="modal-content modal-portfolio">
         <div class="row">
-          <h2>{{picture.title}}</h2>
-          <blockquote>
-              <h4>{{picture.medium_type}}</h4>, <h5>{{picture.medium_spec}}</h5> <br>
-              <b>{{picture.media_date}}</b>
-          </blockquote>
-        </div>
-        <div class="row divider"></div>
-        <div class="row">
-          <b class="left">Name</b>
-          <span class="right">Date</span><br>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          <div class="divider"></div>
-        </div>
-        <div class="row">
-          <b class="left">Name</b>
-          <span class="right">Date</span><br>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          <div class="divider"></div>
-        </div>
-        <div class="row">
-          <b class="left">Name</b>
-          <span class="right">Date</span><br>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          <div class="divider"></div>
-        </div>
-        <div class="row">
-          <b class="left">Name</b>
-          <span class="right">Date</span><br>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          <div class="divider"></div>
-        </div>
-        <div class="row">
-          <form action="">
-            <div class="input-field">
-              <input type="text" ng-attr-id="textarea{{$index}}" class="validate"></input>
-              <label ng-attr-for="textarea{{$index}}">Add Comment...</label>
+            <div class="col s7 modal-img-container">
+                <img class="responsive-img" ng-src="{{picture.url + '.jpg'}}" alt="">
             </div>
-          </form>
+            <div class="col s5 modal-main modal-portfolio">
+                <div class="row">
+                    <h2>{{picture.title}}</h2>
+                    <blockquote>
+                        <h4>{{picture.medium_type}}</h4>,
+                        <h5>{{picture.medium_spec}}</h5>
+                        <br>
+                        <b>{{picture.media_date}}</b>
+                    </blockquote>
+                </div>
+                <div class="row divider"></div>
+                <div class="row">
+                    <b class="left">Name</b>
+                    <span class="right">Date</span>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <div class="divider"></div>
+                </div>
+                <div class="row">
+                    <b class="left">Name</b>
+                    <span class="right">Date</span>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <div class="divider"></div>
+                </div>
+                <div class="row">
+                    <b class="left">Name</b>
+                    <span class="right">Date</span>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <div class="divider"></div>
+                </div>
+                <div class="row">
+                    <b class="left">Name</b>
+                    <span class="right">Date</span>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <div class="divider"></div>
+                </div>
+                <div class="row">
+                    <form action="">
+                        <div class="input-field">
+                            <input type="text" ng-attr-id="textarea{{$index}}" class="validate"></input>
+                            <label ng-attr-for="textarea{{$index}}">Add Comment...</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
-<!-- Ignore this img, toast load hack -->
-<!--<img src="img/toast.png" message="Swipe here! <i class='material-icons'>touch_app</i>" toast="load" duration="2000">-->

@@ -1,12 +1,24 @@
 <section class="row">
 	<a href="#/" class="close-view right waves-effect waves-light btn"><i class="material-icons">clear</i></a>
 	<div class="col s10 offset-s1 digital-content">
-		<div deckgrid class="deckgrid" source="vm.pictures">
-	    <div class="card">
-				<div class="card-image">
-	    		<img modal ng-src="{{card.url}}" alt="" ng-attr-href="#modal{{card.$index}}" class="slide responsive-img">
+		<div class="row full-height" ng-switch="vm.isLoading">
+			<div ng-switch-when="true" class="full-height valign-wrapper">
+					<div class="loader valign"></div>
+			</div>
+			<div ng-switch-when="false" ng-switch="vm.isSuccessful" class="full-height img-loaded">
+					<div ng-switch-when="true" class="full-height">
+						<ul class="grid">
+							<li ng-repeat="picture in vm.pictures" class="col l3 m4 s6">
+								<a modal ng-attr-href="#modal{{$index}}">
+									<img ng-src="{{picture.url + '.jpg'}}" ng-attr-alt="{{picture.title}}" class="slide responsive-img">
+								</a>
+							</li>
+						</ul>
+					</div>
+				<div ng-switch-when="false" class="full-height valign-wrapper">
+					<h2 class="center-element valign logo-font">Nothing here yet...</h2>
 				</div>
-	    </div>
+			</div>
 		</div>
 	</div>
 </section>

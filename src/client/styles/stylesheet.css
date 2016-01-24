@@ -338,6 +338,9 @@ header {
     background-color: rgba(33, 33, 33, 0.8);
     text-align: center;
 }
+.slider.fullscreen {
+    position: relative !important;
+}
 .slide {
     cursor: pointer;
 }
