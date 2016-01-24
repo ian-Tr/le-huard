@@ -3,6 +3,27 @@ DROP TABLE IF EXISTS post;
 DROP TABLE IF EXISTS member;
 DROP TABLE IF EXISTS media;
 
+DROP PROCEDURE IF EXISTS getMedia;
+DROP PROCEDURE IF EXISTS getPostMedia;
+DROP PROCEDURE IF EXISTS getMember;
+DROP PROCEDURE IF EXISTS getPost;
+DROP PROCEDURE IF EXISTS getComments;
+DROP PROCEDURE IF EXISTS setMedia;
+DROP PROCEDURE IF EXISTS setMember;
+DROP PROCEDURE IF EXISTS setPost;
+DROP PROCEDURE IF EXISTS setComment;
+DROP PROCEDURE IF EXISTS updateMemberUsername;
+DROP PROCEDURE IF EXISTS updateMemberPassword;
+DROP PROCEDURE IF EXISTS updateMemberEmail;
+DROP PROCEDURE IF EXISTS updatePostMedium;
+DROP PROCEDURE IF EXISTS updatePostMediumType;
+DROP PROCEDURE IF EXISTS updatePostMediumSpec;
+DROP PROCEDURE IF EXISTS updatePostTitle;
+DROP PROCEDURE IF EXISTS updatePostMediaDate;
+DROP PROCEDURE IF EXISTS deletePost;
+DROP PROCEDURE IF EXISTS deleteMember;
+DROP PROCEDURE IF EXISTS deleteComment;
+
 CREATE TABLE media (
 	id				INT					NOT NULL	AUTO_INCREMENT,
 	url				VARCHAR(100)		NOT NULL,
@@ -43,66 +64,66 @@ CREATE TABLE comments (
 	FOREIGN KEY (mem_id) REFERENCES member(id) ON DELETE CASCADE
 );
 
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/American-Backpacker-Vancouver-2012');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Carousel-NA-NA');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Cherries-OliverBC-2012');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Cooking-in-a-Pot-OliverBC-2012');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Dodo-MontereyCA-2013');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Friends-NA-NA');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Hot-Springs-BC-2012');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/In-the-bus-SanFrancisco-2013');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Mushroom-Beach-KelownaBC-2013');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Rainbows-n-Weed-KelownaBC-2013');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Rollin-BC-2012');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Smokin-High-In-Cali-MontereyCalifornia');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Sunset-Beach-SanFrancisco-2013');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Woods-BC-2012');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/WWOOFing-BC-2012');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Auditions-Montreal-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Backyard-BrooklynNY-Montreal');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Breakup-RiveSudQC-2014');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Cabaret-Chaos1-Montreal-2014');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Cabaret-Chaos2-Montreal-2014');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Church-Montreal-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/La-Cours-Encore-Montreal-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/La-Cours-Montreal-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Ma-Soeur-Montreal-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Mort-et-Amour-Montreal-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Octobre-en-Kimono-Montreal-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Post-RiveSudQC-2014');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Probablement-La-Genese-Montreal-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Sans-Titre-2014');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Sous-Sol-Montreal-2014');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/A-la-Plage-NewyorkNY-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Au-Chalet-QC-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Ben-Working-Newyork-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Berri-Montreal-2014');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Confort-Metro-Montreal-2014');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Habitat-67-Montreal-2014');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Metro-Montreal-2014');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Sans-Titre-NewYorkNY-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Sans-Titre-QC-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Tournage-en-Campagne-QC-2015');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-1');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-2');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-3');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-4');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-5');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-6');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-7');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-8');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-9');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-10');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-11');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-12');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-13');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-14');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-1');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-2');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-3');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-4');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-5');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-6');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/American-Backpacker-Vancouver-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Carousel-NA-NA.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Cherries-OliverBC-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Cooking-in-a-Pot-OliverBC-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Dodo-MontereyCA-2013.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Friends-NA-NA.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Hot-Springs-BC-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/In-the-bus-SanFrancisco-2013.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Mushroom-Beach-KelownaBC-2013.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Rainbows-n-Weed-KelownaBC-2013.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Rollin-BC-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Smokin-High-In-Cali-MontereyCalifornia.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Sunset-Beach-SanFrancisco-2013.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Woods-BC-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/WWOOFing-BC-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Auditions-Montreal-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Backyard-BrooklynNY-Montreal.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Breakup-RiveSudQC-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Cabaret-Chaos1-Montreal-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Cabaret-Chaos2-Montreal-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Church-Montreal-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/La-Cours-Encore-Montreal-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/La-Cours-Montreal-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Ma-Soeur-Montreal-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Mort-et-Amour-Montreal-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Octobre-en-Kimono-Montreal-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Post-RiveSudQC-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Probablement-La-Genese-Montreal-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Sans-Titre-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Sous-Sol-Montreal-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/A-la-Plage-NewyorkNY-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Au-Chalet-QC-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Ben-Working-Newyork-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Berri-Montreal-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Confort-Metro-Montreal-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Habitat-67-Montreal-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Metro-Montreal-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Sans-Titre-NewYorkNY-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Sans-Titre-QC-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Tournage-en-Campagne-QC-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-1.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-2.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-3.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-4.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-5.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-6.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-7.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-8.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-9.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-10.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-11.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-12.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-13.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-14.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-1.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-2.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-3.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-4.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-5.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-6.jpg');
 
 INSERT INTO member (role, username, password, email) VALUES ('admin', 'admin', 'admin', 'admin@admin.com');
 INSERT INTO member (role, username, password, email) VALUES ('member', 'member', 'member', 'member@member.com');
@@ -178,6 +199,13 @@ BEGIN
 	SELECT * FROM media;
 END//
 
+CREATE PROCEDURE getPostMedia()
+BEGIN
+	select post.id, media.id, post.medium, post.medium_type, post.medium_spec, post.title, post.media_date, media.url
+	from post, media
+	where post.media_id = media.id;
+END//
+
 CREATE PROCEDURE getMember()
 BEGIN
 	SELECT * FROM member;
@@ -198,12 +226,13 @@ BEGIN
 	INSERT INTO media (url) VALUES (url_in);
 END//
 
-CREATE PROCEDURE setMember(IN username_in VARCHAR(20),
+CREATE PROCEDURE setMember(IN role_in VARCHAR(6),
+													 IN username_in VARCHAR(20),
                            IN password_in VARCHAR(30),
                            IN email_in VARCHAR(50))
 BEGIN
-	INSERT INTO member (username, password, email)
-	VALUES (username_in, password_in, email_in);
+	INSERT INTO member (role, username, password, email)
+	VALUES (role_in, username_in, password_in, email_in);
 END//
 
 CREATE PROCEDURE setPost(IN mem_id_in INT,
@@ -315,5 +344,6 @@ BEGIN
 	DELETE FROM comment
 	WHERE id = id_in;
 END//
+
 
 delimiter ;
