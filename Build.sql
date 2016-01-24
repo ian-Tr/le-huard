@@ -193,6 +193,13 @@ BEGIN
 	SELECT * FROM comments;
 END//
 
+CREATE PROCEDURE getPostMedia()
+BEGIN
+	select post.id, media.id, post.medium, post.medium_type, post.medium_spec, post.title, post.media_date, media.url
+	from post, media
+	where post.media_id = media.id
+END//
+
 CREATE PROCEDURE setMedia(IN url_in VARCHAR(100))
 BEGIN
 	INSERT INTO media (url) VALUES (url_in);
