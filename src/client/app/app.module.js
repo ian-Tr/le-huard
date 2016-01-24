@@ -4,13 +4,12 @@
     angular.module('App', [
         'ui.materialize',
         'ui.router',
-        'ngAnimate',
-        'angular-preload-image',
+        'ngAnimate',        
         'AdminModule',
         'PortfolioModule',
         'Constants',
         'Config',
-        'StateManagement'        
+        'StateManagement'
     ]);
 
 })();
