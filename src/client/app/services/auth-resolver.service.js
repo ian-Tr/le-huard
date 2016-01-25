@@ -2,33 +2,26 @@
     'use strict';
 
     angular
-        .module('StateManagement')
-        .factory('AuthResolver', _authResolver);
+        .module('App')
+        .factory('AuthResolver', authResolver);
 
-    _authResolver.$inject = ['$http', '$q', 'AUTH_EVENTS', 'Session'];
+    authResolver.$inject = ['$http', '$q', 'Session'];
 
-    function _authResolver($http, $q, AUTH_EVENTS, Session) {
-
-        var sessionState = null;
+    function authResolver($http, $q, Session) {
+        var authResolver = {};
 
         return {
-            resolve: _resolve,
-            getSessionState: _getSessionState
+            resolve: resolve
         };
 
-        function _resolve() {
-            var deffered = $q.defer();
+        function resolve() {
+            var deferred = $q.defer();
 
-            $http.get('/api/login').then(function(response) {                
-                sessionState = response.data;
-                deffered.resolve();
+            $http.get('/api/login').then(function(response) {
+                deferred.resolve(response.data);
             });
 
-            return deffered.promise;
-        }
-
-        function _getSessionState() {
-            return sessionState;
+            return deferred.promise;
         }
     }
 

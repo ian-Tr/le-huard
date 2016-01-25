@@ -5,9 +5,9 @@
         .module('App')
         .factory('AuthService', _authService);
 
-    _authService.$inject = ['$http', 'Session', '$rootScope', 'AUTH_EVENTS', 'AuthResolver'];
+    _authService.$inject = ['$http', 'Session', '$rootScope', 'AUTH_EVENTS'];
 
-    function _authService($http, Session, $rootScope, AUTH_EVENTS, AuthResolver) {
+    function _authService($http, Session, $rootScope, AUTH_EVENTS) {
 
         var authService = {};
 
@@ -26,8 +26,7 @@
         }
 
         function logout() {
-          return $http.delete('/api/login').then(function(response) {
-              Session.create(response.data);
+          return $http.delete('/api/login').then(function(response) {              
               return response.data.user;
           });
         }

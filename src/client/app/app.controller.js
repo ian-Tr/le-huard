@@ -5,33 +5,33 @@
         .module('App')
         .controller('ApplicationController', _application);
 
-    _application.$inject = ['USER_ROLES', 'AuthService', '$scope', 'Session', 'AUTH_EVENTS', '$state'];
+    _application.$inject = ['USER_ROLES', 'AuthService', '$scope', 'Session', 'AUTH_EVENTS', '$state', '$rootScope'];
 
-    function _application(USER_ROLES, AuthService, $scope, Session, AUTH_EVENTS, $state) {
+    function _application(USER_ROLES, AuthService, $scope, Session, AUTH_EVENTS, $state, $rootScope) {
         /*jshint validthis: true */
-        var vm = this;
+        var appVm = this;
 
-        vm.currentUser = {};
-        vm.currentUser.userId = Session.userId;
-        vm.currentUser.userName = Session.userName;
-        vm.currentUser.userRole = Session.userRole;
-        vm.userRoles = USER_ROLES;
-        vm.isAuthorized = AuthService.isAuthorized;
-        vm.setCurrentUser = setCurrentUser;
-        vm.logout = logout;
+        appVm.currentUser = {};
+        appVm.currentUser.userId = Session.userId;
+        appVm.currentUser.userName = Session.userName;
+        appVm.currentUser.userRole = Session.userRole;
+        appVm.userRoles = USER_ROLES;
+        appVm.isAuthorized = AuthService.isAuthorized;
+        appVm.setCurrentUser = setCurrentUser;
+        appVm.logout = logout;
 
-        $scope.$on(AUTH_EVENTS.sessionRestore, function(event, data) {
-            vm.setCurrentUser(data.session.user);
-            console.log(data.session.user);
+        $rootScope.$on(AUTH_EVENTS.sessionRestore, function(event, user) {            
+            appVm.setCurrentUser(user);
         });
 
         function setCurrentUser(user) {
-            vm.currentUser = user;
+            appVm.currentUser = user;
         }
 
         function logout() {
             AuthService.logout().then(function(user){
-                vm.setCurrentUser(user);
+                Session.destroy();
+                appVm.setCurrentUser(user);
             });
             $state.go('portfolio.menu');
         }

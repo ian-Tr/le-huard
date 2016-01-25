@@ -26,10 +26,10 @@
         function destroy() {
             /*jshint validthis: true */
             console.log('Session destroyed');
-            this.id = null;
-            this.userId = null;
-            this.userName = null;
-            this.userRole = null;
+            this.id = '1';
+            this.userId = '1';
+            this.userName = '';
+            this.userRole = 'viewer';
         }
     }
 
