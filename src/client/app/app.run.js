@@ -19,10 +19,19 @@
 
     function _stateChangeListener($rootScope, AUTH_EVENTS, AuthService, Session, AuthResolver) {
         $rootScope.$on('$stateChangeStart', function(event, next) {
+            var resolved = AuthResolver.isResolved();
+            if (!resolved) {
+                AuthResolver.resolve().then(function(session) {
+                    resolved = true;
+                    Session.create(session);
+                    $rootScope.$broadcast(AUTH_EVENTS.sessionRestore, session.user);
+                    handleStateChange();
+                });
+            } else {
+                handleStateChange();
+            }
 
-            AuthResolver.resolve().then(function(session) {
-                Session.create(session);
-                $rootScope.$broadcast(AUTH_EVENTS.sessionRestore, session.user);
+            function handleStateChange() {
                 var authorizedRoles = next.data.authorizedRoles;
                 if (!AuthService.isAuthorized(authorizedRoles)) {
                     event.preventDefault();
@@ -34,7 +43,7 @@
                         console.log('_stateChangeListener: not authenticated');
                     }
                 }
-            });
+            }
         });
     }
 
