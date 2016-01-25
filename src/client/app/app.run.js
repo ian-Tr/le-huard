@@ -58,11 +58,11 @@
         });
     }
 
-    // function _notAuthorizedListener($rootScope, AUTH_EVENTS, $state, Session) {
-    //     $rootScope.$on(AUTH_EVENTS.notAuthorized, function() {
-    //         console.log('_notAuthorizedListener: not authorized');
-    //         $state.go('portfolio.connection');
-    //     });
-    // }
+    function _notAuthorizedListener($rootScope, AUTH_EVENTS, $state, Session) {
+        $rootScope.$on(AUTH_EVENTS.notAuthorized, function() {
+            console.log('_notAuthorizedListener: not authorized');
+            $state.go('portfolio.connection');
+        });
+    }
 
 })();

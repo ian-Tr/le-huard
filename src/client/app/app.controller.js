@@ -5,9 +5,9 @@
         .module('App')
         .controller('ApplicationController', _application);
 
-    _application.$inject = ['USER_ROLES', 'AuthService', '$scope', 'Session', 'AUTH_EVENTS', '$state', '$rootScope'];
+    _application.$inject = ['USER_ROLES', 'AuthService', 'Session', 'AUTH_EVENTS', '$state', '$rootScope'];
 
-    function _application(USER_ROLES, AuthService, $scope, Session, AUTH_EVENTS, $state, $rootScope) {
+    function _application(USER_ROLES, AuthService, Session, AUTH_EVENTS, $state, $rootScope) {
         /*jshint validthis: true */
         var appVm = this;
 
@@ -20,7 +20,7 @@
         appVm.setCurrentUser = setCurrentUser;
         appVm.logout = logout;
 
-        $rootScope.$on(AUTH_EVENTS.sessionRestore, function(event, user) {            
+        $rootScope.$on(AUTH_EVENTS.sessionRestore, function(event, user) {
             appVm.setCurrentUser(user);
         });
 
