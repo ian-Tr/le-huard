@@ -2,9 +2,9 @@
     <ul id="slide-out" class="side-nav fixed">
         <li><a id="side-nav-header" ui-sref="portfolio.menu">Le Huard</a></li>
         <li><a id="side-nav-username" ui-sref="admin.profile">{{appVm.currentUser.userName}}</a></li>
-        <li><a class="waves-effect" ui-sref="admin.profile">Settings</a></li>
+        <li ng-class="$state.includes('admin.profile') ? 'active' : ''"><a class="waves-effect" ui-sref="admin.profile">Settings</a></li>
         <li class="no-padding">
-            <ul class="collapsible collapsible-accordion">
+            <ul class="collapsible collapsible-accordion" data-collapsible="accordion" watch>
                 <li>
                     <a class="collapsible-header waves-effect">Admin Actions<i class="mdi-navigation-button-drop-down"></i></a>
                     <div class="collapsible-body">
@@ -19,5 +19,5 @@
             </ul>
         </li>
     </ul>
-    <a id="side-nav-icon" href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    <a id="side-nav-icon" data-activates="slide-out" data-sidenav="left" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 </nav>
