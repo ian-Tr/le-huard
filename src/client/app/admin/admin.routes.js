@@ -33,13 +33,13 @@
             })
             .state('admin.manage', {
                 url: '/manage',
-                templateUrl: '/src/client/app/admin/manage-post/manage.html',
+                templateUrl: '/src/client/app/admin/manage/manage.html',
                 controller: 'Manage',
                 controllerAs: 'vm'
             })
             .state('admin.manage-post', {
                 url: '/manage/post',
-                templateUrl: '/src/client/app/admin/manage-post/manage-post.html',
+                templateUrl: '/src/client/app/admin/manage/manage-post.html',
                 controller: 'ManagePost',
                 controllerAs: 'vm'
             })

@@ -304,7 +304,7 @@ header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
     width: 100%;
     background: #F5F5F5;
 }
-nav ul li:hover {
+nav ul li:hover.not(.admin) {
     background-color: transparent !important;
 }
 .dropdown-content {
