@@ -1,73 +1,59 @@
-        <!-- main content -->
-        <div class="center-align">
-          <div class="card col s10 m10 l4 offset-s1 offset-m1 offset-l5">
+<!-- main content -->
+<div class="center-align">
+    <div class="card col s10 m10 l4 offset-s1 offset-m1 offset-l5">
+        <div class="row">
+            <h5>New Post</h5>
+        </div>
+
+        <form id="CreatePostForm">
             <div class="row">
-              <h5>New Post</h5>
+                <div class="input-field col s10 offset-s1">
+                    <input ng-model="vm.title" id="name" name="username" type="text" class="validate" required>
+                    <label for="username">Title</label>
+                </div>
             </div>
 
-            <form id="CreatePostForm">
-              <div class="row">
-                <div class="input-field col s10 offset-s1">
-                  <input ng-model="vm.title" id="name" name="username" type="text" class="validate" required>
-                  <label for="username">Title</label>
-                </div>
-              </div>
-
-              <div class="row">
+            <div class="row">
                 <div class="file-field input-field col s10 offset-s1">
-                  <div class="btn">
-                    <span>File</span>
-                    <input ng-model="vm.file" type="file" required>
-                  </div>
-                  <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
-                  </div>
+                    <div class="btn">
+                        <span>File</span>
+                        <input ng-model="vm.file" type="file" required>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
                 </div>
-              </div>
+            </div>
 
-              <div class="row">
+            <div class="row">
                 <div class="input-field col s10 m5 l5 offset-s1 offset-m1 offset-l1">
-                  <select ng-model="vm.medium" class="browser-default" name="mediumDDL" required>
-                    <option value="" disabled selected>Medium...</option>
-                    <option value="1">120mm</option>
-                    <option value="2">35mm</option>
-                    <option value="3">Digitale</option>
-                    <option value="4">Film</option>
-                  </select>
+                    <select ng-change="vm.setMediumSpecs()" ng-model="vm.mediumType" material-select required>
+                        <option value="" disabled selected>Medium</option>
+                        <option ng-repeat="medium in vm.mediums">{{medium.type}}</option>
+                    </select>
                 </div>
                 <div class="input-field col s10 m5 l5 offset-s1">
-                  <select ng-model="vm.type" class="browser-default" name="typeDDL" required>
-                    <option value="" disabled selected>Type...</option>
-                    <optgroup label="120mm & 35mm">
-                      <option value="1">Couleur</option>
-                      <option value="2">B & W</option>
-                    </optgroup>
-                    <optgroup label="Digitale">
-                      <option value="3">iPhone</option>
-                      <option value="4">Autre</option>
-                    </optgroup>
-                    <optgroup label="Film">
-                      <option value="5">Short</option>
-                    </optgroup>
-                  </select>
+                    <select ng-model="vm.mediumSpec" material-select watch>
+                        <option value="" disabled selected>Type</option>
+                        <option ng-repeat="spec in vm.mediumSpecs">{{spec}}</option>
+                    </select>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="input-field col s10 offset-s1">
-                  <input ng-model="vm.date" id="date" name="date" type="date" class="datepicker" required>
-                  <label for="date">Date</label>
+                <div class="row">
+                    <div class="input-field col s10 offset-s1">
+                        <label for="date" class="active">Date Taken</label>
+                        <input ng-model="vm.date" type="date" id="date">      
+                    </div>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="input-field col s4 m4 l3 offset-s1 offset-m2 offset-l3">
-                  <button ng-click="vm.post()" class="btn waves-effect waves-light">Post</button>
+                <div class="row">
+                    <div class="input-field col s4 m4 l3 offset-s1 offset-m2 offset-l3">
+                        <button ng-click="vm.post()" class="btn waves-effect waves-light">Post</button>
+                    </div>
+                    <div class="input-field col s4 m4 l3 offset-s1">
+                        <button class="btn waves-effect waves-light" type="reset">Clear</button>
+                    </div>
                 </div>
-                <div class="input-field col s4 m4 l3 offset-s1">
-                  <button class="btn waves-effect waves-light" type="reset">Clear</button>
-                </div>
-              </div>
-            </form>
-          </div>
+        </form>
         </div>
+    </div>

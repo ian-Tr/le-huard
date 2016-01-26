@@ -10,31 +10,53 @@
     function _newPost() {
         /*jshint validthis: true */
         var vm = this,
-            success = true;
+            currentDate = new Date();
 
-        vm.title = '';
-        vm.file = '';
-        vm.medium = '';
-        vm.type = '';
-        vm.date = '';
+        vm.mediumType = null;
+        vm.mediumSpec = null;
+        vm.date = null;
+        vm.mediumSpecs = [];
+        vm.setMediumSpecs = setMediumSpecs;
+        vm.mediums = [{
+            type: '120mm',
+            spec: [
+                'B&W',
+                'Color'
+            ]
+        }, {
+            type: '35mmmm',
+            spec: [
+                'B&W',
+                'Color'
+            ]
+        }, {
+            type: 'Digital',
+            spec: [
+                'iPhone',
+                'Other'
+            ]
+        }, {
+            type: 'Disposable',
+            spec: [
+                'B&W',
+                'Color'
+            ]
+        }, {
+            type: 'Film',
+            spec: [
+                'Short'
+            ]
+        }, ];
 
-        vm.post = post;
-
-        function post() {
-            // newPostService post function with vm variables
-            console.log(vm.title + ' ' + vm.file + ' ' + vm.medium + ' ' + vm.type + ' ' + vm.date);
-            // clear values
-            vm.title = '';
-            vm.file = '';
-            vm.medium = '';
-            vm.type = '';
-            vm.date = '';
-
-            if (success) {
-              console.log('post added');
+        function setMediumSpecs() {
+            var key = null;
+            for (var i = 0; i < vm.mediums.length; i++) {
+                if (vm.mediums[i].type === vm.mediumType) {
+                    key = i;
+                }
             }
+            vm.mediumSpecs = vm.mediums[key].spec;
         }
-
     }
 
 })();

@@ -4,7 +4,8 @@
     angular.module('App', [
         'ui.materialize',
         'ui.router',
-        'ngAnimate',        
+        'ngAnimate',
+        'ngMaterial',
         'AdminModule',
         'PortfolioModule',
         'Constants',
