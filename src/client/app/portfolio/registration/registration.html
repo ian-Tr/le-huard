@@ -2,37 +2,47 @@
     <a href="#/" class="close-view right waves-effect waves-light btn"><i class="material-icons">clear</i></a>
     <div class="valign-wrapper col s12 full-height">
         <div class="valign center-element">
-            <form action="">
+            <form ng-submit="vm.register(vm.user)" class="ajax" >
                 <div class="card connection-card">
                     <div class="card-content">
-                        <h3>Enregistrement</h3>
-                        <div class="input-field row">
-                            <input type="text" id="username" class="validate">
-                            <label for="username">Nom d'utilisateur</label>
+                        <h3>Register</h3>
+                        <div ng-if="vm.showError" class="conflict-error">
+                            <span class="center-element ">Username and/or email already exists.</span>
+                        </div>
+                        <div ng-if="vm.showNoMatchError" class="no-match-error">
+                            <span class="center-element ">Password fields didn't match.</span>
                         </div>
                         <div class="input-field row">
-                            <input type="email" id="email" class="validate">
-                            <label for="email">Addresse email</label>
+                            <input ng-model="vm.user.username" type="text" name="username" id="username" pattern="^[a-zA-Z][a-zA-Z0-9-_/.]{3,20}$" title="Username must be between 3-20 characters. Spaces are and some special charcters are not allowed." required>
+                            <label for="username">Username</label>
                         </div>
                         <div class="input-field row">
-                            <input type="password" id="password" class="validate">
-                            <label for="password">Mot de passe</label>
+                            <input ng-model="vm.user.email" type="email" name="email" id="email" title="Email must be in correct format." required>
+                            <label for="email">Email</label>
                         </div>
                         <div class="input-field row">
-                            <input type="password" id="password_confirmation" class="validate">
-                            <label for="password_confirmation">Confirmation du mot de passe</label>
+                            <input ng-model="vm.user.password" type="password" name="password" id="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="Password must be at least 8 characters and contain a lowercase, uppercase, and number." required>
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="input-field row">
+                            <input ng-model="vm.confirmation" type="password" name="password_confirmation" id="password_confirmation" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="Password must be at least 8 characters and contain a lowercase, uppercase, and number." required>
+                            <label for="password_confirmation">Confirm password</label>
                         </div>
                     </div>
                 </div>
                 <div class="input-field right">
                     <a ui-sref="portfolio.connection" class="btn-flat link-btn">
                         <span class="sliding-middle-out">
-                            Vous avez deja un compte?
+                            Already have an account?
                         </span>
                     </a>
-                    <a class="waves-effect btn white-btn">S'enregistrer</a>
+                    <input type="submit" class="waves-effect btn white-btn" value="Register">
                 </div>
             </form>
+            <!--
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+            <script src="/src/server/registration/registration-handler.js"></script>
+          -->
         </div>
     </div>
 </section>
