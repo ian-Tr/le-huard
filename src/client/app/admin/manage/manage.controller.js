@@ -28,7 +28,7 @@
 
         function getLocations() {
             for (var i = 0; i < vm.posts.length; i++) {
-                vm.locations.push(vm.posts[i].url + '.jpg');
+                vm.locations.push(vm.posts[i].url);
             }
         }
 

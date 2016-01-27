@@ -118,12 +118,12 @@ INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-12.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-13.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-14.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Color-1.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Color-2.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Color-3.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Color-4.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Color-5.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Color-6.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Couleur-1.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Couleur-2.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Couleur-3.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Couleur-4.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Couleur-5.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Couleur-6.jpg');
 
 INSERT INTO member (role, username, password, email) VALUES ('admin', 'admin', 'admin', 'admin@admin.com');
 INSERT INTO member (role, username, password, email) VALUES ('member', 'member', 'member', 'member@member.com');

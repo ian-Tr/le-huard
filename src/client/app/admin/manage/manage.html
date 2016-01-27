@@ -13,7 +13,7 @@
                     <ul class="grid">
                         <li ng-repeat="post in vm.posts" class="col l3 m4 s6">
                             <a ui-sref="admin.manage.post({id: post.id})">
-                                <img ng-src="{{post.url + '.jpg'}}" ng-attr-alt="{{post.title}}" class="responsive-img">
+                                <img ng-src="{{post.url}}" ng-attr-alt="{{post.title}}" class="responsive-img">
                             </a>
                         </li>
                     </ul>
