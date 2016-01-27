@@ -378,7 +378,12 @@ header {
 .modal-portfolio.modal h4, .modal-portfolio.modal h5 {
     display: inline-block;
 }
-
+.portfolio nav ul li:hover {
+    background-color: transparent !important;
+}
+.portfolio .dropdown-content li:hover {
+    background-color: transparent !important;
+}
 /******************************************************************************/
 
 
@@ -431,10 +436,10 @@ header {
     background-color: #F5F5F5;
     color: #212121;
 }
-.contact-page .input-field input:focus + label, .input-field textarea:focus + label {
+.contact-page .input-field input:focus + label, .contact-page .input-field textarea:focus + label {
     color: #F5F5F5 !important;
 }
-.contact-page .input-field input:focus, .input-field textarea:focus {
+.contact-page .input-field input:focus, .contact-page .input-field textarea:focus {
     border-bottom: 1px solid #F5F5F5 !important;
     box-shadow: 0 1px 0 0 #F5F5F5 !important;
 }

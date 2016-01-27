@@ -15,8 +15,12 @@
         vm.mediumType = null;
         vm.mediumSpec = null;
         vm.date = null;
+        vm.file = null;
+        vm.title = null;
         vm.mediumSpecs = [];
         vm.setMediumSpecs = setMediumSpecs;
+        vm.uploadPost = uploadPost;
+        vm.clear = clear;
         vm.mediums = [{
             type: '120mm',
             spec: [
@@ -24,7 +28,7 @@
                 'Color'
             ]
         }, {
-            type: '35mmmm',
+            type: '35mm',
             spec: [
                 'B&W',
                 'Color'
@@ -56,6 +60,19 @@
                 }
             }
             vm.mediumSpecs = vm.mediums[key].spec;
+        }
+
+        function clear() {
+            vm.mediumType = null;
+            vm.mediumSpec = null;
+            vm.date = null;
+            vm.mediumSpecs = [];
+            vm.file = null;
+            vm.title = null;
+        }
+
+        function uploadPost(post) {
+            
         }
     }
 

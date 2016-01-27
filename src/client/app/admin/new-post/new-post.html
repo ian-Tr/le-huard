@@ -5,10 +5,10 @@
             <h5>New Post</h5>
         </div>
 
-        <form id="CreatePostForm">
+        <form ng-submit="vm.upload(vm.post)">
             <div class="row">
                 <div class="input-field col s10 offset-s1">
-                    <input ng-model="vm.title" id="name" name="username" type="text" class="validate" required>
+                    <input ng-model="vm.title" name="username" type="text" class="validate" required>
                     <label for="username">Title</label>
                 </div>
             </div>
@@ -17,23 +17,23 @@
                 <div class="file-field input-field col s10 offset-s1">
                     <div class="btn">
                         <span>File</span>
-                        <input ng-model="vm.file" type="file" required>
+                        <input ng-model="vm.file" type="file" name="file" required>
                     </div>
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
+                        <input class="file-path validate" type="text" name="filePath" ng-model="vm.filePath">
                     </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s10 m5 l5 offset-s1 offset-m1 offset-l1">
-                    <select ng-change="vm.setMediumSpecs()" ng-model="vm.mediumType" material-select required>
+                    <select ng-change="vm.setMediumSpecs()" ng-model="vm.mediumType" name="mediumType" material-select required>
                         <option value="" disabled selected>Medium</option>
                         <option ng-repeat="medium in vm.mediums">{{medium.type}}</option>
                     </select>
                 </div>
                 <div class="input-field col s10 m5 l5 offset-s1">
-                    <select ng-model="vm.mediumSpec" material-select watch>
+                    <select ng-model="vm.mediumSpec" name="mediumSpec" material-select watch>
                         <option value="" disabled selected>Type</option>
                         <option ng-repeat="spec in vm.mediumSpecs">{{spec}}</option>
                     </select>
@@ -42,16 +42,16 @@
                 <div class="row">
                     <div class="input-field col s10 offset-s1">
                         <label for="date" class="active">Date Taken</label>
-                        <input ng-model="vm.date" type="date" id="date">      
+                        <input ng-model="vm.date" type="date" name="date">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s4 m4 l3 offset-s1 offset-m2 offset-l3">
-                        <button ng-click="vm.post()" class="btn waves-effect waves-light">Post</button>
+                        <button type="submit" class="btn waves-effect waves-light">Post</button>
                     </div>
                     <div class="input-field col s4 m4 l3 offset-s1">
-                        <button class="btn waves-effect waves-light" type="reset">Clear</button>
+                        <button ng-click="vm.clear()" class="btn waves-effect waves-light">Clear</button>
                     </div>
                 </div>
         </form>

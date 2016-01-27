@@ -64,21 +64,21 @@ CREATE TABLE comments (
 	FOREIGN KEY (mem_id) REFERENCES member(id) ON DELETE CASCADE
 );
 
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/American-Backpacker-Vancouver-2012.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Carousel-NA-NA.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Cherries-OliverBC-2012.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Cooking-in-a-Pot-OliverBC-2012.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Dodo-MontereyCA-2013.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Friends-NA-NA.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Hot-Springs-BC-2012.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/In-the-bus-SanFrancisco-2013.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Mushroom-Beach-KelownaBC-2013.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Rainbows-n-Weed-KelownaBC-2013.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Rollin-BC-2012.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Smokin-High-In-Cali-MontereyCalifornia.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Sunset-Beach-SanFrancisco-2013.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/Woods-BC-2012.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Couleur/WWOOFing-BC-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/American-Backpacker-Vancouver-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/Carousel-NA-NA.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/Cherries-OliverBC-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/Cooking-in-a-Pot-OliverBC-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/Dodo-MontereyCA-2013.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/Friends-NA-NA.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/Hot-Springs-BC-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/In-the-bus-SanFrancisco-2013.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/Mushroom-Beach-KelownaBC-2013.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/Rainbows-n-Weed-KelownaBC-2013.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/Rollin-BC-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/Smokin-High-In-Cali-MontereyCalifornia.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/Sunset-Beach-SanFrancisco-2013.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/Woods-BC-2012.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/35mm-Color/WWOOFing-BC-2012.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Auditions-Montreal-2015.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Backyard-BrooklynNY-Montreal.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Breakup-RiveSudQC-2014.jpg');
@@ -94,16 +94,16 @@ INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Post-RiveSudQC-2014
 INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Probablement-La-Genese-Montreal-2015.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Sans-Titre-2014.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/120mm-BW/Sous-Sol-Montreal-2014.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/A-la-Plage-NewyorkNY-2015.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Au-Chalet-QC-2015.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Ben-Working-Newyork-2015.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Berri-Montreal-2014.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Confort-Metro-Montreal-2014.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Habitat-67-Montreal-2014.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Metro-Montreal-2014.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Sans-Titre-NewYorkNY-2015.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Sans-Titre-QC-2015.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Couleur/Tournage-en-Campagne-QC-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Color/A-la-Plage-NewyorkNY-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Color/Au-Chalet-QC-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Color/Ben-Working-Newyork-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Color/Berri-Montreal-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Color/Confort-Metro-Montreal-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Color/Habitat-67-Montreal-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Color/Metro-Montreal-2014.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Color/Sans-Titre-NewYorkNY-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Color/Sans-Titre-QC-2015.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/120mm-Color/Tournage-en-Campagne-QC-2015.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-1.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-2.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-3.jpg');
@@ -118,31 +118,31 @@ INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-12.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-13.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-BW/Disposable-BW-14.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-1.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-2.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-3.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-4.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-5.jpg');
-INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-6.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Color-1.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Color-2.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Color-3.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Color-4.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Color-5.jpg');
+INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Color-6.jpg');
 
 INSERT INTO member (role, username, password, email) VALUES ('admin', 'admin', 'admin', 'admin@admin.com');
 INSERT INTO member (role, username, password, email) VALUES ('member', 'member', 'member', 'member@member.com');
 
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 1, 'photo', '35mm', 'Couleur', 'American Backpacker', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 2, 'photo', '35mm', 'Couleur', 'Carousel', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 3, 'photo', '35mm', 'Couleur', 'Cherries', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 4, 'photo', '35mm', 'Couleur', 'Cooking in a Pot', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 5, 'photo', '35mm', 'Couleur', 'Dodo', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 6, 'photo', '35mm', 'Couleur', 'Friends', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 7, 'photo', '35mm', 'Couleur', 'Hot Springs', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 8, 'photo', '35mm', 'Couleur', 'In the Bus', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 9, 'photo', '35mm', 'Couleur', 'Mushroom Beach', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 10, 'photo', '35mm', 'Couleur', 'Rainbows & Weed', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 11, 'photo', '35mm', 'Couleur', 'Rollin', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 12, 'photo', '35mm', 'Couleur', 'Smokin High', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 13, 'photo', '35mm', 'Couleur', 'Sunset Beach', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 14, 'photo', '35mm', 'Couleur', 'Woods', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 15, 'photo', '35mm', 'Couleur', 'WWOOFing', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 1, 'photo', '35mm', 'Color', 'American Backpacker', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 2, 'photo', '35mm', 'Color', 'Carousel', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 3, 'photo', '35mm', 'Color', 'Cherries', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 4, 'photo', '35mm', 'Color', 'Cooking in a Pot', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 5, 'photo', '35mm', 'Color', 'Dodo', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 6, 'photo', '35mm', 'Color', 'Friends', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 7, 'photo', '35mm', 'Color', 'Hot Springs', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 8, 'photo', '35mm', 'Color', 'In the Bus', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 9, 'photo', '35mm', 'Color', 'Mushroom Beach', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 10, 'photo', '35mm', 'Color', 'Rainbows & Weed', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 11, 'photo', '35mm', 'Color', 'Rollin', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 12, 'photo', '35mm', 'Color', 'Smokin High', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 13, 'photo', '35mm', 'Color', 'Sunset Beach', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 14, 'photo', '35mm', 'Color', 'Woods', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 15, 'photo', '35mm', 'Color', 'WWOOFing', '2016-01-16');
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 16, 'photo', '120mm', 'B&W', 'Auditions', '2016-01-16');
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 17, 'photo', '120mm', 'B&W', 'Backyard', '2016-01-16');
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 18, 'photo', '120mm', 'B&W', 'Breakup', '2016-01-16');
@@ -158,16 +158,16 @@ INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, med
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 28, 'photo', '120mm', 'B&W', 'Probablement la Genese', '2016-01-16');
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 29, 'photo', '120mm', 'B&W', 'Sans Titre', '2016-01-16');
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 30, 'photo', '120mm', 'B&W', 'Sous Sol', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 31, 'photo', '120mm', 'Couleur', 'A la Plage', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 32, 'photo', '120mm', 'Couleur', 'Au Chalet', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 33, 'photo', '120mm', 'Couleur', 'Ben Working', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 34, 'photo', '120mm', 'Couleur', 'Berri', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 35, 'photo', '120mm', 'Couleur', 'Confort', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 36, 'photo', '120mm', 'Couleur', 'Habitat 67', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 37, 'photo', '120mm', 'Couleur', 'Metro', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 38, 'photo', '120mm', 'Couleur', 'Window Girl', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 39, 'photo', '120mm', 'Couleur', 'Reflection', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 40, 'photo', '120mm', 'Couleur', 'Tournage en Compagne', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 31, 'photo', '120mm', 'Color', 'A la Plage', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 32, 'photo', '120mm', 'Color', 'Au Chalet', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 33, 'photo', '120mm', 'Color', 'Ben Working', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 34, 'photo', '120mm', 'Color', 'Berri', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 35, 'photo', '120mm', 'Color', 'Confort', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 36, 'photo', '120mm', 'Color', 'Habitat 67', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 37, 'photo', '120mm', 'Color', 'Metro', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 38, 'photo', '120mm', 'Color', 'Window Girl', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 39, 'photo', '120mm', 'Color', 'Reflection', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 40, 'photo', '120mm', 'Color', 'Tournage en Compagne', '2016-01-16');
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 41, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-1', '2016-01-16');
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 42, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-4', '2016-01-16');
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 43, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-2', '2016-01-16');
@@ -182,12 +182,12 @@ INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, med
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 52, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-12', '2016-01-16');
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 53, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-13', '2016-01-16');
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 54, 'photo', 'Disposable', 'B&W', 'Disposable-B&W-14', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 55, 'photo', 'Disposable', 'Couleur', 'Disposable-Couleur-1', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 56, 'photo', 'Disposable', 'Couleur', 'Disposable-Couleur-2', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 57, 'photo', 'Disposable', 'Couleur', 'Disposable-Couleur-3', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 58, 'photo', 'Disposable', 'Couleur', 'Disposable-Couleur-4', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 59, 'photo', 'Disposable', 'Couleur', 'Disposable-Couleur-5', '2016-01-16');
-INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 60, 'photo', 'Disposable', 'Couleur', 'Disposable-Couleur-6', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 55, 'photo', 'Disposable', 'Color', 'Disposable-Color-1', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 56, 'photo', 'Disposable', 'Color', 'Disposable-Color-2', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 57, 'photo', 'Disposable', 'Color', 'Disposable-Color-3', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 58, 'photo', 'Disposable', 'Color', 'Disposable-Color-4', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 59, 'photo', 'Disposable', 'Color', 'Disposable-Color-5', '2016-01-16');
+INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 60, 'photo', 'Disposable', 'Color', 'Disposable-Color-6', '2016-01-16');
 
 INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (1, 1, 'First admin comment', '2016-01-16');
 INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (1, 1, 'Second member comment', '2016-01-16');
@@ -219,13 +219,6 @@ END//
 CREATE PROCEDURE getComments()
 BEGIN
 	SELECT * FROM comments;
-END//
-
-CREATE PROCEDURE getPostMedia()
-BEGIN
-	select post.id, media.id, post.medium, post.medium_type, post.medium_spec, post.title, post.media_date, media.url
-	from post, media
-	where post.media_id = media.id;
 END//
 
 CREATE PROCEDURE setMedia(IN url_in VARCHAR(100))

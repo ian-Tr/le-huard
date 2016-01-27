@@ -32,13 +32,25 @@
                 controllerAs: 'vm'
             })
             .state('admin.manage', {
+                abstract: true,
                 url: '/manage',
+                templateUrl: '/src/client/app/admin/manage/index.html',
+                resolve: {
+                    loadPosts: function(MediaService) {
+                        if (MediaService.getData() === null) {
+                            MediaService.loadData();
+                        }
+                    }
+                }
+            })
+            .state('admin.manage.post-selection', {
+                url: '',
                 templateUrl: '/src/client/app/admin/manage/manage.html',
                 controller: 'Manage',
                 controllerAs: 'vm'
             })
-            .state('admin.manage-post', {
-                url: '/manage/post',
+            .state('admin.manage.post', {
+                url: '/post{id}',
                 templateUrl: '/src/client/app/admin/manage/manage-post.html',
                 controller: 'ManagePost',
                 controllerAs: 'vm'

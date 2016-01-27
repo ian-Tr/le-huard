@@ -1,17 +1,27 @@
-        <!-- main content -->
-        <div class="center-align">
-          <div class="card col s10 m10 l4 offset-s1 offset-m1 offset-l5">
-            <div class="row">
-              <h5>Manage Posts</h5>
-            </div>
-
-            <div deckgrid class="deckgrid" source="vm.posts.pictures">
-        	    <div class="card">
-        				<div class="card-image">
-        	    		<img modal ng-src="{{card.url}}" alt="" ng-attr-href="#modal{{card.$index}}" class="slide responsive-img">
-        				</div>
-        	    </div>
-        		</div>
-
-          </div>
+<!-- main content -->
+<div class="center-align">
+    <div class="card col s10 m10 l6 offset-s1 offset-m1 offset-l4">
+        <div class="row">
+            <h5>Manage Posts</h5>
         </div>
+        <div class="row full-height" ng-switch="vm.isLoading">
+            <div ng-switch-when="true" class="full-height valign-wrapper">
+                <div class="loader valign"></div>
+            </div>
+            <div ng-switch-when="false" ng-switch="vm.isSuccessful" class="full-height img-loaded">
+                <div ng-switch-when="true" class="full-height">
+                    <ul class="grid">
+                        <li ng-repeat="post in vm.posts" class="col l3 m4 s6">
+                            <a ui-sref="admin.manage.post({id: post.id})">
+                                <img ng-src="{{post.url + '.jpg'}}" ng-attr-alt="{{post.title}}" class="responsive-img">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-switch-when="false" class="full-height valign-wrapper">
+                    <h2 class="valign img-loaded logo-font">Nothing here yet...</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
