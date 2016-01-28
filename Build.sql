@@ -125,8 +125,8 @@ INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposabl
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-5.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-6.jpg');
 
-INSERT INTO member (role, username, password, email) VALUES ('admin', 'admin', 'admin', 'admin@admin.com');
-INSERT INTO member (role, username, password, email) VALUES ('member', 'member', 'member', 'member@member.com');
+INSERT INTO member (role, username, password, email) VALUES ('admin', 'admin', 'Adminadmin0', 'admin@admin.com');
+INSERT INTO member (role, username, password, email) VALUES ('member', 'member', 'Membermember0', 'member@member.com');
 
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 1, 'photo', '35mm', 'Couleur', 'American Backpacker', '2016-01-16');
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 2, 'photo', '35mm', 'Couleur', 'Carousel', '2016-01-16');
@@ -219,13 +219,6 @@ END//
 CREATE PROCEDURE getComments()
 BEGIN
 	SELECT * FROM comments;
-END//
-
-CREATE PROCEDURE getPostMedia()
-BEGIN
-	select post.id, media.id, post.medium, post.medium_type, post.medium_spec, post.title, post.media_date, media.url
-	from post, media
-	where post.media_id = media.id;
 END//
 
 CREATE PROCEDURE setMedia(IN url_in VARCHAR(100))

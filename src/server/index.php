@@ -58,9 +58,9 @@ $app->get('/', function ($request, $response, $args) {
     // initialize $_SESSION with default 'viewer' user /////////////////////////
     if (!isset($_SESSION['user_state']) && empty($_SESSION['user_state'])) {
         $session = [
-            'id' => '1',
+            'id' => '0',
             'user' => [
-                'userId' => '1',
+                'userId' => '0',
                 'userName' => '',
                 'userRole' => 'viewer',
             ],
@@ -128,9 +128,9 @@ $app->group('/api', function () {
             // if the user is found and valid create a new $_SESSION with
             // the user info as follows
             $session = [
-              'id' => '2',
+              'id' => '1',
               'user' => [
-                    'userId' => '2',
+                    'userId' => '1',
                     'userName' => 'admin',
                     'userRole' => 'admin',
                 ],
@@ -155,9 +155,9 @@ $app->group('/api', function () {
         // default $_SESSION should be this, so when we call delete
         // we should actually juste update the $_SESSION with those values
         $session = [
-            'id' => '1',
+            'id' => '0',
             'user' => [
-                'userId' => '1',
+                'userId' => '0',
                 'userName' => '',
                 'userRole' => 'viewer',
             ],

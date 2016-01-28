@@ -26,13 +26,13 @@
         }
 
         function logout() {
-          return $http.delete('/api/login').then(function(response) {              
+          return $http.delete('/api/login').then(function(response) {
               return response.data.user;
           });
         }
 
         function isAuthenticated() {
-            return (Session.userId !== 1);
+            return (Session.userId !== 0);
         }
 
         function isAuthorized(authorizedRoles) {
