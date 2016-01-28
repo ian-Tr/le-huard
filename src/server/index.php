@@ -55,7 +55,7 @@ $container['sql'] = function ($container) {
 // index.html and let it handle its own routes /////////////////////////////////
 $app->get('/', function ($request, $response, $args) {
     // check if session timedout
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
         // last request was more than 30 minutes ago
         echo 'session was destroyed';
         session_unset();     // unset $_SESSION variable for the run-time
@@ -70,8 +70,9 @@ $app->get('/', function ($request, $response, $args) {
             ],
         ];
         $_SESSION['user_state'] = $session;
-    } else {
-        // put defaults in session
+    }
+    // put defaults in session on first time visit
+    if (!isset($_SESSION['user_state']) && empty($_SESSION['user_state'])) {
         $session = [
             'id' => '1',
             'user' => [
@@ -105,7 +106,7 @@ $app->get('/', function ($request, $response, $args) {
 $app->group('/api', function () {
     $status = 200;
     // check if session timedout
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
         // last request was more than 30 minutes ago
         echo 'session was destroyed';
         session_unset();     // unset $_SESSION variable for the run-time
@@ -204,11 +205,9 @@ $app->group('/api', function () {
                 ],
             ];
             $_SESSION['user_state'] = $session;
-        } else {
-            $session = $_SESSION['user_state'];
         }
+        $session = $_SESSION['user_state'];
         $response->getBody()->write(json_encode($session));
-
         return $response->withStatus(200);
     });
     $this->delete('/login', function ($request, $response, $args) {
