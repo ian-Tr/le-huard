@@ -127,6 +127,12 @@ INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-
 
 INSERT INTO member (role, username, password, email) VALUES ('admin', 'admin', 'admin', 'admin@admin.com');
 INSERT INTO member (role, username, password, email) VALUES ('member', 'member', 'member', 'member@member.com');
+INSERT INTO member (role, username, password, email) VALUES ('member', 'eloiqs', 'eloiqs', 'eloiqs@eloiqs.com');
+INSERT INTO member (role, username, password, email) VALUES ('member', 'iantr', 'iantr', 'iantr@iantr.com');
+INSERT INTO member (role, username, password, email) VALUES ('member', 'tomleb', 'tomleb', 'tomleb@tomleb.com');
+INSERT INTO member (role, username, password, email) VALUES ('member', 'pedro', 'pedro', 'pedro@pedro.com');
+INSERT INTO member (role, username, password, email) VALUES ('member', 'random', 'random', 'random@random.com');
+INSERT INTO member (role, username, password, email) VALUES ('member', 'test', 'test', 'test@test.com');
 
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 1, 'photo', '35mm', 'Color', 'American Backpacker', '2016-01-16');
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 2, 'photo', '35mm', 'Color', 'Carousel', '2016-01-16');
@@ -208,7 +214,8 @@ END//
 
 CREATE PROCEDURE getMember()
 BEGIN
-	SELECT * FROM member;
+	SELECT id, username, email
+	FROM member;
 END//
 
 CREATE PROCEDURE getPost()

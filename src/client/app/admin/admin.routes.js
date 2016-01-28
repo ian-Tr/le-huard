@@ -64,8 +64,10 @@
                     loadUsers: function(UserService) {
                         if (UserService.getData() === null) {
                             UserService.loadData();
+                        } else {
+
+                          console.log('already have user data');
                         }
-                        console.log('already have user data');
                     }
                 }
             })

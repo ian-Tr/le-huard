@@ -11,11 +11,11 @@
                 </div>
             </form>
             <ul class="collection">
-                <li ng-repeat="user in vm.users | filter: vm.search" class="collection-item avatar">
+                <li ng-repeat="user in vm.users | filter: vm.search" class="collection-item avatar" ng-if="user.id !== appVm.currentUser.userId">
                     <img src="/src/client/photos/user.svg" alt="" class="circle">
                     <span class="title">{{user.username}}</span>
                     <p>{{user.email}}</p>
-                    <a href="" ng-click="vm.ban(user)" class="secondary-content"><i class="material-icons">delete</i></a>
+                    <a href="" ng-click="vm.ban(vm.users, user, $index)" class="secondary-content"><i class="material-icons">delete</i></a>
                 </li>
             </ul>
         </div>

@@ -15,13 +15,12 @@
         vm.users = users;
         vm.ban = ban;
 
-        function ban(user) {
+        function ban(userArray, user, index) {
             $http.delete('/api/user' + user.id).then(function(deletedUserId) {
-                users = users.filter(function(user) {
-                    return (user.id !== deletedUserId);
-                });
-                console.log(users);
-                vm.users = users;
+                userArray.splice(index, 1);
+            },
+            function(response) {
+                alert('User does not exist');
             });
         }
 
