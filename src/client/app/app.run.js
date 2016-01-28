@@ -5,13 +5,13 @@
         .module('App')
         .run(_bindStateToRootScope)
         .run(_stateChangeListener)
-        .run(_notAuthenticatedListener);
-    // .run(_notAuthorizedListener);
+        .run(_notAuthenticatedListener)
+        .run(_notAuthorizedListener);
 
     _bindStateToRootScope.$inject = ['$state', '$rootScope'];
     _stateChangeListener.$inject = ['$rootScope', 'AUTH_EVENTS', 'AuthService', 'Session', 'AuthResolver'];
     _notAuthenticatedListener.$inject = ['$rootScope', 'AUTH_EVENTS', '$state', 'Session'];
-    // _notAuthorizedListener.$inject = ['$rootScope', 'AUTH_EVENTS', '$state', 'Session'];
+    _notAuthorizedListener.$inject = ['$rootScope', 'AUTH_EVENTS', '$state', 'Session'];
 
     function _bindStateToRootScope($state, $rootScope) {
         $rootScope.$state = $state;

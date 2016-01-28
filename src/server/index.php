@@ -3,7 +3,6 @@
 
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
-
 session_start();
 
 ////////////// app configuration ///////////////////////////////////////////////
@@ -39,24 +38,40 @@ $container['view'] = function ($container) {
 // with our db: why reinvent the wheel? ////////////////////////////////////////
 $container['sql'] = function ($container) {
     duncan3dc\SqlClass\Sql::addServer('le-huard', [
-        "mode"      =>  "mysql",
-        "hostname"  =>  "127.0.0.1",
-        "username"  =>  "root",
-        "password"  =>  "admin",
-        "database"  =>  "le-huard",
+        'mode' => 'mysql',
+        'hostname' => '127.0.0.1',
+        'username' => 'root',
+        'password' => 'admin',
+        'database' => 'le-huard',
     ]);
     $sql = duncan3dc\SqlClass\Sql::getInstance('le-huard');
+
     return $sql;
 };
 /////////////// end app config and container declaration //////////////////////
-
 
 /////////////////////////////////// ROUTES /////////////////////////////////////
 // when accessing the root of the website we should return the angul app at ////
 // index.html and let it handle its own routes /////////////////////////////////
 $app->get('/', function ($request, $response, $args) {
-    // initialize $_SESSION with default 'viewer' user /////////////////////////
-    if (!isset($_SESSION['user_state']) && empty($_SESSION['user_state'])) {
+    // check if session timedout
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
+        // last request was more than 30 minutes ago
+        echo 'session was destroyed';
+        session_unset();     // unset $_SESSION variable for the run-time
+        session_destroy();   // destroy session data in storage
+        // put defaults in session
+        $session = [
+            'id' => '1',
+            'user' => [
+                'userId' => '1',
+                'userName' => '',
+                'userRole' => 'viewer',
+            ],
+        ];
+        $_SESSION['user_state'] = $session;
+    } else {
+        // put defaults in session
         $session = [
             'id' => '1',
             'user' => [
@@ -67,6 +82,8 @@ $app->get('/', function ($request, $response, $args) {
         ];
         $_SESSION['user_state'] = $session;
     }
+    // set last activity time
+    $_SESSION['LAST_ACTIVITY'] = time();
     // serve the angular app ///////////////////////////////////////////////////
     return $this->view->render($response, '/app/index.html');
 });
@@ -86,26 +103,51 @@ $app->get('/', function ($request, $response, $args) {
 // 419: AUTH_EVENTS.sessionTimeout
 // 440: AUTH_EVENTS.sessionTimeout (IE only)
 $app->group('/api', function () {
+    $status = 200;
+    // check if session timedout
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
+        // last request was more than 30 minutes ago
+        echo 'session was destroyed';
+        session_unset();     // unset $_SESSION variable for the run-time
+        session_destroy();   // destroy session data in storage
+        // put defaults in session
+        $session = [
+            'id' => '1',
+            'user' => [
+                'userId' => '1',
+                'userName' => '',
+                'userRole' => 'viewer',
+            ],
+        ];
+        $_SESSION['user_state'] = $session;
+        $status = 419;
+    }
+    // set last activity time
+    $_SESSION['LAST_ACTIVITY'] = time();
 
     ////////////////////////////////////////////////////////////////////////////
     // /API/MEDIA /////////////////////////////////////////////////////////////
     // returns the info on the post and media angular needs in it's views /////
     ///////////////////////////////////////////////////////////////////////////
     $this->get('/media', function ($request, $response, $args) {
-
+        if ($status === 419) {
+            return $response->withStatus($status);
+        }
         $db = $this->sql;
         if ($db) {
-            $result = $db->query("call getPostMedia");
+            $result = $db->query('call getPostMedia');
             if ($result) {
                 while ($row = $result->fetch()) {
                     $media[] = $row;
                 }
                 if ($media) {
                     $response->getBody()->write(json_encode($media));
+
                     return $response->withStatus(200);
                 }
             }
         }
+
         return $response->withStatus(404);
     });
     ///////////////////////////////////////////////////////////////////////////
@@ -116,6 +158,9 @@ $app->group('/api', function () {
     // don't worry about security just yet so no need to hash & salt the ///////
     // password ////////////////////////////////////////////////////////////////
     $this->post('/login', function ($request, $response, $args) {
+        if ($status === 419) {
+            return $response->withStatus($status);
+        }
         // this line gets the credentials entered in the connection form as associative array
         // $credentials = [
         //     username => value,
@@ -145,8 +190,23 @@ $app->group('/api', function () {
         return $response->withStatus(404);
     });
     $this->get('/login', function ($request, $response, $args) {
+        if ($status === 419) {
+            return $response->withStatus($status);
+        }
         // return the session_state in json format
-        $session = $_SESSION['user_state'];
+        if (!isset($_SESSION['user_state']) && empty($_SESSION['user_state'])) {
+            $session = [
+                'id' => '1',
+                'user' => [
+                    'userId' => '1',
+                    'userName' => '',
+                    'userRole' => 'viewer',
+                ],
+            ];
+            $_SESSION['user_state'] = $session;
+        } else {
+            $session = $_SESSION['user_state'];
+        }
         $response->getBody()->write(json_encode($session));
 
         return $response->withStatus(200);
