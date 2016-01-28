@@ -13,15 +13,10 @@
             posts = MediaService.getData();
 
         vm.posts = posts;
-        vm.manage = manage;
         vm.isLoading = true;
         vm.isSuccessful = false;
         vm.percentLoaded = 0;
         vm.locations = [];
-
-        function manage(id) {
-            // redirect to #/post:id
-        }
 
         getLocations();
         preload();

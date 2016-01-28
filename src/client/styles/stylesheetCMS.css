@@ -152,7 +152,7 @@ nav ul a:hover:not(.active) {
   content: '';
 }
 .loader:after {
-  background: #F5F5F5;
+  background: #FFFFFF;
   width: 75%;
   height: 75%;
   border-radius: 50%;
