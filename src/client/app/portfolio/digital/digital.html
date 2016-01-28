@@ -10,7 +10,7 @@
 						<ul class="grid">
 							<li ng-repeat="picture in vm.pictures" class="col l3 m4 s6">
 								<a modal ng-attr-href="#modal{{$index}}">
-									<img ng-src="{{picture.url + '.jpg'}}" ng-attr-alt="{{picture.title}}" class="slide responsive-img">
+									<img ng-src="{{picture.url}}" ng-attr-alt="{{picture.title}}" class="slide responsive-img">
 								</a>
 							</li>
 						</ul>

@@ -26,8 +26,8 @@
         preload();
 
         function getLocations() {
-            for (var i = 0; i < vm.pictures.length; i++) {                
-                vm.locations.push(vm.pictures[i].url + '.jpg');
+            for (var i = 0; i < vm.pictures.length; i++) {
+                vm.locations.push(vm.pictures[i].url);
             }
         }
 
