@@ -5,9 +5,9 @@
         .module('App')
         .controller('Manage', _manage);
 
-    _manage.$inject = ['MediaService', 'Preloader'];
+    _manage.$inject = ['MediaService', 'Preloader', '$q'];
 
-    function _manage(MediaService, Preloader) {
+    function _manage(MediaService, Preloader, $q) {
         /*jshint validthis: true */
         var vm = this,
             posts = MediaService.getData();
@@ -18,13 +18,17 @@
         vm.percentLoaded = 0;
         vm.locations = [];
 
-        getLocations();
-        preload();
+        getLocations().then(function() {
+            preload();            
+        })
 
         function getLocations() {
+            var deferred = $q.defer();
             for (var i = 0; i < vm.posts.length; i++) {
                 vm.locations.push(vm.posts[i].url);
             }
+            deferred.resolve();
+            return deferred.promise;
         }
 
         function preload() {

@@ -246,7 +246,7 @@ $app->group('/api', function () {
         // }
         $db = $this->sql;
         if ($db) {
-            $result = $db->query('call getMember');
+            $result = $db->query('call getMembers');
             if ($result) {
                 while ($row = $result->fetch()) {
                     $users[] = $row;

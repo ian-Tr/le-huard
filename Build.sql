@@ -212,9 +212,15 @@ BEGIN
 	where post.media_id = media.id;
 END//
 
-CREATE PROCEDURE getMember()
+CREATE PROCEDURE getMembers()
 BEGIN
 	SELECT id, username, email
+	FROM member;
+END//
+
+CREATE PROCEDURE getMember()
+BEGIN
+	SELECT *
 	FROM member;
 END//
 
