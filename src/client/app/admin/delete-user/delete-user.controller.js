@@ -3,15 +3,27 @@
 
     angular
         .module('App')
-        .controller('DeleteUser', _deleteUser);
+        .controller('DeleteUser', deleteUser);
 
-    _deleteUser.$inject = [];
+    deleteUser.$inject = ['UserService', '$http'];
 
-    function _deleteUser() {
+    function deleteUser(UserService, $http) {
         /*jshint validthis: true */
-        var vm = this;
+        var vm = this,
+            users = UserService.getData();
 
+        vm.users = users;
+        vm.ban = ban;
 
+        function ban(user) {
+            $http.delete('/api/user' + user.id).then(function(deletedUserId) {
+                users = users.filter(function(user) {
+                    return (user.id !== deletedUserId);
+                });
+                console.log(users);
+                vm.users = users;
+            });
+        }
 
     }
 

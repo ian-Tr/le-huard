@@ -59,7 +59,14 @@
                 url: '/delete-user',
                 templateUrl: '/src/client/app/admin/delete-user/delete-user.html',
                 controller: 'DeleteUser',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    loadUsers: function(UserService) {
+                        if (UserService.getData() === null) {
+                            UserService.loadData();
+                        }
+                    }
+                }
             })
             .state('admin.stats', {
                 url: '/stats',

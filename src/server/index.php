@@ -131,9 +131,9 @@ $app->group('/api', function () {
     // returns the info on the post and media angular needs in it's views /////
     ///////////////////////////////////////////////////////////////////////////
     $this->get('/media', function ($request, $response, $args) {
-        if ($status === 419) {
-            return $response->withStatus($status);
-        }
+        // if ($status === 419) {
+        //     return $response->withStatus($status);
+        // }
         $db = $this->sql;
         if ($db) {
             $result = $db->query('call getPostMedia');
@@ -159,41 +159,53 @@ $app->group('/api', function () {
     // don't worry about security just yet so no need to hash & salt the ///////
     // password ////////////////////////////////////////////////////////////////
     $this->post('/login', function ($request, $response, $args) {
-        if ($status === 419) {
-            return $response->withStatus($status);
-        }
-        // this line gets the credentials entered in the connection form as associative array
-        // $credentials = [
-        //     username => value,
-        //     password => value
-        // ]
+        // if ($status === 419) {
+        //     return $response->withStatus($status);
+        // }
         $credentials = $request->getParsedBody();
-        // instead of this hard coded line we need to  querry the database to find
-        // if the user is valid
-        if ($credentials['username'] == 'admin@admin.com' && $credentials['password'] == 'admin') {
-            // if the user is found and valid create a new $_SESSION with
-            // the user info as follows
-            $session = [
-              'id' => '2',
-              'user' => [
-                    'userId' => '2',
-                    'userName' => 'admin',
-                    'userRole' => 'admin',
-                ],
-            ];
-            $_SESSION['user_state'] = $session;
-            // encode the associative array
-            $response->getBody()->write(json_encode($session));
-            // always return with right status
-            return $response->withStatus(201);
+        $db = $this->sql;
+        if ($db) {
+            $result = $db->query('call getMember');
+            if ($result) {
+                while ($row = $result->fetch()) {
+                    $users[] = $row;
+                }
+                if ($users) {
+                    foreach ($users as $user) {                        
+                        if ($credentials['username'] === $user['email']) {
+                            // valid username
+                            if ($credentials['password'] === $user['password']) {
+                                // valid password
+                                $session = [
+                                    'id' => $user['id'],
+                                    'user' => [
+                                        'userId' => $user['id'],
+                                        'userName' => $user['username'],
+                                        'userRole' => $user['role']
+                                    ],
+                                ];
+                                $_SESSION['user_state'] = $session;
+                                $response->getBody()->write(json_encode($session));
+                                return $response->withStatus(201);
+                            } else {
+                                $error = [
+                                    'reason' => 'Invalid password.'
+                                ];
+                            }
+                        } else {
+                            $error = [
+                                'reason' => 'This user does not exist.'
+                            ];
+                        }
+                    }
+                    $response->getBody()->write(json_encode($error));
+                    return $response->withStatus(404);
+                }
+            }
         }
-
         return $response->withStatus(404);
     });
     $this->get('/login', function ($request, $response, $args) {
-        if ($status === 419) {
-            return $response->withStatus($status);
-        }
         // return the session_state in json format
         if (!isset($_SESSION['user_state']) && empty($_SESSION['user_state'])) {
             $session = [
@@ -225,6 +237,47 @@ $app->group('/api', function () {
         $response->getBody()->write(json_encode($session));
 
         return $response->withStatus(200);
+    });
+    ///////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////
+    // /API/USERS //////////////////////////////////////////////////////////////
+    // returns the list of all users from the db ///////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    $this->get('/users', function($request, $response, $args) {
+        // check if session timed out
+        // if ($status === 419) {
+        //     return $response->withStatus($status);
+        // }
+        $db = $this->sql;
+        if ($db) {
+            $result = $db->query('call getMember');
+            if ($result) {
+                while ($row = $result->fetch()) {
+                    $users[] = $row;
+                }
+                if ($users) {
+                    $response->getBody()->write(json_encode($users));
+
+                    return $response->withStatus(200);
+                }
+            }
+        }
+
+        return $response->withStatus(404);
+    });
+    $this->delete('/user{id}', function($request, $response, $args) {
+        $userId = $args['id'];
+        $db = $this->sql;
+        if ($db) {
+            $result = $db->query('call deleteMember('.$userId.')');
+            if ($result) {
+                $response->getBody()->write(json_encode($userId));
+                return $response->withStatus(200);
+            }
+            return $response->withStatus(404);
+        }
+        return $response->withStatus(404);
     });
 });
 

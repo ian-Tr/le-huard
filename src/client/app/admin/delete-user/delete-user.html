@@ -1,11 +1,23 @@
-        <!-- main content -->
-        <div class="center-align">
-          <div class="card col s10 m10 l4 offset-s1 offset-m1 offset-l5">
-            <div class="row">
-              <h5>Delete User</h5>
-            </div>
-
-            <!-- content to be implemented later -->
-
-          </div>
+<!-- main content -->
+<div class="">
+    <div class="card col s10 m10 l4 offset-s1 offset-m1 offset-l5">
+        <div class="row">
+            <h5 class="center-align">Delete User</h5>
+            <form>
+                <div class="input-field">
+                    <input ng-model="vm.search" id="search" type="search" required>
+                    <label for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+            <ul class="collection">
+                <li ng-repeat="user in vm.users | filter: vm.search" class="collection-item avatar">
+                    <img src="/src/client/photos/user.svg" alt="" class="circle">
+                    <span class="title">{{user.username}}</span>
+                    <p>{{user.email}}</p>
+                    <a href="" ng-click="vm.ban(user)" class="secondary-content"><i class="material-icons">delete</i></a>
+                </li>
+            </ul>
         </div>
+    </div>
+</div>
