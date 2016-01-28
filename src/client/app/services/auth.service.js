@@ -5,9 +5,9 @@
         .module('App')
         .factory('AuthService', _authService);
 
-    _authService.$inject = ['$http', 'Session', '$rootScope', 'AUTH_EVENTS'];
+    _authService.$inject = ['$http', 'Session', '$rootScope', 'AUTH_EVENTS', '$q'];
 
-    function _authService($http, Session, $rootScope, AUTH_EVENTS) {
+    function _authService($http, Session, $rootScope, AUTH_EVENTS, $q) {
 
         var authService = {};
 
@@ -22,11 +22,16 @@
             return $http.post('/api/login', credentials).then(function(response) {
                 Session.create(response.data);
                 return response.data.user;
+            },
+            function(response) {
+                console.log('login error');
+                var error = response.data;
+                return $q.reject(error.reason);
             });
         }
 
         function logout() {
-          return $http.delete('/api/login').then(function(response) {              
+          return $http.delete('/api/login').then(function(response) {
               return response.data.user;
           });
         }

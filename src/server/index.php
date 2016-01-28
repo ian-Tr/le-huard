@@ -171,7 +171,7 @@ $app->group('/api', function () {
                     $users[] = $row;
                 }
                 if ($users) {
-                    foreach ($users as $user) {                        
+                    foreach ($users as $user) {
                         if ($credentials['username'] === $user['email']) {
                             // valid username
                             if ($credentials['password'] === $user['password']) {
@@ -187,17 +187,12 @@ $app->group('/api', function () {
                                 $_SESSION['user_state'] = $session;
                                 $response->getBody()->write(json_encode($session));
                                 return $response->withStatus(201);
-                            } else {
-                                $error = [
-                                    'reason' => 'Invalid password.'
-                                ];
                             }
-                        } else {
-                            $error = [
-                                'reason' => 'This user does not exist.'
-                            ];
                         }
                     }
+                    $error = [
+                        'reason' => 'invalid credentials.'
+                    ];
                     $response->getBody()->write(json_encode($error));
                     return $response->withStatus(404);
                 }

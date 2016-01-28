@@ -15,16 +15,19 @@
         vm.credentials.username = '';
         vm.credentials.password = '';
         vm.login = login;
+        vm.error = {};
+        vm.error = null;
 
         function login(credentials) {
-            AuthService.login(credentials).then(function (user) {
+            AuthService.login(credentials).then(function(user) {
                 console.log('login success');
                 $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
                 $scope.$parent.appVm.setCurrentUser(user);
                 $state.go('admin.profile');
-            }, function() {
+            }, function(error) {
                 console.log('login failed');
                 $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+                vm.error = error;
             });
         }
 

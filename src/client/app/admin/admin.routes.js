@@ -65,6 +65,7 @@
                         if (UserService.getData() === null) {
                             UserService.loadData();
                         }
+                        console.log('already have user data');
                     }
                 }
             })

@@ -3,23 +3,26 @@
     <div class="valign-wrapper col s12 full-height">
         <div class="valign center-element">
             <form ng-submit="vm.login(vm.credentials)">
+              <div ng-if="vm.error" class="row">
+                <h5 class="red-text">Sorry, {{vm.error}}</h5>
+              </div>
                 <div class="card connection-card">
                     <div class="card-content">
                         <h3>Connection</h3>
                         <div class="input-field row">
                             <input ng-model="vm.credentials.username" type="email" id="email">
-                            <label for="email">Addresse email</label>
+                            <label for="email">Email address</label>
                         </div>
                         <div class="input-field row">
                             <input ng-model="vm.credentials.password" type="password" id="password">
-                            <label for="password">Mot de passe</label>
+                            <label for="password">Password</label>
                         </div>
                     </div>
                 </div>
                 <div class="input-field right">
                     <a ui-sref="portfolio.registration" class="btn-flat link-btn">
                         <span class="sliding-middle-out">
-                            Vous n'avez pas encore de compte?
+                            Don't have an account yet?
                         </span>
                     </a>
                     <button type="submit" class="waves-effect btn white-btn">Connection</button>
