@@ -125,6 +125,7 @@ INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Couleur-5.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Couleur-6.jpg');
 
+<<<<<<< HEAD
 INSERT INTO member (role, username, password, email) VALUES ('admin', 'admin', 'admin', 'admin@admin.com');
 INSERT INTO member (role, username, password, email) VALUES ('member', 'member', 'member', 'member@member.com');
 INSERT INTO member (role, username, password, email) VALUES ('member', 'eloiqs', 'eloiqs', 'eloiqs@eloiqs.com');

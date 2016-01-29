@@ -74,9 +74,9 @@ $app->get('/', function ($request, $response, $args) {
     // put defaults in session on first time visit
     if (!isset($_SESSION['user_state']) && empty($_SESSION['user_state'])) {
         $session = [
-            'id' => '1',
+            'id' => '0',
             'user' => [
-                'userId' => '1',
+                'userId' => '0',
                 'userName' => '',
                 'userRole' => 'viewer',
             ],
@@ -163,6 +163,7 @@ $app->group('/api', function () {
         //     return $response->withStatus($status);
         // }
         $credentials = $request->getParsedBody();
+<<<<<<< HEAD
         $db = $this->sql;
         if ($db) {
             $result = $db->query('call getMember');
@@ -221,9 +222,9 @@ $app->group('/api', function () {
         // default $_SESSION should be this, so when we call delete
         // we should actually juste update the $_SESSION with those values
         $session = [
-            'id' => '1',
+            'id' => '0',
             'user' => [
-                'userId' => '1',
+                'userId' => '0',
                 'userName' => '',
                 'userRole' => 'viewer',
             ],

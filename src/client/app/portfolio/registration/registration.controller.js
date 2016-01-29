@@ -19,7 +19,6 @@
         vm.register = register;
 
         function register(user) {
-          //reset error flags on submit to keep them current
           vm.showError = false;
           vm.showNoMatchError = false;
 
@@ -40,10 +39,10 @@
             }
             else {
               vm.showNoMatchError = true;
+              vm.user.password = null;
+              vm.confirmation = null;
             }
         }
     }
-
-
 
 })();
