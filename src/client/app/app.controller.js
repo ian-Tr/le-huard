@@ -11,6 +11,7 @@
         /*jshint validthis: true */
         var appVm = this;
 
+        appVm.year = new Date().getFullYear();
         appVm.currentUser = {};
         appVm.currentUser.userId = Session.userId;
         appVm.currentUser.userName = Session.userName;

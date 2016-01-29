@@ -20,13 +20,13 @@
                     <div ng-switch-when="true" class="full-height">
                         <ul deckgrid source="vm.posts" filter="vm.search" class="deckgrid">
                             <li class="card">
-                                <div class="card-image">
+                                <div class="card-image valign-wrapper">
                                     <img ng-src="{{card.url}}" ng-attr-alt="{{card.title}}" class="responsive-img">
-                                    <span class="card-title">{{card.title}}</span>
+                                    <span class="card-title valign">{{card.title}}</span>
                                 </div>
                                 <div class="card-action">
                                     <span class="sliding-middle-out">
-                                      <a ui-sref="admin.manage.post({id: card.id})">Edit</a>                                        
+                                      <a ui-sref="admin.manage.post({id: card.id})">Edit</a>
                                         <i class="material-icons">edit</i>
                                     </span>
                                 </div>
