@@ -164,11 +164,6 @@ nav ul a:hover:not(.active) {
   bottom: 0;
   right: 0;
 }
-.deckgrid[deckgrid]::before {
-    content: '3 .col.l4';
-    font-size: 0;
-    visibility: hidden;
-}
 .card .card-action a {
 		color: #212121;
 		margin-right: 0;

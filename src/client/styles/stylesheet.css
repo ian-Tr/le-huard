@@ -405,7 +405,7 @@ header {
 }
 .deckgrid[deckgrid]::before {
     /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
-    content: '3 .col.s4';
+    content: '2 .col.s6';
     font-size: 0;
     /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
     visibility: hidden;
@@ -413,7 +413,7 @@ header {
 @media only screen and (min-width: 601px) {
     .deckgrid[deckgrid]::before {
         /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
-        content: '4 .col.m3';
+        content: '3 .col.m4';
         font-size: 0;
         /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
         visibility: hidden;
@@ -422,7 +422,7 @@ header {
 @media only screen and (min-width: 993px) {
     .deckgrid[deckgrid]::before {
         /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
-        content: '6 .col.l2';
+        content: '3 .col.l4';
         font-size: 0;
         /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
         visibility: hidden;

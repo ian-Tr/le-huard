@@ -6,13 +6,15 @@
 					<div class="loader valign"></div>
 			</div>
 			<div ng-switch-when="false" ng-switch="vm.isSuccessful" class="full-height img-loaded">
-					<div ng-switch-when="true" class="full-height">
-						<ul class="grid">
-							<li ng-repeat="picture in vm.pictures" class="col l3 m4 s6">
-								<a modal ng-attr-href="#modal{{$index}}">
-									<img ng-src="{{picture.url}}" ng-attr-alt="{{picture.title}}" class="slide responsive-img">
-								</a>
-							</li>
+					<div ng-switch-when="true" class="full-height">						
+						<ul deckgrid source="vm.pictures" class="deckgrid grid">
+								<li class="card">
+										<div class="card-image">
+												<a modal ng-attr-href="#modal{{$index}}">
+														<img ng-src="{{card.url}}" ng-attr-alt="{{card.title}}" class="slide responsive-img">
+												</a>
+										</div>
+								</li>
 						</ul>
 					</div>
 				<div ng-switch-when="false" class="full-height valign-wrapper">
