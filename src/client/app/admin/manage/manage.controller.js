@@ -19,8 +19,8 @@
         vm.locations = [];
 
         getLocations().then(function() {
-            preload();            
-        })
+            preload();
+        });
 
         function getLocations() {
             var deferred = $q.defer();

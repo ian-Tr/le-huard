@@ -1,25 +1,43 @@
 <!-- main content -->
 <div class="center-align">
     <div class="card col s10 m10 l6 offset-s1 offset-m1 offset-l4">
-        <div class="row">
-            <h5>Manage Posts</h5>
-        </div>
-        <div class="row full-height" ng-switch="vm.isLoading">
-            <div ng-switch-when="true" class="full-height valign-wrapper">
-                <div class="loader valign"></div>
+        <div class="card-content">
+            <div class="row">
+                <h5>Manage Posts</h5>
             </div>
-            <div ng-switch-when="false" ng-switch="vm.isSuccessful" class="full-height img-loaded">
-                <div ng-switch-when="true" class="full-height">
-                    <ul class="grid">
-                        <li ng-repeat="post in vm.posts" class="col l3 m4 s6">
-                            <a ui-sref="admin.manage.post({id: post.id})">
-                                <img ng-src="{{post.url}}" ng-attr-alt="{{post.title}}" class="responsive-img">
-                            </a>
-                        </li>
-                    </ul>
+            <form>
+                <div class="input-field">
+                    <input ng-model="vm.search" id="search" type="search" required>
+                    <label for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
                 </div>
-                <div ng-switch-when="false" class="full-height valign-wrapper">
-                    <h2 class="valign img-loaded logo-font">Nothing here yet...</h2>
+            </form>
+            <div class="row full-height" ng-switch="vm.isLoading">
+                <div ng-switch-when="true" class="full-height valign-wrapper">
+                    <div class="loader valign"></div>
+                </div>
+                <div ng-switch-when="false" ng-switch="vm.isSuccessful" class="full-height img-loaded">
+                    <div ng-switch-when="true" class="full-height">
+                        <ul deckgrid source="vm.posts" filter="vm.search" class="deckgrid">
+                            <li class="card">
+                                <div class="card-image">
+                                    <a ui-sref="admin.manage.post({id: card.id})">
+                                        <img ng-src="{{card.url}}" ng-attr-alt="{{card.title}}" class="responsive-img">
+                                    </a>
+                                    <span class="card-title">{{card.title}}</span>
+                                </div>
+                                <div class="card-action">
+                                    <span class="sliding-middle-out">
+                                        <a href="#">Edit</a>
+                                        <i class="material-icons">edit</i>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div ng-switch-when="false" class="full-height valign-wrapper">
+                        <h2 class="valign img-loaded logo-font">Nothing here yet...</h2>
+                    </div>
                 </div>
             </div>
         </div>

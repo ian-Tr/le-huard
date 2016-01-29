@@ -163,7 +163,6 @@ $app->group('/api', function () {
         //     return $response->withStatus($status);
         // }
         $credentials = $request->getParsedBody();
-<<<<<<< HEAD
         $db = $this->sql;
         if ($db) {
             $result = $db->query('call getMember');

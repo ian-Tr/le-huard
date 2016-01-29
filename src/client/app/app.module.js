@@ -5,12 +5,12 @@
         'ui.materialize',
         'ui.router',
         'ngAnimate',
-        'ngMaterial',
         'AdminModule',
         'PortfolioModule',
         'Constants',
         'Config',
-        'StateManagement'
+        'StateManagement',
+        'akoenig.deckgrid'
     ]);
 
 })();

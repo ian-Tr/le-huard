@@ -164,7 +164,26 @@ nav ul a:hover:not(.active) {
   bottom: 0;
   right: 0;
 }
-
+.deckgrid[deckgrid]::before {
+    content: '3 .col.l4';
+    font-size: 0;
+    visibility: hidden;
+}
+.card .card-action a {
+		color: #212121;
+		margin-right: 0;
+}
+.card .card-action a:hover {
+		color: #212121;
+}
+.card .card-action .sliding-middle-out:hover:after {
+		background-color: #212121;
+}
+.card-title {
+		background-color: rgba(33, 33, 33, 0.6);
+		height: 100%;
+		width: 100%;
+}
 /*****************************delete user*************************************/
 .secondary-content {
 		color: red;
