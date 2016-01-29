@@ -37,7 +37,7 @@
         }
 
         function isAuthenticated() {
-            return (Session.userId !== 1);
+            return (Session.userId !== 0);
         }
 
         function isAuthorized(authorizedRoles) {

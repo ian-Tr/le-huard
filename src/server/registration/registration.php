@@ -9,7 +9,7 @@
       $username = trim($user['username']);
       $email = trim($user['email']);
       $password = trim($user['password']);
-      //$password_confirmation = trim($_POST['password_confirmation']);
+
       $newUser = array ('role' => 'member',
                         'username' => $username,
                         'email' => $email,
@@ -24,40 +24,38 @@
 	    }
       else {
           //do this dank stuff
-
           //check if username exists
           $check_username_query = $db -> query("SELECT * FROM member WHERE username = '".$newUser['username']."'") or die("Error: check_username_query");
           if (mysqli_num_rows($check_username_query) > 0) {
-            //return the 409
+            //username already exists
             http_response_code(409);
           }
           else {
-            //username doesn't exist
             //check if email exists
             $check_email_query = $db -> query("SELECT * FROM member WHERE email = '".$newUser['email']."'") or die("Error: check_email_query");
             if (mysqli_num_rows($check_email_query) > 0) {
+              //email already exists
               http_response_code(409);
             }
             else {
-              //email doesn't exist, insert new user into db
+              //username and email don't already exist, insert new user into db
               $insert_member_query = $db -> query("call setMember('".$newUser['role']."','"
                                                                    .$newUser['username']."','"
                                                                    .$newUser['password']."','"
                                                                    .$newUser['email']."')")
                                                   or die("Error: insert_member_query");
+              //new member inserted
               http_response_code(201);
-              //header("location:/#/connection");
-              //exit();
             }
-
           }
       }
     } else {
+        //form values not found
         http_response_code(404);
-        //mysqli_close($db);
     }
   }
   else {
+    //correct server request method not found
     http_response_code(404);
   }
 
