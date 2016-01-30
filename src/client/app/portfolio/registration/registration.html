@@ -6,11 +6,11 @@
                 <div class="card connection-card">
                     <div class="card-content">
                         <h3>Register</h3>
-                        <div ng-if="vm.showError" class="conflict-error">
-                            <span class="center-element ">Username and/or email already exists.</span>
+                        <div ng-if="vm.showError">
+                            <span class="center-element">Username and/or email already exists.</span>
                         </div>
-                        <div ng-if="vm.showNoMatchError" class="no-match-error">
-                            <span class="center-element ">Password fields didn't match.</span>
+                        <div ng-if="vm.showNoMatchError">
+                            <span class="center-element">Password fields didn't match.</span>
                         </div>
                         <div class="input-field row">
                             <input ng-model="vm.user.username" type="text" name="username" id="username" pattern="^[a-zA-Z][a-zA-Z0-9-_/.]{3,20}$" title="Username must be between 3-20 characters. Spaces are and some special charcters are not allowed." required>
