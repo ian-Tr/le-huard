@@ -10,7 +10,8 @@
         'Constants',
         'Config',
         'StateManagement',
-        'akoenig.deckgrid'
+        'akoenig.deckgrid',
+        'ngFileUpload'
     ]);
 
 })();

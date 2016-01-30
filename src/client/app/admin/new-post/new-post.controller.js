@@ -5,9 +5,9 @@
         .module('App')
         .controller('NewPost', _newPost);
 
-    _newPost.$inject = [];
+    _newPost.$inject = ['Upload'];
 
-    function _newPost() {
+    function _newPost(Upload) {
         /*jshint validthis: true */
         var vm = this,
             currentDate = new Date();
@@ -19,7 +19,8 @@
         vm.title = null;
         vm.mediumSpecs = [];
         vm.setMediumSpecs = setMediumSpecs;
-        vm.uploadPost = uploadPost;
+        vm.submit = submit
+        vm.upload = upload;
         vm.clear = clear;
         vm.mediums = [{
             type: '120mm',
@@ -71,8 +72,26 @@
             vm.title = null;
         }
 
-        function uploadPost(post) {
-            
+        function submit() {
+            if (vm.file && vm.title && vm.mediumType) {
+                vm.upload(vm.file);
+            }
+        }
+
+        function upload(file) {
+            Upload.upload({
+                url: '/api/post',
+                data: {
+                    file: file
+                }
+            }).then(function(resp) {
+                console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+            }, function(resp) {
+                console.log('Error status: ' + resp.status);
+            }, function(evt) {
+                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+            });
         }
     }
 
