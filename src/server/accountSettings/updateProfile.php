@@ -29,17 +29,14 @@
                                                                            .$about."')")
                                         or die("Error: update_email_query");
             }
-            var_dump($profile);
-            var_dump($email);
             //find current email
             $member = $get_member_query -> fetch_assoc();
             $memberEmail = $member['email'];
             if ($memberEmail !== null) {
               //check if they match
               if ($memberEmail !== $email) {
-                var_dump($memberEmail);
                 //member email was found and they don't match, check if anyone else is using the new email
-                $check_emails_query = $db -> query("SELECT * FROM member WHERE email = '".$email."'") or die("Error: check_emails_query");
+                $check_emails_query = $db -> query("SELECT email FROM member WHERE email = '".$email."'") or die("Error: check_emails_query");
                 if (mysqli_num_rows($check_emails_query) > 0) {
                   //email is already in use
                   http_response_code(409);
