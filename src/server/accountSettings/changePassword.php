@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $userID = $_SESSION['user_state']['id'];
+  $userID = $_SESSION['user_state']['user']['userId'];
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $request = file_get_contents('php://input');
@@ -29,7 +29,7 @@
             if ($memberPW !== null && $currentPassword !== null && $memberPW === $currentPassword) {
                 //current password given and current password found are the same, replace with new password
                 $change_password_query = $db -> query("call updateMemberPassword('".$userID."','"
-                                                    .$newPassword."')")
+                                                                                   .$newPassword."')")
                                                   or die("Error: change_password_query");
                 //new password set
                 http_response_code(201);

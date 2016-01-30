@@ -15,6 +15,7 @@ DROP PROCEDURE IF EXISTS setComment;
 DROP PROCEDURE IF EXISTS updateMemberUsername;
 DROP PROCEDURE IF EXISTS updateMemberPassword;
 DROP PROCEDURE IF EXISTS updateMemberEmail;
+DROP PROCEDURE IF EXISTS updateMemberAbout;
 DROP PROCEDURE IF EXISTS updatePostMedium;
 DROP PROCEDURE IF EXISTS updatePostMediumType;
 DROP PROCEDURE IF EXISTS updatePostMediumSpec;
@@ -35,7 +36,8 @@ CREATE TABLE member (
 	role				VARCHAR(6)			NOT NULL,
 	username		VARCHAR(20)			NOT NULL,
 	password		VARCHAR(30)			NOT NULL,
-	email			VARCHAR(50)			NOT NULL,
+	email				VARCHAR(50)			NOT NULL,
+	about				VARCHAR(250),
 	PRIMARY KEY (id)
 );
 
@@ -125,7 +127,6 @@ INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Couleur-5.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Color/Disposable-Couleur-6.jpg');
 
-<<<<<<< HEAD
 INSERT INTO member (role, username, password, email) VALUES ('admin', 'admin', 'admin', 'admin@admin.com');
 INSERT INTO member (role, username, password, email) VALUES ('member', 'member', 'member', 'member@member.com');
 INSERT INTO member (role, username, password, email) VALUES ('member', 'eloiqs', 'eloiqs', 'eloiqs@eloiqs.com');
@@ -292,6 +293,14 @@ CREATE PROCEDURE updateMemberEmail(IN id_in INT,
 BEGIN
 	UPDATE member
     SET email = email_in
+    WHERE id = id_in;
+END//
+
+CREATE PROCEDURE updateMemberAbout(IN id_in INT,
+								   IN about_in VARCHAR(250))
+BEGIN
+	UPDATE member
+    SET about = about_in
     WHERE id = id_in;
 END//
 

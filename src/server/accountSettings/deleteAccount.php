@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $userID = $_SESSION['user_state']['id'];
+  $userID = $_SESSION['user_state']['user']['userId'];
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $request = file_get_contents('php://input');
@@ -28,7 +28,7 @@
             if ($memberPW !== null && $password !== null && $memberPW === $password) {
                 //current password given and current password found are the same, replace with new password
                 $delete_account_query = $db -> query("call deleteMember('".$userID."')")
-                                                  or die("Error: delete_account_query");
+                                                or die("Error: delete_account_query");
 
                 //account deleted
                 http_response_code(201);

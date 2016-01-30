@@ -12,7 +12,32 @@
         var vm = this;
 
         //changeProfile block
-        //'about' to be discussed
+        vm.newProfile = {};
+        vm.newProfile.email = null;
+        vm.newProfile.about = null;
+
+        function updateProfile(newProfile) {
+          vm.showDatabaseError = false;
+          vm.showEmailError = false;
+          vm.showProfileSuccess = false;
+
+          $http.post('/src/server/accountSettings/updateProfile.php', newProfile).then(function(response) {
+            //http return success block
+            var statusCode = response.status;
+            if (statusCode === 201) {
+              vm.showProfileSuccess = true;
+            }
+          }, function (response) {
+            //http return error block
+            var statusCode = response.status;
+            if (statusCode === 409) {
+              vm.showEmailError = true;
+            }
+            if (statusCode === 404) {
+              vm.showDatabaseError = true;
+            }
+          });
+        }
         //end of changeProfile block
 
         //changePassword block
@@ -52,7 +77,7 @@
             }
         }
         //end of changePassword block
-        
+
         //deleteAccount block
         vm.account = {};
         vm.account.password = null;
