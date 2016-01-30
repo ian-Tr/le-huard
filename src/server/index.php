@@ -228,7 +228,7 @@ $app->group('/api', function () {
                 'userRole' => 'viewer',
             ],
         ];
-        $_SESSION[user_state] = $session;
+        $_SESSION['user_state'] = $session;
         $response->getBody()->write(json_encode($session));
 
         return $response->withStatus(200);

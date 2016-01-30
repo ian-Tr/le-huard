@@ -15,6 +15,7 @@
         vm.newProfile = {};
         vm.newProfile.email = null;
         vm.newProfile.about = null;
+        vm.updateProfile = updateProfile;
 
         function updateProfile(newProfile) {
           vm.showDatabaseError = false;
