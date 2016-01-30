@@ -15,6 +15,7 @@ DROP PROCEDURE IF EXISTS setComment;
 DROP PROCEDURE IF EXISTS updateMemberUsername;
 DROP PROCEDURE IF EXISTS updateMemberPassword;
 DROP PROCEDURE IF EXISTS updateMemberEmail;
+DROP PROCEDURE IF EXISTS updateMemberAbout;
 DROP PROCEDURE IF EXISTS updatePostMedium;
 DROP PROCEDURE IF EXISTS updatePostMediumType;
 DROP PROCEDURE IF EXISTS updatePostMediumSpec;
@@ -35,7 +36,8 @@ CREATE TABLE member (
 	role				VARCHAR(6)			NOT NULL,
 	username		VARCHAR(20)			NOT NULL,
 	password		VARCHAR(30)			NOT NULL,
-	email			VARCHAR(50)			NOT NULL,
+	email				VARCHAR(50)			NOT NULL,
+	about				VARCHAR(250),
 	PRIMARY KEY (id)
 );
 
@@ -126,6 +128,7 @@ INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposabl
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable-Couleur/Disposable-Couleur-6.jpg');
 
 INSERT INTO member (role, username, password, email) VALUES ('admin', 'admin', 'Adminadmin0', 'admin@admin.com');
+INSERT INTO member (role, username, password, email, about) VALUES ('admin', 'alexH', 'Alex1234', 'alexh@alex.com', 'My name is Alexandre Huard and I take photos.');
 INSERT INTO member (role, username, password, email) VALUES ('member', 'member', 'Membermember0', 'member@member.com');
 
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 1, 'photo', '35mm', 'Couleur', 'American Backpacker', '2016-01-16');
@@ -278,6 +281,14 @@ CREATE PROCEDURE updateMemberEmail(IN id_in INT,
 BEGIN
 	UPDATE member
     SET email = email_in
+    WHERE id = id_in;
+END//
+
+CREATE PROCEDURE updateMemberAbout(IN id_in INT,
+								   IN about_in VARCHAR(250))
+BEGIN
+	UPDATE member
+    SET about = about_in
     WHERE id = id_in;
 END//
 

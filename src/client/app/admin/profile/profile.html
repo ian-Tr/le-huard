@@ -1,24 +1,34 @@
         <!-- main content -->
         <div class="center-align">
-
           <div class="card col s10 m10 l4 offset-s1 offset-m1 offset-l5">
             <div class="row">
               <h5>Profile</h5>
             </div>
-            <form id="ProfileForm" action="" method="POST">
+            <div ng-if="vm.showDatabaseError">
+                <span class="center-element">Account state not found.</span>
+            </div>
+            <div ng-if="vm.showEmailError">
+                <span class="center-element">Email is already in use.</span>
+            </div>
+            <div ng-if="vm.showProfileSuccess">
+                <span class="center-element">Changes have been saved.</span>
+            </div>
+            <form ng-submit="vm.updateProfile(vm.newProfile)" method="POST">
               <div class="row">
                 <div class="input-field col s10 offset-s1">
-                  <input ng-model="vm.email" id="email" name="email" type="email" class="validate" required>
+                  <input ng-model="vm.newProfile.email" id="email" name="email" type="email" class="validate" required>
                   <label for="email">Email</label>
                 </div>
               </div>
 
+              <div ng-if="appVm.currentUser.userRole === 'admin'">
               <div class="row">
                 <div class="input-field col s10 offset-s1">
-                  <textarea ng-model="vm.description" id="about" name="about" class="materialize-textarea"></textarea>
+                  <textarea ng-model="vm.newProfile.about" id="about" name="about" class="materialize-textarea" maxlength="250"></textarea>
                   <label for="about">About me</label>
                 </div>
               </div>
+            </div>
 
               <div class="row">
                 <div class="input-field col s8 offset-s2">
@@ -33,15 +43,15 @@
               <h5>Change Password</h5>
             </div>
             <div ng-if="vm.showError">
-                <span class="center-element ">Current password was invalid.</span>
+                <span class="center-element">Current password was invalid.</span>
             </div>
             <div ng-if="vm.showNoMatchError">
-                <span class="center-element ">New password fields didn't match.</span>
+                <span class="center-element">New password fields didn't match.</span>
             </div>
             <div ng-if="vm.showSuccess">
-                <span class="center-element ">Your password has been changed.</span>
+                <span class="center-element">Your password has been changed.</span>
             </div>
-            <form ng-submit="vm.changePassword(vm.passwords)" name="changePasswordForm" method="POST">
+            <form ng-submit="vm.changePassword(vm.passwords)" method="POST">
               <div class="row">
                 <div class="input-field col s10 offset-s1">
                   <input ng-model="vm.passwords.currentPassword" id="currentPassword" name="currentPassword" type="password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="Password must be at least 8 characters and contain a lowercase, uppercase, and number." required>
@@ -79,10 +89,10 @@
               <h5>Delete My Account</h5>
             </div>
             <div ng-if="vm.showDeleteStringError">
-                <span class="center-element ">Delete sentence was incorrect.</span>
+                <span class="center-element">Delete sentence was incorrect.</span>
             </div>
             <div ng-if="vm.showDeletePasswordError">
-                <span class="center-element ">Invalid password.</span>
+                <span class="center-element">Invalid password.</span>
             </div>
             <form ng-submit="vm.deleteAccount(vm.account)" method="POST">
               <div class="row">
@@ -98,8 +108,11 @@
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col s8 offset-s2">
-                  <button class="btn waves-effect waves-light" type="submit" name="delete">Delete Account</button>
+                <div class="input-field col s4 m4 l3 offset-s1 offset-m2 offset-l3">
+                  <button class="btn waves-effect waves-light" type="submit" name="delete">Delete</button>
+                </div>
+                <div class="input-field col s4 m4 l3 offset-s1">
+                  <button class="clear-btn btn waves-effect waves-light" type="reset">Clear</button>
                 </div>
               </div>
             </form>

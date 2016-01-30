@@ -16,7 +16,6 @@
                         'password' => $password,
                       );
 
-
       //connect to db
       $db = new mysqli("localhost", "root", "admin", "le-huard");
       if ($db -> connect_error) {
@@ -40,9 +39,9 @@
             else {
               //username and email don't already exist, insert new user into db
               $insert_member_query = $db -> query("call setMember('".$newUser['role']."','"
-                                                                   .$newUser['username']."','"
-                                                                   .$newUser['password']."','"
-                                                                   .$newUser['email']."')")
+                                                                    .$newUser['username']."','"
+                                                                    .$newUser['password']."','"
+                                                                    .$newUser['email']."')")
                                                   or die("Error: insert_member_query");
               //new member inserted
               http_response_code(201);
