@@ -4,8 +4,16 @@
         <div class="row">
             <h5>Manage Post</h5>
         </div>
-
-        <form ng-submit="vm.update(vm.post)">
+        <div ng-if="vm.showUpdateError">
+            <span class="center-element">Account state not found.</span>
+        </div>
+        <div ng-if="vm.showUpdateSuccess">
+            <span class="center-element">Changes have been saved.</span>
+        </div>
+        <div ng-if="vm.showDeleteError">
+            <span class="center-element">An error occurred during deletion.</span>
+        </div>
+        <form ng-submit="vm.update(vm.post)" method="POST">
             <div class="row">
                 <div class="input-field col s10 offset-s1">
                     <input ng-model="vm.post.title" id="name" name="username" type="text" class="validate" required>

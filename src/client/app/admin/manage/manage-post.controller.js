@@ -5,9 +5,9 @@
         .module('App')
         .controller('ManagePost', _managePost);
 
-    _managePost.$inject = ['$stateParams', 'MediaService'];
+    _managePost.$inject = ['$stateParams', 'MediaService', '$http', '$state'];
 
-    function _managePost($stateParams, MediaService) {
+    function _managePost($stateParams, MediaService, $http, $state) {
         /*jshint validthis: true */
         var vm = this,
             posts = MediaService.getData();
@@ -89,11 +89,40 @@
         }
 
         function update(post) {
+          vm.showUpdateError = false;
+          vm.showUpdateSuccess = false;
 
+          $http.post('/src/server/managePosts/updatePost.php', post).then(function(response) {
+            //http return success block
+            var statusCode = response.status;
+            if (statusCode === 201) {
+              vm.showUpdateSuccess = true;
+            }
+          }, function (response) {
+            //http return error block
+            var statusCode = response.status;
+            if (statusCode === 404) {
+              vm.showUpdateError = true;
+            }
+          });
         }
 
         function _delete(post) {
+          vm.showDeleteError = false;
 
+          $http.post('/src/server/managePosts/deletePost.php', post).then(function(response) {
+            //http return success block
+            var statusCode = response.status;
+            if (statusCode === 201) {
+              $state.go('admin.manage.post-selection');
+            }
+          }, function (response) {
+            //http return error block
+            var statusCode = response.status;
+            if (statusCode === 404) {
+              vm.showDeleteError = true;
+            }
+          });
         }
     }
 
