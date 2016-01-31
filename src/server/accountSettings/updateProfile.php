@@ -27,7 +27,7 @@
             if ($about !== null) {
               $update_about_query = $db -> query("call updateMemberAbout('".$userID."','"
                                                                            .$about."')")
-                                        or die("Error: update_email_query");
+                                        or die("Error: update_about_query");
             }
             //find current email
             $member = $get_member_query -> fetch_assoc();
