@@ -19,7 +19,6 @@
         vm.title = null;
         vm.mediumSpecs = [];
         vm.setMediumSpecs = setMediumSpecs;
-        vm.submit = submit
         vm.upload = upload;
         vm.clear = clear;
         vm.mediums = [{
@@ -72,17 +71,15 @@
             vm.title = null;
         }
 
-        function submit() {
-            if (vm.file && vm.title && vm.mediumType) {
-                vm.upload(vm.file);
-            }
-        }
-
         function upload(file) {
             Upload.upload({
                 url: '/api/post',
                 data: {
-                    file: file
+                    file: file,
+                    title: vm.title,
+                    type: vm.mediumType,
+                    spec: vm.mediumSpec,
+                    date: vm.date
                 }
             }).then(function(resp) {
                 console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);

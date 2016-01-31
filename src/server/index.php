@@ -270,8 +270,63 @@ $app->group('/api', function () {
                 $response->getBody()->write(json_encode($userId));
                 return $response->withStatus(200);
             }
-            return $response->withStatus(404);
         }
+        return $response->withStatus(404);
+    });
+    $this->post('/post', function($request, $response, $args) {
+        $userId = $_SESSION['user_state']['user']['userId'];
+        $filename = $_FILES['file']['name'];
+        $title = $_POST['title'];
+        $type = $_POST['type'];
+        $medium = ($type === 'Film') ? 'Film' : 'Photo';
+        $spec = $_POST['spec'];
+        $date = $_POST['date'];
+        if ($spec) {
+          $destination = '/src/client/photos/'.$type.'/'.$spec.'/'.$filename;
+        } else {
+          $destination = '/src/client/photos/'.$type.'/'.$filename;
+        }
+        $db = $this->sql;
+        if ($db) {
+            if ($destination) {
+                try {
+                    $media_inserted = $db->query('call setMedia(?)', [$destination]);
+                    try {
+                        $mediaId = $db->query('call getMediaUrl(?)', [$destination]);
+                        while ($row = $mediaId->fetch()) {
+                            $id = $row['id'];
+                        }
+                        $mediaId->free();
+                        $db->next_result();
+                        try {
+                            $post_inserted = $db->query('call setPost(?, ?, ?, ?, ?, ?, ?)', [$userId, $id, $medium, $type, $spec, $title, $date]);
+                            $success = move_uploaded_file($_FILES['file']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].$destination);
+                            if ($success) {
+                                return $response->withStatus(201);
+                            } else {
+                                var_dump($_FILES['file']['tmp_name']);
+                                $response->getBody()->write('could not move uploaded file');
+                                return $response->withStatus(404);
+                            }
+                        }
+                        catch (Exception $e) {
+                          $response->getBody()->write('post already exists'.$e->getMessage());
+                          return $response->withStatus(409);
+                        }
+                    }
+                    catch (Exception $e) {
+                        $response->getBody()->write('media not found');
+                        return $response->withStatus(404);
+                    }
+
+                }
+                catch(Exception $e) {
+                    $response->getBody()->write('media already exists');
+                    return $response->withStatus(409);
+                }
+            }
+        }
+        $response->getBody()->write('connection couldn\'t be established with server');
         return $response->withStatus(404);
     });
 });

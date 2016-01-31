@@ -89,7 +89,10 @@ input[type=text].valid, input[type=text]:focus.valid, input[type=password].valid
 nav ul a:hover:not(.active) {
     background-color: transparent !important;
 }
-
+.file-btn {
+    height: 3rem;
+    line-height: 3rem;
+}
 /*****************************nmanage post*************************************/
 
 .loader {

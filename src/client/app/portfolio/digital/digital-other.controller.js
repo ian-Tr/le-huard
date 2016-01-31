@@ -18,7 +18,7 @@
         vm.locations = [];
 
         vm.pictures = media.filter(function(media) {
-            return (media.medium_type === 'Digitale' && media.medium_spec === 'Other');
+            return (media.medium_type === 'Digital' && media.medium_spec === 'Other');
         });
 
         getLocations();

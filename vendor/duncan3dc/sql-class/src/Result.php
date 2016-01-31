@@ -292,7 +292,7 @@ class Result extends AbstractResult
         switch ($this->mode) {
 
             case "mysql":
-                $this->result->free();
+                $this->result->free();                
                 break;
 
             case "postgres":

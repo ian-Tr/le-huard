@@ -2226,4 +2226,8 @@ class Sql
             $this->disconnect();
         }
     }
+
+    public function next_result() {
+        $this->server->next_result();
+    }
 }

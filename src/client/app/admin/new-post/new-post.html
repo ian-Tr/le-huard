@@ -4,27 +4,25 @@
         <div class="row">
             <h5>New Post</h5>
         </div>
-
-        <form ng-submit="vm.upload()">
+        <form name="uploadForm">
             <div class="row">
                 <div class="input-field col s10 offset-s1">
                     <input ng-model="vm.title" name="username" type="text" class="validate" required>
                     <label for="username">Title</label>
                 </div>
             </div>
-
             <div class="row">
                 <div class="file-field input-field col s10 offset-s1">
-                    <div class="btn">
-                        <span>File</span>
-                        <input ng-model="vm.file" type="file" name="file" required>
+                    <div class="left btn waves-effect waves-light file-btn" ngf-select ng-model="vm.file" ngf-pattern="'image/*, video/*'"
+                    ngf-accept="'image/*, video/*'" ngf-max-size="200MB"
+                    ngf-resize="{width: 1400, ratio: '1:1', pattern: 'image/*'}" ngf-resize-if="$width > 1400">
+                      File
                     </div>
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" name="filePath" ng-model="vm.filePath">
+                        <input type="text" class="file-path validate" ng-model="vm.file.name">
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="input-field col s10 m5 l5 offset-s1 offset-m1 offset-l1">
                     <select ng-change="vm.setMediumSpecs()" ng-model="vm.mediumType" name="mediumType" material-select required>
@@ -45,10 +43,9 @@
                         <input ng-model="vm.date" type="date" name="date">
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="input-field col s4 m4 l3 offset-s1 offset-m2 offset-l3">
-                        <button type="submit" class="btn waves-effect waves-light">Post</button>
+                        <button ng-disabled="!uploadForm.$valid" ng-click="vm.upload(vm.file)" class="btn waves-effect waves-light">Post</button>
                     </div>
                     <div class="input-field col s4 m4 l3 offset-s1">
                         <button ng-click="vm.clear()" class="btn waves-effect waves-light">Clear</button>
