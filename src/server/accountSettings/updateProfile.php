@@ -11,7 +11,7 @@
 
     if ($userID !== null && $userRole !== null && $profile['email'] !== null) {
       $email = trim($profile['email']);
-      $about = trim($profile['about']);
+      $about = $profile['about'];
 
       //connect to db
       $db = new mysqli("localhost", "root", "admin", "le-huard");
@@ -20,13 +20,14 @@
 	    }
       else {
           //do this dank stuff
+          //retrieve member info
           $get_member_query = $db -> query("SELECT * FROM member WHERE id = ".$userID) or die("Error: get_member_query");
           if (mysqli_num_rows($get_member_query) > 0) {
             //member was found
             if ($about !== null) {
-              $update_about_query = query("call updateMemberAbout('".$userID."','"
-                                                                    .$about."')")
-                                        or die("Error: update_email_query");
+              $update_about_query = $db -> query("call updateMemberAbout('".$userID."','"
+                                                                           .$about."')")
+                                        or die("Error: update_about_query");
             }
             //find current email
             $member = $get_member_query -> fetch_assoc();
@@ -35,7 +36,7 @@
               //check if they match
               if ($memberEmail !== $email) {
                 //member email was found and they don't match, check if anyone else is using the new email
-                $check_emails_query = $db -> query("SELECT email FROM member WHERE email = ".$email) or die("Error: check_emails_query");
+                $check_emails_query = $db -> query("SELECT email FROM member WHERE email = '".$email."'") or die("Error: check_emails_query");
                 if (mysqli_num_rows($check_emails_query) > 0) {
                   //email is already in use
                   http_response_code(409);

@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS media;
 
 DROP PROCEDURE IF EXISTS getMedia;
 DROP PROCEDURE IF EXISTS getPostMedia;
+DROP PROCEDURE IF EXISTS getMembers;
 DROP PROCEDURE IF EXISTS getMember;
 DROP PROCEDURE IF EXISTS getMembers;
 DROP PROCEDURE IF EXISTS getPost;
@@ -17,6 +18,7 @@ DROP PROCEDURE IF EXISTS updateMemberUsername;
 DROP PROCEDURE IF EXISTS updateMemberPassword;
 DROP PROCEDURE IF EXISTS updateMemberEmail;
 DROP PROCEDURE IF EXISTS updateMemberAbout;
+DROP PROCEDURE IF EXISTS updatePost;
 DROP PROCEDURE IF EXISTS updatePostMedium;
 DROP PROCEDURE IF EXISTS updatePostMediumType;
 DROP PROCEDURE IF EXISTS updatePostMediumSpec;
@@ -305,6 +307,22 @@ BEGIN
 	UPDATE member
     SET about = about_in
     WHERE id = id_in;
+END//
+
+CREATE PROCEDURE updatePost(IN id_in INT,
+														IN medium_in VARCHAR(50),
+														IN medium_type_in VARCHAR(50),
+														IN medium_spec_in VARCHAR(50),
+														IN title_in VARCHAR(50),
+														IN media_date_in DATE)
+BEGIN
+	UPDATE post
+	SET medium = medium_in,
+			medium_type = medium_type_in,
+			medium_spec = medium_spec_in,
+			title = title_in,
+			media_date = media_date_in
+	WHERE id = id_in;
 END//
 
 CREATE PROCEDURE updatePostMedium(IN id_in INT,
