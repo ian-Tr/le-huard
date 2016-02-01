@@ -69,6 +69,9 @@
             vm.mediumSpecs = [];
             vm.file = null;
             vm.title = null;
+            vm.progress = 0;
+            vm.uploading = false;
+            vm.error = null;
         }
 
         function upload(file) {
@@ -83,10 +86,14 @@
                 }
             }).then(function(resp) {
                 console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+                vm.clear();
             }, function(resp) {
                 console.log('Error status: ' + resp.status);
+                vm.error = 'Sorry, ' + resp.statusText;
             }, function(evt) {
+                vm.uploading = true;
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                vm.progress = progressPercentage;
                 console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             });
         }

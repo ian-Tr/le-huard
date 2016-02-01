@@ -4,53 +4,60 @@
         <div class="row">
             <h5>New Post</h5>
         </div>
-        <form name="uploadForm">
+        <form name="form">
             <div class="row">
                 <div class="input-field col s10 offset-s1">
-                    <input ng-model="vm.title" name="username" type="text" class="validate" required>
-                    <label for="username">Title</label>
+                    <input ng-model="vm.title" type="text" id="title" required>
+                    <label for="title">Title</label>
                 </div>
             </div>
             <div class="row">
                 <div class="file-field input-field col s10 offset-s1">
-                    <div class="left btn waves-effect waves-light file-btn" ngf-select ng-model="vm.file" ngf-pattern="'image/*, video/*'"
-                    ngf-accept="'image/*, video/*'" ngf-max-size="200MB"
-                    ngf-resize="{width: 1400, ratio: '1:1', pattern: 'image/*'}" ngf-resize-if="$width > 1400">
-                      File
+                    <div class="left btn waves-effect waves-light file-btn" name="file" ngf-select ng-model="vm.file" ngf-model-invalid="errorFiles" ngf-pattern="'image/*,video/*'" ngf-accept="'image/*,video/*'" ngf-resize="{width: 1400, ratio: '1:1', pattern: 'image/*'}"
+                    ngf-resize-if="$width > 1400" required>
+                        File
                     </div>
                     <div class="file-path-wrapper">
-                        <input type="text" class="file-path validate" ng-model="vm.file.name">
+                        <input type="text" class="file-path validate" ng-class="form.file.$valid ? 'valid' : ''" id="filePath" ng-model="vm.file.name">
+                        <div class="error-label" ng-show="form.file.$error.maxSize" for="filePath">File too large {{errorFiles[0].size / 1000000|number:1}}MB: max 200MB</div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s10 m5 l5 offset-s1 offset-m1 offset-l1">
-                    <select ng-change="vm.setMediumSpecs()" ng-model="vm.mediumType" name="mediumType" material-select required>
+                    <select ng-change="vm.setMediumSpecs()" ng-model="vm.mediumType" material-select required>
                         <option value="" disabled selected>Medium</option>
                         <option ng-repeat="medium in vm.mediums">{{medium.type}}</option>
                     </select>
                 </div>
                 <div class="input-field col s10 m5 l5 offset-s1">
-                    <select ng-model="vm.mediumSpec" name="mediumSpec" material-select watch>
+                    <select ng-model="vm.mediumSpec" material-select watch>
                         <option value="" disabled selected>Type</option>
                         <option ng-repeat="spec in vm.mediumSpecs">{{spec}}</option>
                     </select>
                 </div>
-
-                <div class="row">
-                    <div class="input-field col s10 offset-s1">
-                        <label for="date" class="active">Date Taken</label>
-                        <input ng-model="vm.date" type="date" name="date">
-                    </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s10 offset-s1">
+                    <label for="date" class="active">Date Taken</label>
+                    <input ng-model="vm.date" type="date" id="date">
                 </div>
-                <div class="row">
-                    <div class="input-field col s4 m4 l3 offset-s1 offset-m2 offset-l3">
-                        <button ng-disabled="!uploadForm.$valid" ng-click="vm.upload(vm.file)" class="btn waves-effect waves-light">Post</button>
+            </div>
+            <div ng-show="vm.uploading" class="row progress-row">
+                <div class="input-field col s10 offset-s1">
+                    <div class="progress">
+                        <div class="determinate" ng-attr-style="width: {{vm.progress}}%"></div>
                     </div>
-                    <div class="input-field col s4 m4 l3 offset-s1">
-                        <button ng-click="vm.clear()" class="btn waves-effect waves-light">Clear</button>
-                    </div>
+                    <div ng-show="vm.error" class="upload-error error-label">{{vm.error}}</div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4 m4 l3 offset-s1 offset-m2 offset-l3">
+                    <button ng-disabled="!form.$valid" ng-click="vm.upload(vm.file)" class="btn waves-effect waves-light">Post</button>
+                </div>
+                <div class="input-field col s4 m4 l3 offset-s1">
+                    <button ng-click="vm.clear()" class="btn waves-effect waves-light">Clear</button>
+                </div>
+            </div>
         </form>
-        </div>
     </div>
