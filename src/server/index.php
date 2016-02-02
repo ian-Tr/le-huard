@@ -181,23 +181,26 @@ $app->group('/api', function () {
                                     'user' => [
                                         'userId' => $user['id'],
                                         'userName' => $user['username'],
-                                        'userRole' => $user['role']
+                                        'userRole' => $user['role'],
                                     ],
                                 ];
                                 $_SESSION['user_state'] = $session;
                                 $response->getBody()->write(json_encode($session));
+
                                 return $response->withStatus(201);
                             }
                         }
                     }
                     $error = [
-                        'reason' => 'invalid credentials.'
+                        'reason' => 'invalid credentials.',
                     ];
                     $response->getBody()->write(json_encode($error));
+
                     return $response->withStatus(404);
                 }
             }
         }
+
         return $response->withStatus(404);
     });
     $this->get('/login', function ($request, $response, $args) {
@@ -215,6 +218,7 @@ $app->group('/api', function () {
         }
         $session = $_SESSION['user_state'];
         $response->getBody()->write(json_encode($session));
+
         return $response->withStatus(200);
     });
     $this->delete('/login', function ($request, $response, $args) {
@@ -239,7 +243,7 @@ $app->group('/api', function () {
     // /API/USERS //////////////////////////////////////////////////////////////
     // returns the list of all users from the db ///////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
-    $this->get('/users', function($request, $response, $args) {
+    $this->get('/users', function ($request, $response, $args) {
         // check if session timed out
         // if ($status === 419) {
         //     return $response->withStatus($status);
@@ -261,16 +265,18 @@ $app->group('/api', function () {
 
         return $response->withStatus(404);
     });
-    $this->delete('/user{id}', function($request, $response, $args) {
+    $this->delete('/user{id}', function ($request, $response, $args) {
         $userId = $args['id'];
         $db = $this->sql;
         if ($db) {
             $result = $db->query('call deleteMember('.$userId.')');
             if ($result) {
                 $response->getBody()->write(json_encode($userId));
+
                 return $response->withStatus(200);
             }
         }
+
         return $response->withStatus(404);
     });
     ///////////////////////////////////////////////////////////////////////////
@@ -279,19 +285,18 @@ $app->group('/api', function () {
     // /API/POST ///////////////////////////////////////////////////////////////
     // takes care of file upload ///////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
-    $this->post('/post', function($request, $response, $args) {
+    $this->post('/post', function ($request, $response, $args) {
         $userId = $_SESSION['user_state']['user']['userId'];
         $filename = $_FILES['file']['name'];
         $title = $_POST['title'];
         $type = $_POST['type'];
         $medium = ($type === 'Film') ? 'Film' : 'Photo';
-        $spec = $_POST['spec'];
-        $date = $_POST['date'];
-        if ($spec) {
-          $destination = '/src/client/photos/'.$type.'/'.$spec.'/'.$filename;
-        } else {
-          $destination = '/src/client/photos/'.$type.'/'.$filename;
-        }
+        $spec = (($_POST['spec'] === 'null') ? null : $_POST['spec']);
+        var_dump($_POST['date']);
+        $date = (($_POST['date'] === 'null') ? null : $_POST['date']);
+        echo '<br>';
+        var_dump($date);
+        $destination = ($spec ? '/src/client/photos/'.$type.'/'.$spec.'/'.$filename : '/src/client/photos/'.$type.'/'.$filename);
         $db = $this->sql;
         if ($db) {
             if ($destination) {
@@ -310,29 +315,29 @@ $app->group('/api', function () {
                             if ($success) {
                                 return $response->withStatus(201);
                             } else {
-                                var_dump($_FILES['file']['tmp_name']);
                                 $response->getBody()->write('could not move uploaded file');
+
                                 return $response->withStatus(404);
                             }
+                        } catch (Exception $e) {
+                            $response->getBody()->write('post already exists'.$e->getMessage());
+
+                            return $response->withStatus(409);
                         }
-                        catch (Exception $e) {
-                          $response->getBody()->write('post already exists'.$e->getMessage());
-                          return $response->withStatus(409);
-                        }
-                    }
-                    catch (Exception $e) {
+                    } catch (Exception $e) {
                         $response->getBody()->write('media not found');
+
                         return $response->withStatus(404);
                     }
-
-                }
-                catch(Exception $e) {
+                } catch (Exception $e) {
                     $response->getBody()->write('media already exists');
+
                     return $response->withStatus(409);
                 }
             }
         }
         $response->getBody()->write('connection couldn\'t be established with server');
+
         return $response->withStatus(404);
     });
 });

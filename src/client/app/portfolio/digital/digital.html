@@ -34,10 +34,10 @@
 				<div class="row">
 					<h2>{{picture.title}}</h2>
 					<blockquote>
-						<h4>{{picture.medium_type}}</h4>,
-						<h5>{{picture.medium_spec}}</h5>
+						<h4>{{picture.medium_type}}</h4>
+						<h5 ng-show="{{picture.medium_spec !== ''}}">,{{picture.medium_spec}}</h5>
 						<br>
-						<b>{{picture.media_date}}</b>
+						<b ng-show="{{picture.media_date !== '0000-00-00'}}">{{picture.media_date}}</b>
 					</blockquote>
 				</div>
 				<div class="row divider"></div>

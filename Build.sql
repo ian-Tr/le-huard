@@ -54,7 +54,7 @@ CREATE TABLE post (
 	medium_type		VARCHAR(50) NOT NULL,
 	medium_spec		VARCHAR(50),
 	title			VARCHAR(50)			NOT NULL,
-	media_date		DATE				NOT NULL,
+	media_date		DATE				NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (mem_id) REFERENCES member(id) ON DELETE CASCADE,
 	FOREIGN KEY (media_id) REFERENCES media(id) ON DELETE CASCADE
