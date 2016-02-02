@@ -43,20 +43,23 @@
                     <input ng-model="vm.date" type="date" id="date">
                 </div>
             </div>
-            <div ng-show="vm.uploading" class="row progress-row">
-                <div class="input-field col s10 offset-s1">
-                    <div class="progress">
-                        <div class="determinate" ng-attr-style="width: {{vm.progress}}%"></div>
-                    </div>
-                    <div ng-show="vm.error" class="upload-error error-label">{{vm.error}}</div>
-                </div>
-            </div>
             <div class="row">
                 <div class="input-field col s4 m4 l3 offset-s1 offset-m2 offset-l3">
                     <button ng-disabled="!form.$valid" ng-click="vm.upload(vm.file)" class="btn waves-effect waves-light">Post</button>
                 </div>
                 <div class="input-field col s4 m4 l3 offset-s1">
                     <button ng-click="vm.clear()" class="btn waves-effect waves-light">Clear</button>
+                </div>
+            </div>
+            <div ng-show="vm.uploading" class="row progress-row">
+                <div class="col s10 offset-s1">
+                    <span class="left">Uploading...</span>
+                </div>
+                <div class="input-field col s10 offset-s1">
+                    <div class="progress">
+                        <div class="determinate" ng-attr-style="width: {{vm.progress}}%"></div>
+                    </div>
+                    <div ng-show="vm.error" class="left upload-error">Sorry, {{vm.error === 'Conflict' ? 'file already exists' : 'there was an error uploading your file, try again and contact your system administrator if the problem persists.'}}</div>
                 </div>
             </div>
         </form>

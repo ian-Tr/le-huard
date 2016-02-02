@@ -182,5 +182,5 @@ nav ul a:hover:not(.active) {
     background-color: #212121;
 }
 .upload-error {
-    top: 14px;
+    color: #F44336;
 }

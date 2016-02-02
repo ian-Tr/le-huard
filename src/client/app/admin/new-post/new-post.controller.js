@@ -5,9 +5,9 @@
         .module('App')
         .controller('NewPost', _newPost);
 
-    _newPost.$inject = ['Upload'];
+    _newPost.$inject = ['Upload', 'MediaService'];
 
-    function _newPost(Upload) {
+    function _newPost(Upload, MediaService) {
         /*jshint validthis: true */
         var vm = this,
             currentDate = new Date();
@@ -86,6 +86,7 @@
                 }
             }).then(function(resp) {
                 console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+                MediaService.loadData();
                 vm.clear();
             }, function(resp) {
                 console.log('Error status: ' + resp.status);
