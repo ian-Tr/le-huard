@@ -22,7 +22,7 @@
           //construct mail parameters
           //$to = $alexEmail;
           $to = "ianthetremblay2@gmail.com";
-          $from = trim($contact['email']);
+          $from = $contact['email'];
           $subject = $contact['subject'];
           $message = $contact['message'];
             //needed headers
