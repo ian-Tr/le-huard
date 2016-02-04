@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('App')
-        .controller('Connection', _connection);
+        .module('Portfolio')
+        .controller('Connection', connection);
 
-    _connection.$inject = ['$rootScope', 'AuthService', 'AUTH_EVENTS', '$scope', '$state'];
+    connection.$inject = ['$rootScope', 'AuthService', 'AUTH_EVENTS', '$scope', '$state'];
 
-    function _connection($rootScope, AuthService, AUTH_EVENTS, $scope, $state) {
+    function connection($rootScope, AuthService, AUTH_EVENTS, $scope, $state) {
         /*jshint validthis: true */
         var vm = this;
 

@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('App')
-        .controller('ManagePost', _managePost);
+        .module('Admin')
+        .controller('ManagePost', managePost);
 
-    _managePost.$inject = ['$stateParams', 'MediaService', '$http', '$state'];
+    managePost.$inject = ['$stateParams', 'MediaService', '$http', '$state'];
 
-    function _managePost($stateParams, MediaService, $http, $state) {
+    function managePost($stateParams, MediaService, $http, $state) {
         /*jshint validthis: true */
         var vm = this,
             posts = MediaService.getData();

@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('App')
-        .controller('Manage', _manage);
+        .module('Admin')
+        .controller('Manage', manage);
 
-    _manage.$inject = ['MediaService', 'Preloader', '$q'];
+    manage.$inject = ['MediaService', 'Preloader', '$q'];
 
-    function _manage(MediaService, Preloader, $q) {
+    function manage(MediaService, Preloader, $q) {
         /*jshint validthis: true */
         var vm = this,
             posts = MediaService.getData();

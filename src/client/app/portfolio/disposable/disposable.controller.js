@@ -2,20 +2,25 @@
     'use strict';
 
     angular
-        .module('App')
-        .controller('Disposable', _disposable);
+        .module('Portfolio')
+        .controller('Disposable', disposable);
 
-    _disposable.$inject = ['MediaService', '$scope', 'Preloader'];
+    disposable.$inject = ['MediaService', 'Preloader', 'CommentService'];
 
-    function _disposable(MediaService, $scope, Preloader) {
+    function disposable(MediaService, Preloader, CommentService) {
         /*jshint validthis: true */
         var vm = this,
-            media = MediaService.getData();
+            media = MediaService.getData(),
+            comments = CommentService.getData();
 
         vm.isLoading = true;
         vm.isSuccessful = false;
         vm.percentLoaded = 0;
         vm.locations = [];
+
+        vm.comments = comments.filter(function(comment) {
+            return (comment.medium_type === 'Disposable');
+        });
 
         vm.pictures = media.filter(function(media) {
             return (media.medium_type === 'Disposable');

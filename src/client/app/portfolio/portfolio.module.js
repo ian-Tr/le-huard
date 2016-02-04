@@ -1,8 +1,8 @@
 (function() {
     'use strict';
 
-    angular.module('PortfolioModule', [
-        'Constants'        
+    angular.module('Portfolio', [
+        'Constants'
     ]);
 
 })();

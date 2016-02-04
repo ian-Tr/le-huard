@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('App')
-        .controller('Profile', _profile);
+        .module('Admin')
+        .controller('Profile', profile);
 
-    _profile.$inject = ['$http', '$state'];
+    profile.$inject = ['$http', '$state'];
 
-    function _profile($http, $state) {
+    function profile($http, $state) {
         /*jshint validthis: true */
         var vm = this;
 

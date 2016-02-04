@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('PortfolioModule')
+        .module('Portfolio')
         .config(configRoutes);
 
     configRoutes.$inject = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES'];
@@ -16,9 +16,14 @@
                 url: '/',
                 templateUrl: '/src/client/app/portfolio/index.html',
                 resolve: {
-                    load: function(MediaService) {
+                    loadMedia: function(MediaService) {
                         if (MediaService.getData() === null) {
                             return MediaService.loadData();
+                        }
+                    },
+                    loadComments: function(CommentService) {
+                        if (CommentService.getData() === null) {
+                            return CommentService.loadData();
                         }
                     }
                 },
@@ -68,13 +73,13 @@
             })
             .state('portfolio.film', {
                 url: 'film',
-                templateUrl: '/src/client/app/portfolio/portfolio/portfolio.html',
+                templateUrl: '/src/client/app/portfolio/film/film.html',
                 controller: 'Film',
                 controllerAs: 'vm'
             })
             .state('portfolio.film-short', {
                 url: 'film/short',
-                templateUrl: '/src/client/app/portfolio/portfolio/portfolio.html',
+                templateUrl: '/src/client/app/portfolio/film/film.html',
                 controller: 'FilmShort',
                 controllerAs: 'vm'
             })
@@ -124,13 +129,19 @@
                 url: 'connection',
                 templateUrl: '/src/client/app/portfolio/connection/connection.html',
                 controller: 'Connection',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                data: {
+                  authorizedRoles: [USER_ROLES.viewer]
+                }
             })
             .state('portfolio.registration', {
                 url: 'registration',
                 templateUrl: '/src/client/app/portfolio/registration/registration.html',
                 controller: 'Registration',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                data: {
+                  authorizedRoles: [USER_ROLES.viewer]
+                }
             });
     }
 

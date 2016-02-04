@@ -2,21 +2,26 @@
     'use strict';
 
     angular
-        .module('App')
+        .module('Portfolio')
         .controller('120mm', _120mm);
 
-    _120mm.$inject = ['MediaService', 'Preloader'];
+    _120mm.$inject = ['MediaService', 'Preloader', 'CommentService'];
 
-    function _120mm(MediaService, Preloader) {
+    function _120mm(MediaService, Preloader, CommentService) {
         /*jshint validthis: true */
         var vm = this,
-            media = MediaService.getData();
+            media = MediaService.getData(),
+            comments = CommentService.getData();
 
         vm.sliderControl = {};
         vm.isLoading = true;
         vm.isSuccessful = false;
         vm.percentLoaded = 0;
         vm.locations = [];
+
+        vm.comments = comments.filter(function(comment) {
+            return (comment.medium_type === '120mm');
+        });
 
         vm.pictures = media.filter(function(media) {
             return (media.medium_type === '120mm');

@@ -345,15 +345,19 @@ $app->group('/api', function () {
         $db = $this->sql;
         if ($db) {
             try {
-                $comment = $db->query('call getComments');
-                while ($row = $comment->fetch()) {
-                    $comments[] = $row;
+                $result = $db->query('call getComments');
+                if (is_null($result)) {
+                    throw new Exception();
+                }
+                while ($row = $result->fetch()) {
+                    $comments[] = $row;                    
                 }
                 if ($comments) {
                     $response->getBody()->write(json_encode($comments));
 
                     return $response->withStatus(200);
                 }
+                return $response;
             } catch (Exception $e) {
                 $response->getBody()->write('comments not found');
 

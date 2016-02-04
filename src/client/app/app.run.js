@@ -50,18 +50,31 @@
     function _notAuthenticatedListener($rootScope, AUTH_EVENTS, $state, Session) {
         $rootScope.$on(AUTH_EVENTS.notAuthenticated, function() {
             console.log('_notAuthenticatedListener: not authenticated');
-            $state.go('portfolio.connection');
+            if (Session.userRole === 'viewer') {
+                $state.go('portfolio.connection');
+            } else {
+                $state.go('portfolio.menu');
+            }
         });
         $rootScope.$on(AUTH_EVENTS.sessionTimeout, function() {
             console.log('_notAuthenticatedListener: session timeout');
-            $state.go('portfolio.connection');
+            if (Session.userRole === 'viewer') {
+                $state.go('portfolio.connection');
+            } else {
+                $state.go('portfolio.menu');
+            }
         });
     }
 
     function _notAuthorizedListener($rootScope, AUTH_EVENTS, $state, Session) {
         $rootScope.$on(AUTH_EVENTS.notAuthorized, function() {
             console.log('_notAuthorizedListener: not authorized');
-            $state.go('portfolio.connection');
+            console.log(Session);
+            if (Session.userRole === 'viewer') {
+                $state.go('portfolio.connection');
+            } else {
+                $state.go('portfolio.menu');                
+            }
         });
     }
 

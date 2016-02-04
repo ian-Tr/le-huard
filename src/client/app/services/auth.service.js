@@ -32,6 +32,7 @@
 
         function logout() {
           return $http.delete('/api/login').then(function(response) {
+              $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess, response.data.user);
               return response.data.user;
           });
         }

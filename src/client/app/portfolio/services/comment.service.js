@@ -3,12 +3,12 @@
 
     angular
         .module('Portfolio')
-        .factory('MediaService', mediaService);
+        .factory('CommentService', commentService);
 
-    mediaService.$inject = ['$http', '$q'];
+    commentService.$inject = ['$http', '$q'];
 
-    function mediaService($http, $q) {
-        var media = null;
+    function commentService($http, $q) {
+        var comments = null;
 
         return {
             getData: getData,
@@ -18,8 +18,8 @@
         function loadData() {
             var defer = $q.defer();
 
-            $http.get('/api/media').then(function(response) {
-                media = response.data;
+            $http.get('/api/comments').then(function(response) {
+                comments = response.data;
                 defer.resolve();
             });
 
@@ -27,7 +27,7 @@
         }
 
         function getData() {
-            return media;
+            return comments;
         }
     }
 })();

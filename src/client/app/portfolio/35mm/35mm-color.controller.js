@@ -2,15 +2,16 @@
     'use strict';
 
     angular
-        .module('App')
+        .module('Portfolio')
         .controller('35mmColor', _35mmColor);
 
-    _35mmColor.$inject = ['MediaService', 'Preloader'];
+    _35mmColor.$inject = ['MediaService', 'Preloader', 'CommentService'];
 
-    function _35mmColor(MediaService, Preloader) {
+    function _35mmColor(MediaService, Preloader, CommentService) {
         /*jshint validthis: true */
         var vm = this,
-            media = MediaService.getData();
+            media = MediaService.getData(),
+            comments = CommentService.getData();
 
         vm.sliderControl = {};
         vm.isLoading = true;
@@ -18,8 +19,12 @@
         vm.percentLoaded = 0;
         vm.locations = [];
 
+        vm.comments = comments.filter(function(comment) {
+            return (comment.medium_type === '35mm' && comment.medium_spec === 'Color');
+        })
+
         vm.pictures = media.filter(function(media) {
-            return (media.medium_type === '35mm' && media.medium_spec === 'Couleur');
+            return (media.medium_type === '35mm' && media.medium_spec === 'Color');
         });
 
         getLocations();

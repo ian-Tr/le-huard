@@ -9,7 +9,9 @@
                 <div slider indicators="false" control="vm.sliderControl" class="full-height fullscreen">
                     <ul class="slides full-height">
                         <li ng-repeat="picture in vm.pictures">
-                            <img modal ready="vm.sliderControl.pause()" complete="vm.sliderControl.start()" class="slide responsive-img" ng-attr-href="#modal{{$index}}" ng-src="{{picture.url}}" alt="">
+                            <video class="slide responsive-video" controls modal ready="vm.sliderControl.pause()" complete="vm.sliderControl.start()" class="slide responsive-img" ng-attr-href="#modal{{$index}}">
+                                <source ng-attr-src="{{picture.url}}" type="video/*">
+                            </video>
                             <div class="col s12 slider-header">
                                 <div class="row">
                                     <a href="" ng-click="vm.sliderControl.prev()"><i class="slider-controls material-icons left">arrow_back</i></a>

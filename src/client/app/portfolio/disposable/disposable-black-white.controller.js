@@ -2,23 +2,28 @@
     'use strict';
 
     angular
-        .module('App')
-        .controller('DisposableBlackWhite', _disposableBlackWhite);
+        .module('Portfolio')
+        .controller('DisposableBlackWhite', disposableBlackWhite);
 
-    _disposableBlackWhite.$inject = ['MediaService', '$scope', 'Preloader'];
+    disposableBlackWhite.$inject = ['MediaService', 'Preloader', 'CommentService'];
 
-    function _disposableBlackWhite(MediaService, $scope, Preloader) {
+    function disposableBlackWhite(MediaService, Preloader, CommentService) {
         /*jshint validthis: true */
         var vm = this,
-            media = MediaService.getData();
+            media = MediaService.getData(),
+            comments = CommentService.getData();
 
         vm.isLoading = true;
         vm.isSuccessful = false;
         vm.percentLoaded = 0;
         vm.locations = [];
 
+        vm.comments = comments.filter(function(comment) {
+            return (comment.medium_type === 'Disposable' && comment.medium_spec === 'B&W');
+        });
+
         vm.pictures = media.filter(function(media) {
-            return (media.medium_type === 'Disposable' && media.medium_spec === "B&W");
+            return (media.medium_type === 'Disposable' && media.medium_spec === 'B&W');
         });
 
 

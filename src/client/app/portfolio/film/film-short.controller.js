@@ -2,24 +2,29 @@
     'use strict';
 
     angular
-        .module('App')
-        .controller('FilmShort', _filmShort);
+        .module('Portfolio')
+        .controller('FilmShort', filmShort);
 
-    _filmShort.$inject = ['MediaService', 'Preloader'];
+    filmShort.$inject = ['MediaService', 'Preloader', 'CommentService'];
 
-    function _filmShort(MediaService, Preloader) {
+    function filmShort(MediaService, Preloader, CommentService) {
         /*jshint validthis: true */
         var vm = this,
-            media = MediaService.getData();
+            media = MediaService.getData(),
+            comments = CommentService.getData();
 
         vm.sliderControl = {};
         vm.isLoading = true;
         vm.isSuccessful = false;
         vm.percentLoaded = 0;
         vm.locations = [];
+        
+        vm.comments = comments.filter(function(comment) {
+            return (comment.medium_type === 'Film' && comment.medium_type === 'Short');
+        });
 
         vm.pictures = media.filter(function(media) {
-            return (media.medium === 'Film' && media.medium_type === 'Court');
+            return (media.medium_type === 'Film' && media.medium_type === 'Short');
         });
 
         getLocations();

@@ -3,14 +3,15 @@
 
     angular
         .module('App')
-        .controller('Film', _film);
+        .controller('Film', film);
 
-    _film.$inject = ['MediaService', 'Preloader'];
+    film.$inject = ['MediaService', 'Preloader', 'CommentService'];
 
-    function _film(MediaService, Preloader) {
+    function film(MediaService, Preloader, CommentService) {
         /*jshint validthis: true */
         var vm = this,
-            media = MediaService.getData();
+            media = MediaService.getData(),
+            comments = CommentService.getData();
 
         vm.sliderControl = {};
         vm.isLoading = true;
@@ -18,8 +19,12 @@
         vm.percentLoaded = 0;
         vm.locations = null;
 
+        vm.comments = comments.filter(function(comment) {
+            return (comment.medium_type === 'Film');
+        });
+
         vm.pictures = media.filter(function(media) {
-            return (media.medium === 'Film');
+            return (media.medium_type === 'Film');
         });
 
         getLocations();

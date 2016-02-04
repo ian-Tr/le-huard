@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('App')
-        .controller('Contact', _contact);
+        .module('Portfolio')
+        .controller('Contact', contact);
 
-    _contact.$inject = [];
+    contact.$inject = [];
 
-    function _contact() {
+    function contact() {
         /*jshint validthis: true */
         var vm = this;
 

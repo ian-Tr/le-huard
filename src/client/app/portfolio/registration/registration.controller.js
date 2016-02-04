@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('App')
-        .controller('Registration', _registration);
+        .module('Portfolio')
+        .controller('Registration', registration);
 
-    _registration.$inject = ['$http', '$state'];
+    registration.$inject = ['$http', '$state'];
 
-    function _registration($http, $state) {
+    function registration($http, $state) {
         /*jshint validthis: true */
         var vm = this;
 

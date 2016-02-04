@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('App')
-        .controller('NewPost', _newPost);
+        .module('Admin')
+        .controller('NewPost', newPost);
 
-    _newPost.$inject = ['Upload', 'MediaService'];
+    newPost.$inject = ['Upload', 'MediaService'];
 
-    function _newPost(Upload, MediaService) {
+    function newPost(Upload, MediaService) {
         /*jshint validthis: true */
         var vm = this,
             currentDate = new Date();

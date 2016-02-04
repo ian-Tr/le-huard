@@ -34,41 +34,20 @@
 				<div class="row">
 					<h2>{{picture.title}}</h2>
 					<blockquote>
-						<h4>{{picture.medium_type}}</h4>,
-						<h5 ng-show="{{picture.medium_spec !== ''}}">,{{picture.medium_spec}}</h5>
+						<h4>{{picture.medium_type}}</h4>
+						<h5 ng-show="{{picture.medium_spec !== ''}}">, {{picture.medium_spec}}</h5>
 						<br>
 						<b ng-show="{{picture.media_date !== '0000-00-00'}}">{{picture.media_date}}</b>
 					</blockquote>
 				</div>
 				<div class="row divider"></div>
-				<div class="row">
-					<b class="left">Name</b>
-					<span class="right">Date</span>
-					<br>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<div class="divider"></div>
-				</div>
-				<div class="row">
-					<b class="left">Name</b>
-					<span class="right">Date</span>
-					<br>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<div class="divider"></div>
-				</div>
-				<div class="row">
-					<b class="left">Name</b>
-					<span class="right">Date</span>
-					<br>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<div class="divider"></div>
-				</div>
-				<div class="row">
-					<b class="left">Name</b>
-					<span class="right">Date</span>
-					<br>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<div class="divider"></div>
-				</div>
+				<div class="row" ng-if="comment.post_id === picture.id" ng-repeat="comment in vm.comments">
+                    <b class="left">{{comment.username}}</b>
+                    <span class="right">{{comment.comment_date}}</span>
+                    <br>
+                    <p>{{comment.content}}</p>
+                    <div class="divider"></div>
+                </div>
 				<div class="row">
 					<form action="">
 						<div class="input-field">

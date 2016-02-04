@@ -2,20 +2,25 @@
     'use strict';
 
     angular
-        .module('App')
-        .controller('Digital', _digital);
+        .module('Portfolio')
+        .controller('Digital', digital);
 
-    _digital.$inject = ['MediaService', '$scope', 'Preloader'];
+    digital.$inject = ['MediaService', 'Preloader', 'CommentService'];
 
-    function _digital(MediaService, $scope, Preloader) {
+    function digital(MediaService, Preloader, CommentService) {
         /*jshint validthis: true */
         var vm = this,
-            media = MediaService.getData();
+            media = MediaService.getData(),
+            comments = CommentService.getData();
 
         vm.isLoading = true;
         vm.isSuccessful = false;
         vm.percentLoaded = 0;
         vm.locations = [];
+
+        vm.comments = comments.filter(function(comment) {
+            return (comment.medium_type === 'Digital');
+        });
 
         vm.pictures = media.filter(function(media) {
             return (media.medium_type === 'Digital');

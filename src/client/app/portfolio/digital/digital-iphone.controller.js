@@ -2,20 +2,25 @@
     'use strict';
 
     angular
-        .module('App')
-        .controller('DigitalIphone', _digitalIphone);
+        .module('Portfolio')
+        .controller('DigitalIphone', digitalIphone);
 
-    _digitalIphone.$inject = ['MediaService', 'Preloader'];
+    digitalIphone.$inject = ['MediaService', 'Preloader', 'CommentService'];
 
-    function _digitalIphone(MediaService, Preloader) {
+    function digitalIphone(MediaService, Preloader, CommentService) {
         /*jshint validthis: true */
         var vm = this,
-            media = MediaService.getData();
+            media = MediaService.getData(),
+            comments = CommentService.getData();
 
         vm.isLoading = true;
         vm.isSuccessful = false;
         vm.percentLoaded = 0;
         vm.locations = [];
+
+        vm.comments = comments.filter(function(comment) {
+            return (comment.medium_type === 'Digital' && comment.medium_spec === 'iPhone');
+        });
 
         vm.pictures = media.filter(function(media) {
             return (media.medium_type === 'Digital' && media.medium_spec === 'iPhone');

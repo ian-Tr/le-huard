@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('AdminModule')
+        .module('Admin')
         .config(configRoutes);
 
     configRoutes.$inject = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES'];

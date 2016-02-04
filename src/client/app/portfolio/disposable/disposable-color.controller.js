@@ -2,23 +2,28 @@
     'use strict';
 
     angular
-        .module('App')
-        .controller('DisposableColor', _disposableColor);
+        .module('Portfolio')
+        .controller('DisposableColor', disposableColor);
 
-    _disposableColor.$inject = ['MediaService', '$scope', 'Preloader'];
+    disposableColor.$inject = ['MediaService', 'Preloader', 'CommentService'];
 
-    function _disposableColor(MediaService, $scope, Preloader) {
+    function disposableColor(MediaService, Preloader, CommentService) {
         /*jshint validthis: true */
         var vm = this,
-            media = MediaService.getData();
+            media = MediaService.getData(),
+            comments = CommentService.getData();
 
         vm.isLoading = true;
         vm.isSuccessful = false;
         vm.percentLoaded = 0;
         vm.locations = [];
 
+        vm.comments = comments.filter(function(comment) {
+            return (comment.medium_type === 'Disposable' && comment.medium_spec === 'Color');
+        });
+
         vm.pictures = media.filter(function(media) {
-            return (media.medium_type === 'Disposable' && media.medium_spec === "Couleur");
+            return (media.medium_type === 'Disposable' && media.medium_spec === 'Color');
         });
 
 
