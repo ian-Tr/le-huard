@@ -3,23 +3,22 @@
 
     angular
         .module('App')
-        .run(_bindStateToRootScope)
-        .run(_stateChangeListener)
-        .run(_notAuthenticatedListener)
-        .run(_notAuthorizedListener);
+        .run(bindStateToRootScope)
+        .run(stateChangeListener)
+        .run(sessionTimeOutListener);
 
-    _bindStateToRootScope.$inject = ['$state', '$rootScope'];
-    _stateChangeListener.$inject = ['$rootScope', 'AUTH_EVENTS', 'AuthService', 'Session', 'AuthResolver'];
-    _notAuthenticatedListener.$inject = ['$rootScope', 'AUTH_EVENTS', '$state', 'Session'];
-    _notAuthorizedListener.$inject = ['$rootScope', 'AUTH_EVENTS', '$state', 'Session'];
+    bindStateToRootScope.$inject = ['$state', '$rootScope'];
+    stateChangeListener.$inject = ['$rootScope', 'AUTH_EVENTS', 'AuthService', 'Session', 'AuthResolver', '$state'];
+    sessionTimeOutListener.$inject = ['AUTH_EVENTS', 'Session', '$state', '$rootScope', 'AuthService'];
 
-    function _bindStateToRootScope($state, $rootScope) {
+    function bindStateToRootScope($state, $rootScope) {
         $rootScope.$state = $state;
     }
 
-    function _stateChangeListener($rootScope, AUTH_EVENTS, AuthService, Session, AuthResolver) {
+    function stateChangeListener($rootScope, AUTH_EVENTS, AuthService, Session, AuthResolver, $state) {
         $rootScope.$on('$stateChangeStart', function(event, next) {
             var resolved = AuthResolver.isResolved();
+
             if (!resolved) {
                 AuthResolver.resolve().then(function(session) {
                     resolved = true;
@@ -36,42 +35,52 @@
                 if (!AuthService.isAuthorized(authorizedRoles)) {
                     event.preventDefault();
                     if (AuthService.isAuthenticated()) {
-                        $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
-                        console.log('_stateChangeListener: not athorized');
+                        handleNotAuthorized();
                     } else {
-                        $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
-                        console.log('_stateChangeListener: not authenticated');
+                        handleNotAuthenticated();
                     }
+                }
+            }
+
+            function handleNotAuthenticated() {
+                console.log('not authenticated');
+                if (Session.userRole === 'viewer') {
+                    $state.go('portfolio.connection');
+                } else {
+                    // make sure the state is truely logged out
+                    AuthService.logout().then(function(user){
+                        Session.destroy();
+                        $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess, user);
+                    });
+                    $state.go('portfolio.connection');
+                }
+            }
+
+            function handleNotAuthorized() {
+                console.log('not authorized');
+                if (Session.userRole === 'viewer') {
+                    $state.go('portfolio.connection');
+                } else {
+                    // if a user has somehow hacked his state: reset it with the values at api/login
+                    AuthResolver.resolve().then(function(session) {
+                        Session.create(session);
+                        $rootScope.$broadcast(AUTH_EVENTS.sessionRestore, session.user);
+                    });
                 }
             }
         });
     }
 
-    function _notAuthenticatedListener($rootScope, AUTH_EVENTS, $state, Session) {
-        $rootScope.$on(AUTH_EVENTS.notAuthenticated, function() {
-            console.log('_notAuthenticatedListener: not authenticated');
-            if (Session.userRole === 'viewer') {
-                $state.go('portfolio.connection');
-            } else {
-                $state.go('portfolio.menu');
-            }
-        });
+    function sessionTimeOutListener(AUTH_EVENTS, Session, $state, $rootScope, AuthService) {
         $rootScope.$on(AUTH_EVENTS.sessionTimeout, function() {
-            console.log('_notAuthenticatedListener: session timeout');
+            console.log('notAuthenticatedListener: session timeout');
             if (Session.userRole === 'viewer') {
                 $state.go('portfolio.connection');
             } else {
-                $state.go('portfolio.menu');
-            }
-        });
-    }
-
-    function _notAuthorizedListener($rootScope, AUTH_EVENTS, $state, Session) {
-        $rootScope.$on(AUTH_EVENTS.notAuthorized, function() {
-            console.log('_notAuthorizedListener: not authorized');            
-            if (Session.userRole === 'viewer') {
-                $state.go('portfolio.connection');
-            } else {
+                AuthService.logout().then(function(user) {
+                    Session.destroy();
+                    $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess, user);
+                });
                 $state.go('portfolio.menu');
             }
         });

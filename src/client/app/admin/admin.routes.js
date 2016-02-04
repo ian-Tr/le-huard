@@ -29,7 +29,10 @@
                 url: '/new-post',
                 templateUrl: '/src/client/app/admin/new-post/new-post.html',
                 controller: 'NewPost',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                data: {
+                    authorizedRoles: [USER_ROLES.admin]
+                }
             })
             .state('admin.manage', {
                 abstract: true,
@@ -39,6 +42,9 @@
                     loadPosts: function(MediaService) {
                         MediaService.loadData();
                     }
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin]
                 }
             })
             .state('admin.manage.post-selection', {
@@ -62,11 +68,17 @@
                     loadUsers: function(UserService) {
                         UserService.loadData();
                     }
+                },
+                data: {
+                    authorizedRoles: [USER_ROLES.admin]
                 }
             })
             .state('admin.stats', {
                 url: '/stats',
-                templateUrl: '/src/client/app/admin/stats/stats.html'
+                templateUrl: '/src/client/app/admin/stats/stats.html',
+                data: {
+                    authorizedRoles: [USER_ROLES.admin]
+                }
             });
     }
 
