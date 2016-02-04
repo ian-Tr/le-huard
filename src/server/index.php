@@ -138,7 +138,7 @@ $app->group('/api', function () {
             if ($result) {
                 while ($row = $result->fetch()) {
                     $media[] = $row;
-                }
+                }                
                 if ($media) {
                     $response->getBody()->write(json_encode($media));
 
@@ -146,7 +146,6 @@ $app->group('/api', function () {
                 }
             }
         }
-
         return $response->withStatus(404);
     });
     ///////////////////////////////////////////////////////////////////////////
@@ -350,7 +349,7 @@ $app->group('/api', function () {
                     throw new Exception();
                 }
                 while ($row = $result->fetch()) {
-                    $comments[] = $row;                    
+                    $comments[] = $row;
                 }
                 if ($comments) {
                     $response->getBody()->write(json_encode($comments));
