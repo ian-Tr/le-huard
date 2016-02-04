@@ -25,18 +25,12 @@
           $from = $contact['email'];
           $subject = $contact['subject'];
           $message = $contact['message'];
-            //needed headers
-            // $headers = "MIME-Version: 1.0"."\r\n";
-            // $headers .= "Content-type: text/plain; charset=iso-8859-1"."\r\n";
-            //additional headers
-            // $headers .= "From: ".$from."\r\n";
-            //$headers[] = "Bcc: ";
-            //$headers[] = "Reply-To: ";
-            //$headers[] = "Subject: {$subject}";
-            //$headers[] = "X-Mailer: PHP/".phpversion();
+          $headers = array();
+          $headers[] = ('From: '.$from);
+          $headers[] = ('Bcc: '.$from);
 
           //send email
-          if (mail($to, $subject, $message, ('From: '.$from))) {
+          if (mail($to, $subject, $message, implode("\r\n", $headers))) {
             //email sent
             http_response_code(201);
           }
