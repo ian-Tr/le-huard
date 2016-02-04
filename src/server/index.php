@@ -104,7 +104,6 @@ $app->get('/', function ($request, $response, $args) {
 // 419: AUTH_EVENTS.sessionTimeout
 // 440: AUTH_EVENTS.sessionTimeout (IE only)
 $app->group('/api', function () {
-    $status = 200;
     // check if session timedout
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
         // last request was more than 30 minutes ago
@@ -121,7 +120,6 @@ $app->group('/api', function () {
             ],
         ];
         $_SESSION['user_state'] = $session;
-        $status = 419;
     }
     // set last activity time
     $_SESSION['LAST_ACTIVITY'] = time();
@@ -159,9 +157,6 @@ $app->group('/api', function () {
     // don't worry about security just yet so no need to hash & salt the ///////
     // password ////////////////////////////////////////////////////////////////
     $this->post('/login', function ($request, $response, $args) {
-        // if ($status === 419) {
-        //     return $response->withStatus($status);
-        // }
         $credentials = $request->getParsedBody();
         $db = $this->sql;
         if ($db) {
@@ -269,7 +264,7 @@ $app->group('/api', function () {
         $userId = $args['id'];
         $db = $this->sql;
         if ($db) {
-            $result = $db->query('call deleteMember('.$userId.')');
+            $result = $db->query('call deleteMember(?)', [$userId]);
             if ($result) {
                 $response->getBody()->write(json_encode($userId));
 
@@ -337,6 +332,70 @@ $app->group('/api', function () {
             }
         }
         $response->getBody()->write('connection couldn\'t be established with server');
+
+        return $response->withStatus(404);
+    });
+    ///////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////
+    // /API/COMMENT ////////////////////////////////////////////////////////////
+    // Commenting module  //////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    $this->get('/comments', function ($request, $response, $args) {
+        $db = $this->sql;
+        if ($db) {
+            try {
+                $comment = $db->query('call getComments');
+                while ($row = $comment->fetch()) {
+                    $comments[] = $row;
+                }
+                if ($comments) {
+                    $response->getBody()->write(json_encode($comments));
+
+                    return $response->withStatus(200);
+                }
+            } catch (Exception $e) {
+                $response->getBody()->write('comments not found');
+
+                return $response->withStatus(404);
+            }
+        }
+
+        return $response->withStatus(404);
+    });
+    $this->delete('/comment{id}', function ($request, $response, $args) {
+        $commentId = $args['id'];
+        $db = $this->sql;
+        if ($db) {
+            try {
+                $result = $db->query('call deleteComment(?)', [$commentId]);
+                $response->getBody()->write(json_encode($commentId));
+
+                return $response->withStatus(200);
+            } catch (Exception $e) {
+                $response->getBody()->write('comments not found');
+
+                return $response->withStatus(404);
+            }
+        }
+
+        return $response->withStatus(404);
+    });
+    $this->post('/comment', function ($request, $response, $args) {
+        $comment = $request->getParsedBody();
+        $db = $this->sql;
+        if ($db) {
+            try {
+                $db->query('call setComment(?)', [$comment['postId'], $comments['memberId'], $comments['content'], $comment['date']]);
+                $response->getBody()->write();
+
+                return $response->withStatus(201);
+            } catch (Exception $e) {
+                $response->getBody()->write('comment already exists');
+
+                return $response->withStatus(409);
+            }
+        }
 
         return $response->withStatus(404);
     });
