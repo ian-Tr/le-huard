@@ -25,13 +25,24 @@
             $member = $get_member_query -> fetch_assoc();
             $memberPW = $member['password'];
             //check for data states and if passwords match
-            if ($memberPW !== null && $password !== null && $memberPW === $password) {
+            if ($password !== null && $memberPW !== null && password_verify($password, $memberPW)) {
                 //current password given and current password found are the same, replace with new password
                 $delete_account_query = $db -> query("call deleteMember('".$userID."')")
                                                 or die("Error: delete_account_query");
 
-                //account deleted
-                http_response_code(201);
+
+                //account deleted, set user state to default
+                $session = [
+                    'id' => '0',
+                    'user' => [
+                        'userId' => '0',
+                        'userName' => '',
+                        'userRole' => 'viewer',
+                    ],
+                ];
+                $_SESSION['user_state'] = $session;
+
+                http_response_code(200);
             }
             else {
                 //the given current password conflicted with password in db

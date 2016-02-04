@@ -169,7 +169,7 @@ $app->group('/api', function () {
                     foreach ($users as $user) {
                         if ($credentials['username'] === $user['email']) {
                             // valid username
-                            if ($credentials['password'] === $user['password']) {
+                            if (password_verify($credentials['password'], $user['password'])) {
                                 // valid password
                                 $session = [
                                     'id' => $user['id'],
@@ -183,7 +183,7 @@ $app->group('/api', function () {
                                 $response->getBody()->write(json_encode($session));
 
                                 return $response->withStatus(201);
-                            }
+                              }
                         }
                     }
                     $error = [

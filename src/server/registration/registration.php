@@ -37,7 +37,16 @@
               http_response_code(409);
             }
             else {
-              //username and email don't already exist, insert new user into db
+              //username and email don't already exist
+              //hash and salt the password
+              $hashOptions = [
+                'cost' => 10,
+                'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM)
+              ];
+              $hashedPassword = password_hash($newUser['password'], PASSWORD_BCRYPT, $hashOptions);
+              $newUser['password'] = $hashedPassword;
+
+              //insert new user into db
               $insert_member_query = $db -> query("call setMember('".$newUser['role']."','"
                                                                     .$newUser['username']."','"
                                                                     .$newUser['password']."','"

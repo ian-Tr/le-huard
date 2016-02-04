@@ -26,10 +26,17 @@
             $member = $get_member_query -> fetch_assoc();
             $memberPW = $member['password'];
             //verify data states and verify that they match
-            if ($memberPW !== null && $currentPassword !== null && $memberPW === $currentPassword) {
+            if ($currentPassword !== null && $memberPW !== null && password_verify($currentPassword, $memberPW)) {
                 //current password given and current password found are the same, replace with new password
+                //hash and salt the new password
+                $hashOptions = [
+                  'cost' => 10,
+                  'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM)
+                ];
+                $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT, $hashOptions);
+
                 $change_password_query = $db -> query("call updateMemberPassword('".$userID."','"
-                                                                                   .$newPassword."')")
+                                                                                   .$hashedPassword."')")
                                                   or die("Error: change_password_query");
                 //new password set
                 http_response_code(201);
