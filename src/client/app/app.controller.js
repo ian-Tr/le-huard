@@ -29,13 +29,14 @@
             appVm.setCurrentUser(user);
         });
 
+
         function setCurrentUser(user) {
             appVm.currentUser = user;
         }
 
         function logout() {
             AuthService.logout().then(function(user){
-                Session.destroy();                
+                Session.destroy();
                 appVm.setCurrentUser(user);
             });
             $state.go('portfolio.menu');
