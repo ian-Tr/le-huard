@@ -202,8 +202,310 @@ INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, med
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 59, 'photo', 'Disposable', 'Color', 'Disposable-Color-5', '2016-01-16');
 INSERT INTO post (mem_id, media_id, medium, medium_type, medium_spec, title, media_date) VALUES (1, 60, 'photo', 'Disposable', 'Color', 'Disposable-Color-6', '2016-01-16');
 
-INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (1, 1, 'First admin comment', '2016-01-16');
-INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (1, 1, 'Second member comment', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (1, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (1, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (1, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (1, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (2, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (2, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (2, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (2, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (3, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (3, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (3, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (3, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (4, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (4, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (4, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (4, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (5, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (5, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (5, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (5, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (6, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (6, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (6, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (6, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (6, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (6, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (6, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (6, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (7, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (7, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (7, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (7, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (8, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (8, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (8, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (8, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (9, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (9, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (9, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (9, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (10, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (10, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (10, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (10, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (11, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (11, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (11, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (11, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (12, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (12, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (12, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (12, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (13, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (13, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (13, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (13, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (14, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (14, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (14, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (14, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (15, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (15, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (15, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (15, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (16, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (16, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (16, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (16, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (17, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (17, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (17, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (17, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (18, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (18, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (18, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (18, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (19, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (19, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (19, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (19, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (20, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (20, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (20, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (20, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (21, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (21, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (21, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (21, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (22, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (22, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (22, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (22, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (23, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (23, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (23, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (23, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (24, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (24, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (24, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (24, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (25, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (25, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (25, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (25, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (26, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (26, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (26, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (26, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (27, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (27, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (27, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (27, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (28, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (28, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (28, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (28, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (29, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (29, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (29, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (29, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (30, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (30, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (30, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (30, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (31, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (31, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (31, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (31, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (32, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (32, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (32, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (32, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (33, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (33, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (33, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (33, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (34, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (34, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (34, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (34, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (35, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (35, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (35, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (35, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (36, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (36, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (36, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (36, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (37, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (37, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (37, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (37, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (38, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (38, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (38, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (38, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (39, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (39, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (39, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (39, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (40, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (40, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (40, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (40, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (41, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (41, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (41, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (41, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (42, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (42, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (42, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (42, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (43, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (43, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (43, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (43, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (44, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (44, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (44, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (44, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (45, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (45, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (45, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (45, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (46, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (46, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (46, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (46, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (47, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (47, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (47, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (47, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (48, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (48, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (48, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (48, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (49, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (49, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (49, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (49, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (50, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (50, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (50, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (50, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (51, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (51, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (51, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (51, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (52, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (52, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (52, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (52, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (53, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (53, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (53, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (53, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (54, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (54, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (54, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (54, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (55, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (55, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (55, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (55, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (56, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (56, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (56, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (56, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (57, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (57, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (57, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (57, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (58, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (58, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (58, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (58, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (59, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (59, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (59, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (59, 3, 'test', '2016-01-16');
+--
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (60, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (60, 1, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (60, 2, 'test', '2016-01-16');
+INSERT INTO comments (post_id, mem_id, content, comment_date) VALUES (60, 3, 'test', '2016-01-16');
 
 delimiter //
 
@@ -238,7 +540,9 @@ END//
 
 CREATE PROCEDURE getComments()
 BEGIN
-	SELECT * FROM comments;
+	SELECT comments.id, comments.post_id, comments.content, comments.comment_date, post.medium_type, post.medium_spec, member.username
+	FROM comments, post, member
+	WHERE comments.post_id = post.id AND comments.mem_id = member.id;
 END//
 
 CREATE PROCEDURE setMember(IN role_in VARCHAR(6),
