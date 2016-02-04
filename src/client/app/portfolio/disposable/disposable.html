@@ -3,20 +3,20 @@
 	<div class="col s10 offset-s1 digital-content">
 		<div class="row full-height" ng-switch="vm.isLoading">
 			<div ng-switch-when="true" class="full-height valign-wrapper">
-					<div class="loader valign"></div>
+				<div class="loader valign"></div>
 			</div>
 			<div ng-switch-when="false" ng-switch="vm.isSuccessful" class="full-height img-loaded">
-					<div ng-switch-when="true" class="full-height">
-						<ul deckgrid source="vm.pictures" class="deckgrid grid">
-								<li class="card">
-										<div class="card-image">
-												<a modal ng-attr-href="#modal{{$index}}">
-														<img ng-src="{{card.url}}" ng-attr-alt="{{card.title}}" class="slide responsive-img">
-												</a>
-										</div>
-								</li>
-						</ul>
-					</div>
+				<div ng-switch-when="true" class="full-height">
+					<ul deckgrid source="vm.pictures" class="deckgrid grid">
+						<li class="card">
+							<div class="card-image">
+								<a modal ng-attr-href="#modal{{card.$index}}">
+									<img ng-src="{{card.url}}" ng-attr-alt="{{card.title}}" class="slide responsive-img">
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
 				<div ng-switch-when="false" class="full-height valign-wrapper">
 					<h2 class="valign img-loaded logo-font">Nothing here yet...</h2>
 				</div>
@@ -42,12 +42,12 @@
 				</div>
 				<div class="row divider"></div>
 				<div class="row" ng-if="comment.post_id === picture.id" ng-repeat="comment in vm.comments">
-                    <b class="left">{{comment.username}}</b>
-                    <span class="right">{{comment.comment_date}}</span>
-                    <br>
-                    <p>{{comment.content}}</p>
-                    <div class="divider"></div>
-                </div>
+					<b class="left">{{comment.username}}</b>
+					<span class="right">{{comment.comment_date}}</span>
+					<br>
+					<p>{{comment.content}}</p>
+					<div class="divider"></div>
+				</div>
 				<div class="row">
 					<form action="">
 						<div class="input-field">
