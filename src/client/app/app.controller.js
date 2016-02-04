@@ -25,6 +25,10 @@
             appVm.setCurrentUser(user);
         });
 
+        $rootScope.$on(AUTH_EVENTS.logoutSuccess, function(event, user) {
+          appVm.setCurrentUser(user);
+        })
+
         function setCurrentUser(user) {
             appVm.currentUser = user;
         }

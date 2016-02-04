@@ -5,9 +5,9 @@
         .module('App')
         .controller('Profile', _profile);
 
-    _profile.$inject = ['$http', '$state'];
+    _profile.$inject = ['$http', '$state', 'AuthService', '$rootScope', 'AUTH_EVENTS', 'Session'];
 
-    function _profile($http, $state) {
+    function _profile($http, $state, AuthService, $rootScope, AUTH_EVENTS, Session) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -93,7 +93,11 @@
                 $http.post('/src/server/accountSettings/deleteAccount.php', account).then(function(response) {
                     //http return success block
                     var statusCode = response.status;
-                    if (statusCode === 201) {
+                    if (statusCode === 200) {
+                        AuthService.logout().then(function(user) {
+                          Session.destroy();
+                          $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
+                        });
                         $state.go('portfolio.menu');
                     }
                 }, function (response) {

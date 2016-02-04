@@ -40,7 +40,7 @@ CREATE TABLE member (
 	id				INT					NOT NULL	AUTO_INCREMENT,
 	role				VARCHAR(6)			NOT NULL,
 	username		VARCHAR(20)			NOT NULL,
-	password		VARCHAR(30)			NOT NULL,
+	password		VARCHAR(250)			NOT NULL,
 	email				VARCHAR(50)			NOT NULL,
 	about				VARCHAR(250),
 	PRIMARY KEY (id)
@@ -243,7 +243,7 @@ END//
 
 CREATE PROCEDURE setMember(IN role_in VARCHAR(6),
 													 IN username_in VARCHAR(20),
-                           IN password_in VARCHAR(30),
+                           IN password_in VARCHAR(250),
                            IN email_in VARCHAR(50))
 BEGIN
 	INSERT INTO member (role, username, password, email)
@@ -286,7 +286,7 @@ BEGIN
 END//
 
 CREATE PROCEDURE updateMemberPassword(IN id_in INT,
-                                      IN password_in VARCHAR(30))
+                                      IN password_in VARCHAR(250))
 BEGIN
 	UPDATE member
     SET password = password_in
