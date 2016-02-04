@@ -26,17 +26,17 @@
           $subject = $contact['subject'];
           $message = $contact['message'];
             //needed headers
-            $headers = "MIME-Version: 1.0"."\r\n";
-            $headers .= "Content-type: text/plain; charset=iso-8859-1"."\r\n";
+            // $headers = "MIME-Version: 1.0"."\r\n";
+            // $headers .= "Content-type: text/plain; charset=iso-8859-1"."\r\n";
             //additional headers
-            $headers .= "From: ".$from."\r\n";
+            // $headers .= "From: ".$from."\r\n";
             //$headers[] = "Bcc: ";
             //$headers[] = "Reply-To: ";
             //$headers[] = "Subject: {$subject}";
             //$headers[] = "X-Mailer: PHP/".phpversion();
 
           //send email
-          if (mail($to, $subject, $message, $headers)) {
+          if (mail($to, $subject, $message, ('From: '.$from))) {
             //email sent
             http_response_code(201);
           }
