@@ -68,12 +68,11 @@
 
     function _notAuthorizedListener($rootScope, AUTH_EVENTS, $state, Session) {
         $rootScope.$on(AUTH_EVENTS.notAuthorized, function() {
-            console.log('_notAuthorizedListener: not authorized');
-            console.log(Session);
+            console.log('_notAuthorizedListener: not authorized');            
             if (Session.userRole === 'viewer') {
                 $state.go('portfolio.connection');
             } else {
-                $state.go('portfolio.menu');                
+                $state.go('portfolio.menu');
             }
         });
     }

@@ -5,9 +5,9 @@
         .module('Admin')
         .controller('Profile', profile);
 
-    _profile.$inject = ['$http', '$state', 'AuthService', '$rootScope', 'AUTH_EVENTS', 'Session'];
+    profile.$inject = ['$http', '$state', 'AuthService', '$rootScope', 'AUTH_EVENTS', 'Session'];
 
-    function _profile($http, $state, AuthService, $rootScope, AUTH_EVENTS, Session) {
+    function profile($http, $state, AuthService, $rootScope, AUTH_EVENTS, Session) {
         /*jshint validthis: true */
         var vm = this;
 
