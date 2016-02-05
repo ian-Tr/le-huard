@@ -9,6 +9,15 @@
 .tertiary {
     color: #9c9494;
 }
+.no-padding {
+    padding: 0;
+}
+.secondary-content {
+    color: red;
+}
+.primary.sliding-middle-out:hover:after {
+    background-color: #212121;
+}
 html, body {
     height: 100vh;
     width: 100%;

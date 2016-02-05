@@ -41,20 +41,31 @@
 					</blockquote>
 				</div>
 				<div class="row divider"></div>
-				<div class="row" ng-if="comment.post_id === picture.id" ng-repeat="comment in vm.comments">
-					<b class="left">{{comment.username}}</b>
-					<span class="right">{{comment.comment_date}}</span>
-					<br>
-					<p>{{comment.content}}</p>
-					<div class="divider"></div>
-				</div>
 				<div class="row">
+					<ul class="collection">
+						<li class="collection-item avatar" ng-if="comment.post_id === picture.id" ng-repeat="comment in vm.comments">
+							<img src="/src/client/photos/user.svg" alt="" class="circle">
+							<span class="title">{{comment.username}} on {{comment.comment_date}}</span>
+							<p>{{comment.content}}</p>
+							<a ng-if="appVm.currentUser.userRole === 'admin'"  href="" ng-click="" class="secondary-content"><i class="material-icons">delete</i></a>
+						</li>
+					</ul>
+				</div>
+				<div ng-if="appVm.currentUser.userRole !== 'viewer'" class="row">
 					<form action="">
 						<div class="input-field">
 							<input type="text" ng-attr-id="textarea{{$index}}" class="validate" />
 							<label ng-attr-for="textarea{{$index}}">Add Comment...</label>
 						</div>
 					</form>
+				</div>
+				<div ng-if="appVm.currentUser.userRole === 'viewer'" class="row">
+					<a ui-sref="portfolio.connection" class="btn-flat link-btn no-padding modal-close">
+						<span class="sliding-middle-out primary">
+                            Please log in to submit a comment.
+							<i class="material-icons">exit_to_app</i>
+                        </span>
+					</a>
 				</div>
 			</div>
 		</div>
