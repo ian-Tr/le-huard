@@ -535,7 +535,7 @@ END//
 
 CREATE PROCEDURE getComments()
 BEGIN
-	SELECT comments.id, comments.post_id, comments.content, comments.comment_date, post.medium_type, post.medium_spec, member.username
+	SELECT comments.post_id, comments.content, comments.comment_date, post.medium_type, post.medium_spec, member.id as mem_id, member.username
 	FROM comments, post, member
 	WHERE comments.post_id = post.id AND comments.mem_id = member.id;
 END//

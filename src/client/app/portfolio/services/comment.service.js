@@ -12,7 +12,8 @@
 
         return {
             getData: getData,
-            loadData: loadData
+            loadData: loadData,
+            postComment: postComment
         };
 
         function loadData() {
@@ -28,6 +29,23 @@
 
         function getData() {
             return comments;
+        }
+
+        function postComment(userId, postId, content, date, username, type, spec) {
+            var comment = {};
+            comment.mem_id = userId;
+            comment.post_id = postId;
+            comment.content = content;
+            comment.comment_date = date;
+            comment.username = username;
+            comment.medium_type = type;
+            comment.medium_spec = spec;
+            return $http.post('api/comment', comment).then(function(response) {
+                return response.data;
+            },
+            function(response) {
+                return response.status;
+            });
         }
     }
 })();

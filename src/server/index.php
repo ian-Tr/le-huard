@@ -138,7 +138,7 @@ $app->group('/api', function () {
             if ($result) {
                 while ($row = $result->fetch()) {
                     $media[] = $row;
-                }                
+                }
                 if ($media) {
                     $response->getBody()->write(json_encode($media));
 
@@ -356,7 +356,6 @@ $app->group('/api', function () {
 
                     return $response->withStatus(200);
                 }
-                return $response;
             } catch (Exception $e) {
                 $response->getBody()->write('comments not found');
 
@@ -389,12 +388,12 @@ $app->group('/api', function () {
         $db = $this->sql;
         if ($db) {
             try {
-                $db->query('call setComment(?)', [$comment['postId'], $comments['memberId'], $comments['content'], $comment['date']]);
-                $response->getBody()->write();
+                $db->query('call setComment(?, ?, ?, ?)', [$comment['post_id'], $comment['mem_id'], $comment['content'], $comment['comment_date']]);                
+                $response->getBody()->write(json_encode($comment));
 
                 return $response->withStatus(201);
             } catch (Exception $e) {
-                $response->getBody()->write('comment already exists');
+                $response->getBody()->write('comment too large');
 
                 return $response->withStatus(409);
             }

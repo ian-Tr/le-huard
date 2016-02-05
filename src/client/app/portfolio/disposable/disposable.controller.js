@@ -17,6 +17,7 @@
         vm.isSuccessful = false;
         vm.percentLoaded = 0;
         vm.locations = [];
+        vm.postComment = postComment;
 
         vm.comments = comments.filter(function(comment) {
             return (comment.medium_type === 'Disposable');
@@ -50,6 +51,31 @@
                     vm.precentLoaded = event.percent;
                 }
             );
+        }
+
+        function postComment(commentArray, userId, postId, content, username, type, spec) {
+            var date = new Date(),
+                formatedDate = formatDate(date);
+
+            CommentService.postComment(userId, postId, content, formatedDate, username, type, spec).then(function(comment) {
+                console.log(comment);
+                commentArray.push(comment);
+            },
+            function(status) {
+                console.log(status);
+            });
+
+            function formatDate(date) {
+                var d = new Date(date),
+                    month = '' + (d.getMonth() + 1),
+                    day = '' + d.getDate(),
+                    year = d.getFullYear();
+
+                if (month.length < 2) month = '0' + month;
+                if (day.length < 2) day = '0' + day;
+
+                return [year, month, day].join('-');
+            }
         }
 
     }

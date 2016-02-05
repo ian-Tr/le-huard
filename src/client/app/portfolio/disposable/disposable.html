@@ -52,11 +52,14 @@
 					</ul>
 				</div>
 				<div ng-if="appVm.currentUser.userRole !== 'viewer'" class="row">
-					<form action="">
-						<div class="input-field">
-							<input type="text" ng-attr-id="textarea{{$index}}" class="validate" />
+					<form ng-submit="vm.postComment(vm.comments, appVm.currentUser.userId, picture.id, vm.newComment, appVm.currentUser.userName, picture.medium_type, picture.medium_spec)">
+						<input-field>
+							<textarea ng-attr-id="textarea{{$index}}" ng-model="vm.newComment" class="materialize-textarea" length="150"></textarea>
 							<label ng-attr-for="textarea{{$index}}">Add Comment...</label>
-						</div>
+						</input-field>
+						<input-field>
+							<button type="submit">Submit</button>
+						</input-field>
 					</form>
 				</div>
 				<div ng-if="appVm.currentUser.userRole === 'viewer'" class="row">
