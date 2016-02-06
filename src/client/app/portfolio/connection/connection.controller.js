@@ -26,6 +26,8 @@
                 $state.go('admin.profile');
             }, function(error) {
                 console.log('login failed');
+                vm.credentials.username = null;
+                vm.credentials.password = null;
                 $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
                 vm.error = error;
             });

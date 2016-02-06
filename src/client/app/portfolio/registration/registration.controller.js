@@ -34,6 +34,8 @@
                   var statusCode = response.status;
                   if (statusCode === 409 || statusCode === 404) {
                       vm.showError = true;
+                      vm.user.username = null;
+                      vm.user.email = null;
                   }
                 });
             }

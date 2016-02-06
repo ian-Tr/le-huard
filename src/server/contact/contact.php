@@ -35,7 +35,7 @@
             http_response_code(201);
           }
           else {
-            //email failed
+            //Alex email not found
             http_response_code(409);
           }
         }
