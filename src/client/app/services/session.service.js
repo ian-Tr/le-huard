@@ -24,8 +24,7 @@
         }
 
         function destroy() {
-            /*jshint validthis: true */
-            console.log('Session destroyed');
+            /*jshint validthis: true */            
             this.id = '1';
             this.userId = '1';
             this.userName = '';

@@ -39,7 +39,7 @@
             comment.comment_date = date;
             comment.username = username;
             comment.medium_type = type;
-            comment.medium_spec = spec;
+            comment.medium_spec = spec;            
             return $http.post('api/comment', comment).then(function(response) {
                 return response.data;
             },

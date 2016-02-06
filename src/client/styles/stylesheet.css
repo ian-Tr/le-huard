@@ -30,6 +30,12 @@ body {
     color: #F5F5F5;
     background-color: #9c9494;
 }
+button:not(.white-btn):focus {
+    background-color: #212121;
+}
+.comment-content {
+    word-wrap: break-word;    
+}
 .card-main.card {
     background-color: #212121;
     font-family: 'Raleway', sans-serif;
@@ -366,36 +372,77 @@ header {
     color: #F5F5F5;
 }
 .modal-portfolio.modal {
-    overflow-y: hidden;
     height: 100%;
-    background-color: #F5F5F5;
+    max-height: 80%;
+    width: 80%;
 }
-.modal-portfolio.modal-content, .modal-portfolio.modal-content > .row {
+.modal-portfolio .modal-content, .modal-portfolio .modal-content > .row {
     height: 100%;
-    padding: 0 !important;
 }
 .modal-img-container {
-    padding-top: 24px !important;
-    padding-left: 24px !important;
+    height: 100%;
+    text-align: center;
 }
-.modal-portfolio.modal-main {
-    height: inherit;
+.modal-img-container .responsive-img {
+    width: auto;
+    max-height: 100%;
+}
+.modal-portfolio .collection, .modal-portfolio .collection .collection-item {
+    border: none;
+    background-color: transparent;
+}
+.modal-portfolio .modal-main {
+    max-height: 100%;
     overflow-y: scroll;
-    padding-right: 24px !important;
-    padding-top: 24px !important;
-}
-.modal-portfolio.modal {
-    width: 60% !important;
-    max-height: 70% !important;
-}
-.modal-portfolio.modal h4, .modal-portfolio.modal h5 {
-    display: inline-block;
 }
 .portfolio nav ul li:hover {
     background-color: transparent !important;
 }
 .portfolio .dropdown-content li:hover {
     background-color: transparent !important;
+}
+.black-loader {
+    font-size: 10px;
+    margin: 50px auto;
+    text-indent: -9999em;
+    width: 11em;
+    height: 11em;
+    border-radius: 50%;
+    background: #212121;
+    background: -moz-linear-gradient(left, #212121 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, #212121 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, #212121 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, #212121 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, #212121 10%, rgba(255, 255, 255, 0) 42%);
+    position: relative;
+    -webkit-animation: load3 1.4s infinite linear;
+    animation: load3 1.4s infinite linear;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.black-loader:before {
+    width: 50%;
+    height: 50%;
+    background: #212121;
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+}
+.black-loader:after {
+    background: #FFFFFF;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 /******************************************************************************/

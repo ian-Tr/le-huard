@@ -25,37 +25,42 @@
 	</div>
 </section>
 <div ng-attr-id="modal{{$index}}" class="modal modal-portfolio" ng-repeat="picture in vm.pictures">
-	<div class="modal-content modal-portfolio">
+	<div class="modal-content">
 		<div class="row">
-			<div class="col s7 modal-img-container">
+			<div class="col s6 modal-img-container">
 				<img class="responsive-img" ng-src="{{picture.url}}" alt="">
 			</div>
-			<div class="col s5 modal-main modal-portfolio">
+			<div class="col s6 modal-main">
 				<div class="row">
-					<h2>{{picture.title}}</h2>
+					<h3>{{picture.title}}</h3>
 					<blockquote>
-						<h4>{{picture.medium_type}}</h4>
-						<h5 ng-show="{{picture.medium_spec !== ''}}">, {{picture.medium_spec}}</h5>
-						<br>
-						<b ng-show="{{picture.media_date !== '0000-00-00'}}">{{picture.media_date}}</b>
+						<h4>
+							{{picture.medium_type}}
+							<span ng-show="{{picture.medium_spec !== ''}}">, {{picture.medium_spec}}</span>
+						</h4>
+						<p ng-show="{{picture.media_date !== '0000-00-00'}}">{{picture.media_date}}</p>
 					</blockquote>
 				</div>
-				<div class="row divider"></div>
 				<div class="row">
 					<ul class="collection">
-						<li class="collection-item avatar" ng-if="comment.post_id === picture.id" ng-repeat="comment in vm.comments">
+						<li class="collection-item avatar" ng-repeat="comment in picture.comments">
 							<img src="/src/client/photos/user.svg" alt="" class="circle">
-							<span class="title">{{comment.username}} on {{comment.comment_date}}</span>
-							<p>{{comment.content}}</p>
-							<a ng-if="appVm.currentUser.userRole === 'admin'"  href="" ng-click="" class="secondary-content"><i class="material-icons">delete</i></a>
+							<span class="title"><b>{{comment.username}}</b> on {{comment.comment_date}}</span>
+							<p class="comment-content">{{comment.content}}</p>
+							<a ng-if="appVm.currentUser.userRole === 'admin'" href="" ng-click="" class="secondary-content"><i class="material-icons">delete</i></a>
 						</li>
 					</ul>
 				</div>
 				<div ng-if="appVm.currentUser.userRole !== 'viewer'" class="row">
-					<form action="">
-						<div class="input-field">
-							<input type="text" ng-attr-id="textarea{{$index}}" class="validate" />
-							<label ng-attr-for="textarea{{$index}}">Add Comment...</label>
+					<form ng-submit="vm.postComment(picture.comments, appVm.currentUser.userId, picture.id, picture.newComment, appVm.currentUser.userName, picture.medium_type, picture.medium_spec);picture.newComment = null;" class="col s12">
+						<div class="row">
+							<input-field>
+								<textarea ng-attr-id="textarea{{$index}}" length="150" maxlength='150' ng-model="picture.newComment" required class="materialize-textarea"></textarea>
+								<label ng-attr-for="textarea{{$index}}">Add Comment...</label>
+							<input-field>
+						</div>
+						<div class="row">
+							<button type="submit" class="right btn waves-effect waves-light ">Submit</button>
 						</div>
 					</form>
 				</div>
