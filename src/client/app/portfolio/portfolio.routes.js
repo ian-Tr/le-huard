@@ -142,6 +142,15 @@
                 data: {
                   authorizedRoles: [USER_ROLES.viewer]
                 }
+            })
+            .state('portfolio.forgot-password', {
+                url: 'forgot-password',
+                templateUrl: '/src/client/app/portfolio/forgot-password/forgot-password.html',
+                controller: 'ForgotPassword',
+                controllerAs: 'vm',
+                data: {
+                  authorizedRoles: [USER_ROLES.viewer]
+                }
             });
     }
 
