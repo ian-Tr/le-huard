@@ -47,7 +47,7 @@
 							<img src="/src/client/photos/user.svg" alt="" class="circle">
 							<span class="title"><b>{{comment.username}}</b> on {{comment.comment_date}}</span>
 							<p class="comment-content">{{comment.content}}</p>
-							<a ng-if="appVm.currentUser.userRole === 'admin'" href="" ng-click="" class="secondary-content"><i class="material-icons">delete</i></a>
+							<a ng-if="appVm.currentUser.userRole === 'admin'" href="" ng-click="vm.deleteComment(picture.comments, comment, $index)" class="secondary-content"><i class="material-icons">delete</i></a>
 						</li>
 					</ul>
 				</div>

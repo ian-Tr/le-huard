@@ -365,6 +365,30 @@ $app->group('/api', function () {
 
         return $response->withStatus(404);
     });
+    $this->post('/comment', function ($request, $response, $args) {
+        $comment = $request->getParsedBody();
+        $db = $this->sql;
+        if ($db) {
+            try {
+                $result = $db->insert('comments', [
+                    'post_id' => $comment['post_id'],
+                    'mem_id' => $comment['mem_id'],
+                    'content' => $comment['content'],
+                    'comment_date' => $comment['comment_date']
+                ]);
+                $comment['id'] = $db->getId($result);
+                $response->getBody()->write(json_encode($comment));
+
+                return $response->withStatus(201);
+            } catch (Exception $e) {
+                $response->getBody()->write($e->getMessage());
+
+                return $response->withStatus(409);
+            }
+        }
+
+        return $response->withStatus(404);
+    });
     $this->delete('/comment{id}', function ($request, $response, $args) {
         $commentId = $args['id'];
         $db = $this->sql;
@@ -375,27 +399,9 @@ $app->group('/api', function () {
 
                 return $response->withStatus(200);
             } catch (Exception $e) {
-                $response->getBody()->write('comments not found');
+                $response->getBody()->write($e->getMessage());
 
                 return $response->withStatus(404);
-            }
-        }
-
-        return $response->withStatus(404);
-    });
-    $this->post('/comment', function ($request, $response, $args) {
-        $comment = $request->getParsedBody();
-        $db = $this->sql;
-        if ($db) {
-            try {
-                $db->query('call setComment(?, ?, ?, ?)', [$comment['post_id'], $comment['mem_id'], $comment['content'], $comment['comment_date']]);                
-                $response->getBody()->write(json_encode($comment));
-
-                return $response->withStatus(201);
-            } catch (Exception $e) {
-                $response->getBody()->write('comment too large');
-
-                return $response->withStatus(409);
             }
         }
 

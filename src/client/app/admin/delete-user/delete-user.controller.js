@@ -19,7 +19,7 @@
             $http.delete('/api/user' + user.id).then(function(deletedUserId) {
                 userArray.splice(index, 1);
             },
-            function(response) {
+            function(status) {
                 alert('User does not exist');
             });
         }

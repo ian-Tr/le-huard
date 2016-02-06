@@ -18,6 +18,7 @@
         vm.percentLoaded = 0;
         vm.locations = [];
         vm.postComment = postComment;
+        cm.deleteComment = deleteComment;
         vm.sliderControl = {};
 
         init();
@@ -70,12 +71,14 @@
                 var date = new Date(),
                     formatedDate = formatDate(date);
 
-                CommentService.postComment(userId, postId, content, formatedDate, username, type, spec).then(function(comment) {
+                CommentService.postComment(userId, postId, content, formatedDate, username, type, spec).then(
+                    function(comment) {
                         commentArray.push(comment);
                     },
                     function(status) {
                         console.log(status);
-                    });
+                    }
+                );
             }
         }
 
@@ -90,5 +93,17 @@
 
             return [year, month, day].join('-');
         }
+        
+        function deleteComment(commentArray, comment, index) {
+            CommentService.deleteComment(comment).then(
+                function(comment) {
+                    commentArray.splice(index, 1);
+                },
+                function(status) {
+                    alert('Comment no longer exists');
+                }
+            );
+        }
+
     }
 })();
