@@ -1,33 +1,52 @@
-<section class="row">
+<section class="row row-no-margin full-height">
     <a href="#/" class="close-view right waves-effect waves-light btn"><i class="material-icons">clear</i></a>
     <div class="valign-wrapper col s12 full-height">
-        <div class="valign center-element">
+      <div class="valign center-element">
+        <div class="center-align">
+          <div class="card connection-card col s12 m12 l12 offset-s0 offset-m0 offset-l0">
+            <div class="row">
+              <h3>Login</h3>
+            </div>
+            <div ng-if="vm.error">
+              <span class="center-element">Invalid credentials.</span>
+            </div>
             <form ng-submit="vm.login(vm.credentials)">
-              <div ng-if="vm.error" class="row">
-                <h5 class="red-text">Sorry, {{vm.error}}</h5>
+              <div class="row">
+                <div class="input-field col s10 offset-s1">
+                  <input ng-model="vm.credentials.username" type="email" id="email" required>
+                  <label for="email">Email</label>
+                </div>
               </div>
-                <div class="card connection-card">
-                    <div class="card-content">
-                        <h3>Connection</h3>
-                        <div class="input-field row">
-                            <input ng-model="vm.credentials.username" type="email" id="email">
-                            <label for="email">Email address</label>
-                        </div>
-                        <div class="input-field row">
-                            <input ng-model="vm.credentials.password" type="password" id="password">
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
+              <div class="row">
+                <div class="input-field col s10 offset-s1">
+                  <input ng-model="vm.credentials.password" type="password" id="password" required>
+                  <label for="password">Password</label>
                 </div>
-                <div class="input-field right">
-                    <a ui-sref="portfolio.registration" class="btn-flat link-btn">
-                        <span class="sliding-middle-out">
-                            Don't have an account yet?
-                        </span>
-                    </a>
-                    <button type="submit" class="waves-effect btn white-btn">Connection</button>
+              </div>
+              <div class="row">
+                <div class="input-field col s8 offset-s2">
+                  <button type="submit" class="waves-effect btn login-btn">Connect</button>
                 </div>
+              </div>
             </form>
+          </div>
+          <div class="row">
+            <div class="input-field left">
+              <a ui-sref="portfolio.registration" class="btn-flat link-btn">
+                <span class="sliding-middle-out">
+                  Not registered yet?
+                </span>
+              </a>
+            </div>
+            <div class="input-field right">
+              <a class="btn-flat link-btn">
+                <span class="sliding-middle-out">
+                  Forgot password?
+                </span>
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 </section>

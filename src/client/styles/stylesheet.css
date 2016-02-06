@@ -484,6 +484,18 @@ header {
     color: #212121;
 }
 
+.login-btn {
+    background-color: #212121;
+}
+
+.login-btn:hover {
+    background-color: #9c9494;
+}
+
+.login-btn:focus {
+  background-color: #000;
+}
+
 /******************************************************************************/
 
 
