@@ -1,11 +1,10 @@
 <?php
-
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $request = file_get_contents('php://input');
     $request = utf8_encode($request);
     $forgot_request = json_decode($request, true);
     $forgot = (array) $forgot_request;
-    echo "servr";
+    echo "server request";
     var_dump($forgot);
     var_dump($forgot['email']);
 
@@ -18,7 +17,7 @@
           http_response_code(404);
 	    }
       else {
-        echo "query";
+        echo "dank";
         //do this dank stuff
         //look for email in db
         var_dump($forgotEmail);
@@ -40,7 +39,7 @@
           var_dump($randomString);
 
           //construct mail parameters
-          $to = $alexEmail;
+          $to = $accountEmail;
           $from = $contact['email'];
           $subject = $contact['subject'];
           $message = $contact['message'];
@@ -63,17 +62,19 @@
         }
         else {
           //email wasn't found in db
-          echo "not found";
+          echo "email not found";
           http_response_code(404);
         }
       }
     }
     else {
+      echo "form data";
       //form data not found
       http_response_code(404);
     }
   }
   else {
+    echo "server request";
     //correct server request method not found
     http_response_code(404);
   }
