@@ -73,16 +73,12 @@
 
     function sessionTimeOutListener(AUTH_EVENTS, Session, $state, $rootScope, AuthService) {
         $rootScope.$on(AUTH_EVENTS.sessionTimeout, function() {
-            console.log('notAuthenticatedListener: session timeout');
-            if (Session.userRole === 'viewer') {
-                $state.go('portfolio.connection');
-            } else {
-                AuthService.logout().then(function(user) {
-                    Session.destroy();
-                    $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess, user);
-                });
-                $state.go('portfolio.menu');
-            }
+            console.log('sessionTimeOutListener: session timeout');
+            AuthService.logout().then(function(user) {
+                Session.destroy();
+                $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess, user);
+            });
+            $state.go('portfolio.menu');
         });
     }
 

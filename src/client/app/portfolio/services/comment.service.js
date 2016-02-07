@@ -45,6 +45,9 @@
                 return response.data;
             },
             function(response) {
+                if (response.status === 419) {
+                    alert('Your session was inactive, you are being logged out.');
+                }
                 return response.status;
             });
         }
@@ -54,6 +57,9 @@
                 return response.data;
             },
             function(response) {
+                if (response.status === 419) {
+                    alert('Your session was inactive, you are being logged out.');
+                }
                 return response.status;
             });
         }

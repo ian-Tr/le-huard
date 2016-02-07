@@ -20,7 +20,11 @@
                 userArray.splice(index, 1);
             },
             function(status) {
-                alert('User does not exist');
+                if (status === 404) {
+                    alert('User does not exist');
+                } else {
+                    alert('Your session was inactive, you are being logged out.');
+                }
             });
         }
 

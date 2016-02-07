@@ -91,6 +91,9 @@
             }, function(resp) {
                 console.log('Error status: ' + resp.status);
                 vm.error = 'Sorry, ' + resp.statusText;
+                if(resp.status === 419) {
+                    alert('Your session was inactive, you are being logged out.');                    
+                }
             }, function(evt) {
                 vm.uploading = true;
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
