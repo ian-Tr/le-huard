@@ -2,6 +2,9 @@
 
 
 require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
+require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/session.php';
+require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/session-init.php';
+require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/activity.php';
 
 session_start();
 
@@ -54,37 +57,6 @@ $container['sql'] = function ($container) {
 // when accessing the root of the website we should return the angul app at ////
 // index.html and let it handle its own routes /////////////////////////////////
 $app->get('/', function ($request, $response, $args) {
-    // check if session timedout
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
-        // last request was more than 30 minutes ago
-        echo 'session was destroyed';
-        session_unset();     // unset $_SESSION variable for the run-time
-        session_destroy();   // destroy session data in storage
-        // put defaults in session
-        $session = [
-            'id' => '1',
-            'user' => [
-                'userId' => '1',
-                'userName' => '',
-                'userRole' => 'viewer',
-            ],
-        ];
-        $_SESSION['user_state'] = $session;
-    }
-    // put defaults in session on first time visit
-    if (!isset($_SESSION['user_state']) && empty($_SESSION['user_state'])) {
-        $session = [
-            'id' => '0',
-            'user' => [
-                'userId' => '0',
-                'userName' => '',
-                'userRole' => 'viewer',
-            ],
-        ];
-        $_SESSION['user_state'] = $session;
-    }
-    // set last activity time
-    $_SESSION['LAST_ACTIVITY'] = time();
     // serve the angular app ///////////////////////////////////////////////////
     return $this->view->render($response, '/app/index.html');
 });
@@ -104,26 +76,6 @@ $app->get('/', function ($request, $response, $args) {
 // 419: AUTH_EVENTS.sessionTimeout
 // 440: AUTH_EVENTS.sessionTimeout (IE only)
 $app->group('/api', function () {
-    // check if session timedout
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
-        // last request was more than 30 minutes ago
-        echo 'session was destroyed';
-        session_unset();     // unset $_SESSION variable for the run-time
-        session_destroy();   // destroy session data in storage
-        // put defaults in session
-        $session = [
-            'id' => '1',
-            'user' => [
-                'userId' => '1',
-                'userName' => '',
-                'userRole' => 'viewer',
-            ],
-        ];
-        $_SESSION['user_state'] = $session;
-    }
-    // set last activity time
-    $_SESSION['LAST_ACTIVITY'] = time();
-
     ////////////////////////////////////////////////////////////////////////////
     // /API/MEDIA /////////////////////////////////////////////////////////////
     // returns the info on the post and media angular needs in it's views /////
@@ -408,5 +360,7 @@ $app->group('/api', function () {
         return $response->withStatus(404);
     });
 });
+
+$app->add(new ActivityMiddleware())->add(new SessionMiddleware())->add(new SessionInitMiddleware());
 
 $app->run();
