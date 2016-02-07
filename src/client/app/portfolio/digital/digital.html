@@ -64,8 +64,8 @@
 						</div>
 					</form>
 				</div>
-				<div ng-if="appVm.currentUser.userRole === 'viewer'" class="row">
-					<a ui-sref="portfolio.connection" class="btn-flat link-btn no-padding modal-close">
+				<div ng-show="appVm.currentUser.userRole === 'viewer'" class="row">
+					<a ui-sref="portfolio.connection" class="btn-flat link-btn no-padding modal-action modal-close">
 						<span class="sliding-middle-out primary">
                             Please log in to submit a comment.
 							<i class="material-icons">exit_to_app</i>

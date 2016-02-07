@@ -10,8 +10,8 @@
         this.create = create;
         this.destroy = destroy;
 
-        this.id = '1';
-        this.userId = '1';
+        this.id = '0';
+        this.userId = '0';
         this.userName = '';
         this.userRole = 'viewer';
 
@@ -24,9 +24,9 @@
         }
 
         function destroy() {
-            /*jshint validthis: true */            
-            this.id = '1';
-            this.userId = '1';
+            /*jshint validthis: true */
+            this.id = '0';
+            this.userId = '0';
             this.userName = '';
             this.userRole = 'viewer';
         }

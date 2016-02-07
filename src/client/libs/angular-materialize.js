@@ -854,6 +854,7 @@
                     outDuration: "@",
                     ready: "&",
                     complete: "&",
+                    control: "="
                 },
                 link: function (scope, element, attrs) {
                     $timeout(function () {
@@ -866,6 +867,10 @@
                             ready: (angular.isDefined(scope.ready)) ? scope.ready : undefined,
                             complete: (angular.isDefined(scope.ready)) ? scope.complete : undefined
                         });
+                        scope.internalControl = scope.control || {};
+                        scope.internalControl.close = function() {
+                            element.close();
+                        }
                     });
                 }
             };

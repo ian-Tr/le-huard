@@ -19,15 +19,17 @@
         return authService;
 
         function login(credentials) {
-            return $http.post('/api/login', credentials).then(function(response) {
-                Session.create(response.data);
-                return response.data.user;
-            },
-            function(response) {
-                console.log('login error');
-                var error = response.data;
-                return $q.reject(error.reason);
-            });
+            return $http.post('/api/login', credentials).then(
+                function(response) {
+                    Session.create(response.data);
+                    return response.data.user;
+                },
+                function(response) {
+                    console.log('login error');
+                    var error = response.data;
+                    return $q.reject(error.reason);
+                }
+            );
         }
 
         function logout() {
@@ -38,7 +40,7 @@
         }
 
         function isAuthenticated() {
-            return (Session.userId !== 0);
+            return (Session.id !== 0);
         }
 
         function isAuthorized(authorizedRoles) {

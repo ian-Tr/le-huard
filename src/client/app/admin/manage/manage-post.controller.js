@@ -5,9 +5,9 @@
         .module('Admin')
         .controller('ManagePost', managePost);
 
-    managePost.$inject = ['$stateParams', 'MediaService', '$http', '$state'];
+    managePost.$inject = ['$stateParams', 'MediaService', '$http', '$state', '$window'];
 
-    function managePost($stateParams, MediaService, $http, $state) {
+    function managePost($stateParams, MediaService, $http, $state, $window) {
         /*jshint validthis: true */
         var vm = this,
             posts = MediaService.getData();
@@ -89,40 +89,51 @@
         }
 
         function update(post) {
-          vm.showUpdateError = false;
-          vm.showUpdateSuccess = false;
+            vm.showUpdateError = false;
+            vm.showUpdateSuccess = false;
 
-          $http.post('/src/server/managePosts/updatePost.php', post).then(function(response) {
-            //http return success block
-            var statusCode = response.status;
-            if (statusCode === 201) {
-              vm.showUpdateSuccess = true;
-            }
-          }, function (response) {
-            //http return error block
-            var statusCode = response.status;
-            if (statusCode === 404) {
-              vm.showUpdateError = true;
-            }
-          });
+            $http.post('/src/server/managePosts/updatePost.php', post).then(function(response) {
+                //http return success block
+                var statusCode = response.status;
+                if (statusCode === 201) {
+                    vm.showUpdateSuccess = true;
+                }
+            }, function(response) {
+                if (response.status === 419) {
+                    $window.alert('Oops! Your session was inactive for mor than 15 minutes...' +
+                        ' For your own privacy we automatically logged you out. Please do log' +
+                        ' back in and resume your businness!');
+                }
+                if (response.status === 401) {
+                    $window.alert('Oops! It would appear that you were not properly authenticated ' +
+                        'to perform this action :( Please log back in and try again, we already miss you!');
+                }
+                if (response.status === 403) {
+                    $window.alert('Oops! It seems that you do not have the permission to' +
+                        ' perform this action... Get out of here you pirate!');
+                }
+                if (response.status === 404) {
+                    vm.showUpdateError = true;
+                }
+            });
         }
 
         function _delete(post) {
-          vm.showDeleteError = false;
+            vm.showDeleteError = false;
 
-          $http.post('/src/server/managePosts/deletePost.php', post).then(function(response) {
-            //http return success block
-            var statusCode = response.status;
-            if (statusCode === 201) {
-              $state.go('admin.manage.post-selection');
-            }
-          }, function (response) {
-            //http return error block
-            var statusCode = response.status;
-            if (statusCode === 404) {
-              vm.showDeleteError = true;
-            }
-          });
+            $http.post('/src/server/managePosts/deletePost.php', post).then(function(response) {
+                //http return success block
+                var statusCode = response.status;
+                if (statusCode === 201) {
+                    $state.go('admin.manage.post-selection');
+                }
+            }, function(response) {
+                //http return error block
+                var statusCode = response.status;
+                if (statusCode === 404) {
+                    vm.showDeleteError = true;
+                }
+            });
         }
     }
 

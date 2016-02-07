@@ -5,9 +5,9 @@
         .module('Portfolio')
         .controller('120mmBlackWhite', _120mmBlackWhite);
 
-    _120mmBlackWhite.$inject = ['MediaService', 'Preloader', 'CommentService'];
+    _120mmBlackWhite.$inject = ['MediaService', 'Preloader', 'CommentService', '$window'];
 
-    function _120mmBlackWhite(MediaService, Preloader, CommentService) {
+    function _120mmBlackWhite(MediaService, Preloader, CommentService, $window) {
         /*jshint validthis: true */
         var vm = this,
             media = MediaService.getData(),
@@ -75,11 +75,52 @@
                     function(comment) {
                         commentArray.push(comment);
                     },
-                    function(status) {
-                        console.log(status);
+                    function(response) {
+                        if (response.status === 404 || response.status === 409) {
+                            $window.alert(response.data.statusText);
+                        }
+                        if (response.status === 419) {
+                            $window.alert('Oops! Your session was inactive for more than 15 minutes...' +
+                                ' For your own privacy we automatically logged you out. Please do log' +
+                                ' back in and resume your businness!');
+                        }
+                        if (response.status === 401) {
+                            $window.alert('Oops! It would appear that you were not properly authenticated ' +
+                                'to perform this action :( Please log back in and try again, we already miss you!');
+                        }
+                        if (response.status === 403) {
+                            $window.alert('Oops! It seems that you do not have the permission to' +
+                                ' perform this action... Get out of here you pirate!');
+                        }
                     }
                 );
             }
+        }
+
+        function deleteComment(commentArray, comment, index) {
+            CommentService.deleteComment(comment).then(
+                function(comment) {
+                    commentArray.splice(index, 1);
+                },
+                function(response) {
+                    if (response.status === 404) {
+                        $window.alert(response.data.statusText);
+                    }
+                    if (response.status === 419) {
+                        $window.alert('Oops! Your session was inactive for mor than 15 minutes...' +
+                            ' For your own privacy we automatically logged you out. Please do log' +
+                            ' back in and resume your businness!');
+                    }
+                    if (response.status === 401) {
+                        $window.alert('Oops! It would appear that you were not properly authenticated ' +
+                            'to perform this action :( Please log back in and try again, we already miss you!');
+                    }
+                    if (response.status === 403) {
+                        $window.alert('Oops! It seems that you do not have the permission to' +
+                            ' perform this action... Get out of here you pirate!');
+                    }
+                }
+            );
         }
 
         function formatDate(date) {
@@ -92,17 +133,6 @@
             if (day.length < 2) day = '0' + day;
 
             return [year, month, day].join('-');
-        }
-
-        function deleteComment(commentArray, comment, index) {
-            CommentService.deleteComment(comment).then(
-                function(comment) {
-                    commentArray.splice(index, 1);
-                },
-                function(status) {
-                    alert('Comment no longer exists');
-                }
-            );
         }
     }
 })();

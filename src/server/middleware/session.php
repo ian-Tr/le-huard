@@ -12,7 +12,7 @@ class SessionMiddleware
                 return $response;
             }
             // check if session timedout
-            if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+            if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 450)) {
                 // last request was more than 30 minutes ago
                 session_unset();     // unset $_SESSION variable for the run-time
                 session_destroy();   // destroy session data in storage

@@ -5,9 +5,9 @@
         .module('Admin')
         .controller('NewPost', newPost);
 
-    newPost.$inject = ['Upload', 'MediaService'];
+    newPost.$inject = ['Upload', 'MediaService', '$window'];
 
-    function newPost(Upload, MediaService) {
+    function newPost(Upload, MediaService, $window) {
         /*jshint validthis: true */
         var vm = this,
             currentDate = new Date();
@@ -88,11 +88,22 @@
                 console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
                 MediaService.loadData();
                 vm.clear();
-            }, function(resp) {
-                console.log('Error status: ' + resp.status);
-                vm.error = 'Sorry, ' + resp.statusText;
-                if(resp.status === 419) {
-                    alert('Your session was inactive, you are being logged out.');                    
+            }, function(response) {
+                if (response.status === 404 || response.status === 409) {
+                    vm.error = response.data.statusText;
+                }
+                if (response.status === 419) {
+                    $window.alert('Oops! Your session was inactive for mor than 15 minutes...' +
+                        ' For your own privacy we automatically logged you out. Please do log' +
+                        ' back in and resume your businness!');
+                }
+                if (response.status === 401) {
+                    $window.alert('Oops! It would appear that you were not properly authenticated ' +
+                        'to perform this action :( Please log back in and try again, we already miss you!');
+                }
+                if (response.status === 403) {
+                    $window.alert('Oops! It seems that you do not have the permission to' +
+                        ' perform this action... Get out of here you pirate!');
                 }
             }, function(evt) {
                 vm.uploading = true;

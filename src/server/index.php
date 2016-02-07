@@ -5,6 +5,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/session.php';
 require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/session-init.php';
 require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/activity.php';
+require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/authenticated.php';
 
 session_start();
 
@@ -261,30 +262,25 @@ $app->group('/api', function () {
                             if ($success) {
                                 return $response->withStatus(201);
                             } else {
-                                $response->getBody()->write('could not move uploaded file');
 
-                                return $response->withStatus(404);
+                                return $response->withStatus(404, 'We tried to upload your post, and everything looked fine until we tryed to move that file in our magic \'post folder\' :/ Try again with a different filename?');
                             }
                         } catch (Exception $e) {
-                            $response->getBody()->write('post already exists'.$e->getMessage());
 
-                            return $response->withStatus(409);
+                            return $response->withStatus(409, 'This photo or video has already been published. Hint: if you want to modify an existing photo jsut go to \'Manage Post\'');
                         }
                     } catch (Exception $e) {
-                        $response->getBody()->write('media not found');
 
-                        return $response->withStatus(404);
+                        return $response->withStatus(404, 'Something really, and I mean REALLY weird happened, it seems this post has vanished into the void. o.O');
                     }
                 } catch (Exception $e) {
-                    $response->getBody()->write('media already exists');
 
-                    return $response->withStatus(409);
+                    return $response->withStatus(409, 'This photo or video has already been published. Hint: if you want to modify an existing photo jsut go to \'Manage Post\'');
                 }
             }
         }
-        $response->getBody()->write('connection couldn\'t be established with server');
 
-        return $response->withStatus(404);
+        return $response->withStatus(404, 'Oops! Somehow the server is busy and can\'t proccess this request as of now. Please try again or contact your administrator!' );
     });
     ///////////////////////////////////////////////////////////////////////////
 
@@ -333,13 +329,12 @@ $app->group('/api', function () {
 
                 return $response->withStatus(201);
             } catch (Exception $e) {
-                $response->getBody()->write($e->getMessage());
 
-                return $response->withStatus(409);
+                return $response->withStatus(409, $e->getMessage);
             }
         }
 
-        return $response->withStatus(404);
+        return $response->withStatus(404, 'Mmmhh... We couldn\'t connect to our server somehow :/ Please try again or contact your administrator.');
     });
     $this->delete('/comment{id}', function ($request, $response, $args) {
         $commentId = $args['id'];
@@ -351,16 +346,15 @@ $app->group('/api', function () {
 
                 return $response->withStatus(200);
             } catch (Exception $e) {
-                $response->getBody()->write($e->getMessage());
 
-                return $response->withStatus(404);
+                return $response->withStatus(404, 'Oops! It seems like we couldn\'t delete this comment... strange. Maybe it already has been deleted? Refresh the page to find out!');
             }
         }
 
-        return $response->withStatus(404);
+        return $response->withStatus(404, 'Mmmhh... We couldn\'t connect to our server somehow :/ Please try again or contact your administrator.');
     });
 });
 
-$app->add(new ActivityMiddleware())->add(new SessionMiddleware())->add(new SessionInitMiddleware());
+$app->add(new ActivityMiddleware())->add(new AuthenticatedMiddleware())->add(new SessionMiddleware())->add(new SessionInitMiddleware());
 
 $app->run();

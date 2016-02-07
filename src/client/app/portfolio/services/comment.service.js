@@ -41,27 +41,22 @@
             comment.username = username;
             comment.medium_type = type;
             comment.medium_spec = spec;
-            return $http.post('api/comment', comment).then(function(response) {
-                return response.data;
-            },
-            function(response) {
-                if (response.status === 419) {
-                    alert('Your session was inactive, you are being logged out.');
-                }
-                return response.status;
-            });
+            return $http.post('api/comment', comment).then(
+                function(response) {
+                    return response.data;
+                },
+                function(response) {                    
+                    return $q.reject(response);
+                });
         }
 
         function deleteComment(comment) {
             return $http.delete('api/comment' + comment.id, function(response) {
-                return response.data;
-            },
-            function(response) {
-                if (response.status === 419) {
-                    alert('Your session was inactive, you are being logged out.');
-                }
-                return response.status;
-            });
+                    return response.data;
+                },
+                function(response) {
+                    return response;
+                });
         }
     }
 })();
