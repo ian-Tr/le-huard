@@ -11,7 +11,7 @@
                 </div>
             </form>
             <ul class="collection">
-                <li ng-repeat="user in vm.users | filter: vm.search" class="collection-item avatar" ng-if="user.id !== appVm.currentUser.userId">
+                <li ng-repeat="user in vm.users | filter: vm.search track by user.id" class="collection-item avatar" ng-if="user.id !== appVm.currentUser.userId">
                     <img src="/src/client/photos/user.svg" alt="" class="circle">
                     <span class="title">{{user.username}}</span>
                     <p>{{user.email}}</p>

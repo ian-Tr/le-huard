@@ -24,7 +24,7 @@
 		</div>
 	</div>
 </section>
-<div ng-attr-id="modal{{$index}}" class="modal modal-portfolio" ng-repeat="picture in vm.pictures">
+<div ng-attr-id="modal{{$index}}" class="modal modal-portfolio" ng-repeat="picture in vm.pictures track by picture.id">
 	<div class="modal-content">
 		<div class="row">
 			<div class="col s6 modal-img-container">
@@ -43,7 +43,7 @@
 				</div>
 				<div class="row">
 					<ul class="collection">
-						<li class="collection-item avatar" ng-repeat="comment in picture.comments">
+						<li class="collection-item avatar" ng-repeat="comment in picture.comments track by comment.id">
 							<img src="/src/client/photos/user.svg" alt="" class="circle">
 							<span class="title"><b>{{comment.username}}</b> on {{comment.comment_date}}</span>
 							<p class="comment-content">{{comment.content}}</p>

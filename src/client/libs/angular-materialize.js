@@ -534,7 +534,7 @@
                                 onStop: (angular.isDefined(scope.onStop)) ? function(){ scope.onStop(); } : undefined
                             });
                             //pickadate API
-                            var picker = pickadateInput.pickadate('picker');                            
+                            var picker = pickadateInput.pickadate('picker');
 
                             //watcher of min and max
                             scope.$watch('max', function(newMax) {
@@ -815,7 +815,7 @@
                         '<li ' +
                         'ng-class="Item.liClass" ' +
                         'ng-click="Item.action()" ' +
-                        'ng-repeat="Item in List"> ' +
+                        'ng-repeat="Item in List track by $index"> ' +
                         '<a href> ' +
                         '<span ng-bind="Item.value"></span> ' +
                         '</a>' +

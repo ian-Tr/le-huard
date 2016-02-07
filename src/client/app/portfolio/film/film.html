@@ -8,7 +8,7 @@
             <div ng-switch-when="true" class="full-height">
                 <div slider indicators="false" control="vm.sliderControl" class="full-height fullscreen">
                     <ul class="slides full-height">
-                        <li ng-repeat="picture in vm.pictures">
+                        <li ng-repeat="picture in vm.pictures track by picture.id">
                             <video class="slide responsive-video" controls modal ready="vm.sliderControl.pause()" complete="vm.sliderControl.start()" class="slide responsive-img" ng-attr-href="#modal{{$index}}">
                                 <source ng-attr-src="{{picture.url}}" type="video/*">
                             </video>
@@ -29,7 +29,7 @@
         </div>
     </div>
 </section>
-<div ng-attr-id="modal{{$index}}" class="modal modal-portfolio" ng-repeat="picture in vm.pictures">
+<div ng-attr-id="modal{{$index}}" class="modal modal-portfolio" ng-repeat="picture in vm.pictures track by picture.id">
 	<div class="modal-content">
 		<div class="row">
 			<div class="col s6 modal-img-container">
@@ -48,7 +48,7 @@
 				</div>
 				<div class="row">
 					<ul class="collection">
-						<li class="collection-item avatar" ng-repeat="comment in picture.comments">
+						<li class="collection-item avatar" ng-repeat="comment in picture.comments track by comment.id">
 							<img src="/src/client/photos/user.svg" alt="" class="circle">
 							<span class="title"><b>{{comment.username}}</b> on {{comment.comment_date}}</span>
 							<p class="comment-content">{{comment.content}}</p>
