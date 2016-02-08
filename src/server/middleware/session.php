@@ -30,7 +30,9 @@ class SessionMiddleware
                 return $response->withStatus(419, 'Session timed out.');
             }
         }
+        // $response->getBody()->write('<br> session before');
         $response = $next($request, $response);
+        // $response->getBody()->write('<br> session after');
         return $response;
     }
 }

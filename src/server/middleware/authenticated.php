@@ -20,8 +20,10 @@ class AuthenticatedMiddleware
                 }
             }
         }
+        // $response->getBody()->write('<br> auth before');
         // everything fine next middleware
         $response = $next($request, $response);
+        // $response->getBody()->write('<br> auth after');
 
         return $response;
     }

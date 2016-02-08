@@ -95,4 +95,16 @@
         });
     }
 
+    function unauthorizedListener(AUTH_EVENTS, Session, $state, $rootScope, AuthService) {
+        $rootScope.$on(AUTH_EVENTS.notAuthorized, function() {
+            AuthService.logout().then(function(user) {
+                Session.destroy();
+                $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess, user);
+                if (!$state.includes('portfolio')) {
+                    $state.go('portfolio.connection');
+                }
+            });
+        });
+    }
+
 })();

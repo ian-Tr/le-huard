@@ -16,8 +16,9 @@ class SessionInitMiddleware
             ];
             $_SESSION['user_state'] = $session;
         }
+        // $response->getBody()->write('<br> session-init before');
         $response = $next($request, $response);
-
+        // $response->getBody()->write('<br> session-init after');
         return $response;
     }
 }

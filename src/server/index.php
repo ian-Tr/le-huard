@@ -6,6 +6,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/session.php';
 require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/session-init.php';
 require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/activity.php';
 require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/authenticated.php';
+require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/admin-authorization.php';
 
 session_start();
 
@@ -213,6 +214,7 @@ $app->group('/api', function () {
         return $response->withStatus(404);
     });
     $this->delete('/user{id}', function ($request, $response, $args) {
+
         $userId = $args['id'];
         $db = $this->sql;
         if ($db) {
@@ -355,6 +357,6 @@ $app->group('/api', function () {
     });
 });
 
-$app->add(new ActivityMiddleware())->add(new AuthenticatedMiddleware())->add(new SessionMiddleware())->add(new SessionInitMiddleware());
+$app->add(new ActivityMiddleware())->add(new AdminAuthorizationMiddleware())->add(new AuthenticatedMiddleware())->add(new SessionMiddleware())->add(new SessionInitMiddleware());
 
 $app->run();
