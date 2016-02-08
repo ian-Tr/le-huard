@@ -12,9 +12,9 @@ class AuthenticatedMiddleware
                 return $response;
             }
             // check if user is authenticated
-            if (true) {
+            if (isset($_SESSION['user_state']) && !empty($_SESSION['user_state'])) {
                 $session = $_SESSION['user_state'];
-                if (true) {
+                if ($session['id'] === 0) {
                     // user is not effectively logged in, block request
                     return $response->withStatus(401);
                 }
