@@ -20,6 +20,7 @@
           vm.showSuccess = false;
 
             if (vm.forgot.email !== null) {
+                console.log(forgot);
                 $http.post('/src/server/forgotPassword/forgotPassword.php', forgot).then(function(response) {
                     //http return success block
                     var statusCode = response.status;
