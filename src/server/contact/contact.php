@@ -20,8 +20,7 @@
           $alex = $get_alex_query -> fetch_assoc();
           $alexEmail = $alex['email'];
           //construct mail parameters
-          //$to = $alexEmail;
-          $to = "ianthetremblay2@gmail.com";
+          $to = $alexEmail;
           $from = $contact['email'];
           $subject = $contact['subject'];
           $message = $contact['message'];
@@ -35,7 +34,7 @@
             http_response_code(201);
           }
           else {
-            //Alex email not found
+            //server failed to send email
             http_response_code(409);
           }
         }

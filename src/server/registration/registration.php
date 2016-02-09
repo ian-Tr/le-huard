@@ -1,4 +1,8 @@
 <?php
+  session_start();
+  $userID = $_SESSION['user_state']['user']['userId'];
+  $userRole = $_SESSION['user_state']['user']['userRole'];
+
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $request = file_get_contents('php://input');
     $request = utf8_encode($request);
