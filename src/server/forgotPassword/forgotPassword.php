@@ -4,9 +4,10 @@
     $request = utf8_encode($request);
     $forgot_request = json_decode($request, true);
     $forgot = (array) $forgot_request;
+    var_dump($forgot);
 
-    if ($forgot['email2'] !== null && $forgot['email2'] !== '') {
-      $forgotEmail = $forgot['email2'];
+    if ($forgot['email'] !== null && $forgot['email'] !== '') {
+      $forgotEmail = $forgot['email'];
 
       $db = new mysqli("localhost", "root", "admin", "le-huard");
       if ($db -> connect_error) {
@@ -15,15 +16,14 @@
       else {
         //do this dank stuff
         //look for email in db
-        var_dump($forgotEmail);
         $find_email_query = $db -> query("SELECT * FROM member WHERE email = '".$forgotEmail."'") or die("Error: find_email_query");
         if (mysqli_num_rows($find_email_query) > 0) {
-          echo "email found";
-          //email was found in db
+          //email was found in db, get email and id for later
           $account = $find_email_query -> fetch_assoc();
           $accountEmail = $account['email'];
           $accountID = $account['id'];
 
+          //generate a new password
           $characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
           $length = strlen($characters);
           $randomString = "";
@@ -31,15 +31,6 @@
             $randomString .= $characters[rand(0, $length - 1)];
           }
           $newPassword = substr($randomString, 0, 10);
-
-          //===DELETE ALL THIS VARDUMP/ECHO SHIT WHEN TESTING IS DONE===//
-          echo "<br>";
-          var_dump($length);
-          echo "<br>";
-          var_dump($randomString);
-          echo "<br>";
-          var_dump($newPassword);
-          //===DELETE ALL THIS VARDUMP/ECHO SHIT WHEN TESTING IS DONE===//
 
           //hash and salt the new password
           $hashOptions = [
@@ -64,7 +55,7 @@
 
           //send email
           if (mail($to, $subject, $message, implode("\r\n", $headers))) {
-            //email sent
+            //email created
             http_response_code(201);
           }
           else {
