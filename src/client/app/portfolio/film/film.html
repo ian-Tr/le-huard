@@ -3,7 +3,7 @@
     <div class="full-height">
         <div ng-switch="vm.isSuccessful" class="img-loaded full-height">
             <div ng-switch-when="true" class="full-height">
-                <div slider ng-attr-slider-activate="vm.pictures.length > 1" indicators="false" control="vm.sliderControl" class="full-height fullscreen">
+                <div slider ng-attr-slider-activate="vm.pictures.length > 1" indicators="false" control="vm.sliderControl" class="full-height fullscreen slider-mod">
                     <ul class="slides full-height">
                         <li ng-repeat="picture in vm.pictures track by picture.id" class="video-slide">
                             <video class="slide responsive-video" onClick="(this.paused) ? this.play() : this.pause()" class="slide responsive-img">

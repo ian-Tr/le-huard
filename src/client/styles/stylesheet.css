@@ -53,13 +53,14 @@ section {
     padding: 20px;
     background-color: #9c9494;
 }
-.wrapper, .wrapper > .row, .wrapper > .row > .slider, .wrapper > .row > .slider > .slides, .wrapper > .row > .slider > .slides .card-image {
+.wrapper, .wrapper > .row, .wrapper > .row > .slider-mod, .wrapper > .row > .slider-mod > .slides, .wrapper > .row > .slider-mod > .slides .card-image {
     height: 100% !important;
     width: 100%;
     margin: 0;
 }
-.slider .slides {
+.slider-mod .slides {
     background-color: #212121;
+    margin: 0;
 }
 blockquote {
     border-left-color: #9c9494;
@@ -347,10 +348,10 @@ header {
 
 /************************* Portfolio pages (with sliders) *********************/
 
-.slider .indicators .indicator-item {
+.slider-mod .indicators .indicator-item {
     background-color: #9c9494;
 }
-.slider .indicators .indicator-item.active {
+.slider-mod .indicators .indicator-item.active {
     background-color: #F5F5F5;
 }
 .slider-header {
@@ -360,13 +361,13 @@ header {
     background-color: rgba(33, 33, 33, 0.8);
     text-align: center;
 }
-.slider.fullscreen {
+.slider-mod.fullscreen {
     position: relative !important;
 }
 .slide {
     cursor: pointer;
 }
-.slider .indicators {
+.slider-mod .indicators {
     z-index: 5;
     bottom: 20vh;
 }
@@ -575,7 +576,7 @@ video.responsive-video {
     header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
         font-size: 0.5rem !important;
     }
-    .slider .indicators {
+    .slider-mod .indicators {
         bottom: 18vh;
     }
     .slider-controls {
@@ -602,7 +603,7 @@ video.responsive-video {
     header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
         font-size: 0.5rem !important;
     }
-    .slider .indicators {
+    .slider-mod .indicators {
         bottom: 18vh;
     }
     .slider-controls {
@@ -629,7 +630,7 @@ video.responsive-video {
     header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
         font-size: 0.5rem !important;
     }
-    .slider .indicators {
+    .slider-mod .indicators {
         bottom: 30vh;
     }
     .slider-controls {
@@ -656,7 +657,7 @@ video.responsive-video {
     header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
         font-size: 1rem !important;
     }
-    .slider .indicators {
+    .slider-mod .indicators {
         bottom: 10vh;
     }
     .slider-controls {
@@ -683,7 +684,7 @@ video.responsive-video {
     header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
         font-size: 0.5rem !important;
     }
-    .slider .indicators {
+    .slider-mod .indicators {
         bottom: 26vh;
     }
     .slider-controls {
@@ -694,7 +695,7 @@ video.responsive-video {
     }
 }
 @media only screen and (min-width:801px) and (max-width:992px) and (orientation:landscape) {
-    .slider .indicators {
+    .slider-mod .indicators {
         bottom: 20vh;
     }
     .slider-controls {
@@ -719,7 +720,7 @@ video.responsive-video {
     header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
         font-size: 3rem !important;
     }
-    .slider .indicators {
+    .slider-mod .indicators {
         bottom: 10vh;
     }
     .slider-controls {
@@ -744,7 +745,7 @@ video.responsive-video {
     header a:not(.logo-main):not(.connect-btn):not(.dropdown-link) {
         font-size: 3rem !important;
     }
-    .slider .indicators {
+    .slider-mod .indicators {
         bottom: 10vh;
     }
     .slider-controls {

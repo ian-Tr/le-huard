@@ -6,7 +6,7 @@
         </div>
         <div ng-switch-when="false" ng-switch="vm.isSuccessful" class="img-loaded full-height">
             <div ng-switch-when="true" class="full-height">
-                <div slider indicators="false" control="vm.sliderControl" class="full-height fullscreen">
+                <div slider indicators="false" control="vm.sliderControl" class="full-height fullscreen slider-mod">
                     <ul class="slides full-height">
                         <li ng-repeat="picture in vm.pictures track by picture.id">
                             <img modal ready="vm.sliderControl.pause()" complete="vm.sliderControl.start()" class="slide responsive-img" ng-attr-href="#modal{{$index}}" ng-src="{{picture.url}}" alt="">
