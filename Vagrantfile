@@ -73,6 +73,10 @@ Vagrant.configure(2) do |config|
 
 config.vm.provision "shell", inline: <<-SHELL
 
+# user conf for server
+adduser --disabled-password --gecos "" admin
+gpasswd -a admin sudo
+
 sudo apt-get update
 sudo apt-get install git
 sudo add-apt-repository ppa:ondrej/php5 -y
@@ -150,6 +154,22 @@ sudo apt-get -y install phpmyadmin
 # sudo mkdir /usr/share/nginx/html/lehuard
 # sudo ln -s /usr/share/phpmyadmin/ /usr/share/nginx/html/lehuard  <--- for actual real server
 sudo ln -s /usr/share/phpmyadmin/ /var/www/le-huard.dev
+
+# git clone the repo
+cd /usr/share/nginx/html/lehuard
+git clone https://github.com/eloiqs/le-huard.git
+sudo cp -rf ./le-huard ../
+cd ..
+sudo rm -rf ./le-huard/
+
+# install node
+su admin
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
+. ~/.bashrc
+nvm install 5.5
+npm install -g bower
+bower install
+
 
 SHELL
 
