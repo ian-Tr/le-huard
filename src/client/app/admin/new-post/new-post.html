@@ -19,7 +19,7 @@
                     </div>
                     <div class="file-path-wrapper">
                         <input type="text" class="file-path validate" ng-class="form.file.$valid ? 'valid' : ''" id="filePath" ng-model="vm.file.name">
-                        <div class="error-label" ng-show="form.file.$error.maxSize" for="filePath">File too large {{errorFiles[0].size / 1000000|number:1}}MB: max 200MB</div>
+                        <div class="error-label" ng-show="form.file.$error.maxSize" for="filePath">File too large {{errorFiles[0].size / 1000000|number:1}}MB: max 400MB</div>
                     </div>
                 </div>
             </div>

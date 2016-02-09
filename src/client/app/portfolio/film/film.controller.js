@@ -13,12 +13,9 @@
             media = MediaService.getData(),
             comments = CommentService.getData();
 
-        vm.isLoading = true;
-        vm.isSuccessful = false;
-        vm.percentLoaded = 0;
-        vm.locations = [];
+        vm.isSuccessful = false;                
         vm.postComment = postComment;
-        cm.deleteComment = deleteComment;
+        vm.deleteComment = deleteComment;
         vm.sliderControl = {};
 
         init();
@@ -26,14 +23,18 @@
         function init() {
             getPictures();
             associateComments();
-            getLocations();
-            preload();
+            // getLocations();
+            // preload();
+
         }
 
         function getPictures() {
             vm.pictures = media.filter(function(media) {
                 return (media.medium_type === 'Film');
             });
+            if (vm.pictures) {
+                vm.isSuccessful = true;
+            }
         }
 
         function associateComments() {
@@ -44,27 +45,27 @@
             });
         }
 
-        function getLocations() {
-            vm.pictures.forEach(function(picture) {
-                vm.locations.push(picture.url);
-            });
-        }
-
-        function preload() {
-            Preloader.preloadImages(vm.locations).then(
-                function handleResolve(imageLocations) {
-                    vm.isLoading = false;
-                    vm.isSuccessful = true;
-                },
-                function handleReject(imageLocations) {
-                    vm.isLoading = false;
-                    vm.isSuccessful = false;
-                },
-                function handleNotify(event) {
-                    vm.precentLoaded = event.percent;
-                }
-            );
-        }
+        // function getLocations() {
+        //     vm.pictures.forEach(function(picture) {
+        //         vm.locations.push(picture.url);
+        //     });
+        // }
+        //
+        // function preload() {
+        //     Preloader.preloadImages(vm.locations).then(
+        //         function handleResolve(imageLocations) {
+        //             vm.isLoading = false;
+        //             vm.isSuccessful = true;
+        //         },
+        //         function handleReject(imageLocations) {
+        //             vm.isLoading = false;
+        //             vm.isSuccessful = false;
+        //         },
+        //         function handleNotify(event) {
+        //             vm.precentLoaded = event.percent;
+        //         }
+        //     );
+        // }
 
         function postComment(commentArray, userId, postId, content, username, type, spec) {
             if (content) {

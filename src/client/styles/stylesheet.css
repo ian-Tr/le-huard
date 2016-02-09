@@ -34,7 +34,7 @@ button:not(.white-btn):focus {
     background-color: #212121;
 }
 .comment-content {
-    word-wrap: break-word;    
+    word-wrap: break-word;
 }
 .card-main.card {
     background-color: #212121;
@@ -57,6 +57,9 @@ section {
     height: 100% !important;
     width: 100%;
     margin: 0;
+}
+.slider .slides {
+    background-color: #212121;
 }
 blockquote {
     border-left-color: #9c9494;
@@ -444,7 +447,14 @@ header {
     bottom: 0;
     right: 0;
 }
-
+video.responsive-video {
+    height: 100%;
+    max-width: inherit;
+    width: 100%;
+}
+.video-slide {
+    text-align: center;
+}
 /******************************************************************************/
 
 

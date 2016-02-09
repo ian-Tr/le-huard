@@ -35,29 +35,33 @@
                     interval: '=',
                     indicators: '=',
                     control: '=',
+                    sliderActivate: '='
                 },
                 link: function(scope, element, attrs) {
-                    element.addClass("slider");
-                    $timeout(function(){
-                        element.slider({
-                            height: (angular.isDefined(scope.height)) ? scope.height : 400,
-                            transition: (angular.isDefined(scope.transition)) ? scope.transition : 500,
-                            interval: (angular.isDefined(scope.interval)) ? scope.interval : 6000,
-                            indicators: (angular.isDefined(scope.indicators)) ? scope.indicators : true,
+                    var activate = (angular.isDefined(scope.sliderActivate) ? scope.sliderActivate : true);
+                    if (activate) {
+                        element.addClass("slider");
+                        $timeout(function(){
+                            element.slider({
+                                height: (angular.isDefined(scope.height)) ? scope.height : 400,
+                                transition: (angular.isDefined(scope.transition)) ? scope.transition : 500,
+                                interval: (angular.isDefined(scope.interval)) ? scope.interval : 6000,
+                                indicators: (angular.isDefined(scope.indicators)) ? scope.indicators : true,
+                            });
                         });
-                    });
-                    scope.internalControl = scope.control || {};
-                    scope.internalControl.prev = function() {
-                        element.slider('prev');
-                    }
-                    scope.internalControl.next = function() {
-                        element.slider('next');
-                    }
-                    scope.internalControl.pause = function() {
-                        element.slider('pause');
-                    }
-                    scope.internalControl.start = function() {
-                        element.slider('start');
+                        scope.internalControl = scope.control || {};
+                        scope.internalControl.prev = function() {
+                            element.slider('prev');
+                        }
+                        scope.internalControl.next = function() {
+                            element.slider('next');
+                        }
+                        scope.internalControl.pause = function() {
+                            element.slider('pause');
+                        }
+                        scope.internalControl.start = function() {
+                            element.slider('start');
+                        }
                     }
                 }
             };
