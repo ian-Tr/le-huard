@@ -456,6 +456,10 @@ video.responsive-video {
 .video-slide {
     text-align: center;
 }
+.responsive-video-modal {
+    max-width: 100%;
+    height: auto;
+}
 /******************************************************************************/
 
 
