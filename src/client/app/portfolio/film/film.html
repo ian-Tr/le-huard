@@ -7,7 +7,7 @@
                     <ul class="slides full-height">
                         <li ng-repeat="picture in vm.pictures track by picture.id" class="video-slide">
                             <video class="slide responsive-video" onclick="(this.paused) ? this.play() : this.pause()">
-                                <source ng-src="picture.url">
+                                <source ng-src="{{picture.url}}">
                             </video>
                             <div class="col s12 slider-header">
                                 <div class="row">

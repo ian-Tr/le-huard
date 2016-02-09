@@ -258,10 +258,7 @@ $app->group('/api', function () {
         $type = $_POST['type'];
         $medium = ($type === 'Film') ? 'Film' : 'Photo';
         $spec = (($_POST['spec'] === 'null') ? null : $_POST['spec']);
-        var_dump($_POST['date']);
-        $date = (($_POST['date'] === 'null') ? null : $_POST['date']);
-        echo '<br>';
-        var_dump($date);
+        $date = (($_POST['date'] === 'null') ? null : $_POST['date']);                
         $destination = ($spec ? '/src/client/photos/'.$type.'/'.$spec.'/'.$filename : '/src/client/photos/'.$type.'/'.$filename);
         $db = $this->sql;
         if ($db) {

@@ -13,7 +13,7 @@
             media = MediaService.getData(),
             comments = CommentService.getData();
 
-        vm.isSuccessful = false;                
+        vm.isSuccessful = false;
         vm.postComment = postComment;
         vm.deleteComment = deleteComment;
         vm.sliderControl = {};
@@ -32,7 +32,7 @@
             vm.pictures = media.filter(function(media) {
                 return (media.medium_type === 'Film');
             });
-            if (vm.pictures) {
+            if (vm.pictures.length > 0) {
                 vm.isSuccessful = true;
             }
         }
