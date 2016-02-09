@@ -40,7 +40,9 @@
                 templateUrl: '/src/client/app/admin/manage/index.html',
                 resolve: {
                     loadPosts: function(MediaService) {
-                        MediaService.loadData();
+                        if (MediaService.getData() === null) {
+                            return MediaService.loadData();
+                        }
                     }
                 },
                 data: {
@@ -66,7 +68,9 @@
                 controllerAs: 'vm',
                 resolve: {
                     loadUsers: function(UserService) {
-                        UserService.loadData();
+                        if (UserService.getData() === null) {
+                            return UserService.loadData();                            
+                        }
                     }
                 },
                 data: {
