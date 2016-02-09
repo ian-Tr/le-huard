@@ -6,8 +6,8 @@
                 <div slider ng-attr-slider-activate="vm.pictures.length > 1" indicators="false" control="vm.sliderControl" class="full-height fullscreen slider-mod">
                     <ul class="slides full-height">
                         <li ng-repeat="picture in vm.pictures track by picture.id" class="video-slide">
-                            <video class="slide responsive-video" onClick="(this.paused) ? this.play() : this.pause()" class="slide responsive-img">
-                                <source src="/src/client/photos/Film/test.mp4">
+                            <video class="slide responsive-video" onclick="(this.paused) ? this.play() : this.pause()">
+                                <source ng-src="picture.url">
                             </video>
                             <div class="col s12 slider-header">
                                 <div class="row">
@@ -35,8 +35,8 @@
     <div class="modal-content">
         <div class="row">
             <div class="col s6 modal-img-container">
-                <video class="responsive-video-modal" onClick="(this.paused) ? this.play() : this.pause()" class="slide responsive-img">
-                    <source src="/src/client/photos/Film/test.mp4">
+                <video class="responsive-video-modal" onlick="(this.paused) ? this.play() : this.pause()">
+                    <source ng-src="picture.url">
                 </video>
                 <!-- <img class="responsive-img" ng-src="{{picture.url}}" alt=""> -->
             </div>
@@ -65,9 +65,9 @@
                     <form ng-submit="vm.postComment(picture.comments, appVm.currentUser.userId, picture.id, picture.newComment, appVm.currentUser.userName, picture.medium_type, picture.medium_spec);picture.newComment = null;" class="col s12">
                         <div class="row">
                             <input-field>
-                                <textarea ng-attr-id="textarea{{$index}}" length="150" maxlength='150' ng-model="picture.newComment" required class="materialize-textarea"></textarea>
+                                <textarea ng-attr-id="textarea{{$index}}" length="150" maxlength="150" ng-model="picture.newComment" required class="materialize-textarea"></textarea>
                                 <label ng-attr-for="textarea{{$index}}">Add Comment...</label>
-                                <input-field>
+                            </input-field>
                         </div>
                         <div class="row">
                             <button type="submit" class="right btn waves-effect waves-light ">Submit</button>
