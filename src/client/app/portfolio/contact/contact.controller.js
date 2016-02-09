@@ -5,12 +5,14 @@
         .module('Portfolio')
         .controller('Contact', contact);
 
-    contact.$inject = ['$http', '$state'];
+    contact.$inject = ['$http', '$state', 'AboutService'];
 
-    function contact($http, $state) {
+    function contact($http, $state, AboutService) {
         /*jshint validthis: true */
-        var vm = this;
+        var vm = this,
+            about = AboutService.getData();
 
+        vm.about = about;
         vm.contact = {};
         vm.contact.email = null;
         vm.contact.subject = null;

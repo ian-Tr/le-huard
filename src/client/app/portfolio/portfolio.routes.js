@@ -123,7 +123,14 @@
                 url: 'contact',
                 templateUrl: '/src/client/app/portfolio/contact/contact.html',
                 controller: 'Contact',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    loadAbout: function(AboutService) {
+                        if (AboutService.getData() === null) {
+                            return AboutService.loadData();
+                        }
+                    }
+                }
             })
             .state('portfolio.connection', {
                 url: 'connection',

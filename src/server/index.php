@@ -84,9 +84,6 @@ $app->group('/api', function () {
     // returns the info on the post and media angular needs in it's views /////
     ///////////////////////////////////////////////////////////////////////////
     $this->get('/media', function ($request, $response, $args) {
-        // if ($status === 419) {
-        //     return $response->withStatus($status);
-        // }
         $db = $this->sql;
         if ($db) {
             $result = $db->query('call getPostMedia');
@@ -96,6 +93,29 @@ $app->group('/api', function () {
                 }
                 if ($media) {
                     $response->getBody()->write(json_encode($media));
+
+                    return $response->withStatus(200);
+                }
+            }
+        }
+        return $response->withStatus(404);
+    });
+    ///////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////
+    // /API/MEDIA /////////////////////////////////////////////////////////////
+    // returns the info on the post and media angular needs in it's views /////
+    ///////////////////////////////////////////////////////////////////////////
+    $this->get('/about', function ($request, $response, $args) {
+        $db = $this->sql;
+        if ($db) {
+            $result = $db->query('call getAbout');
+            if ($result) {
+                while ($row = $result->fetch()) {
+                    $about[] = $row;
+                }
+                if ($about) {
+                    $response->getBody()->write(json_encode($about));
 
                     return $response->withStatus(200);
                 }

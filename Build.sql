@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS member;
 DROP TABLE IF EXISTS media;
 
 DROP PROCEDURE IF EXISTS getMedia;
+DROP PROCEDURE IF EXISTS getAbout;
 DROP PROCEDURE IF EXISTS getPostMedia;
 DROP PROCEDURE IF EXISTS getMembers;
 DROP PROCEDURE IF EXISTS getMember;
@@ -132,7 +133,7 @@ INSERT INTO media (url) VALUES ('/src/client/photos/Disposable/Color/Disposable-
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable/Color/Disposable-Couleur-5.jpg');
 INSERT INTO media (url) VALUES ('/src/client/photos/Disposable/Color/Disposable-Couleur-6.jpg');
 
-INSERT INTO member (role, username, password, email, about) VALUES ('admin', 'admin', '$2y$10$JSU.frqY2Y3/xiN8krNNQOBLfVaJ7OYrxqJB8Fnb18CjwmLQzkqCO', 'admin@admin.com', NULL);
+INSERT INTO member (role, username, password, email, about) VALUES ('admin', 'admin', '$2y$10$JSU.frqY2Y3/xiN8krNNQOBLfVaJ7OYrxqJB8Fnb18CjwmLQzkqCO', 'admin@admin.com', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
 INSERT INTO member (role, username, password, email, about) VALUES ('member', 'member', '$2y$10$lVW7dXvlqngjNzUjY9o/LuRgU3wQud8Lub0DlDTD4XsGPHFGROrrK', 'member@member.com', NULL);
 INSERT INTO member (role, username, password, email, about) VALUES ('member', 'test', '$2y$10$XHRHthlmqX4WP47iLO.7Z.bMU78ceD8qW5.AtOh3i5nDZnBaKR9YC', 'test@test.com', NULL);
 
@@ -507,6 +508,22 @@ delimiter //
 CREATE PROCEDURE getMedia()
 BEGIN
 	SELECT * FROM media;
+END//
+
+-- CREATE TABLE member (
+-- 	id				INT					NOT NULL	AUTO_INCREMENT,
+-- 	role				VARCHAR(6)			NOT NULL,
+-- 	username		VARCHAR(20)			NOT NULL,
+-- 	password		VARCHAR(250)			NOT NULL,
+-- 	email				VARCHAR(50)			NOT NULL,
+-- 	about				VARCHAR(250),
+-- 	PRIMARY KEY (id)
+-- );
+
+CREATE PROCEDURE getAbout()
+BEGIN
+	SELECT about FROM member WHERE role = 'admin';
+	--  AND username != 'admin'
 END//
 
 CREATE PROCEDURE getPostMedia()
