@@ -7,7 +7,7 @@
             </div>
             <form>
                 <div class="input-field">
-                    <input ng-model="vm.search" id="search" type="search" required>
+                    <input ng-model="vm.search.title" id="search" type="search" required>
                     <label for="search"><i class="material-icons">search</i></label>
                     <i class="material-icons">close</i>
                 </div>
@@ -21,9 +21,6 @@
                         <ul deckgrid source="vm.posts" filter="vm.search" class="deckgrid">
                             <li ng-show="card.medium_type !== 'Film'" class="card">
                                 <div class="card-image">
-                                    <!-- <video ng-if="card.medium_type === 'Film'" class="slide responsive-video" class="responsive-img">
-                                        <source src="/src/client/photos/Film/test.mp4">
-                                    </video> -->
                                     <img ng-src="{{card.url}}" ng-attr-alt="{{card.title}}" class="responsive-img">
                                     <div class="card-title valign-wrapper flex-center">
                                         <span class="valign">
@@ -40,8 +37,7 @@
                             </li>
                             <li ng-show="card.medium_type === 'Film'" class="card">
                                 <div class="card-image">
-                                    <img src="/src/client/photos/play.svg" class="<responsive-img></responsive-img>" alt="">
-                                    <!-- <img ng-src="{{card.url}}" ng-attr-alt="{{card.title}}" class="responsive-img"> -->
+                                    <img src="/src/client/photos/play.svg" class="<responsive-img></responsive-img>" alt="">                                    
                                     <div class="card-title valign-wrapper flex-center">
                                         <span class="valign">
                                             {{card.title}}

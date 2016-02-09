@@ -26,7 +26,7 @@
             var deferred = $q.defer();
             vm.posts.forEach(function(post) {
                 if (post.medium_type !== 'Film') {
-                    vm.locations.push(post.url);                    
+                    vm.locations.push(post.url);
                 }
             });
             deferred.resolve();
