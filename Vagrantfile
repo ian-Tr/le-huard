@@ -74,6 +74,7 @@ Vagrant.configure(2) do |config|
 config.vm.provision "shell", inline: <<-SHELL
 
 sudo apt-get update
+sudo apt-get install git
 sudo add-apt-repository ppa:ondrej/php5 -y
 sudo apt-get update
 sudo apt-get install nginx -y
@@ -146,6 +147,8 @@ sudo echo "phpmyadmin phpmyadmin/mysql/admin-pass password admin" | sudo debconf
 sudo echo "phpmyadmin phpmyadmin/mysql/app-pass password admin" |sudo debconf-set-selections
 sudo echo "phpmyadmin phpmyadmin/app-password-confirm password admin" | sudo debconf-set-selections
 sudo apt-get -y install phpmyadmin
+# sudo mkdir /usr/share/nginx/html/lehuard
+# sudo ln -s /usr/share/phpmyadmin/ /usr/share/nginx/html/lehuard  <--- for actual real server
 sudo ln -s /usr/share/phpmyadmin/ /var/www/le-huard.dev
 
 SHELL
