@@ -6,12 +6,14 @@
         .run(bindStateToRootScope)
         .run(stateChangeListener)
         .run(sessionTimeOutListener)
-        .run(unauthenticatedListener);
+        .run(unauthenticatedListener)
+        .run(unauthorizedListener);
 
     bindStateToRootScope.$inject = ['$state', '$rootScope'];
     stateChangeListener.$inject = ['$rootScope', 'AUTH_EVENTS', 'AuthService', 'Session', 'AuthResolver', '$state'];
     sessionTimeOutListener.$inject = ['AUTH_EVENTS', 'Session', '$state', '$rootScope', 'AuthService'];
     unauthenticatedListener.$inject = ['AUTH_EVENTS', 'Session', '$state', '$rootScope', 'AuthService'];
+    unauthorizedListener.$inject = ['AUTH_EVENTS', 'Session', '$state', '$rootScope', 'AuthService'];
 
     function bindStateToRootScope($state, $rootScope) {
         $rootScope.$state = $state;
@@ -97,6 +99,7 @@
 
     function unauthorizedListener(AUTH_EVENTS, Session, $state, $rootScope, AuthService) {
         $rootScope.$on(AUTH_EVENTS.notAuthorized, function() {
+            console.log('not authorized');
             AuthService.logout().then(function(user) {
                 Session.destroy();
                 $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess, user);

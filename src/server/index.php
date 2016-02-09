@@ -7,6 +7,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/session-init.php';
 require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/activity.php';
 require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/authenticated.php';
 require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/admin-authorization.php';
+require $_SERVER['DOCUMENT_ROOT'].'/src/server/middleware/member-authorization.php';
 
 session_start();
 
@@ -192,10 +193,6 @@ $app->group('/api', function () {
     // returns the list of all users from the db ///////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
     $this->get('/users', function ($request, $response, $args) {
-        // check if session timed out
-        // if ($status === 419) {
-        //     return $response->withStatus($status);
-        // }
         $db = $this->sql;
         if ($db) {
             $result = $db->query('call getMembers');
@@ -357,6 +354,6 @@ $app->group('/api', function () {
     });
 });
 
-$app->add(new ActivityMiddleware())->add(new AdminAuthorizationMiddleware())->add(new AuthenticatedMiddleware())->add(new SessionMiddleware())->add(new SessionInitMiddleware());
+$app->add(new ActivityMiddleware())->add(new MemberAuthorizationMiddleware())->add(new AdminAuthorizationMiddleware())->add(new AuthenticatedMiddleware())->add(new SessionMiddleware())->add(new SessionInitMiddleware());
 
 $app->run();
