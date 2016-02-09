@@ -13,13 +13,15 @@
 
         vm.forgot = {};
         vm.forgot.email = null;
+        vm.forgot.email2 = null;
         vm.sendPassword = sendPassword;
 
         function sendPassword(forgot) {
-          vm.showError = false;
+          vm.show404Error = false;
+          vm.show409Error = false;
           vm.showSuccess = false;
 
-            if (vm.forgot.email !== null) {
+            if (vm.forgot.email2 !== null) {
                 console.log(forgot);
                 $http.post('/src/server/forgotPassword/forgotPassword.php', forgot).then(function(response) {
                     //http return success block
@@ -31,8 +33,11 @@
                 }, function (response) {
                   //http return error block
                   var statusCode = response.status;
-                  if (statusCode === 409 || statusCode === 404) {
-                      vm.showError = true;
+                  if (statusCode === 404) {
+                      vm.show404Error = true;
+                  }
+                  if (statusCode === 409) {
+                      vm.show409Error = true;
                   }
                 });
             }
