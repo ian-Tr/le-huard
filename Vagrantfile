@@ -171,6 +171,7 @@ sudo ln -s /usr/share/phpmyadmin/ /var/www/le-huard.dev
 # sudo apt-get install postfix
 
 # sudo vi /etc/php5/fpm/php.ini --> change upload_max 200M and post_max 200M
+# SUDO CHOWN -R WWW-DATA SRC/CLIENT/PHOTOS/
 
 
 
