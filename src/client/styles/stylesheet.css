@@ -450,11 +450,14 @@ header {
 }
 video.responsive-video {
     height: 100%;
-    max-width: inherit;
     width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .video-slide {
     text-align: center;
+    height: 100%;
 }
 .responsive-video-modal {
     max-width: 100%;
