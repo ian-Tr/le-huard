@@ -463,6 +463,9 @@ video.responsive-video {
     max-width: 100%;
     height: auto;
 }
+.flex-center {
+    justify-content: center;
+}
 /******************************************************************************/
 
 

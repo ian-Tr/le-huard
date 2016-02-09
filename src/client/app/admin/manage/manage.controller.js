@@ -24,9 +24,11 @@
 
         function getLocations() {
             var deferred = $q.defer();
-            for (var i = 0; i < vm.posts.length; i++) {
-                vm.locations.push(vm.posts[i].url);
-            }
+            vm.posts.forEach(function(post) {
+                if (post.medium_type !== 'Film') {
+                    vm.locations.push(post.url);                    
+                }
+            });
             deferred.resolve();
             return deferred.promise;
         }
