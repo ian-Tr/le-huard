@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['LAST_ACTIVITY']) && time() - $_SESSION['LAST_ACTIVITY'] < 450) {
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) < 450) {
     if (isset($_SESSION['user_state'])) {
       $userStateID = $_SESSION['user_state']['id'];
       if ($userStateID === '0') {
@@ -26,7 +26,6 @@ if (isset($_SESSION['LAST_ACTIVITY']) && time() - $_SESSION['LAST_ACTIVITY'] < 4
             if ($userID !== null && $userRole !== null && $profile['email'] !== null) {
               $email = trim($profile['email']);
               $about = $profile['about'];
-
               //connect to db
               $db = new mysqli("localhost", "root", "admin", "le-huard");
               if ($db -> connect_error) {

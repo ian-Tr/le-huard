@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['LAST_ACTIVITY']) && time() - $_SESSION['LAST_ACTIVITY'] < 450) {
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) < 450) {
     if (isset($_SESSION['user_state'])) {
       $userStateID = $_SESSION['user_state']['id'];
       if ($userStateID === '0') {

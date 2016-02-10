@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['LAST_ACTIVITY']) && time() - $_SESSION['LAST_ACTIVITY'] < 450) {
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) < 450) {
     if (isset($_SESSION['user_state'])) {
       $userStateID = $_SESSION['user_state']['id'];
       if ($userStateID === '0') {
@@ -16,7 +16,7 @@ if (isset($_SESSION['LAST_ACTIVITY']) && time() - $_SESSION['LAST_ACTIVITY'] < 4
         }
         else {
           $userID = $_SESSION['user_state']['user']['userId'];
-          
+
           if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $request = file_get_contents('php://input');
             $request = utf8_encode($request);
