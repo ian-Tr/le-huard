@@ -39,25 +39,12 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) <
                     if (mysqli_num_rows($get_url_query) > 0) {
                       //media record found, get url
                       $media = $get_url_query -> fetch_assoc();
-                      var_dump($media);
                       $url = $_SERVER['DOCUMENT_ROOT'].$media['url'];
-                      var_dump($url);
+
 
                       if (is_file($url)) {
-                        echo "file true";
-                      }
-                      else {
-                        echo "file false";
-                      }
-
-                      //delete file
-                      if(unlink($url)) {
-                        //file deleted
-                        echo "unlink true";
-                      }
-                      else {
-                        //failed to delete file
-                        echo "unlink false";
+                        //delete file
+                        unlink($url);
                       }
                     }
                     else {
@@ -66,9 +53,11 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) <
                     }
 
                     //delete post from db
-                    $delete_post_query = $db -> query("call deletePost('".$post['id']."')")
+                    $delete_post_query = $db -> query("DELETE FROM post WHERE id = '".$post['id']."'")
                                                       or die("Error: delete_post_query");
-                    var_dump($delete_post_query);
+
+                    $delete_media_query = $db -> query("DELETE FROM media WHERE id = '".$mediaID."'")
+                                                      or die("Error: delete_media_query");
 
                     //post deleted
                     http_response_code(200);
