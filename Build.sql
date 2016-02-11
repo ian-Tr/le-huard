@@ -24,6 +24,7 @@ DROP PROCEDURE IF EXISTS updatePostMediumType;
 DROP PROCEDURE IF EXISTS updatePostMediumSpec;
 DROP PROCEDURE IF EXISTS updatePostTitle;
 DROP PROCEDURE IF EXISTS updatePostMediaDate;
+DROP PROCEDURE IF EXISTS updateMedia;
 DROP PROCEDURE IF EXISTS deletePost;
 DROP PROCEDURE IF EXISTS deleteMember;
 DROP PROCEDURE IF EXISTS deleteComment;
@@ -679,6 +680,14 @@ BEGIN
 	UPDATE post
     SET media_date = media_date_in
     WHERE id = id_in;
+END//
+
+CREATE PROCEDURE updateMedia(IN id_in INT,
+														 IN url_in VARCHAR(50))
+BEGIN
+	UPDATE media
+	SET url = url_in
+	WHERE id = id_in;
 END//
 
 CREATE PROCEDURE deletePost(In id_in INT)
