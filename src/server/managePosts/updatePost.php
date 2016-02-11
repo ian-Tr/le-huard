@@ -40,7 +40,7 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) <
                                                                          .$post['title']."','"
                                                                          .$post['media_date']."')")
                                                       or die("Error: update_post_query");
-
+                    
                     //post updated
                     http_response_code(201);
                   }

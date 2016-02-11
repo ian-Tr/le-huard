@@ -13,7 +13,7 @@
         <div ng-if="vm.showDeleteError">
             <span class="center-element">An error occurred during deletion.</span>
         </div>
-        <form ng-submit="vm.update(vm.post)" method="POST">
+        <form method="POST">
             <div class="row">
                 <div class="input-field col s10 offset-s1">
                     <input ng-model="vm.post.title" id="name" name="username" type="text" class="validate" required>
@@ -29,7 +29,7 @@
                     </select>
                 </div>
                 <div class="input-field col s10 m5 l5 offset-s1">
-                    <select ng-model="vm.post.medium_spec" name="mediumSpec" material-select watch>
+                    <select ng-model="vm.post.medium_spec" name="mediumSpec" material-select watch required>
                         <option value="" disabled selected>Type</option>
                         <option ng-repeat="spec in vm.mediumSpecs track by $index">{{spec}}</option>
                     </select>
@@ -45,7 +45,7 @@
 
             <div class="row">
                 <div class="input-field col s4 m4 l3 offset-s1 offset-m2 offset-l3">
-                    <button class="btn waves-effect waves-light" type="submit">Save</button>
+                    <button ng-click="vm.update(vm.post)" class="btn waves-effect waves-light" type="submit">Save</button>
                 </div>
                 <div class="input-field col s4 m4 l3 offset-s1">
                     <button ng-click="vm.delete(vm.post)" class="btn waves-effect waves-light">Delete</button>

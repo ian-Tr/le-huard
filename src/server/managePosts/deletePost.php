@@ -32,12 +32,45 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) <
                   //verify post exists in db
                   $get_post_query = $db -> query("SELECT * FROM post WHERE id = '".$post['id']."'") or die("Error: get_post_query");
                   if (mysqli_num_rows($get_post_query) > 0) {
-                    //post was found, delete it
+                    $record = $get_post_query -> fetch_assoc();
+                    $mediaID = $record['media_id'];
+                    //find media record
+                    $get_url_query = $db -> query("SELECT * FROM media WHERE id = '".$mediaID."'") or die("Error: get_url_query");
+                    if (mysqli_num_rows($get_url_query) > 0) {
+                      //media record found, get url
+                      $media = $get_url_query -> fetch_assoc();
+                      var_dump($media);
+                      $url = $_SERVER['DOCUMENT_ROOT'].$media['url'];
+                      var_dump($url);
+
+                      if (is_file($url)) {
+                        echo "file true";
+                      }
+                      else {
+                        echo "file false";
+                      }
+
+                      //delete file
+                      if(unlink($url)) {
+                        //file deleted
+                        echo "unlink true";
+                      }
+                      else {
+                        //failed to delete file
+                        echo "unlink false";
+                      }
+                    }
+                    else {
+                      //media not found
+                      http_response_code(404);
+                    }
+
+                    //delete post from db
                     $delete_post_query = $db -> query("call deletePost('".$post['id']."')")
                                                       or die("Error: delete_post_query");
 
                     //post deleted
-                    http_response_code(201);
+                    http_response_code(200);
                   }
                   else {
                     //post not found in db

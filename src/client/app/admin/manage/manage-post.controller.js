@@ -100,7 +100,7 @@
                 }
             }, function(response) {
                 if (response.status === 419) {
-                    $window.alert('Oops! Your session was inactive for mor than 15 minutes...' +
+                    $window.alert('Oops! Your session was inactive for more than 15 minutes...' +
                         ' For your own privacy we automatically logged you out. Please do log' +
                         ' back in and resume your businness!');
                 }
@@ -124,7 +124,8 @@
             $http.post('/src/server/managePosts/deletePost.php', post).then(function(response) {
                 //http return success block
                 var statusCode = response.status;
-                if (statusCode === 201) {
+                if (statusCode === 200) {
+                    //MediaService.getData();
                     $state.go('admin.manage.post-selection');
                 }
             }, function(response) {
