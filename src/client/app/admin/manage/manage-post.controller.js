@@ -102,7 +102,7 @@
                 if (response.status === 419) {
                     $window.alert('Oops! Your session was inactive for more than 15 minutes...' +
                         ' For your own privacy we automatically logged you out. Please do log' +
-                        ' back in and resume your businness!');
+                        ' back in and resume your business!');
                 }
                 if (response.status === 401) {
                     $window.alert('Oops! It would appear that you were not properly authenticated ' +

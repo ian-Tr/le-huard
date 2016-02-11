@@ -68,6 +68,7 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) <
                     //delete post from db
                     $delete_post_query = $db -> query("call deletePost('".$post['id']."')")
                                                       or die("Error: delete_post_query");
+                    var_dump($delete_post_query);
 
                     //post deleted
                     http_response_code(200);
