@@ -35,6 +35,7 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) <
                     //post was found
                     $record = $get_post_query -> fetch_assoc();
                     $mediaID = $record['media_id'];
+                    $medium = $record['medium'];
 
                     //update post info
                     $update_post_query = $db -> query("call updatePost('".$post['id']."','"
@@ -50,31 +51,21 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) <
                     if (mysqli_num_rows($get_url_query) > 0) {
                       //media record found, get url
                       $media = $get_url_query -> fetch_assoc();
-                      $oldUrl = $_SERVER['DOCUMENT_ROOT'].$media['url'];
-                      var_dump($oldUrl);
+                      $oldUrl = $media['url'];
 
-                      if (is_file($oldUrl)) {
                         //move file
                         $extension = pathinfo($oldUrl, PATHINFO_EXTENSION);
-                        var_dump($extension);
-                        $newUrl = $_SERVER['DOCUMENT_ROOT']."/src/client/photos/".$post['medium_type']."/".$post['medium_spec']."/".trim($post['title']).".".$extension;
-                        var_dump($newUrl);
-
-                        if (rename($oldUrl, $newUrl)) {
-                          echo "rename true";
-                        }
-                        else {
-                          echo "rename false";
-                        }
+                        $newUrl = "/src/client/photos/".$post['medium_type']."/".$post['medium_spec']."/".$post['title'].".".$extension;
+                        rename($_SERVER['DOCUMENT_ROOT'].$oldUrl, $_SERVER['DOCUMENT_ROOT'].$newUrl);
 
                         //update media url
-                        $update_media_query = $db -> query("call updatePost('".$mediaID."','"
+                        $update_media_query = $db -> query("call updateMedia('".$mediaID."','"
                                                                               .$newUrl."')")
                                                           or die("Error: update_media_query");
 
                         //post updated
                         http_response_code(201);
-                      }
+
                     }
                     else {
                       //media not found

@@ -33,7 +33,7 @@ DROP PROCEDURE IF EXISTS getMediaUrl;
 
 CREATE TABLE media (
 	id				INT					NOT NULL	AUTO_INCREMENT,
-	url				VARCHAR(100)		NOT NULL UNIQUE,
+	url				VARCHAR(250)		NOT NULL UNIQUE,
 	PRIMARY KEY (id)
 );
 
@@ -683,7 +683,7 @@ BEGIN
 END//
 
 CREATE PROCEDURE updateMedia(IN id_in INT,
-														 IN url_in VARCHAR(50))
+														 IN url_in VARCHAR(250))
 BEGIN
 	UPDATE media
 	SET url = url_in
